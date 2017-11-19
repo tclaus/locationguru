@@ -17,6 +17,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
+# Non Blocking Notifocations
+gem 'toastr-rails', '~>1.0'
+
 # Auth Tool
 gem 'devise','~>4.2'
 
