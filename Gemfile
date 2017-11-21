@@ -17,11 +17,17 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
+gem 'omniauth', '~>1.6'
+gem 'omniauth-facebook','~>4.0'
+
 # Non Blocking Notifocations
 gem 'toastr-rails', '~>1.0'
 
 # Auth Tool
 gem 'devise','~>4.2'
+
+#send emails
+gem 'sendgrid-ruby'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
