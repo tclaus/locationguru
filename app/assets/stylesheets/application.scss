@@ -1,7 +1,6 @@
-
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "toastr";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "toastr";
 
 body {
   color: #565a5c;
@@ -17,10 +16,10 @@ a {
   width: 80%;
 }
 
-.text-babu, .icon-babu {
+.icon-babu,
+.text-babu {
   background-color: #00a699;
 }
-
 // Navbar
 .navbar-default {
   background-color: #ffffff;
@@ -31,7 +30,6 @@ a {
   font-size: 2em;
   font-weight: 400;
 }
-
 // Buttons
 .btn-block {
   display: block;
@@ -51,7 +49,8 @@ a {
   margin-top: 15px;
 }
 
-.btn:hover, .btn:focus {
+.btn:focus,
+.btn:hover {
   color: #fff;
 }
 
@@ -97,20 +96,87 @@ a {
   border-color: #2d467b;
   background-color: #2d467b;
 }
+// Panels
+.panel-default .panel-heading {
+  color: #ffffff;
+  background-color: #00a699;
+  font-size: 18px;
+  font-weight: 400;
+}
 
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.description {
+  color: #575757;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
 // Avatar
-.avatar_small {
+.avatar-small {
   width: 28px;
 }
 
-.avatar_medium {
+.avatar-medium {
   width: 48px;
 }
 
-.avatar_largel {
+.avatar-largel {
   width: 68px;
 }
 
-.avatar_full {
+.avatar-full {
   width: 100%;
+}
+
+// forms
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  border-radius: 2px;
+  height: 4rem;
+}
+
+// sidebar
+.sidebar-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar-item {
+  padding: 0;
+  font-size: 16px;
+  color: #82888a;
+}
+
+.sidebar-link {
+  color: #82888a;
+  text-decoration: none;
+}
+
+.sidebar-link:hover, .sidebar-link:focus {
+  color: #cacccd;
+  text-decoration: none;
+}
+
+.active.sidebar-link {
+  color: #565a5c;
+  font-weight: bold;
+  text-decoration: none;
 }
