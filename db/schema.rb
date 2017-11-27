@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125091539) do
+ActiveRecord::Schema.define(version: 20171126093717) do
+
+  create_table "available_properties", force: :cascade do |t|
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "building_type"
+    t.string "room_type"
+    t.string "listing_name"
+    t.text "summary"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "properties_texts", force: :cascade do |t|
+    t.string "key"
+    t.string "language_key"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "room_properties", force: :cascade do |t|
+    t.integer "room_id"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_properties_on_room_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

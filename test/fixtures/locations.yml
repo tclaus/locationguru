@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_type: MyString
+  room_type: MyString
+  listing_name: MyString
+  summary: MyText
+  active: false
+  user: one
+
+two:
+  building_type: MyString
+  room_type: MyString
+  listing_name: MyString
+  summary: MyText
+  active: false
+  user: two
