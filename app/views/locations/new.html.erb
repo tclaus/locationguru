@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create your event location
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @location do |f| %>
+        <div class="row">
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label> Location Type </label>
+              <%= f.select :building_type, [["Room", "Room"],["Partykeller","Partykeller"],["Lounge","Lounge"],["Building","Building"]],
+              id: "building_type",
+              prompt: "Select...",
+              class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label> Home Type </label>
+              <%= f.select :room_type, [["Apartment", "Apartment"],["House","House"],["Bed & Breakfast","Bed & Breakfast"]],
+              id: "room_type",
+              prompt: "Select...",
+              class:"form-control" %>
+
+            </div>
+          </div>
+          <div> <%= f.submit "Create my location", class:"btn btn-normal" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

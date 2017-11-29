@@ -1,4 +1,4 @@
-class LocationController < ApplicationController
+class LocationsController < ApplicationController
 
   before_action :set_location, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
@@ -41,7 +41,7 @@ class LocationController < ApplicationController
   def upload
   end
 
-  def amenities
+  def location
   end
 
   def update
@@ -56,12 +56,13 @@ class LocationController < ApplicationController
   private
 
   def set_location
-    @location = Locaction.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def location_params
     params.require(:location).permit(:location_type,
       :building_type,
+      :room_type,
       :listing_name,
       :summary,
       :active)
