@@ -26,6 +26,16 @@
 
             </div>
           </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label> Maximum number of persons </label>
+              <%= f.text_field :max_persons, prompt: "50",
+              class:"form-control" %>
+
+            </div>
+          </div>
+
           <div> <%= f.submit "Create my location", class:"btn btn-normal" %></div>
         </div>
       <% end %>
