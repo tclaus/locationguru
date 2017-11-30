@@ -16,7 +16,8 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to listing_location_path(@location), notice: "Saved..."
     else
-      render :new, notice: "Something went wrong"
+      flash[:alert] = "Something went wrong..."
+      render :new
     end
   end
 
@@ -48,7 +49,7 @@ class LocationsController < ApplicationController
     if @location.update(location_params)
       flash[:notice] = "Updated..."
     else
-      flash[:notice] = "Something went wrong..."
+      flash[:alert] = "Something went wrong..."
       redirect_back(fallback_location: request.referer)
     end
   end
@@ -61,12 +62,11 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:location_type,
-      :building_type,
-      :room_type,
-      :listing_name,
-      :summary,
-      :active)
-      # todo: put properties parameters here!
+                                     :building_type,
+                                     :room_type,
+                                     :listing_name,
+                                     :summary,
+                                     :active)
+   # TODO: put properties parameters here!
   end
-
 end

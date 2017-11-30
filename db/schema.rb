@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129073613) do
+ActiveRecord::Schema.define(version: 20171130065846) do
 
   create_table "available_properties", force: :cascade do |t|
     t.string "key"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20171129073613) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.decimal "max_persons", precision: 5
+    t.boolean "has_heating"
+    t.boolean "has_kitchen"
+    t.boolean "has_outdoor"
+    t.boolean "has_parking_space"
+    t.boolean "has_furniture"
+    t.string "catering"
+    t.boolean "has_air_conditioning"
+    t.boolean "has_music_eq"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
