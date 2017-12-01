@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
-
-  before_action :set_location, except: [:index, :new, :create]
+  before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: [:show]
 
   def index
@@ -14,42 +13,34 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-      redirect_to listing_location_path(@location), notice: "Saved..."
+      redirect_to listing_location_path(@location), notice: 'Saved...'
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = 'Something went wrong...'
       render :new
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def listing
-  end
+  def listing; end
 
-  def pricing
-  end
+  def pricing; end
 
-  def description
-  end
+  def description; end
 
-  def amenities
-  end
+  def amenities; end
 
-  def photo
-  end
+  def photo; end
 
-  def upload
-  end
+  def upload; end
 
-  def location
-  end
+  def location; end
 
   def update
     if @location.update(location_params)
-      flash[:notice] = "Updated..."
+      flash[:notice] = 'Updated...'
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = 'Something went wrong...'
       redirect_back(fallback_location: request.referer)
     end
   end
@@ -67,6 +58,6 @@ class LocationsController < ApplicationController
                                      :listing_name,
                                      :summary,
                                      :active)
-   # TODO: put properties parameters here!
+    # TODO: put properties parameters here!
   end
 end
