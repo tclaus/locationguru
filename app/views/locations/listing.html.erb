@@ -13,30 +13,31 @@
           <div class="row">
             <div class="col-md-4 select">
               <div class="form-group">
-                <label> Home Type </label>
-                <%= f.select :building_type, [["Entire", "Entire"],["Private","Private"]],
-                id: "building_type",
-                prompt: "Select...",
-                class:"form-control" %>
+                <label>
+                  Home Type
+                </label>
+                <%= f.select :building_type, [["Entire", "Entire"],["Private","Private"]], id: "building_type", prompt: "Select...", class:"form-control" %>
 
               </div>
             </div>
 
             <div class="col-md-4 select">
               <div class="form-group">
-                <label> Home Type </label>
-                <%= f.select :room_type, [["Apartment", "Apartment"],["House","House"],["Bed & Breakfast","Bed & Breakfast"]],
-                id: "room_type",
-                prompt: "Select...",
-                class:"form-control" %>
-
+                <label>
+                  Home Type
+                </label>
+                <%= f.select :room_type, [["Apartment", "Apartment"],["House","House"],["Bed & Breakfast","Bed & Breakfast"]], id: "room_type", prompt: "Select...", class:"form-control" %>
               </div>
             </div>
-            <div> <%= f.submit "Save", class:"btn btn-normal" %></div>
+
           </div>
-          <% end %>
-        </div>
+          <div class="text-center">
+            <div>
+              <%= f.submit "Save", class:"btn btn-form" %></div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 </div>

@@ -3,6 +3,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorized, only: [:listing, :pricing, :description,
                 :photo_upload, :amenities, :location, :update]
+
   def index
     @locations = current_user.locations
   end
@@ -40,6 +41,7 @@ class LocationsController < ApplicationController
   def update
     if @location.update(location_params)
       flash[:notice] = 'Updated...'
+      redirect_to listing_location_path(@location), notice: 'Updated...'
     else
       flash[:alert] = 'Something went wrong...'
       redirect_back(fallback_location: request.referer)
@@ -62,7 +64,14 @@ class LocationsController < ApplicationController
                                      :room_type,
                                      :listing_name,
                                      :summary,
-                                     :active)
-    # TODO: put properties parameters here!
+                                     :address,
+                                     :active,
+                                     :has_heating,
+                                     :has_kitchen,
+                                     :has_outdoor,
+                                     :has_music_eq,
+                                     :has_furniture,
+                                     :has_parking_space,
+                                     :catering)
   end
 end

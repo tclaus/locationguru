@@ -1,2 +1,72 @@
-<h1>Location#amenities</h1>
-<p>Find me in app/views/location/amenities.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'location_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Amenities
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Heating</label>
+                <%= f.check_box :has_heating %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Kitchen</label>
+                <%= f.check_box :has_kitchen %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Music Equipment</label>
+                <%= f.check_box :has_music_eq %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Outside area</label>
+                <%= f.check_box :has_outdoor %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Parking Space</label>
+                <%= f.check_box :has_parking_space %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <label>Furnished</label>
+                <%= f.check_box :has_furniture %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group select">
+                <label>Catering</label>
+                <%= f.select(:catering, [["No","No"],["Inclusive","Inclusive"],["External","External"],["On Request","On Request"]], class: "form-control") %>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit "Save" ,class:"btn btn-form" %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
