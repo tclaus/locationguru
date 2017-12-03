@@ -9,23 +9,27 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'font-awesome-sass'
 gem 'sass-rails', '~> 5.0'
-
 gem 'jquery-rails'
 
 gem 'omniauth', '~>1.6'
-gem 'omniauth-facebook','~>4.0'
+gem 'omniauth-facebook', '~>4.0'
+# Photos and avatars
+gem 'aws-sdk', '~>2.8'
 gem 'paperclip', '~> 5.0.0'
 
 # Non Blocking Notifocations
 gem 'toastr-rails', '~>1.0'
 
 # Auth Tool
-gem 'devise','~>4.2'
+gem 'devise', '~>4.2'
 
 # send emails
 gem 'sendgrid-ruby'
@@ -61,8 +65,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
+
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
   gem 'spring'

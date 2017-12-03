@@ -8,7 +8,8 @@ Rails.application.routes.draw do
                            sign_out: 'logout',
                            edit: 'profile',
                            sign_up: 'registration' },
-             controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+             controllers: { omniauth_callbacks: 'omniauth_callbacks',
+                           registrations: 'registrations' }
 
   resources :users, only: [:show]
   resources :locations, except: [:edit] do
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
       get 'amenities'
       get 'location'
     end
+    resources :photos, only: [:create, :destroy]
   end
 end

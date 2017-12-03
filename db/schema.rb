@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130065846) do
+ActiveRecord::Schema.define(version: 20171201072417) do
 
-  create_table "available_properties", force: :cascade do |t|
-    t.string "key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "locations", force: :cascade do |t|
     t.string "building_type"
@@ -40,20 +35,15 @@ ActiveRecord::Schema.define(version: 20171130065846) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
-  create_table "properties_texts", force: :cascade do |t|
-    t.string "key"
-    t.string "language_key"
-    t.text "text"
+  create_table "photos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "room_properties", force: :cascade do |t|
-    t.integer "room_id"
-    t.string "key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_properties_on_room_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_photos_on_location_id"
   end
 
   create_table "users", force: :cascade do |t|

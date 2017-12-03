@@ -45,5 +45,4 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     get location_amenities_url
     assert_response :success
   end
-
 end

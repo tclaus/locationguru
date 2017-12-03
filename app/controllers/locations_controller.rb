@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: [:show]
-
+  before_action :is_authorized, only: [:listing, :pricing, :description,
+                :photo_upload, :amenities, :location, :update]
   def index
     @locations = current_user.locations
   end
@@ -30,9 +31,9 @@ class LocationsController < ApplicationController
 
   def amenities; end
 
-  def photo; end
-
-  def upload; end
+  def photo_upload
+    @photos = @location.photos
+  end
 
   def location; end
 
@@ -49,6 +50,10 @@ class LocationsController < ApplicationController
 
   def set_location
     @location = Location.find(params[:id])
+  end
+
+  def is_authorized
+    redirect_to root_path, alert: "You dont have permission" unless current_user.id == @location.user_id
   end
 
   def location_params

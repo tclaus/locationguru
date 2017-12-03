@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   color: #565a5c;
@@ -233,4 +235,32 @@ a {
   color: #565a5c;
   font-weight: bold;
   text-decoration: none;
+}
+
+// Photo upload
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: white;
+  display: block;
+}
+
+.panel-heading.preview {
+  padding: 0;
+}
+
+.panel-heading.preview img {
+  width: 100%;
 }
