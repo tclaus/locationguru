@@ -16,7 +16,8 @@
                 <label>
                   Home Type
                 </label>
-                <%= f.select :building_type, [["Entire", "Entire"],["Private","Private"]], id: "building_type", prompt: "Select...", class:"form-control" %>
+
+                <%= f.select :building_type, [["Freestanding Room", "freestanding"],["Interior room","interior"]], id: "building_type", prompt: "Select...", class:"form-control" %>
 
               </div>
             </div>

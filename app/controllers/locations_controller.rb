@@ -39,7 +39,9 @@ class LocationsController < ApplicationController
   def location; end
 
   def update
-    if @location.update(location_params)
+    new_params = location_params
+    new_params = location_params.merge(active: true) if set_location_active
+    if @location.update(new_params)
       flash[:notice] = 'Updated...'
       redirect_to listing_location_path(@location), notice: 'Updated...'
     else
@@ -56,6 +58,10 @@ class LocationsController < ApplicationController
 
   def is_authorized
     redirect_to root_path, alert: "You dont have permission" unless current_user.id == @location.user_id
+  end
+
+  def set_location_active
+    params[:active] && !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank?
   end
 
   def location_params

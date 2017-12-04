@@ -1,2 +1,35 @@
-<h1>Location#index</h1>
-<p>Find me in app/views/location/index.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item">
+        <%= link_to "Your Listing", locations_path, class:"sidebar-link active" %>
+      </li>
+      <li class="sidebar-item">
+        <%= link_to "Your Reservations", locations_path, class:"sidebar-link active" %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      Listings
+      </div>
+    </div>
+    <div class="panel-body">
+      <% @locations.each do |location| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag location.cover_photo(:thumb) %>
+            </div>
+            <div class="col-md-7">
+              <h4> <%= location.listing_name %> </h4>
+            </div>
+            <div class="col-md-3 right">
+              <%= link_to "Update", listing_location_path(location), class:"btn btn-form" %>
+            </div>
+          </div>
+          <hr/>
+      <% end %>
+    </div>
+  </div>
+</div>

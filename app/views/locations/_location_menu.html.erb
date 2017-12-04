@@ -1,29 +1,39 @@
 <ul class="sidebar-list">
   <li class="sidebar-item">
     <%= link_to "Listing", listing_location_path, class:"sidebar-link active" %>
-      <span class="pull-right text-babu" ><i class="fa fa-check"></i></span>
+    <span class="pull-right text-babu">
+      <i class="fa fa-check"></i>
+    </span>
   </li>
   <li class="sidebar-item">
     <%= link_to "Amenities", amenities_location_path, class:"sidebar-link active" %>
-    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <span class="pull-right text-babu">
+      <i class="fa fa-check"></i>
+    </span>
   </li>
 
   <li class="sidebar-item">
     <%= link_to "Description", description_location_path, class:"sidebar-link active" %>
     <% if !@location.listing_name.blank? %>
-    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+      <span class="pull-right text-babu">
+        <i class="fa fa-check"></i>
+      </span>
     <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Photos", photo_upload_location_path, class:"sidebar-link active" %>
     <% if !@location.photos.blank? %>
-      <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
+      <span id="photo_check" class="pull-right text-babu">
+        <i class="fa fa-check"></i>
+      </span>
     <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Location", location_location_path, class:"sidebar-link active" %>
     <% if !@location.address.blank? %>
-      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+      <span class="pull-right text-babu">
+        <i class="fa fa-check"></i>
+      </span>
     <% end %>
   </li>
 </ul>
@@ -31,13 +41,12 @@
 <hr/>
 
 <%  is_ready = !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank? %>
-<% if @location.active %>
-<%    button_name = "Deactivate" %>
-<% else %>
-<%    button_name = "Publish" %>
-<% end %>
+  <% if @location.active %>
+    <%    button_name = "Deactivate" %>
+    <% else %>
+      <%    button_name = "Publish" %><% end %>
 
-<%= form_for @location do |f| %>
-  <%= f.hidden_field :active, value: !@location.active %>
-  <%= f.submit button_name ,id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
-<% end %>
+      <%= form_for @location do |f| %>
+      <%= f.hidden_field :active, value: !@location.active %>
+      <%= f.submit button_name ,id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+    <% end %>
