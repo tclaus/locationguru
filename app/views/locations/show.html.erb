@@ -1,1 +1,64 @@
-Empty
+<div class="row">
+  <div class="col-md-12">
+    <%= image_tag @location.cover_photo(nil), width: "100%" %>
+  </div>
+</div>
+<br/>
+<div class="row">
+
+  <!-- left panel -->
+  <div class="col-md-8">
+    <!-- listing name -->
+    <div class="row">
+      <div class="col-md-8">
+        <h1><%= @location.listing_name %></h1>
+        <%= @location.address %>
+      </div>
+      <div class="col-md-4 text-center">
+        <%= image_tag avatar_url(@location.user), class:"img-circle avatar-large" %> <br/><br/>
+        <% @location.user.fullname %>
+      </div>
+    </div>
+  </hr>
+
+  <!-- Location Info -->
+  <!-- key features -->
+  <div class="row text-babu">
+    <div class="row text-center row-space-1">
+      <!-- Icons anzeigen lassen + anzahl -->
+      <!-- Oder auch: Nur die Icons anzeigen lassen über die Ausstattung, die auch existiert -->
+
+      <div class="col-md-3">
+        <i class="fa fa-home fa-2x"></i>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-user-circle fa-2x"></i>
+
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-bath fa-2x"></i>
+
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3">1</div>
+      <div class="col-md-3">1</div>
+      <div class="col-md-3">1</div>
+      <div class="col-md-3">1</div>
+    </div>
+  </div>
+<hr/>
+<!-- About -->
+<div class="row"></div>
+<hr/>
+<!-- Amenity -->
+<div class="row"></div>
+<hr/>
+<!-- Carussel -->
+<div class="row"></div>
+<hr/>
+</div>
+<div class="col-md-4">
+<!-- reservation form -->
+</div>
+</div>
