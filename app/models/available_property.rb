@@ -1,2 +1,0 @@
-class AvailableProperty < ApplicationRecord
-end

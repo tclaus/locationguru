@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201072417) do
+ActiveRecord::Schema.define(version: 20171206195408) do
 
+  create_table "catering_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kind_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "location_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
-    t.string "building_type"
-    t.string "room_type"
     t.string "listing_name"
     t.text "summary"
     t.boolean "active"
@@ -32,10 +47,15 @@ ActiveRecord::Schema.define(version: 20171201072417) do
     t.string "catering"
     t.boolean "has_air_conditioning"
     t.boolean "has_music_eq"
+    t.string "location_type"
+    t.string "kind_type"
+    t.string "catering_types"
+    t.integer "price_level"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -44,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171201072417) do
     t.datetime "image_updated_at"
     t.integer "location_id"
     t.index ["location_id"], name: "index_photos_on_location_id"
+    t.index ["room_id"], name: "index_photos_on_room_id"
   end
 
   create_table "users", force: :cascade do |t|
