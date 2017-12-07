@@ -54,7 +54,7 @@
             <div class="col-md-4">
               <div class="form-group select">
                 <label>Catering</label>
-                <%= f.select(:catering, [["No","No"],["Inclusive","Inclusive"],["External","External"],["On Request","On Request"]], class: "form-control") %>
+                <%= f.collection_select(:catering,CateringType.all,:id,:name) %>
               </div>
             </div>
           </div>

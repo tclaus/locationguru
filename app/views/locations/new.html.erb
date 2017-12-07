@@ -9,21 +9,15 @@
           <div class="col-md-4 select">
             <div class="form-group">
               <label> Location Type </label>
-              <%= f.select :building_type, [["Room", "Room"],["Partykeller","Partykeller"],["Lounge","Lounge"],["Building","Building"]],
-              id: "building_type",
-              prompt: "Select...",
-              class:"form-control" %>
+              <%= f.collection_select(:location_type, LocationType.all, :id, :name)
+               %>
             </div>
           </div>
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label> Home Type </label>
-              <%= f.select :room_type, [["Apartment", "Apartment"],["House","House"],["Bed & Breakfast","Bed & Breakfast"]],
-              id: "room_type",
-              prompt: "Select...",
-              class:"form-control" %>
-
+              <label> Kind Type </label>
+              <%= f.collection_select(:kind_type, KindType.all, :id,:name) %>
             </div>
           </div>
 

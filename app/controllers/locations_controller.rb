@@ -66,8 +66,9 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:location_type,
-                                     :building_type,
+                                     :kind_type,
                                      :room_type,
+                                     :price_level,
                                      :listing_name,
                                      :summary,
                                      :address,
