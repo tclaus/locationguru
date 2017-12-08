@@ -15,47 +15,115 @@
         <%= @location.address %>
       </div>
       <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@location.user), class:"img-circle avatar-large" %> <br/><br/>
+        <%= image_tag avatar_url(@location.user), class:"img-circle avatar-large" %>
+        <br/><br/>
         <% @location.user.fullname %>
+        </div>
+      </div>
+    </hr>
+
+    <!-- Location Info -->
+    <!-- key features -->
+    <div class="row text-babu">
+      <div class="row text-center row-space-1">
+        <!-- Icons anzeigen lassen + anzahl -->
+        <!-- Oder auch: Nur die Icons anzeigen lassen über die Ausstattung, die auch existiert -->
+
+        <div class="col-md-3">
+          <i class="fa fa-home fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-location-arrow fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-cutlery fa-2x"></i>
+        </div>
+        <% if !@location.max_persons.blank? %>
+          <div class="col-md-3">
+            <i class="fa fa-male fa-2x"></i>
+          </div>
+        <% end %>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-3">
+          <%= KindType.find(@location.kind_type).name %>
+        </div>
+        <div class="col-md-3">
+          <%= LocationType.find(@location.location_type).name %>
+        </div>
+        <div class="col-md-3">
+          <%= CateringType.find(@location.catering).name %>
+        </div>
+        <div class="col-md-3">
+          <%= @location.max_persons %>
+        </div>
       </div>
     </div>
-  </hr>
-
-  <!-- Location Info -->
-  <!-- key features -->
-  <div class="row text-babu">
-    <div class="row text-center row-space-1">
-      <!-- Icons anzeigen lassen + anzahl -->
-      <!-- Oder auch: Nur die Icons anzeigen lassen über die Ausstattung, die auch existiert -->
-
-      <div class="col-md-3">
-        <i class="fa fa-home fa-2x"></i>
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-user-circle fa-2x"></i>
-
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-bath fa-2x"></i>
-
+    <hr/>
+    <!-- About -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>About This Listing</h3>
+        <p><%= @location.summary %></p>
       </div>
     </div>
-    <div class="row text-center">
-      <div class="col-md-3">1</div>
-      <div class="col-md-3">1</div>
-      <div class="col-md-3">1</div>
-      <div class="col-md-3">1</div>
+
+    <hr/>
+    <!-- Amenity -->
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Amenity</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="amenities">
+              <li class="<%= 'invisible' if !@location.has_kitchen %> ">Kitchen</li>
+              <li class="<%= 'invisible' if !@location.has_outdoor %> ">Outdoor</li>
+              <li class="<%= 'invisible' if !@location.has_parking_space %> ">Parking Space</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="amenities">
+              <li class="<%= 'invisible' if !@location.has_furniture %> ">Furniture</li>
+              <li class="<%= 'invisible' if !@location.has_heating %> ">Heating</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <hr/>
+    <!-- Carussel -->
+    <div class="row">
+      <% if @photos.length > 0 %>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% @photos.each do |photo| %>
+            <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+          <% end %>
+        </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% @photos.each do |photo| %>
+              <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                <%= image_tag photo.image.url() %>
+              </div>
+            <% end %>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      <% end %>
   </div>
-<hr/>
-<!-- About -->
-<div class="row"></div>
-<hr/>
-<!-- Amenity -->
-<div class="row"></div>
-<hr/>
-<!-- Carussel -->
-<div class="row"></div>
 <hr/>
 </div>
 <div class="col-md-4">

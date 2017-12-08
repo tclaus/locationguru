@@ -8,16 +8,16 @@
         <div class="row">
           <div class="col-md-4 select">
             <div class="form-group">
-              <label> Location Type </label>
-              <%= f.collection_select(:location_type, LocationType.all, :id, :name)
+              <label> Location Type</label>
+              <%= f.collection_select(:location_type, LocationType.all, :id, :name, prompt: "Select a type")
                %>
             </div>
           </div>
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label> Kind Type </label>
-              <%= f.collection_select(:kind_type, KindType.all, :id,:name) %>
+              <label>Kind Type</label>
+              <%= f.collection_select(:kind_type, KindType.all, :id,:name, prompt: "Select a kind") %>
             </div>
           </div>
 

@@ -22,7 +22,9 @@ class LocationsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @photos = @location.photos
+  end
 
   def listing; end
 
