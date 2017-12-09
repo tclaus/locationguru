@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206195408) do
+ActiveRecord::Schema.define(version: 20171209084433) do
 
   create_table "catering_types", force: :cascade do |t|
     t.string "name"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20171206195408) do
     t.string "kind_type"
     t.string "catering_types"
     t.integer "price_level"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
