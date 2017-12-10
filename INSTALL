@@ -1,3 +1,9 @@
+
+Voraussetzungen:
+Posgres ist installiert
+
 Upload to heroku
 1. $: Heroku login
-2. In Konsole rails db:setup starten
+2. Datenbank initialisisren:
+    heroku run rake db:schema:load
+    heroku run rake db:seed
