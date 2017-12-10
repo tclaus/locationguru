@@ -70,6 +70,7 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:location_type,
                                      :kind_type,
                                      :room_type,
+                                     :max_persons,
                                      :price_level,
                                      :listing_name,
                                      :summary,

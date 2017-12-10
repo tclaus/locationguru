@@ -8,7 +8,6 @@ class Location < ApplicationRecord
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
-  validates :catering, presence: true
 
   def cover_photo(size)
     if !photos.empty?
