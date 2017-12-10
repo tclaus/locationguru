@@ -33,14 +33,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.mailgun.org',
-  port:                 587,
-  domain:               'sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
-  user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
-  password:             'e4c1961e976f9151e657e9df43e0f192',
-  authentication:       'plain',
-  enable_starttls_auto: true
-}
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
+    user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
+    password:             'e4c1961e976f9151e657e9df43e0f192',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -74,5 +74,4 @@ Rails.application.configure do
       s3_region: 'eu-central-1'
     }
   }
-
 end
