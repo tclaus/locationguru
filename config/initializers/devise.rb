@@ -8,6 +8,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '8100d97d11065f4d0f97298f40d3a098b18c793f61b546d907fe392c76371629f95cda58bf389bc5e8d6c176d4952bf7dc4de20dbb41b6916b3c3150cc10a90d'
 
+  config.secret_key = '2527056c9b21c5ec032fc78d1646e32bcc91d85c609bf984de291b7367c3932d9b8c39e2fd0ec8e7e28536d88be3970e2d502bd28ffc0f2c60653f9afda6add8'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -157,7 +158,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 5..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -251,7 +252,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-config.omniauth :facebook, '534197963593381', '70d023d83078c5b3c5d1116d55cb47cc', scope:'email', info_fields: 'email, name'
+  config.omniauth :facebook, '534197963593381', '70d023d83078c5b3c5d1116d55cb47cc', scope:'email', info_fields: 'email, name'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
