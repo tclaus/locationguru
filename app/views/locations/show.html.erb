@@ -52,7 +52,9 @@
           <%= LocationType.find(@location.location_type).name %>
         </div>
         <div class="col-md-3">
+          <% if @location.catering? %>
           <%= CateringType.find(@location.catering).name %>
+          <% end %>
         </div>
         <div class="col-md-3">
           <%= @location.max_persons %>
@@ -154,18 +156,20 @@
 <hr/>
 <div class="row">
   <h3>Near By</h3>
-  <% for location in @location.nearbys(10).max(6).shuffle %>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading preview">
-        <%= image_tag location.cover_photo(:medium) %>
-      </div>
-      <div class="panel-body">
-        <%= link_to location.listing_name, location %> <br/>
-        (<%= location.distance.round(1) %> Km away)
+  <% if !@location.nearbys(10).blank? %>
+    <% for location in @location.nearbys(10).max(6).shuffle %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading preview">
+          <%= image_tag location.cover_photo(:medium) %>
+        </div>
+        <div class="panel-body">
+          <%= link_to location.listing_name, location %> <br/>
+          (<%= location.distance.round(1) %> Km away)
+        </div>
       </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
 </div>
 </div>

@@ -1,0 +1,3 @@
+Upload to heroku
+1. $: Heroku login
+2. In Konsole rails db:setup starten
