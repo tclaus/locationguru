@@ -128,6 +128,7 @@
     </div>
     <hr/>
 <!-- Google Maps-->
+<% if !@location.latitude.blank? && !@location.longitude.blank? %>
 <div class="row">
   <div id="map" style="width: 100%; height: 400px">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWymESG91aVhpfWxNHXWcHltuGX2TmD8s"></script>
@@ -154,27 +155,30 @@
   </div>
 </div>
 <hr/>
-<div class="row">
+<% end %>
+
+<% if !@location.nearbys(10).blank? %>
+  <div class="row">
   <h3>Near By</h3>
-  <% if !@location.nearbys(10).blank? %>
-    <% for location in @location.nearbys(10).max(6).shuffle %>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= image_tag location.cover_photo(:medium) %>
-        </div>
-        <div class="panel-body">
-          <%= link_to location.listing_name, location %> <br/>
-          (<%= location.distance.round(1) %> Km away)
-        </div>
+  <% for location in @location.nearbys(10).max(6).shuffle %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <%= image_tag location.cover_photo(:medium) %>
+      </div>
+      <div class="panel-body">
+        <%= link_to location.listing_name, location %> <br/>
+        (<%= location.distance.round(1) %> Km away)
       </div>
     </div>
-    <% end %>
+  </div>
   <% end %>
-</div>
+  </div>
+<% end %>
 </div>
 
 <div class="col-md-4">
 <!-- reservation form -->
+<%= render 'reservations/form' %>
 </div>
 </div>
