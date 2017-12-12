@@ -284,3 +284,23 @@ a {
 .invisible {
   visibility: hidden;
 }
+// reservations
+
+.reservation-table td {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #dce0e0;
+  padding: 10px
+}
+
+.reservation-table .total td {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-control.datepicker {
+  color: #00a699;
+  background-color: white;
+  border: 1px solid #00a699;
+  text-align: center;
+}

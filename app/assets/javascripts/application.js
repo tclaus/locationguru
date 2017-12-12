@@ -13,5 +13,8 @@
 //= require rails-ujs
 //= require_tree .
 //= require jquery
+//= require jquery-ui/datepicker
+//= require jquery-ui/i18n/datepicker-de
+//= require jquery-ui/i18n/datepicker-en-GB
 //= require toastr
 //= require bootstrap-sprockets

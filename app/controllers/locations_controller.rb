@@ -52,6 +52,14 @@ class LocationsController < ApplicationController
     end
   end
 
+  def preload
+    #Pass back to client
+    today = Date.today
+    reservations = @location.reservations.where('start_date >= ? OR end_date >= ? ', today, today)
+
+    render json: reservations
+  end
+
   private
 
   def set_location

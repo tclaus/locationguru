@@ -22,9 +22,11 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass'
-gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~>5.0'
+gem 'sass-rails', '~> 5.0'
 
+# Authorization
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
 # Photos and avatars
