@@ -99,6 +99,8 @@ class LocationsController < ApplicationController
                                      :listing_name,
                                      :summary,
                                      :address,
+                                     :phonenumber,
+                                     :website,
                                      :active,
                                      :has_heating,
                                      :has_kitchen,
