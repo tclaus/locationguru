@@ -8,12 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Event Locations</a>
+      <%= link_to "LocationGuru", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button class="btn btn-form btn-small">
+            <%= link_to "Become a host", new_location_path, style: "color: white; text-decoration:none" %>
+          </button>
+        </li>
         <% if (!user_signed_in?) %>
           <li><%= link_to "Login", new_user_session_path %>
           </li>
@@ -29,16 +34,16 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Manage Listings</a>
+                <%= link_to "Manage Listing", locations_path %>
               </li>
               <li>
-                <a href="#">List your space</a>
+                <%= link_to "List Your Location", new_location_path %>
               </li>
               <li>
-                <a href="#">Your reservations</a>
+                <%= link_to "Your Reservations", your_reservations_path %>
               </li>
               <li>
-                <a href="#">Your trips</a>
+                <%= link_to "Your Bookings", your_trips_path %>
               </li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "User Profile", edit_user_registration_path %>

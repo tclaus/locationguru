@@ -21,7 +21,11 @@ class ReservationsController < ApplicationController
 
   def your_trips
     @trips = current_user.reservations.order(start_date: :asc)
- end
+  end
+
+  def your_reservations
+    @locations = current_user.locations
+  end
 
   private
 
