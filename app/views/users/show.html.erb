@@ -6,15 +6,44 @@
     <div class="panel panel-default">
       <div class="panel-heading">Verification</div>
       <div class="panel-body">
-        Email Address <br/>
-        Phone Number
+        <ul class="sidebar-list">
+          <% if @user.confirmation_token %>
+            <li>Email-Address
+              <span class="pull-right icon-babu">
+                <i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <% if @user.provider %>
+            <li>Facebook
+              <span class="pull-right icon-babu">
+                <i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <li>Phone NUmber
+            <span class="pull-right icon-babu">
+              <i class="fa fa-check-circle-o"></i></span></li>
+        </ul>
       </div>
     </div>
   </div>
   <div class="col-md-9">
     <h2><%= @user.fullname %></h2>
     <div class="description ">
-    <%= @user.description  %>
+      <%= @user.description %>
+    </div>
+    <h4>Listings (<%= @locations.length %>)</h4>
+    <br/>
+    <div class="row">
+      <% @locations.each do |location| %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+              <%= image_tag location.cover_photo(:medium) %>
+            </div>
+            <div class="panel-body">
+              <%= link_to location.listing_name, location %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
