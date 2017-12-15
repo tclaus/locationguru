@@ -1,9 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
 
-before_action :authenticate_user!
- # TODO: Wie ein Buchungs - System machen?
- # TODO: Überhaupt buchen??
- 
   def create
     location = Location.find(params[:location_id])
     if current_user == location.user
@@ -21,6 +18,10 @@ before_action :authenticate_user!
       redirect_to location
     end
   end
+
+  def your_trips
+    @trips = current_user.reservations.order(start_date: :asc)
+ end
 
   private
 

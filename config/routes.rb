@@ -9,7 +9,7 @@ Rails.application.routes.draw do
                            edit: 'profile',
                            sign_up: 'registration' },
              controllers: { omniauth_callbacks: 'omniauth_callbacks',
-                           registrations: 'registrations' }
+                            registrations: 'registrations' }
 
   resources :users, only: [:show]
   resources :locations, except: [:edit] do
@@ -26,4 +26,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
   end
+
+  get '/your_trips' => 'reservations#your_trips'
+
 end
