@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  star: 1
+  location: one
+  reservation: one
+  guest: 
+  host: one
+  type: 
+
+two:
+  comment: MyText
+  star: 1
+  location: two
+  reservation: two
+  guest: 
+  host: two
+  type: 
