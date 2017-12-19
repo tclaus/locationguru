@@ -1,0 +1,7 @@
+de:
+  locations:
+    listing:
+      listing: "Basis"
+      location_type: "Wo gelegen"
+      location_kind: "Entspricht... "
+      save: "Speichern"

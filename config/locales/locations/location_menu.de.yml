@@ -1,0 +1,10 @@
+de:
+  locations:
+    location_menu:
+      listing: "Basis"
+      amenities: "Ausstattung"
+      description: "Bescheibung"
+      photos: "Fotos"
+      location: "Ort"
+      deactivate: "Deaktivieren"
+      publish: "Veröffentlichen"

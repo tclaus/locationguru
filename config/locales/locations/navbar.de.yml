@@ -1,0 +1,9 @@
+de:
+  shared:
+    navbar:
+      become_a_host: "Biete deine Location an"
+      manage: "Verwalte deine Locations"
+      your_reservations: "Reservierungen"
+      your_bookings: "Buchungen"
+      profile: "Profil"
+      logout: "Abmelden"

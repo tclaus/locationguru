@@ -1,0 +1,12 @@
+de:
+  locations:
+    amenities:
+      amenities: "Ausstattung"
+      heating: "Beheizt"
+      kitchen: "Mit Küche"
+      music_equipment: "Musikanlage"
+      outside_area: "Aussenbereich"
+      parking_space: "Parkplätze"
+      furnished: "Bestuhlung"
+      catering: "Catering"
+      save: "Speichern"

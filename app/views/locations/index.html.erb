@@ -2,20 +2,20 @@
   <div class="col-md-3">
     <ul class="sidebar-list">
       <li class="sidebar-item">
-        <%= link_to "Your Listing", locations_path, class: "sidebar-link active" %>
+        <%= link_to t('your_listings'), locations_path, class: "sidebar-link active" %>
       </li>
       <li class="sidebar-item">
-        <%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %>
+        <%= link_to t('your_trips'), your_trips_path, class: "sidebar-link" %>
       </li>
       <li class="sidebar-item">
-        <%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %>
+        <%= link_to t('your_reservations'), your_reservations_path, class: "sidebar-link" %>
       </li>
     </ul>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-      Listings
+      <%= t('your_listings') %>
       </div>
     </div>
     <div class="panel-body">
@@ -28,7 +28,7 @@
               <h4> <%= location.listing_name %> </h4>
             </div>
             <div class="col-md-3 right">
-              <%= link_to "Update", listing_location_path(location), class:"btn btn-form" %>
+              <%= link_to t('update'), listing_location_path(location), class:"btn btn-form" %>
             </div>
           </div>
           <hr/>

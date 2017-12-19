@@ -1,0 +1,10 @@
+de:
+  locations:
+    new:
+      create_your_location: "Neue Location anlegen"
+      location_type: "Wo gelegen"
+      select_location_type: "Wähle einen Ort"
+      location_kind: "Entspricht... "
+      select_location_kind: "Wähle eine Art"
+      maximum_number_of_persons: "Maximale Personen"
+      create: "Anlegen"

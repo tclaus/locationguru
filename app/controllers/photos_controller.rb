@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     end
 
     @photos = @location.photos
-    redirect_back(fallback_location: request.referer, notice: "Saved...")
+    redirect_back(fallback_location: request.referer, notice: t('saved'))
   end
 
   def destroy

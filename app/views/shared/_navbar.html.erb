@@ -16,13 +16,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <button class="btn btn-form btn-small">
-            <%= link_to "Become a host", new_location_path, style: "color: white; text-decoration:none" %>
+            <%= link_to t('.become_a_host'), new_location_path, style: "color: white; text-decoration:none" %>
           </button>
         </li>
         <% if (!user_signed_in?) %>
-          <li><%= link_to "Login", new_user_session_path %>
+          <li><%= link_to t('login'), new_user_session_path %>
           </li>
-          <li><%= link_to "Sign up", new_user_registration_path %>
+          <li><%= link_to t('sign_up'), new_user_registration_path %>
           </li>
         <% else %>
           <li class="dropdown">
@@ -34,21 +34,21 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "Manage Listing", locations_path %>
+                <%= link_to t('.manage'), locations_path %>
               </li>
               <li>
-                <%= link_to "List Your Location", new_location_path %>
+                <%= link_to t('.become_a_host'), new_location_path %>
               </li>
               <li>
-                <%= link_to "Your Reservations", your_reservations_path %>
+                <%= link_to t('.your_reservations'), your_reservations_path %>
               </li>
               <li>
-                <%= link_to "Your Bookings", your_trips_path %>
+                <%= link_to t('.your_bookings'), your_trips_path %>
               </li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "User Profile", edit_user_registration_path %>
+              <li><%= link_to t('.profile'), edit_user_registration_path %>
               </li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
               </li>
 
             </ul>

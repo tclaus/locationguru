@@ -5,7 +5,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Location
+        <%= t('.location') %>
       </div>
       <div class="panel-body">
         <div class="container">
@@ -13,25 +13,25 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label>Website</label>
-              <%= f.url_field :website, placeholder: "Website",class:"form-control" %>
+              <label><%= t('.website') %></label>
+              <%= f.url_field :website, placeholder: t('.placeholder_venue_website'),class:"form-control" %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label>Phone Number</label>
-              <%= f.telephone_field :phonenumber, placeholder: "Phone",class:"form-control" %>
+              <label><%= t('.phone_number') %></label>
+              <%= f.telephone_field :phonenumber, placeholder: t('.placeholer_venue_phone_number'),class:"form-control" %>
             </div>
           </div>
           </div>
           <div class="row">
             <div class="form-group">
-              <label>Address</label>
-              <%= f.text_area :address, rows: 5, placeholder: "What is your address?", class:"form-control" %>
+              <label><%= t('.address') %></label>
+              <%= f.text_area :address, rows: 5, placeholder: t('.placeholder_venue_address'), class:"form-control" %>
             </div>
           </div>
           <div class="text-center">
-            <%= f.submit "Save" ,class:"btn btn-form" %>
+            <%= f.submit t('.save') ,class:"btn btn-form" %>
           </div>
           <% end %>
         </div>

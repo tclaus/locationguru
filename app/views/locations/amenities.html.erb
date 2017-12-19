@@ -5,7 +5,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Amenities
+        <%= t('.amenities') %>
       </div>
       <div class="panel-body">
         <div class="container">
@@ -13,19 +13,19 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Heating</label>
+                <label><%= t('.heating') %></label>
                 <%= f.check_box :has_heating %>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Kitchen</label>
+                <label><%= t('.kitchen') %></label>
                 <%= f.check_box :has_kitchen %>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Music Equipment</label>
+                <label><%= t('.music_equipment') %></label>
                 <%= f.check_box :has_music_eq %>
               </div>
             </div>
@@ -33,13 +33,13 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Outside area</label>
+                <label><%= t('.outside_area') %></label>
                 <%= f.check_box :has_outdoor %>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Parking Space</label>
+                <label><%= t('.parking_space') %></label>
                 <%= f.check_box :has_parking_space %>
               </div>
             </div>
@@ -47,20 +47,20 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group right">
-                <label>Furnished</label>
+                <label><%= t('.furnished') %></label>
                 <%= f.check_box :has_furniture %>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group select">
-                <label>Catering</label>
+                <label><%= t('.catering') %></label>
                 <%= f.collection_select(:catering,CateringType.all,:id,:name) %>
               </div>
             </div>
           </div>
 
           <div class="text-center">
-            <%= f.submit "Save" ,class:"btn btn-form" %>
+            <%= f.submit t('.save') ,class:"btn btn-form" %>
           </div>
 
         <% end %>

@@ -5,7 +5,7 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Photos
+        <%= t('.photos') %>
       </div>
       <div class="panel-body">
         <div class="container">
@@ -17,14 +17,13 @@
                   <div class="form-group">
                     <span class="btn btn-default btn-file text-babu">
                       <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-
-                    Select Photos
+                    <%= t('.select_photos') %>
                     <%= file_field_tag "images[]", type: :file, multiple: true %>
                     </span>
                   </div>
                 </div>
                 <div class="text-center">
-                  <%= f.submit "Add Photos", class: "btn btn-form" %>
+                  <%= f.submit t('.send_photos'), class: "btn btn-form" %>
                 </div>
               <% end %>
             </div>

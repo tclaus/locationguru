@@ -15,9 +15,9 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-      redirect_to listing_location_path(@location), notice: 'Saved...'
+      redirect_to listing_location_path(@location), notice: t('saved')
     else
-      flash[:alert] = 'Something went wrong...'
+      flash[:alert] = t('something_went_wrong')
       render :new
     end
   end
@@ -45,9 +45,9 @@ class LocationsController < ApplicationController
     new_params = location_params.merge(active: true) if set_location_active
     if @location.update(new_params)
       flash[:notice] = 'Updated...'
-      redirect_to listing_location_path(@location), notice: 'Updated...'
+      redirect_to listing_location_path(@location), notice: t('updated')
     else
-      flash[:alert] = 'Something went wrong...'
+      flash[:alert] = t('something_went_wrong')
       redirect_back(fallback_location: request.referer)
     end
   end
@@ -83,7 +83,7 @@ class LocationsController < ApplicationController
   end
 
   def is_authorized
-    redirect_to root_path, alert: "You dont have permission" unless current_user.id == @location.user_id
+    redirect_to root_path, alert: t('not_authorized') unless current_user.id == @location.user_id
   end
 
   def set_location_active

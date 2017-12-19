@@ -1,0 +1,11 @@
+de:
+  locations:
+    location:
+      location: "Location"
+      placeholder_venue_website: "Webseite mit mehr Infos"
+      placeholder_venue_address: "Adresse der Location"
+      placeholer_venue_phone_number: "Kontakt Telefonnummner"
+      website: "Webseite"
+      phone_number: "Telefonnummer"
+      address: "Adresse"
+      save: "Speichern"

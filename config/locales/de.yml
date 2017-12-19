@@ -1,0 +1,12 @@
+de:
+  hello: "Hallo welt"
+  saved: "Gespeichert"
+  something_went_wrong: "Ein Fehler ist aufgetreten..."
+  updated: "Aktualisiert"
+  you_cannot_book_you_own_property: "Du kannst deine eigene Location nicht buchen"
+  not_authorized: "Das darfst du nicht"
+  booked_successfully: "Gebucht."
+  your_listings: "Einträge"
+  your_trips: "Bisherige Buchungen"
+  your_reservations: "Reservierungen"
+  update: "Aktualisieren"

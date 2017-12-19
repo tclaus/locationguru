@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   def create
     location = Location.find(params[:location_id])
     if current_user == location.user
-      flash[:alert] = "You cannot book you own property"
+      flash[:alert] = t("you_cannot_book_you_own_property")
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])
@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
       @reservation.total = 42 * days
       @reservation.save
 
-      flash[:notice] = "Booked Successfully"
+      flash[:notice] = t("booked_successfully")
       redirect_to location
     end
   end

@@ -2,59 +2,76 @@
   <div class="col-md-3">
     <ul class="sidebar-list">
       <li class="sidebar-item">
-        <%= link_to "Edit Profile", edit_user_registration_path, class:"sidebar-link active" %>
+        <%= link_to t('edit_profile'), edit_user_registration_path, class: "sidebar-link active" %>
       </li>
     </ul>
     <br/>
-    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>
   </div>
+  <%= link_to t('view_my_profile'), user_path(current_user.id), class: "btn btn-default" %>
+
+  <h2><%= t('.title', resource: resource_class.model_name.human) %></h2>
   <div class="col-md-9 text-center">
     <div class="panel panel-default">
-      <div class="panel-heading">Your Profile</div>
+      <div class="panel-heading">
+        <%= t('your_profile') %>
+      </div>
       <div class="panel-body">
         <div class="container">
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render 'shared/devisemes' %>
+          <%= devise_error_messages! %>
 
           <div class="form-group">
-            <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+            <%= f.text_field :fullname, autofocus: true, placeholder: t('.full_name'), class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.text_field :phone_number, autofocus: true, placeholder: "Phone Number", class: "form-control" %>
+            <%= f.text_field :phone_number, autofocus: true, placeholder: t('.phone_number'), class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.text_area :description, rows: 5, cols: 25, autofocus: true, placeholder: "Description", class: "form-control" %>
+            <%= f.text_area :description, rows: 5, cols: 25, autofocus: true, placeholder: t('.description'), class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
+            <%= f.email_field :email, placeholder: t('email'), class: "form-control" %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for:
-              <%= resource.unconfirmed_email %></div>
+            <p>
+              <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+            </p>
           <% end %>
 
           <div class="form-group">
-            <%= f.password_field :password, autocomplete: "off", placeholder:"New Password (Leave blank if you don't want to change it)", class: "form-control" %>
+            <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br/>
+            <%= f.password_field :password, autocomplete: "off",placeholder: t('.password'), class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+            <%= f.password_field :password_confirmation, placeholder: t('.password_confirmation'), class: "form-control" %>
           </div>
 
-          <div class="actions">
-            <%= f.submit "Save",class:"btn btn-normal btn-block" %>
+          <div class="form-group">
+            <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br/>
+            <%= f.password_field :current_password, placeholder: t('.current_password'), class: "form-control" %>
           </div>
-          <% end %>
-          <hr/>
-          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path , class: "btn btn-facebook btn-block"%>
 
-        </div>
+          <div><%= f.submit t('.update'), class: "btn btn-normal btn-block" %></div>
+        <% end %>
+        <hr/>
+        <%= link_to t('sign_in_with_facebook'), user_facebook_omniauth_authorize_path , class: "btn btn-facebook btn-block"%>
+
       </div>
     </div>
   </div>
+
+  <h3><%= t('.cancel_my_account') %></h3>
+
+  <p>
+    <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.
+  </p>
+
+  <%= link_to t('devise.shared.links.back'), :back %>
+</div>
 </div>
