@@ -21,11 +21,6 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get pricing" do
-    get location_pricing_url
-    assert_response :success
-  end
-
   test "should get description" do
     get location_description_url
     assert_response :success

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
 //= require jquery
 //= require jquery-ui/datepicker
 //= require jquery-ui/i18n/datepicker-de

@@ -3,17 +3,13 @@
 one:
   comment: MyText
   star: 1
-  location: one
-  reservation: one
-  guest: 
+  guest:
   host: one
-  type: 
+  type:
 
 two:
   comment: MyText
   star: 1
-  location: two
-  reservation: two
-  guest: 
+  guest:
   host: two
-  type: 
+  type:

@@ -30,14 +30,17 @@
                 <%= image_tag reservation.location.cover_photo(:thumb) %>
               <% end %>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-5">
               <%= link_to reservation.location.listing_name, location_path(reservation.location) %> <br/> <br/>
               <span>
               <%= link_to user_path(reservation.user) do %>
-                <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %> <br/>
+                <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
                 <%= reservation.user.fullname %>
               <% end %>
             </span>
+            </div>
+            <div class="col-md-3 text-right">
+              <%= render partial: "reviews/host_form", locals: {reservation: reservation} %>
             </div>
           </div>
         <% end %>
