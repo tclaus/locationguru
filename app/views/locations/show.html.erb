@@ -127,6 +127,23 @@
       <% end %>
     </div>
     <hr/>
+
+<!-- Reviews -->
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= t('Review',count: @guest_reviews.count) %>
+      <span id="average_rating"></span>
+    </h3>
+    <% if @guest_reviews.count > 0 %>
+    <div class="container">
+      <div> <%= render "reviews/guest_list" %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<br/>
+<br/>
+
 <!-- Google Maps-->
 <% if !@location.latitude.blank? && !@location.longitude.blank? %>
 <div class="row">
@@ -182,3 +199,11 @@
 <%= render 'reservations/form' %>
 </div>
 </div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @location.average_rating %>
+  });
+</script>

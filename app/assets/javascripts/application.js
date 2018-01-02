@@ -17,3 +17,4 @@
 //= require jquery-ui/i18n/datepicker-en-GB
 //= require toastr
 //= require bootstrap-sprockets
+//= require jquery.raty 

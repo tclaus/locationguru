@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
 
   def show
     @photos = @location.photos
+    @guest_reviews = @location.guest_reviews
   end
 
   def listing; end

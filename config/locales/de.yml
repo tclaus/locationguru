@@ -12,3 +12,7 @@ de:
   update: "Aktualisieren"
   login: "Anmelden"
   sign_up: "Registrieren"
+  Review:
+    zero: "Keine Bewertungen"
+    one: "Eine Bewertung"
+    other: "Bewertungen"
