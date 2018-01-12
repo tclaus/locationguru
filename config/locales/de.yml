@@ -1,4 +1,5 @@
 de:
+  Locations: "Locations"
   hello: "Hallo welt"
   saved: "Gespeichert"
   something_went_wrong: "Ein Fehler ist aufgetreten..."
@@ -12,6 +13,7 @@ de:
   update: "Aktualisieren"
   login: "Anmelden"
   sign_up: "Registrieren"
+  search: "Suchen"
   Review:
     zero: "Keine Bewertungen"
     one: "Eine Bewertung"

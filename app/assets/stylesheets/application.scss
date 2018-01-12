@@ -315,3 +315,23 @@ a {
   font-size: 14px;
   padding-top: 10px;
 }
+
+// search
+#main {
+  height: 100%;
+  overflow: hidden;
+}
+
+#left {
+  padding: 10px 400px 10px 20px;
+  overflow: scroll;
+  height: 100%;
+}
+
+#right {
+  position: fixed;
+  top: 30;
+  right: 0;
+  width: 450px;
+  height: 100%;
+}

@@ -1,0 +1,5 @@
+de:
+  pages:
+    home:
+      where_are_you_looking_for: "Wo soll die Location sein?"
+      select_location_type: "Art der Location"

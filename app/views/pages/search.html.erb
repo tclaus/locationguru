@@ -1,0 +1,101 @@
+<div id="main">
+  <div id="left">
+    <!-- search Panel -->
+    <div class="row">
+      <br/>
+      <div class="collapse" id="collapsePanel">
+        <%= search_form_for @search, url: search_path do |f|%>
+        <div class="row">
+          <div class="col-md-8">
+            <label>
+              <%= t('price_range') %></label>
+          </div>
+          <div class="col-md-2">
+            <label><%= t('Min_Price') %></label>
+            <%= text_field :price_qteq, class: "form-control" %>
+          </div>
+          <div class="col-md-2">
+            <label><%= t('Location_kind') %></label>
+            <%= text_field :price_qteq, class: "form-control" %>
+          </div>
+          <div class="col-md-2">
+            Wertigkeit
+            <label><%= t('Location_Class') %></label>
+            <%= text_field :price_qteq, class: "form-control" %>
+          </div>
+        </div>
+        <hr/>
+        Ammenities
+        <div class="row">
+          <div class="col-md-4">
+            <%= check_box_tag "q[location_type_eq_any[]]", "Entire" %>
+            Entire Room
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[location_type_eq_any[]]", "Private" %>
+            Private Room
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[location_type_eq_any[]]", "Shared" %>
+            Shared Room
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label><%= t('.location_type') %>
+              </label>
+              <%= collection_select("q[location_type]", :location_type, LocationType.all, :id, :name) %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label><%= t('.location_kind') %></label>
+              <%= collection_select("q[location_kind]", :kind_type, KindType.all, :id,:name) %>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-md-4">
+            <%= check_box_tag "q[has_heating_eq]", true %>
+            <%= t('.has_heating') %>
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[has_kitchen_eq]", true %>
+            <%= t('.has_kitchen') %>
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[has_music_equipment_eq]", true %>
+            <%= t('.has_music_equipment') %>
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[has_outdoor_eq]", true %>
+            <%= t('.has_outdoor') %>
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[has_parking_space_eq]", true %>
+            <%= t('.has_parking_space') %>
+          </div>
+        </div>
+        <hr/>
+        <div class="row text-center">
+          <%= f.submit t('search'), class: "btn btn-form" %>
+        </div>
+      <% end %>
+    </div>
+    <br/>
+    <% if !@locations.empty? %>
+      <%= render 'pages/listing' %>
+    <% else %>
+      <%= render 'pages/no_locations_found' %>
+    <% end %>
+
+  </div>
+</div>
+<div id="right">
+  <!-- google map -->
+</div>
+</div>
