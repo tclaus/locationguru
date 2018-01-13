@@ -7,3 +7,9 @@ Upload to heroku
 2. Datenbank initialisisren:
     heroku run rake db:schema:load
     heroku run rake db:seed
+
+On every update dont forget a
+
+  heroku rake db:migrate
+
+to set databse to latest state.

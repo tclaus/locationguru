@@ -10,19 +10,19 @@
       <div class="panel-body">
         <div class="container">
           <%= form_for @location do |f| %>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label><%= t('.website') %></label>
-              <%= f.url_field :website, placeholder: t('.placeholder_venue_website'),class:"form-control" %>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label><%= t('.website') %></label>
+                <%= f.url_field :website, placeholder: t('.placeholder_venue_website'),class:" form-control" %>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label><%= t('.phone_number') %></label>
-              <%= f.telephone_field :phonenumber, placeholder: t('.placeholer_venue_phone_number'),class:"form-control" %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label><%= t('.phone_number') %></label>
+                <%= f.telephone_field :phonenumber, placeholder: t('.placeholer_venue_phone_number'),class: "form-control" %>
+              </div>
             </div>
-          </div>
           </div>
           <div class="row">
             <div class="form-group">
@@ -33,9 +33,9 @@
           <div class="text-center">
             <%= f.submit t('.save') ,class:"btn btn-form" %>
           </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 </div>
