@@ -13,8 +13,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 5.1.4'
 
 # Use Postgres as the database for Active Record
-  gem 'pg'
-
+gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -86,6 +85,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  # Rails 12factor
+  # Makes running your Rails app easier. Based on the ideas behind 12factor.net
+  # Needed for support of Asset Pipeline with Heroku
+  # https://github.com/heroku/rails_12factor
+  gem 'rails_12factor'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
