@@ -1,0 +1,12 @@
+de:
+  locations:
+    show:
+      about_this_listing: "Über diesen Eintrag"
+      amenities: "Ausstattung"
+      has_kitchen: "Küche"
+      has_outdoor: "Aussenbereich"
+      has_parking_space: "Parkplätze"
+      has_furniture: "Möbiliert"
+      has_heating: "Beheizt"
+      near_by: "In der Nähe von"
+      distance_from: "km entfernt"
