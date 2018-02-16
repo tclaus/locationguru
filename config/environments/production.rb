@@ -98,8 +98,8 @@ Rails.application.configure do
     s3_host_name: 's3.eu-central-1.amazonaws.com',
     s3_credentials: {
       bucket: 'eventlocation-photos',
-      access_key_id: 'AKIAJAMNUAEGZPYSRQLA',
-      secret_access_key: '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',
+      access_key_id: ENV['s3_key_id'],
+      secret_access_key: ENV['s3secret_access_key'],
       s3_region: 'eu-central-1'
     }
   }
