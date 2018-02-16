@@ -13,6 +13,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], placeholder: "Suche in..", class:"form-control" %>
+        </div>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <button class="btn btn-form btn-small">

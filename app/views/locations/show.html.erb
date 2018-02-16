@@ -147,7 +147,7 @@
     <% if !@location.latitude.blank? && !@location.longitude.blank? %>
       <div class="row">
         <div id="map" style="width: 100%; height: 400px">
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWymESG91aVhpfWxNHXWcHltuGX2TmD8s"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['maps_key'] %>"></script>
           <script>
             function initialize() {
               var location = {

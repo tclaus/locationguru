@@ -2,6 +2,14 @@
   <div id="left">
     <!-- search Panel -->
     <div class="row">
+      <div class="col-md-offset-4 col-md-6">
+        <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
+          <%= t('.more_filters') %>
+          <i class="fa fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row">
       <br/>
       <div class="collapse" id="collapsePanel">
         <%= search_form_for @search, url: search_path do |f|%>
@@ -97,5 +105,60 @@
 </div>
 <div id="right">
   <!-- google map -->
+  <div id="map" style="width: 100%; height: 100%">
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['maps_key'] %>"></script>
+    <script>
+      console.log('enter script');
+      function initialize() {
+        console.log('Init Google maps');
+        var location = {
+          lat: 44.503,
+          lng: -78.54
+        };
+        <% if @locations.length > 0 %>
+        location = {
+          lat: <%= @locations[0].latitude %>,
+          lng: <%= @locations[0].longitude %>
+        }
+        <% end %>
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: location,
+          zoom: 12
+        });
+        var marker,
+          infoWindow;
+
+        <% @locations.each do |location| %>
+        <% location.price_level = 42 %>
+        marker = new google.maps.Marker({
+          position: {
+            lat: <%= location.latitude %>,
+            lng: <%= location.longitude %>
+          },
+          map: map
+        });
+
+        infoWindow = new google.maps.InfoWindow({
+          content: "<div class='map_price'> " + <%= location.price_level %> + " </div>"
+        });
+        infoWindow.open(map, marker);
+        <% end %>
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </div>
 </div>
 </div>
+
+<script>
+var open = true;
+$('#filter').click(function () {
+  if (open) {
+    $('#filter').html("<%= t('.more_filters') %> <i class='fa fa-chevron-up'></i>");
+  } else {
+    $('#filter').html("<%= t('.more_filters') %> <i class='fa fa-chevron-down'></i>");
+  }
+  open = !open;
+});
+</script>
