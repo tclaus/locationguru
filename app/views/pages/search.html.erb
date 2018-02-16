@@ -111,9 +111,10 @@
       console.log('enter script');
       function initialize() {
         console.log('Init Google maps');
+        // Set defaults 51.5080144, 7.3298357,11z
         var location = {
-          lat: 44.503,
-          lng: -78.54
+          lat: 51.5080144,
+          lng: 7.3298357
         };
         <% if @locations.length > 0 %>
         location = {
