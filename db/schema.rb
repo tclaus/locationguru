@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216062424) do
+ActiveRecord::Schema.define(version: 20180220065632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171216062424) do
     t.float "longitude"
     t.string "phonenumber"
     t.string "website"
+    t.boolean "isExclusiveAvailable"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
