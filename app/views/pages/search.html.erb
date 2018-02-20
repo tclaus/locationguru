@@ -64,13 +64,13 @@
         <div class="row text-center">
           <%= f.submit t('search'), class: "btn btn-form" %>
         </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
     <br/>
     <% if !@locations.empty? %>
-      <%= render 'pages/listing' %>
+      <%= render partial: 'locations/location_list' %>
     <% else %>
-      <%= render 'pages/no_locations_found' %>
+      <%= render partial: 'pages/no_locations_found' %>
     <% end %>
 
   </div>
