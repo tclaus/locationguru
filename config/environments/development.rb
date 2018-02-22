@@ -74,6 +74,5 @@ Rails.application.configure do
       s3_region: 'eu-central-1'
     }
   }
-  config.demo = ENV['demo']
 
 end
