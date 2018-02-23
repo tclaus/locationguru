@@ -65,12 +65,13 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
+    s3_protocol: :https,
     path: ':class/:id/:style/:filename',
     s3_host_name: 's3.eu-central-1.amazonaws.com',
     s3_credentials: {
       bucket: 'eventlocation-photos-dev',
       access_key_id: ENV['s3_key_id'],
-      secret_access_key: ENV['s3secret_access_key'],
+      secret_access_key: ENV['s3_access_key'],
       s3_region: 'eu-central-1'
     }
   }
