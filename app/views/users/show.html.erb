@@ -32,17 +32,10 @@
     <h4><% t('.listings') %> (<%= @locations.length %>)</h4>
     <br/>
     <div class="row">
-      <% @locations.each do |location| %>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading preview">
-              <%= image_tag location.cover_photo(:medium) %>
-            </div>
-            <div class="panel-body">
-              <%= link_to location.listing_name, location %>
-            </div>
-          </div>
-        </div>
+      <% if !@locations.empty? %>
+        <%= render partial: 'locations/location_list' %>
+      <% else %>
+        <%= render partial: 'pages/no_locations_found' %>
       <% end %>
     </div>
   </div>

@@ -6,7 +6,8 @@
           <%= image_tag location.cover_photo(:medium) %>
         </div>
         <div class="panel-body">
-          <%= link_to location.listing_name, location %>
+          <%= link_to location.listing_name, location %> <br/>
+          <%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %>
         </div>
       </div>
     </div>

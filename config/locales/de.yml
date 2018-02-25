@@ -1,5 +1,7 @@
 de:
   Locations: "Locations"
+  locationguru_title: "Location Guru"
+  locationguru_subtitle: "Finde eine Location, die zu deiner Veranstaltung passt"
   hello: "Hallo welt"
   saved: "Gespeichert"
   something_went_wrong: "Ein Fehler ist aufgetreten..."

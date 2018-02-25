@@ -27,6 +27,11 @@ a {
 .text-babu {
   color: #00a699;
 }
+
+.text-red, .icon-red {
+  color: #FF5A5F;
+}
+
 // Navbar
 .navbar-default {
   background-color: #ffffff;
@@ -334,4 +339,16 @@ a {
   right: 0;
   width: 450px;
   height: 100%;
+}
+
+// Home Page
+.discovery-card {
+  background-size: cover;
+  background-position: center;
+  height: 326px;
+}
+
+.banner {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
