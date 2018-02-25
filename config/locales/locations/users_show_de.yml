@@ -1,0 +1,9 @@
+de:
+  users:
+    show:
+      verification: 'Verifizierte Informationen'
+      facebook: "Facebook"
+      phone_number: "Telefon"
+      review_from_guests: "Bewertungen von Gästen"
+      review_from_hosts: "Bewertungen von Gastgebern"
+      listings: "Event Locations:"

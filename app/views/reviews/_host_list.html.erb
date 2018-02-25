@@ -1,6 +1,6 @@
 <% if @guest_reviews.count == 0 %>
 <div class="text-center">
-  <h4> <%= t('There_are_no_reviews') %></h4>
+  <h4> <%= t('.there_are_no_reviews') %></h4>
 </div>
 <% else %>
  <% @guest_reviews.order(id: :desc).each do |r| %>

@@ -4,20 +4,20 @@
       <%= image_tag avatar_url(@user), class:"avatar-full" %>
     </div>
     <div class="panel panel-default">
-      <div class="panel-heading">Verification</div>
+      <div class="panel-heading"><%= t('.verification') %></div>
       <div class="panel-body">
         <ul class="sidebar-list">
           <% if @user.confirmation_token %>
-            <li>Email-Address
+            <li><%= t('.email_address') %>
               <span class="pull-right icon-babu">
                 <i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
           <% if @user.provider %>
-            <li>Facebook
+            <li><%= t('.facebook') %>
               <span class="pull-right icon-babu">
                 <i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
-          <li>Phone NUmber
+          <li><%= t('.phone_number') %>
             <span class="pull-right icon-babu">
               <i class="fa fa-check-circle-o"></i></span></li>
         </ul>
@@ -29,7 +29,7 @@
     <div class="description ">
       <%= @user.description %>
     </div>
-    <h4>Listings (<%= @locations.length %>)</h4>
+    <h4><% t('.listings') %> (<%= @locations.length %>)</h4>
     <br/>
     <div class="row">
       <% @locations.each do |location| %>
@@ -47,13 +47,13 @@
     </div>
   </div>
 
-<h4><%= t('Review_from_guests') %> (<%= @guest_reviews.count %>)</h4>
+<h4><%= t('.review_from_guests') %> (<%= @guest_reviews.count %>)</h4>
 <div class="row">
   <%= render "reviews/guest_list" %>
 </div>
 <br/>
 
-<h4><%= t('Review_from_hosts') %> (<%= @host_reviews.count %>)</h4>
+<h4><%= t('.review_from_hosts') %> (<%= @host_reviews.count %>)</h4>
 <div class="row">
   <%= render "reviews/host_list" %>
 </div>

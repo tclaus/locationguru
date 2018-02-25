@@ -6,12 +6,16 @@ class User < ApplicationRecord
          :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  validates :fullname, presence: true, length: { maximum: 50 }
+  # validates :fullname, presence: true, length: { maximum: 50 }
 
   has_many :locations
   has_many :reservations
   has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
   has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
+
+ def activeLocations
+   locations.where('active = true')
+ end
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
@@ -33,4 +37,5 @@ class User < ApplicationRecord
       end
     end
   end
+
 end
