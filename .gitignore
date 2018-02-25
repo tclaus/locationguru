@@ -22,6 +22,3 @@
 
 .byebug_history
 sendgrid.env
-
-* Ignore temporary Environment Variables
-develop_env.rb
