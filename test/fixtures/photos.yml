@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  room: one
+  room_id: 1
+  image_file_name: "Image_1"
 
 two:
-  room: two
+  room_id: 2
+  image_file_name: "Image_2"

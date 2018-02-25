@@ -1,0 +1,13 @@
+
+
+hotel:
+  id: 1
+  name: Hotel
+
+party_location:
+  id: 2
+  name: 'Party Location'
+
+restarant:
+  id: 3
+  name: 'Restaurant'

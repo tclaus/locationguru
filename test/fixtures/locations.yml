@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  building_type: MyString
-  room_type: MyString
-  listing_name: MyString
+  id: 1
+  kind_type: 1
+  location_type: 1
+  listing_name: Ultimative party location
   summary: MyText
-  active: false
-  user: one
+  active: true
+  user_id: 1
 
 two:
-  building_type: MyString
-  room_type: MyString
-  listing_name: MyString
+  id: 2
+  kind_type: 1
+  location_type: 1
+  listing_name: My house
   summary: MyText
-  active: false
-  user: two
+  active: true
+  user_id: 1
