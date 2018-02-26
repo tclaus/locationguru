@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Catering Types. Where to get food&bevarage?
+CateringType.delete_all()
+KindType.delete_all()
+LocationType.delete_all()
+Translation.delete_all()
+
 CateringType.create([{ id: 1,
                        name: 'Flexible' },
                      { id: 2,
