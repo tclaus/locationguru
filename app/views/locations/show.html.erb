@@ -129,7 +129,7 @@
     <!-- Reviews -->
     <div class="row">
       <div class="col-md-12">
-        <h3><%= t('Review',count: @guest_reviews.count) %>
+        <h3><%= t('.review',count: @guest_reviews.count) %>
           <span id="average_rating"></span>
         </h3>
         <% if @guest_reviews.count > 0 %>

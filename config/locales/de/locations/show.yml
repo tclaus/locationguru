@@ -1,6 +1,7 @@
 de:
   locations:
     show:
+      review: "Bewertungen"
       about_this_listing: "Über diesen Eintrag"
       amenities: "Ausstattung"
       has_kitchen: "Küche"

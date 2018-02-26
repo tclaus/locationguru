@@ -1,5 +1,5 @@
 de:
-  Locations: "Locations"
+  locations: "Locations"
   locationguru_title: "Location Guru"
   locationguru_subtitle: "Finde eine Location, die zu deiner Veranstaltung passt"
   hello: "Hallo welt"
@@ -16,7 +16,3 @@ de:
   login: "Anmelden"
   sign_up: "Registrieren"
   search: "Suchen"
-  Review:
-    zero: "Keine Bewertungen"
-    one: "Eine Bewertung"
-    other: "Bewertungen"
