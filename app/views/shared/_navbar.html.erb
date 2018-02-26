@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
         <div class="form-group">
-          <%= text_field_tag :search, params[:search], placeholder: t(".search_in"), class:"form-control" %>
+          <%= text_field_tag :search, params[:search], placeholder: t(".search_in"), class:"form-control", id:"auto_address_navbar" %>
         </div>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
@@ -66,3 +66,9 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
+
+<script>
+  $(function() {
+    $("#auto_address_navbar").geocomplete();
+  })
+</script>

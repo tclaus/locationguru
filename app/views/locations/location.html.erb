@@ -27,7 +27,7 @@
           <div class="row">
             <div class="form-group">
               <label><%= t('.address') %></label>
-              <%= f.text_area :address, rows: 5, placeholder: t('.placeholder_venue_address'), class:"form-control" %>
+              <%= f.text_area :address, rows: 5, placeholder: t('.placeholder_venue_address'), class:"form-control", id:"autoaddress" %>
             </div>
           </div>
           <div class="text-center">
@@ -39,3 +39,9 @@
   </div>
 </div>
 </div>
+
+<script>
+  $(function() {
+    $("#autoaddress").geocomplete();
+  })
+</script>
