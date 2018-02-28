@@ -1,5 +1,6 @@
 module TranslationHelper
-  # TRanslate location_type
+
+  # Translate location_type
   def trLocationType(id)
     Translation.localize(id,'LocationType','de')
   end

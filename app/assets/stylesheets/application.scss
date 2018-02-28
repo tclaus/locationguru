@@ -10,8 +10,17 @@ body {
   font-family: "Varela Round", "Helvetica Neue", "Arial", sans-serif;
 }
 
+footer {
+  margin-top: 50px;
+}
+
 a {
   color: #00a699;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .translation_missing {
