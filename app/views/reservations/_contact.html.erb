@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>
+      <i class="fa fa-info"></i>
+      <%= t('.contact') %>
+    </span>
+  </div>
+  <div class="panel-body">
+    <div>
+      <table class="contact-table">
+        <tbody>
+          <tr>
+            <td><%= t('.website') %></td>
+            <td class="text-right"><%= link_to @location.website %></td>
+          </tr>
+          <tr>
+            <td> <%= t('.phonenumber') %></td>
+            <td class="text-right"><%= @location.user.phone_number %></span></td>
+          </tr>
+          <tr>
+            <td><%= t('.email') %></td>
+            <td class="text-right"><%= @location.user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    Adapt this location
+
+    </div>
+    <br/>
+
+</div>
+</div>

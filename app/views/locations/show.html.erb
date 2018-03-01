@@ -14,11 +14,6 @@
         <h1><%= @location.listing_name %></h1>
         <%= @location.address %>
       </div>
-      <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@location.user), class: "img-circle avatar-large" %>
-        <br/><br/>
-        <%= @location.user.fullname %>
-      </div>
     </div>
     <hr/>
 
@@ -193,7 +188,7 @@
 
   <div class="col-md-4">
     <!-- reservation form -->
-    <%= render 'reservations/form' %>
+    <%= render 'reservations/contact', locals: {location: @location.user} %>
   </div>
 </div>
 
