@@ -39,14 +39,14 @@
       </div>
       <div class="row text-center">
         <div class="col-md-3">
-          <%= KindType.find(@location.kind_type).name %>
+          <%= trKindType(KindType.find(@location.kind_type).id) %>
         </div>
         <div class="col-md-3">
-          <%= LocationType.find(@location.location_type).name %>
+          <%= trLocationType(LocationType.find(@location.location_type).id) %>
         </div>
         <div class="col-md-3">
           <% if @location.catering? %>
-            <%= CateringType.find(@location.catering).name %>
+            <%= trCateringType(CateringType.find(@location.catering).id) %>
           <% end %>
         </div>
         <div class="col-md-3">
@@ -142,7 +142,6 @@
     <% if !@location.latitude.blank? && !@location.longitude.blank? %>
       <div class="row">
         <div id="map" style="width: 100%; height: 400px">
-          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['maps_key'] %>"></script>
           <script>
             function initialize() {
               var location = {
@@ -188,7 +187,7 @@
 
   <div class="col-md-4">
     <!-- reservation form -->
-    <%= render 'reservations/contact', locals: {location: @location.user} %>
+    <%= render 'contact', locals: {location: @location.user} %>
   </div>
 </div>
 

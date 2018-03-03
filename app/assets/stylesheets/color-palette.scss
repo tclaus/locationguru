@@ -1,18 +1,24 @@
-$main-background: #f8f8f8;
-$light-background: #ffffff;
-$black-background: #222;
+@import "styles";
+
+$main-background: white;
+$navbar-background: $color-lighter-1;
+$panel-heading: $color-lighter-1;
+$light-background: $color-primary-1;
+$black-background: $color-primary-4;
 $action-button-background: #00a699;
-$default-textcolor:#565a5c;
-$info-textcolor: #00a699;
-$info-textcolor-active: #066165;
-$brand-textcolor: #ff5a5f;
-$brand-textcolor-active: #e00007;
-$border-color: #c4c4c4;
-$button-color: #484848;
-$sidebar-color: #82888a;;
-$sidebar-color-hover: #cacccd;
+$default-textcolor: $color-primary-4;
+$info-textcolor: $color-primary-4;
+$info-textcolor-active: $color-primary-3;
+$brand-textcolor: $color-primary-0;
+$brand-textcolor-active: $color-primary-2;
+$border-color: $color-primary-3;
+$button-color: $color-primary-3;
+$sidebar-color: $color-primary-2;
+$sidebar-color-hover: $color-primary-1;
 
-$message-alert: #d43242;
+$message-alert: $color-primary-3;
 
+// Dont change! Brand Colors
 $facebook-button-color: #3b5998;
 $facebook-button-color-active: #2d467b;
+$facebook-button-text-color: white;

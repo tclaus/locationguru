@@ -15,9 +15,11 @@ body {
 footer {
   margin-top: 50px;
 }
-
+h1 {
+  color: $brand-textcolor;
+}
 a {
-  color: $action-button-background;;
+  color: $action-button-background;
   text-decoration: none;
 }
 
@@ -32,20 +34,21 @@ a:hover {
 
 .container {
   width: 80%;
+  color: rgba(0,0,0,0.5);
 }
 
 .icon-babu,
 .text-babu {
-  color: $info-textcolor;
+  color: $brand-textcolor-active;
 }
 
-.text-red, .icon-red {
-  color: #FF5A5F;
+.text-brand {
+  color: $brand-textcolor;
 }
 
 // Navbar
 .navbar-default {
-  background-color: #ffffff;
+  background-color: $navbar-background;
 }
 
 .navbar-default .navbar-brand {
@@ -53,18 +56,22 @@ a:hover {
   font-size: 2em;
   font-weight: 400;
 }
+.navbar-button:hover {
+  color:$color-lighter-2;
+}
+
 // Buttons
+.btn {
+  color: $color-lighter-1;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 9px 27px;
+}
+
 .btn-block {
   display: block;
   white-space: normal;
   width: 100%;
-}
-
-.btn {
-  color: $black-background;
-  border-radius: 5px;
-  font-weight: bold;
-  padding: 9px 27px;
 }
 
 .btn-small {
@@ -74,14 +81,13 @@ a:hover {
 
 .btn:focus,
 .btn:hover {
-  color: $black-background;
+  color: $color-lighter-2;
 }
 
 .btn.btn-default {
   width: 100%;
   border-color: $border-color;
-  background: white;
-  color: $button-color;
+  color: $brand-textcolor;
   border-radius: 2px;
   padding: 10px 0;
   margin-top: 10px;
@@ -90,7 +96,6 @@ a:hover {
 .btn.btn-normal {
   border: 1px solid $brand-textcolor;
   color: $main-background;
-  background-color: $brand-textcolor;
 }
 
 .btn.btn-normal:active {
@@ -111,6 +116,7 @@ a:hover {
 }
 
 .btn.btn-facebook {
+  color: $facebook-button-text-color;
   border: 1px solid $facebook-button-color;
   background-color: $facebook-button-color;
 }
@@ -122,8 +128,7 @@ a:hover {
 }
 // Panels
 .panel-default .panel-heading {
-  color: #ffffff;
-  background-color: $action-button-background;
+  background-color: $panel-heading;
   font-size: 18px;
   font-weight: 400;
 }
@@ -341,16 +346,16 @@ a:hover {
 
 #left {
   padding: 10px 400px 10px 20px;
-  overflow:scroll;
+  overflow: scroll;
   height: 100%;
 }
 
 #right {
-  position: fixed;
-  top: 60px;
+  position: absolute;
+  top: 70px;
   right: 0;
   width: 450px;
-  height: 100%;
+  height: 80%;
 }
 
 // Home Page

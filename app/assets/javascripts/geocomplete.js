@@ -211,7 +211,7 @@
 
       // Prevent parent form from being submitted if user hit enter.
       this.$input.on('keypress.' + this._name, function(event){
-        if (event.keyCode === 13){ return false; }
+        if (event.keyCode === 13){ return true; }
       });
 
       // Assume that if user types anything after having selected a result,
