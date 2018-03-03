@@ -13,7 +13,6 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @location = @photo.location
-    logger.debug "Location : #{@location.attributes.inspect}"
     @photo.destroy
     @photos = Photo.where(location_id: @location.id)
 

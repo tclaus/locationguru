@@ -126,6 +126,12 @@ a:hover {
   border-color: $facebook-button-color-active;
   background-color: $facebook-button-color-active;
 }
+
+.action-listing {
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
 // Panels
 .panel-default .panel-heading {
   background-color: $panel-heading;

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'location'
       get 'preload'
       get 'preview'
+      delete 'destroy'
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
@@ -38,5 +39,5 @@ Rails.application.routes.draw do
   get 'impressum' => 'impressum#show'
   get 'privacy' => 'privacy#show'
   get 'contact' => 'contact#show'
-  
+
 end

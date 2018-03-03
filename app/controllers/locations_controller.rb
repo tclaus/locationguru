@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorized, only: [:listing, :pricing, :description,
-                :photo_upload, :amenities, :location, :update]
+                :photo_upload, :amenities, :location, :update, :delete]
 
   def index
     @locations = current_user.locations
@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to listing_location_path(@location), notice: t('saved')
     else
-      flash[:alert] = t('something_went_wrong')
+      flash[:alert] = t('something_went_wrong_create_location')
       render :new
     end
   end
@@ -70,6 +70,18 @@ class LocationsController < ApplicationController
       conflict: is_conflict(start_date, end_date, @location)
     }
     render json: output
+  end
+
+  def destroy
+    @location = Location.find {params[:id] }
+    if !@location.nil?
+      @location.destroy
+      flash[:notice] = t('.location_deleted')
+    else
+      flash[:notice] = t('.could_not_delete_this_location')
+    end
+
+    redirect_back(fallback_location: request.referer)
   end
 
   private
