@@ -22,10 +22,14 @@
       <% @locations.each do |location| %>
           <div class="row">
             <div class="col-md-2">
+              <%= link_to listing_location_path(location) do %>
               <%= image_tag location.cover_photo(:thumb) %>
+              <% end %>
             </div>
             <div class="col-md-7">
+              <%= link_to listing_location_path(location) do %>
               <h4> <%= location.listing_name %> </h4>
+              <% end %>
             </div>
             <div class="col-md-3 right">
               <%= link_to t('update'), listing_location_path(location), class:"btn btn-form action-listing", style:"width:150px" %>

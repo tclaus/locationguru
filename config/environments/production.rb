@@ -62,9 +62,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "LocationGuru_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # Put here real server
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+  config.action_mailer.default_url_options = { host: ENV['hostname'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
+    user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
+    password:             'e4c1961e976f9151e657e9df43e0f192',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
