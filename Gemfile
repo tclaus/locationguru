@@ -32,7 +32,7 @@ gem 'omniauth-facebook', '~>4.0'
 gem 'aws-sdk', '~>2.8'
 gem 'paperclip', '~> 5.0.0'
 
-# Non Blocking Notifocations
+# Non Blocking Notifications
 gem 'toastr-rails', '~>1.0'
 
 # Auth Tool
