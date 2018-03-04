@@ -22,18 +22,19 @@
         </div>
         <hr/>
         <div class="row">
-          <div class="col-md-4 select">
+          <div class="col-md-6 select">
             <div class="form-group">
-              <label><%= t('.locationType') %>
-              </label>
-              <%= collection_select("q[location_type]", :location_type, LocationType.all, :id, :name) %>
+              <label><%= t('.locationType') %></label>
+              <% locationTypeArray = LocationType.all.map {|type| [trKindType(type.id), type.id]} %>
+              <%= select("q[location_type]", :location_type, locationTypeArray) %>
             </div>
           </div>
 
-          <div class="col-md-4 select">
+          <div class="col-md-6 select">
             <div class="form-group">
               <label><%= t('.locationKind') %></label>
-              <%= collection_select("q[location_kind]", :kind_type, KindType.all, :id,:name) %>
+              <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+              <%= select("q[location_kind]", :kind_type, kindTypeArray) %>
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@
 <div id="right">
   <!-- google map -->
   <div id="map" style="width: 100%; height: 100%">
-    
+
     <script>
       console.log('Enter maps.google script');
       function initialize(locations) {

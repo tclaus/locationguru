@@ -8,24 +8,24 @@
         <div class="row">
           <div class="col-md-4 select">
             <div class="form-group">
-              <label><%= t('.location_type') %></label>
-              <%= f.collection_select(:location_type, LocationType.all, :id, :name, prompt: t('.select_location_type'))
-               %>
+              <%=f.label(:location_type, t('.location_type')) %>
+              <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
+              <%= f.select(:location_type, options_for_select(locationTypeArray), prompt: t('.select_location_type')) %>
             </div>
           </div>
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label><%= t('.location_kind') %></label>
-              <%= f.collection_select(:kind_type, KindType.all, :id,:name, prompt: t('.select_location_kind')) %>
+              <%= f.label(:kind_type,t('.location_kind')) %>
+              <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+              <%= f.select(:kind_type, options_for_select(kindTypeArray), prompt: t('.select_location_kind')) %>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="form-group">
-              <label><%= t('.maximum_number_of_persons') %></label>
-              <%= f.text_field :max_persons, prompt: "50",
-              class: "form-control" %>
+              <%= f.label(:max_persons, t('.maximum_number_of_persons')) %>
+              <%= f.text_field :max_persons, prompt: "50",class: "form-control" %>
 
             </div>
           </div>

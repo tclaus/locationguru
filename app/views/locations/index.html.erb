@@ -22,9 +22,11 @@
       <% @locations.each do |location| %>
           <div class="row">
 
-            <div class="col-md-1" style="font-size:3em; color:green">
+            <div class="col-md-1" style="font-size:3em; color:#319d5d;">
               <% if location.active? %>
-              <i class="fa fa-check-circle"></i>
+                <i class="fa fa-check-circle"></i>
+              <% else %>
+                <i class="fa fa-circle-o"></i>
               <% end %>
             </div>
 

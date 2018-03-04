@@ -10,7 +10,8 @@
       <%= text_field_tag :search, params[:search], placeholder: t('.where_are_you_looking_for'), class:"form-control", id: "auto_location" %>
     </div>
     <div class="col-md-3">
-      <%= collection_select(:location, :location_type, KindType.all, :id, :name, {:prompt=> t('.select_location_type')}, {:class => "form-control select"}) %>
+      <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+      <%= select(:location, :location_type, kindTypeArray, {:prompt=> t('.select_location_type')}, {:class => "form-control select"}) %>
     </div>
   </div>
   <br/>
