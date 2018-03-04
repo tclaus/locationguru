@@ -4,4 +4,5 @@ de:
       listing: "Basis"
       location_type: "Wo gelegen"
       location_kind: "Entspricht... "
+      max_persons: "Maximale Personen"
       save: "Speichern"

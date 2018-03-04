@@ -13,15 +13,22 @@
           <div class="row">
             <div class="col-md-4 select">
               <div class="form-group">
-                <label><%= t('.location_type') %> </label>
+                <%= label_tag(:location_type, t('.location_type')) %>
                 <%= f.collection_select(:location_type, LocationType.all, :id, :name) %>
               </div>
             </div>
 
             <div class="col-md-4 select">
               <div class="form-group">
-                <label><%= t('.location_kind') %></label>
+                <%= label_tag(:kind_type, t('.location_kind')) %>
                 <%= f.collection_select(:kind_type, KindType.all, :id,:name) %>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= label_tag(:max_persons, t('.max_persons')) %>
+                <%= f.text_field(:max_persons) %>
               </div>
             </div>
 
