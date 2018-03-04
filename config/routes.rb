@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'location'
       get 'preload'
       get 'preview'
-      delete 'destroy'
+      
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
