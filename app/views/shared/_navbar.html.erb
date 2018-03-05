@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -39,6 +39,9 @@
             </a>
             <ul class="dropdown-menu">
               <li>
+                <%= link_to t('.dashboard'), dashboard_path %>
+              </li>
+              <li>
                 <%= link_to t('.manage'), locations_path %>
               </li>
               <li>
@@ -65,7 +68,18 @@
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
-</nav>
+  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/locations/#{params[:id]}") %>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><%= link_to t('dashboard'), dashboard_path %></li>
+          <li><%= link_to t('manage'), locations_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <% end %>
+  </nav>
+
 
 <script>
   $(function() {

@@ -11,7 +11,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :phone_number, :description])
   end
 
+  # Redirect after login 
+  def after_sign_in_path_for(resource_or_scope)
+    dashboard_path
+  end
+
    private
+
    def set_locale
      logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
      I18n.locale = extract_locale_from_accept_language_header
