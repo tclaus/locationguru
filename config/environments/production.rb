@@ -68,8 +68,8 @@ Rails.application.configure do
     address:              'smtp.mailgun.org',
     port:                 587,
     domain:               'mg.locationguru.net',
-    user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
-    password:             'e4c1961e976f9151e657e9df43e0f192',
+    user_name:            'postmaster@mg.locationguru.net',
+    password:             '03457c8363d1c3dd8b0f6f35174d2a8a-2b4c5a6c-95f5931f',
     authentication:       'plain',
     enable_starttls_auto: true
   }
