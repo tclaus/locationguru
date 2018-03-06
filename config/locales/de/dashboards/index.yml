@@ -2,3 +2,6 @@ de:
   dashboards:
     index:
       facebook: "Facebook"
+      email_address: "E-Mail"
+      notifications: "Nachrichten"
+      your_listings: "Einträge"

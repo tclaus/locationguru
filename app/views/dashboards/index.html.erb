@@ -28,7 +28,7 @@
     <!-- Notifications -->
     <div class="panel panel-default">
       <div class="panel-heading">
-        Notifications
+        <%= t('.notifications') %>
       </div>
       <div class="panel-body">
 
@@ -37,7 +37,7 @@
     <!-- Your listings -->
     <div class="panel panel-default">
       <div class="panel-heading">
-        Your listings (<%= @locations.length %>)
+        <%= t('.your_listings') %> (<%= @locations.length %>)
       </div>
       <div class="panel-body">
         <%= render partial: "locations/location_list" %>

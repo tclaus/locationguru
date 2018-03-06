@@ -1,0 +1,15 @@
+de:
+  devise:
+    registrations:
+      edit:
+        edit_profile: "Daten bearbeiten"
+        view_my_profile: "Profil anzeigen"
+        your_profile: "Profil bearbeiten"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        current_password: "Aktuelles Passwort"
+        sign_in_with_facebook: "Mit facebook anmelden"
+    sessions:
+      new:
+        forgot_your_password: "Passwort wieder herstellen"
+        sign_in_with_facebook: "Mit facebook anmelden"

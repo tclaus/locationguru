@@ -2,18 +2,18 @@
   <div class="col-md-3">
     <ul class="sidebar-list">
       <li class="sidebar-item">
-        <%= link_to t('edit_profile'), edit_user_registration_path, class: "sidebar-link active" %>
+        <%= link_to t('.edit_profile'), edit_user_registration_path, class: "sidebar-link active" %>
       </li>
     </ul>
     <br/>
   </div>
-  <%= link_to t('view_my_profile'), user_path(current_user.id), class: "btn btn-default" %>
+  <%= link_to t('.view_my_profile'), user_path(current_user.id), class: "btn btn-default" %>
 
   <h2><%= t('.title', resource: resource_class.model_name.human) %></h2>
   <div class="col-md-9 text-center">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <%= t('your_profile') %>
+        <%= t('.your_profile') %>
       </div>
       <div class="panel-body">
         <div class="container">
@@ -34,7 +34,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.email_field :email, placeholder: t('email'), class: "form-control" %>
+            <%= f.email_field :email, placeholder: t('.email'), class: "form-control" %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -60,7 +60,7 @@
           <div><%= f.submit t('.update'), class: "btn btn-normal btn-block" %></div>
         <% end %>
         <hr/>
-        <%= link_to t('sign_in_with_facebook'), user_facebook_omniauth_authorize_path , class: "btn btn-facebook btn-block"%>
+        <%= link_to t('.sign_in_with_facebook'), user_facebook_omniauth_authorize_path , class: "btn btn-facebook btn-block"%>
 
       </div>
     </div>
