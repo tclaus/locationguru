@@ -68,18 +68,18 @@
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
-  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/locations/#{params[:id]}") %>
+  </nav>
+
+  <% if (user_signed_in?) && !current_page?(root_path) && (current_page?("/locations/") || current_page?("/dashboard")) %>
     <nav class="navbar navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li><%= link_to t('dashboard'), dashboard_path %></li>
-          <li><%= link_to t('manage'), locations_path %></li>
+          <li <% if current_page?(dashboard_path) %> class="active" <% end %> > <%= link_to t('dashboard'), dashboard_path %></li>
+          <li <% if current_page?(locations_path) %> class="active" <% end %> ><%= link_to t('manage'), locations_path %></li>
         </ul>
       </div>
     </nav>
     <% end %>
-  </nav>
-
 
 <script>
   $(function() {
