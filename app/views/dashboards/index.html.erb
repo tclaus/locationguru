@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="center">
+      <%= image_tag avatar_url(current_user), class: "avatar-full" %>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= current_user.fullname %>
+      </div>
+      <div class="panel-body">
+        <ui class="sidebar-list">
+          <% if current_user.confirmation_token %>
+            <li><%= t('.email_address') %>
+              <span class="pull-right icon-babu">
+                <i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <% if current_user.provider %>
+            <li><%= t('.facebook') %>
+              <span class="pull-right icon-babu">
+                <i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+        </ui>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+
+    <!-- Notifications -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Notifications
+      </div>
+      <div class="panel-body">
+
+      </div>
+    </div>
+    <!-- Your listings -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your listings (<%= @locations.length %>)
+      </div>
+      <div class="panel-body">
+        <%= render partial: "locations/location_list" %>
+      </div>
+    </div>
+  </div>
+</div>
