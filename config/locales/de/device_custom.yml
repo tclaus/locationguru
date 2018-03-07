@@ -1,4 +1,5 @@
 de:
+  sign_in_with_facebook: "Mit facebook anmelden"
   devise:
     registrations:
       edit:
@@ -6,13 +7,12 @@ de:
         view_my_profile: "Profil anzeigen"
         your_profile: "Profil bearbeiten"
         full_name: "Name"
+        email: Email
         phone_number: "Telefon"
         description: "Über den Anbieter"
         password: "Passwort"
         password_confirmation: "Passwort bestätigen"
         current_password: "Aktuelles Passwort"
-        sign_in_with_facebook: "Mit facebook anmelden"
     sessions:
       new:
         forgot_your_password: "Passwort wieder herstellen"
-        sign_in_with_facebook: "Mit facebook anmelden"

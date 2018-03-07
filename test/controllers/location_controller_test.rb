@@ -3,7 +3,13 @@ require 'test_helper'
 class LocationControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-  test 'should get index' do
+# Admin - Site later
+#  test 'should get index' do
+#    get '/locations'
+#    assert_response :success
+#  end
+
+  test 'should get specific location' do
     get '/locations/1'
     assert_response :success
   end
