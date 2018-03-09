@@ -1,5 +1,8 @@
 module ApplicationHelper
   def avatar_url(user)
+
+    return user.avatar.url
+
     if user.image
       user.image
     else

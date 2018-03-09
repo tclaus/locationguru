@@ -11,7 +11,11 @@ Rails.application.routes.draw do
              controllers: { omniauth_callbacks: 'omniauth_callbacks',
                             registrations: 'registrations' }
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      post 'avatar'
+    end
+  end
   resources :locations, except: [:edit] do
     member do
       get 'listing'

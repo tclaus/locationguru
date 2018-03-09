@@ -11,7 +11,10 @@
           </div>
           <div class="panel-body">
             <span class="pull-right">
-                <%= link_to location_photo_path(photo.location_id, photo), remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
+                <%= link_to location_photo_path(photo.location_id, photo),
+                remote: true,
+                method: :delete,
+                data: {confirm: t('.are_you_sure')} do %>
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
           </span>
