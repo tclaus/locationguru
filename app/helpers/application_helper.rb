@@ -10,7 +10,8 @@ module ApplicationHelper
     # From Oauth login provder (facebook)
     if user.image
       logger.debug "Show facebook image"
-      secureUrl = user.image.sub! 'http', 'https'
+      secureUrl = user.image
+      secureUrl.sub! 'http://', 'https://'
       secureUrl + '?width=300'
     else
       logger.debug "Show gravatar"
