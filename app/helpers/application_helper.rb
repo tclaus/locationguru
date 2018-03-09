@@ -25,4 +25,12 @@ module ApplicationHelper
      ENV['maps_key']
   end
 
+  def domain_name
+    if request.domain == "venueguru.net"
+      return "Venue Guru"
+    else
+      return "Location Guru"
+    end
+  end
+
 end
