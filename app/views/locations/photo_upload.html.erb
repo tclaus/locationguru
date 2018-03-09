@@ -17,13 +17,13 @@
                   <div class="form-group">
                     <span class="btn btn-default btn-file text-babu">
                       <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                    <%= t('.select_photos') %>
-                    <%= file_field_tag "images[]", type: :file, multiple: true %>
+                      <%= t('.select_photos') %>
+                      <%= file_field_tag "images[]", type: :file, multiple: true, onchange: "form.submit()" %>
                     </span>
                   </div>
                 </div>
                 <div class="text-center">
-                  <%= f.submit t('.send_photos'), class: "btn btn-form" %>
+                  <%= f.submit t('.send_photos'), class: "btn btn-form", style:"display:none;" %>
                 </div>
               <% end %>
             </div>
