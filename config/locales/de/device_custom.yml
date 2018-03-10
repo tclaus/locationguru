@@ -18,3 +18,4 @@ de:
     sessions:
       new:
         forgot_your_password: "Passwort wieder herstellen"
+        sign_up: "Registrieren"

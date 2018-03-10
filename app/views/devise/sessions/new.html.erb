@@ -3,7 +3,9 @@
 
 <h2 class="text-center"><%= t('.sign_in') %></h2>
 <br/>
-
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
+<% end -%>
 <div class="form-group">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
