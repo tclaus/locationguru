@@ -7,4 +7,5 @@ class ImpressumControllerTest < ActionDispatch::IntegrationTest
      assert :success
    end
 
+
 end

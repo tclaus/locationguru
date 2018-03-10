@@ -17,3 +17,12 @@ two:
   summary: MyText
   active: true
   user_id: 1
+
+three:
+  id: 3
+  kind_type: 2
+  location_type: 2
+  listing_name: Tante Amanda
+  summary: Tante Amanda Restaurant
+  active: true
+  user_id: 1

@@ -13,10 +13,13 @@ class LocationsController < ApplicationController
   end
 
   def create
+    logger.debug "Creating a location"
     @location = current_user.locations.build(location_params)
     if @location.save
+      logger.debug "Created location with ID #{@location.id}"
       redirect_to listing_location_path(@location), notice: t('saved')
     else
+      logger.debug "Failed creating a location"
       flash[:alert] = t('something_went_wrong_create_location')
       render :new
     end
@@ -73,9 +76,15 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location = Location.find {params[:id] }
-    if !@location.nil?
-      @location.destroy
+    logger.debug "Delete location with id: #{params}"
+    location = Location.find params[:id]
+    if !location.nil?
+      logger.debug "Remove location '#{location.listing_name}'',id: #{location.id}"
+      location.photos.destroy_all
+      location.guest_reviews.destroy_all
+      location.reservations.destroy_all
+      logger.debug "Remove location ''#{location.listing_name}'',id: #{location.id}"
+      location.delete
       flash[:notice] = t('.location_deleted')
     else
       flash[:notice] = t('.could_not_delete_this_location')

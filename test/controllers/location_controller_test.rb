@@ -5,9 +5,34 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
 
 # Admin - Site later
 #  test 'should get index' do
-#    get '/locations'
+#    get '/admin'
 #    assert_response :success
 #  end
+
+  test "should create a location" do
+    sign_in users(:host)
+    get "/locations/new"
+    assert_response :success
+
+    post locations_path, params: {
+      location: {
+        listing_name: "test-name",
+        kind_type: 1,
+        location_type: 1
+      }
+    }
+    assert_response :redirect
+    follow_redirect!
+
+  end
+
+  test "should delete a location" do
+      sign_in users(:host)
+      location = locations(:one)
+      delete "/locations/" + location.id.to_s
+      
+      assert :success
+  end
 
   test 'should get specific location' do
     get '/locations/1'
