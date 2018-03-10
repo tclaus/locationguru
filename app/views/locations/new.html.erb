@@ -5,6 +5,20 @@
   <div class="panel-body">
     <div class="container">
       <%= form_for @location do |f| %>
+      <div class="row">
+        <div class="form-group">
+          <label><%= t('.listing_name') %></label>
+          <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label><%= t('.summary') %></label>
+          <%= f.text_area :summary, rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
+        </div>
+      </div>
+
         <div class="row">
           <div class="col-md-4 select">
             <div class="form-group">

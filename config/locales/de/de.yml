@@ -18,3 +18,4 @@ de:
   login: "Anmelden"
   sign_up: "Registrieren"
   search: "Suchen"
+  something_wnt_wrong_create_location: "Beim Anlegen hat etwas nicht geklappt. Fehlt ein Feld?"
