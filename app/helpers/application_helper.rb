@@ -25,12 +25,20 @@ module ApplicationHelper
      ENV['maps_key']
   end
 
-  def domain_name
+  def page_title
     if request.domain == "venueguru.net"
       return "Venue Guru"
     else
       return "Location Guru"
     end
+  end
+
+  def meta_tag(tag, text)
+    content_for :"meta_#{tag}", text
+  end
+
+  def yield_meta_tag(tag, default_text='')
+    content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
   end
 
 end
