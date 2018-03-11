@@ -11,7 +11,10 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  # config.exceptions_app = self.routes
+
+# Uncomment this ti test error pages
+  #config.consider_all_requests_local = false
+  #config.exceptions_app = self.routes
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
