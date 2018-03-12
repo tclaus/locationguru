@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @locations = Location.where(active: true).limit(3)
+    @locations = Location.where(active: true).order("RANDOM()").limit(3)
   end
 
   def search
@@ -22,4 +22,5 @@ class PagesController < ApplicationController
     @search = @locations_address.ransack(params[:q])
     @locations = @search.result
   end
+
 end
