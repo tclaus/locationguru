@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   # DashboardsController
   get 'dashboard' => 'dashboards#index'
 
+  # Admin
+  get 'admin' => 'admin#index'
+
   %w( 404 422 500  ).each do |code|
     get code, :to => "errors#show", :code => code
   end

@@ -64,12 +64,15 @@
   <!-- /.container-fluid -->
   </nav>
 
-  <% if (user_signed_in?) && !current_page?(root_path) && (current_page?("/locations/") || current_page?("/dashboard")) %>
+  <% if (user_signed_in?) && !current_page?(root_path) && (current_page?("/locations/") || current_page?(dashboard_path) || current_page?(admin_path)) %>
     <nav class="navbar navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
           <li <% if current_page?(dashboard_path) %> class="active" <% end %> > <%= link_to t('dashboard'), dashboard_path %></li>
           <li <% if current_page?(locations_path) %> class="active" <% end %> ><%= link_to t('manage'), locations_path %></li>
+          <% if current_user.isAdmin %>
+          <li <% if current_page?(admin_path) %> class="active" <% end %> ><%= link_to t('admin'), admin_path %></li>
+          <% end %>
         </ul>
       </div>
     </nav>

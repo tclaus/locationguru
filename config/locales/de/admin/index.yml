@@ -1,0 +1,7 @@
+de:
+  admin:
+    index:
+      statistics: "Statistiken"
+      total_users: "Alle Benutzer:"
+      total_locations: "Alle Locations:"
+      total_active_locations: "Alle aktive Locations"

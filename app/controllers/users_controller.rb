@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :setRole
+
   def show
     @user = User.find(params[:id])
     @locations = @user.activeLocations

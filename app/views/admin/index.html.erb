@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-9 text-center">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.statistics') %>
+      </div>
+      <div class="panel-body">
+        <table class="statistic-table">
+          <tbody>
+            <tr>
+              <td class="text-left"><%= t('.total_users') %></td>
+              <td class="statistic-table right"><%= @totalUsers %></td>
+            </tr>
+            <tr>
+              <td class="text-left"><%= t('.total_locations') %></td>
+              <td class="statistic-table right"><%= @totalLocations %></td>
+            </tr>
+            <tr>
+              <td class="text-left"><%= t('.total_active_locations') %></td>
+              <td class="statistic-table right"><%= @totalActiveLocations %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

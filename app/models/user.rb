@@ -17,11 +17,23 @@ class User < ApplicationRecord
   has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
   has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
 
-
+  # force set admin role
+   after_find do |user|
+     user.role = "admin" if user.email == ENV['admin_role1']
+     user.role = "admin" if user.email == ENV['admin_role2']
+   end
 
  def activeLocations
    locations.where('active = true')
  end
+
+def isAdmin
+   if self.role == "admin"
+     return true
+  else
+    return false
+  end
+end
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
