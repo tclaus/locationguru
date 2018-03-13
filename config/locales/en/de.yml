@@ -14,7 +14,7 @@ en:
   your_reservations: "Reservations"
   update: "Update"
   delete: "Delete"
-  login: "login"
+  login: "Login"
   sign_up: "Register"
   search: "Search"
   something_went_wrong_create_location: "To submit your venue all fields must be filled."
