@@ -1,0 +1,9 @@
+en:
+  locations:
+    description:
+      description: "Description"
+      listing_name: "Name of listing"
+      what_is_your_listing_name: "Short name"
+      summary: "Descriptive text"
+      describe_your_location: "Write something special about this venue."
+      save: "Save"

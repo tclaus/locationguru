@@ -1,0 +1,7 @@
+en:
+  admin:
+    index:
+      statistics: "Stats"
+      total_users: "Total Users:"
+      total_locations: "Total Venues:"
+      total_active_locations: "Total active venues"

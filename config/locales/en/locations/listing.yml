@@ -1,0 +1,8 @@
+en:
+  locations:
+    listing:
+      listing: "Basis"
+      location_type: "Location Type"
+      location_kind: "Is like... "
+      max_persons: "Persons"
+      save: "Save"

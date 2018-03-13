@@ -1,0 +1,11 @@
+en:
+  users:
+    show:
+      verification: 'Checked information'
+      facebook: "Facebook"
+      email_address: "email"
+      phone_number: "Phone"
+      review_from_guests: "Guest reviews"
+      review_from_hosts: "Host reviews"
+      listings: "Event Venues:"
+      you_dont_have_any_entries: "You have still no venues"

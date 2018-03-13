@@ -1,0 +1,10 @@
+en:
+  locations:
+    location_menu:
+      listing: "Basis"
+      amenities: "Ameniteis"
+      description: "Description"
+      photos: "Photos"
+      location: "Location"
+      deactivate: "Deactivate"
+      publish: "Publish"

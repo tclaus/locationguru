@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :phone_number, :description])
   end
 
-  # Redirect after login 
+  # Redirect after login
   def after_sign_in_path_for(resource_or_scope)
     dashboard_path
   end
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
    def extract_locale_from_accept_language_header
      accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
      if accept_language
-       accept_language.scan(/^[a-z]{2}/).first
+       return accept_language.scan(/^[a-z]{2}/).first
      end
 
      DEFAULT_LANGUAGE

@@ -1,0 +1,21 @@
+en:
+  sign_in_with_facebook: "Login with facebook"
+  devise:
+    registrations:
+      edit:
+        edit_profile: "Edit profile"
+        view_my_profile: "Show profile"
+        your_profile: "Your Profile"
+        full_name: "Name"
+        email: "email"
+        phone_number: "Phone number"
+        description: "About you"
+        password: "Password"
+        password_confirmation: "Confirm password"
+        current_password: "Current password"
+        profile_image: "Profile image"
+        upload_new_avatar: "Upload a new image"
+    sessions:
+      new:
+        forgot_your_password: "reset password"
+        sign_up: "Register"

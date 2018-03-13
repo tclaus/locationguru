@@ -1,0 +1,6 @@
+en:
+  pages:
+    no_locations_found:
+      no_search_results: "Sorry - we found no venues"
+      try_another_search: "try another search"
+      search_for_more: "Start a new search"

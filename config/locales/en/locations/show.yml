@@ -1,0 +1,13 @@
+en:
+  locations:
+    show:
+      review: "Reviews"
+      about_this_listing: "About this listing"
+      amenities: "Amenities"
+      has_kitchen: "Kitchen"
+      has_outdoor: "Outdoor"
+      has_parking_space: "Parking"
+      has_furniture: "Seating"
+      has_heating: "Heating"
+      near_by: "near by"
+      distance_from: "km distance"

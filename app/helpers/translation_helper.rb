@@ -2,14 +2,14 @@ module TranslationHelper
 
   # Translate location_type
   def trLocationType(id)
-    Translation.localize(id,'LocationType','de')
+    Translation.localize(id,'LocationType',I18n.locale)
   end
 
   def trKindType(id)
-    Translation.localize(id,'KindType','de')
+    Translation.localize(id,'KindType',I18n.locale)
   end
 
   def trCateringType(id)
-    Translation.localize(id,'CateringType','de')
+    Translation.localize(id,'CateringType',I18n.locale)
   end
 end

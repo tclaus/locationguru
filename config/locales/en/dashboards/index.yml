@@ -1,0 +1,7 @@
+en:
+  dashboards:
+    index:
+      facebook: "Facebook"
+      email_address: "e-Mail"
+      notifications: "News"
+      your_listings: "Listings"

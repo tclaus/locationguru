@@ -1,0 +1,11 @@
+en:
+  shared:
+    navbar:
+      become_a_host: "Submit your Venue"
+      dashboard: "Dashboard"
+      manage: "Manage venues"
+      your_reservations: "Reservations"
+      your_bookings: "Bookings"
+      profile: "Profile"
+      logout: "Loghin"
+      search_in: "Search in..."

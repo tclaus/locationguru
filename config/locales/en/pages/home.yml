@@ -1,0 +1,7 @@
+en:
+  pages:
+    home:
+      where_are_you_looking_for: "Where should we search?"
+      select_location_type: "Venue kind"
+      locations: "Venues"
+      cities: "Cities"
