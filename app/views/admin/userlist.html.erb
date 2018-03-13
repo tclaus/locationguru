@@ -1,0 +1,16 @@
+
+<%= t('.total_users') %>
+<%= @users.count %>
+<br/>
+<hr>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-6">
+      <%= user.email %>
+    </div>
+    <div class="col-md-3">
+      <%= user.fullname %>
+    </div>
+    <br/>
+  <% end %>
+</div>

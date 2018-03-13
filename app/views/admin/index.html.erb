@@ -8,7 +8,7 @@
         <table class="statistic-table">
           <tbody>
             <tr>
-              <td class="text-left"><%= t('.total_users') %></td>
+              <td class="text-left"><%= link_to t('.total_users'), admin_users_path %></td>
               <td class="statistic-table right"><%= @totalUsers %></td>
             </tr>
             <tr>

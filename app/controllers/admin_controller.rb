@@ -9,8 +9,9 @@ class AdminController < ApplicationController
     render "admin/index"
   end
 
-def show
-
+def users
+  @users = User.all
+  render "admin/userlist"
 end
 
   private
