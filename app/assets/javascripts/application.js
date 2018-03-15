@@ -19,3 +19,5 @@
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require geocomplete
+//= require selectric
+//= require selectric-activate
