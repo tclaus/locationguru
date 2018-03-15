@@ -2,7 +2,7 @@ en:
   locations:
     location_menu:
       listing: "Basis"
-      amenities: "Ameniteis"
+      amenities: "Amenities"
       description: "Description"
       photos: "Photos"
       location: "Location"

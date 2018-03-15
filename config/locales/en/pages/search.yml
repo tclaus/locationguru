@@ -1,12 +1,12 @@
 en:
   pages:
     search:
-      moreFilters: "More criteries"
+      moreFilters: "More criterias"
       lessFilters: "Less criterias"
       ammenities: "Amenities"
       isExclusiveAvailable: "Exclusive available"
       locationType: "Kind of Location"
-      locationKind: "Kind of venue"
+      locationKind: "Kind of Venue"
       hasHeating: "Heating"
       hasKitchen: "Kitchen"
       hasMusicEquipment: "Music equipment"
