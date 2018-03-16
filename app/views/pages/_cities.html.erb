@@ -1,0 +1,10 @@
+<% @cities.each do |city| %>
+  <div class="col-md-3 col-sm-12">
+    <a href="<%= city[:query] %>">
+      <div class="discovery-card"
+      style="image-orientation: from-image; background-image: url('assets/searches/<%= city[:folderName] %>/<%= city[:imageName] %>')">
+      </div>
+      <%= city[:name] %>
+    </a>
+  </div>
+<% end %>

@@ -42,19 +42,7 @@
 <br/>
 <div class="row">
 
-  <div class="col-md-3 col-sm-12">
-    <a href="/search?utf8=✓&search=dortmund">
-      <div class="discovery-card" style="background-image: url('assets/dortmund.jpg')"></div>
-      Dortmund
-    </a>
-  </div>
-
-  <div class="col-md-3 col-sm-12">
-    <a href="/search?utf8=✓&search=ramsau">
-      <div class="discovery-card" style="background-image: url('assets/ramsau.jpg')"></div>
-      Ramsau
-    </a>
-  </div>
+  <%= render partial: 'cities', locals: {items: @cities}  %>
 
 </div>
 <script>
