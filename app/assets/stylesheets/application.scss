@@ -60,7 +60,12 @@ a:hover {
   font-size: 2em;
   font-weight: 400;
 }
-.navbar-button:hover {
+
+.navbar-button {
+  margin-left: 15px;
+}
+
+.navbar-button a:hover {
   color:$color-lighter-2;
 }
 
