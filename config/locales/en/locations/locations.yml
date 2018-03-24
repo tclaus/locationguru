@@ -2,9 +2,11 @@ en:
   locations:
     location:
       location: "Venue"
+      placeholder_venue_email: "Contact email"
       placeholder_venue_website: "Website with more infos"
-      placeholder_venue_address: "Location Address"
+      placeholder_venue_address: "Venue Address"
       placeholer_venue_phone_number: "Phone number"
+      email: "email"
       website: "Website"
       phone_number: "Phone Number"
       address: "Address"

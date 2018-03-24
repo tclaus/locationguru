@@ -13,21 +13,35 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label><%= t('.website') %></label>
+                <%= f.label :email, t('.email') %>
+                <%= f.email_field :email, placeholder: t('.placeholder_venue_email'), class:"form-control", required:true, autocomplete:"email" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :website, t('.website') %>
                 <%= f.url_field :website, placeholder: t('.placeholder_venue_website'),class:" form-control" %>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label><%= t('.phone_number') %></label>
-                <%= f.telephone_field :phonenumber, placeholder: t('.placeholer_venue_phone_number'),class: "form-control" %>
+                <%= f.label :phonenumber, t('.phone_number') %>
+                <%= f.telephone_field :phonenumber, placeholder: t('.placeholer_venue_phone_number'),class: "form-control", autocomplete:"tel" %>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="form-group">
-              <label><%= t('.address') %></label>
-              <%= f.text_area :address, rows: 5, placeholder: t('.placeholder_venue_address'), class:"form-control", id:"autoaddress" %>
+            <div class="col-md-12">
+              <div class="form-group">
+                <%= f.label :address, t('.address') %>
+                <%= f.text_area :address, rows: 5,
+                placeholder: t('.placeholder_venue_address'),
+                class:"form-control",
+                  id:"autoaddress",
+                  required:true %>
+              </div>
             </div>
           </div>
           <div class="text-center">

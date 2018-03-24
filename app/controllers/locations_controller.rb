@@ -122,6 +122,7 @@ class LocationsController < ApplicationController
                                      :summary,
                                      :address,
                                      :phonenumber,
+                                     :email,
                                      :website,
                                      :active,
                                      :has_heating,
