@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= page_title %> </title>
+    <title><%= page_title %>
+    </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,10 +12,16 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://code.jquery.com/ui/1.11.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
 
-    <meta name='description'
-          content='<%= yield_meta_tag(:description, 'Sie suchen einen Partyraum oder Eventlocation zum Mieten? Alle Räume und gegebenheiten für Feiern, Geburtstage, Hochzeiten. Einfach und Kostenlos.') %>' />
-    <meta name='keywords'
-          content='<%= yield_meta_tag(:keywords, 'location, party, feier, venue, kostenlos,free') %>' />
+    <meta name='description' content='<%= yield_meta_tag(:description, 'Sie suchen einen Partyraum oder Eventlocation zum Mieten? Alle Räume und gegebenheiten für Feiern, Geburtstage, Hochzeiten. Einfach und Kostenlos.') %>'/>
+    <meta name='keywords' content='<%= yield_meta_tag(:keywords, 'location, party, feier, venue, kostenlos,free') %>'/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#d7f4f1">
+    <meta name="theme-color" content="#d7f4f1">
   </head>
 
   <body>
