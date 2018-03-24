@@ -236,6 +236,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    social-share-button (1.1.0)
+      coffee-rails
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -302,6 +304,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sendgrid-ruby
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
   toastr-rails (~> 1.0)

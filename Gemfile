@@ -49,6 +49,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'geocoder'
 gem 'ransack', '~> 1.7'
+gem 'social-share-button'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
