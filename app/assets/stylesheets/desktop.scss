@@ -1,0 +1,19 @@
+
+@media (min-width: 1024px) {
+
+    // Search Page with maps on right side
+    
+    #left {
+      padding: 10px 400px 10px 20px;
+      overflow: scroll;
+      height: 100%;
+    }
+
+    #right {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 450px;
+      height: 80%;
+    }
+}

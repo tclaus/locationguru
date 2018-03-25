@@ -6,7 +6,7 @@ en:
       ammenities: "Amenities"
       isExclusiveAvailable: "Exclusive available"
       locationType: "Kind of Location"
-      locationKind: "Kind of Venue"
+      kindType: "Kind of Venue"
       hasHeating: "Heating"
       hasKitchen: "Kitchen"
       hasMusicEquipment: "Music equipment"

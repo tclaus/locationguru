@@ -9,7 +9,7 @@
         </button>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="detailSearch">
       <br/>
       <div class="collapse" id="collapsePanel">
         <%= search_form_for @search, url: search_path, remote: true do |f|%>
@@ -25,16 +25,16 @@
           <div class="col-md-6 select">
             <div class="form-group">
               <label><%= t('.locationType') %></label>
-              <% locationTypeArray = LocationType.all.map {|type| [trKindType(type.id), type.id]} %>
+              <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
               <%= select("q[location_type]", :location_type, locationTypeArray) %>
             </div>
           </div>
 
           <div class="col-md-6 select">
             <div class="form-group">
-              <label><%= t('.locationKind') %></label>
+              <label><%= t('.kindType') %></label>
               <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-              <%= select("q[location_kind]", :kind_type, kindTypeArray) %>
+              <%= select("q[kind_type]", :kind_type, kindTypeArray) %>
             </div>
           </div>
         </div>
@@ -83,7 +83,6 @@
   <div id="map" style="width: 100%; height: 100%">
 
     <script>
-      console.log('Enter maps.google script');
       function initialize(locations) {
         if (locations instanceof Array) {
           if (locations.length > 0) {

@@ -6,7 +6,7 @@ de:
       ammenities: "Ausstattung"
       isExclusiveAvailable: "Exklusiv verfügbar"
       locationType: "In welcher Umgebung gelegen"
-      locationKind: "Art der Location"
+      kindType: "Art der Location"
       hasHeating: "Beheizt"
       hasKitchen: "Küche"
       hasMusicEquipment: "Musik anlage vorhanden"
