@@ -26,3 +26,12 @@ three:
   summary: Tante Amanda Restaurant
   active: true
   user_id: 1
+
+inactive:
+  id: 4
+  kind_type: 2
+  location_type: 2
+  listing_name: Inavtive Location
+  summary: Dont show to other user
+  active: false
+  user_id: 2

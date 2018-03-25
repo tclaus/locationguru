@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorized, only: [:listing, :pricing, :description,
-                :photo_upload, :amenities, :location, :update, :delete]
+                :photo_upload, :amenities, :location, :update, :destroy]
 
   def index
     @locations = current_user.locations
@@ -28,6 +28,15 @@ class LocationsController < ApplicationController
   def show
     @photos = @location.photos
     @guest_reviews = @location.guest_reviews
+
+    if !@location.active
+
+      if (!current_user.blank? || current_user.id != @location.user_id)
+        logger.warn "Tried to load inactive location without authorization: #{@location.id}"
+        render status: :not_found
+      end
+    end
+
   end
 
   def listing; end

@@ -30,13 +30,19 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
       sign_in users(:host)
       location = locations(:one)
       delete "/locations/" + location.id.to_s
-      
+
       assert :success
   end
 
   test 'should get specific location' do
     get '/locations/1'
     assert_response :success
+  end
+
+  test 'should not return a inactive location' do
+    sign_in users(:host)
+    get '/locations/' + locations(:inactive).id.to_s
+    assert_response :missing
   end
 
   test 'should get new' do
