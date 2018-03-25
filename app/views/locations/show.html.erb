@@ -18,46 +18,38 @@
       <div class="col-md-8">
         <h1><%= @location.listing_name %></h1>
           <%= social_share_button_tag(@location.listing_name,  desc: @location.listing_name) %>
-        <%= @location.address %>
+          <% if !@location.address.blank? %>
+          <address>
+            <%= @location.address.gsub(/(?:\n\r?|\r\n?|,)/, '<br>').html_safe %>
+          </address>
+          <% end %>
       </div>
     </div>
     <hr/>
 
-    <!-- Location Info -->
-    <!-- key features -->
     <div class="row text-babu">
       <div class="row text-center row-space-1">
 
         <div class="col-md-3">
-          <i class="fa fa-home fa-2x"></i>
+          <i class="fa fa-home fa-2x"></i><br>
+            <%= trKindType(KindType.find(@location.kind_type).id) %>
         </div>
         <div class="col-md-3">
-          <i class="fa fa-location-arrow fa-2x"></i>
-        </div>
-        <div class="col-md-3">
-          <i class="fa fa-cutlery fa-2x"></i>
-        </div>
-        <% if !@location.max_persons.blank? %>
-          <div class="col-md-3">
-            <i class="fa fa-male fa-2x"></i>
-          </div>
-        <% end %>
-      </div>
-      <div class="row text-center">
-        <div class="col-md-3">
-          <%= trKindType(KindType.find(@location.kind_type).id) %>
-        </div>
-        <div class="col-md-3">
+          <i class="fa fa-location-arrow fa-2x"></i><br>
           <%= trLocationType(LocationType.find(@location.location_type).id) %>
         </div>
         <div class="col-md-3">
           <% if @location.catering? %>
+            <i class="fa fa-cutlery fa-2x"></i><br>
             <%= trCateringType(CateringType.find(@location.catering).id) %>
           <% end %>
         </div>
-        <div class="col-md-3">
-          <%= @location.max_persons %>
-        </div>
+        <% if !@location.max_persons.blank? %>
+          <div class="col-md-3">
+            <i class="fa fa-male fa-2x"></i><br>
+            <%= @location.max_persons %>
+          </div>
+        <% end %>
       </div>
     </div>
     <hr/>
@@ -75,23 +67,27 @@
       <div class="col-md-3">
         <h4><%= t('.amenities') %></h4>
       </div>
+      <% if @location.has_amemities %>
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-6">
             <ul class="amenities">
-              <li class="<%= 'invisible' if !@location.has_kitchen %> "><%= t('.has_kitchen') %></li>
-              <li class="<%= 'invisible' if !@location.has_outdoor %> "><%= t('.has_outdoor') %></li>
-              <li class="<%= 'invisible' if !@location.has_parking_space %> "><%= t('.has_parking_space') %></li>
+              <% if @location.has_kitchen %> <li><%= t('.has_kitchen') %></li> <% end %>
+              <% if @location.has_outdoor %> <li><%= t('.has_outdoor') %></li> <% end %>
+              <% if @location.has_parking_space %><li><%= t('.has_parking_space') %></li> <% end %>
             </ul>
           </div>
           <div class="col-md-6">
             <ul class="amenities">
-              <li class="<%= 'invisible' if !@location.has_furniture %> "><%= t('.has_furniture') %></li>
-              <li class="<%= 'invisible' if !@location.has_heating %> "><%= t('.has_heating') %></li>
+              <% if @location.has_furniture %> <li><%= t('.has_furniture') %></li> <% end %>
+              <% if @location.has_heating %> <li><%= t('.has_heating') %></li> <% end %>
+              <% if @location.has_air_conditioning %> <li><%= t('.has_air_conditioning') %></li> <% end %>
+              <% if @location.has_music_eq %> <li><%= t('.has_music_eq') %></li> <% end %>
             </ul>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
     <hr/>
     <!-- Carussel -->

@@ -12,14 +12,14 @@
           <%= form_for @location do |f| %>
           <div class="row">
             <div class="form-group">
-              <label><%= t('.listing_name') %></label>
+              <%= f.label :listing_name, t('.listing_name') %>
               <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
-              <label><%= t('.summary') %></label>
+              <%= f.label :summary, t('.summary') %>
               <%= f.text_area :summary, rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
             </div>
           </div>

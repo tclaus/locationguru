@@ -54,7 +54,8 @@
             <div class="col-md-4">
               <div class="form-group select">
                 <%= f.label :catering, t('.catering') %>
-                <%= f.collection_select(:catering,CateringType.all,:id,:name) %>
+                <% cateringTypeArray = CateringType.all.map {|type| [trCateringType(type.id), type.id]} %>
+                <%= f.select(:catering, options_for_select(cateringTypeArray), prompt: t('.select_catering_type')) %>
               </div>
             </div>
           </div>

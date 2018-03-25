@@ -9,5 +9,7 @@ en:
       has_parking_space: "Parking"
       has_furniture: "Seating"
       has_heating: "Heating"
+      has_air_conditioning: "Air Conditioning"
+      has_music_eq: "Music Equipment"
       near_by: "near by"
       distance_from: "km distance"

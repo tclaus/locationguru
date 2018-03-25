@@ -7,6 +7,8 @@ en:
       music_equipment: "Music equipment"
       outside_area: "Outdoor"
       parking_space: "Parking"
+      select_catering_type: "Select Catering"
+      select_location_type: "Select Type"
       furnished: "Seating"
       catering: "Catering"
       save: "Save"

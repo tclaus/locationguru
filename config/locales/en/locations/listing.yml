@@ -4,5 +4,8 @@ en:
       listing: "Basis"
       location_type: "Location Type"
       location_kind: "Is like... "
+      select_catering_type: "Select Catering..."
+      select_location_type: "Select Type..."
+      select_kind_type: "Select Type..."
       max_persons: "Persons"
       save: "Save"

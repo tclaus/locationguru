@@ -89,8 +89,9 @@ class LocationsController < ApplicationController
     else
       flash[:notice] = t('.could_not_delete_this_location')
     end
-
-    redirect_back(fallback_location: request.referer)
+    if request.referer
+      redirect_back(fallback_location: request.referer)
+    end
   end
 
   private
