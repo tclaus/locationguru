@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+
   def create
     @location = Location.find(params[:location_id])
     return unless params[:images]
@@ -13,9 +14,16 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @location = @photo.location
-    @photo.destroy
-    @photos = Photo.where(location_id: @location.id)
+    if !current_user.blank? && current_user.id == @location.user.id
+      logger.debug "Delete photo #{@photo.id}"
+      @photo.destroy
+      @photos = Photo.where(location_id: @location.id)
 
-    respond_to :js
+      respond_to :js
+    else
+      logger.debug "Not allowed to delete photo #{@photo.id}"
+      flash[:alert] = "not allowed to delete photo"
+      render status: :not_found
+    end
   end
 end

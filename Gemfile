@@ -28,6 +28,7 @@ gem 'sass-rails', '~> 5.0'
 # Authorization
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
+
 # Photos and avatars
 gem 'aws-sdk', '~>2.8'
 gem 'paperclip', '~> 5.0.0'
@@ -39,11 +40,12 @@ gem 'toastr-rails', '~>1.0'
 gem 'devise', '~>4.2'
 gem 'devise-i18n'
 
-# send emails
+# Send emails
 gem 'sendgrid-ruby'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
