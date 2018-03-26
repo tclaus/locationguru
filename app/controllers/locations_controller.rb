@@ -31,9 +31,9 @@ class LocationsController < ApplicationController
 
     if !@location.active
 
-      if (!current_user.blank? || current_user.id != @location.user_id)
+      if !is_owner
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
-        render status: :not_found
+        redirect_to root_path
       end
     end
 
@@ -104,6 +104,17 @@ class LocationsController < ApplicationController
   end
 
   private
+
+  def is_owner
+    if current_user.blank?
+      return false
+    end
+
+    if current_user.id == @location.user_id
+      return true
+    end
+    return false
+  end
 
   def is_conflict(start_date, end_date, location)
     check = location.reservations.where("? < start_date AND end_date < ? ",start_date, end_date)

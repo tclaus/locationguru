@@ -42,7 +42,9 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
   test 'should not return a inactive location' do
     sign_in users(:host)
     get '/locations/' + locations(:inactive).id.to_s
-    assert_response :missing
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
   end
 
   test 'should get new' do

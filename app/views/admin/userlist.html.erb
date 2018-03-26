@@ -3,14 +3,30 @@
 <%= @users.count %>
 <br/>
 <hr>
-<div class="row">
-  <% @users.each do |user| %>
-    <div class="col-md-6">
-      <%= user.email %>
-    </div>
-    <div class="col-md-3">
-      <%= user.fullname %>
-    </div>
-    <br/>
-  <% end %>
+<div class="table-responsive">
+  <table class="table table-striped">
+      <tr>
+       <th scope="col">ID</th>
+       <th scope="col">Email</th>
+       <th scope="col">Name</th>
+       <th scope="col">Locations</th>
+       <th scope="col">Created</th>
+       <th scope="col">Provider</th>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= mail_to user.email %></td>
+        <td><%= user.fullname %></td>
+        <td><%= user.activeLocations.count %> / <%= user.locations.count %></td>
+        <td><%= user.created_at %></td>
+        <% if user.provider.blank? %>
+          <td>Site</td>
+        <% else %>
+          <td><%= user.provider %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+
 </div>
