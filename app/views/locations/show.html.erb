@@ -1,6 +1,7 @@
 
 <% # header information %>
 <% meta_tag :description, @location.listing_name + ', ' + @location.summary %>
+<% meta_tag :siteUrl, 'https://' + request.host + listing_location_path + '/' + @location.id.to_s %>
 <% # Keywords: 'fix + town' %>
 
 <div class="row">

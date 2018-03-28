@@ -19,7 +19,7 @@
     <meta name='keywords' content="<%= yield_meta_tag(:keywords, t('.meta_keywords')) %>"/>
 
     <% # Open Graph facebook %>
-    <meta name='og:url' content='https://www.locationguru.net'>
+    <meta name='og:url' content="<%= yield_meta_tag(:siteUrl,'https://www.locationguru.net') %>">
     <meta name='og:type' content='website'>
     <meta name='og:title' content='<%= page_title %>'>
     <meta name='og:image' content="<%= yield_meta_tag(:image, 'https://www.locationguru.net/apple-touch-icon.png') %>">

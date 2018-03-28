@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    logger.debug "Params: #{params}"
+    logger.debug "* Search Params: #{params}"
     if params[:search].present? && params[:search].strip != ''
       session[:loc_search] = params[:search]
     end
@@ -13,10 +13,14 @@ class PagesController < ApplicationController
     if session[:loc_search] && session[:loc_search] != ''
       @locations_address = Location.where(active: true)
                                    .near(session[:loc_search], 15, order: 'distance')
+
+      logger.debug "Found after location query: #{@locations_address} locations"
     else
       # If no location, return all locations ( Need to better fetch from database)
       @locations_address = Location.where(active: true).all
+      logger.debug "Simply return all locations"
     end
+
 
     # Step 3 - Ransack filters in memory other data (Ameni)
     #          maybe too much data in future!
