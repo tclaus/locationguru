@@ -44,9 +44,11 @@
           <%= trLocationType(LocationType.find(@location.location_type).id) %>
         </div>
         <div class="col-xs-3">
+          <i class="fa fa-cutlery fa-2x"></i><br>
           <% if @location.catering? %>
-            <i class="fa fa-cutlery fa-2x"></i><br>
             <%= trCateringType(CateringType.find(@location.catering).id) %>
+          <% else %>
+            -
           <% end %>
         </div>
         <% if !@location.max_persons.blank? %>
@@ -91,6 +93,10 @@
             </ul>
           </div>
         </div>
+      </div>
+      <% else %>
+      <div class="col-md-3">
+        <%= t('.no_amenities_set') %> 
       </div>
       <% end %>
     </div>

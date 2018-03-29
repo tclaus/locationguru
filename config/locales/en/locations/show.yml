@@ -4,6 +4,7 @@ en:
       review: "Reviews"
       about_this_listing: "About this listing"
       amenities: "Amenities"
+      no_amenities_set: "No special amenities set"
       has_kitchen: "Kitchen"
       has_outdoor: "Outdoor"
       has_parking_space: "Parking"

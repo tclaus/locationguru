@@ -4,6 +4,7 @@ de:
       review: "Bewertungen"
       about_this_listing: "Über diesen Eintrag"
       amenities: "Ausstattung"
+      no_amenities_set: "Keine besondere Ausstattung angegeben"
       has_kitchen: "Küche"
       has_outdoor: "Aussenbereich"
       has_parking_space: "Parkplätze"
