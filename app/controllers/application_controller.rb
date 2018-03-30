@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
       "img-src 'self' maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
       "font-src  'self' https://fonts.gstatic.com;"\
-      "connect-src 'self';"
+      "connect-src 'self';"\
+      "form-action 'self';"\
+      "base-uri 'self'"
   end
 
   def configure_permitted_parameters
