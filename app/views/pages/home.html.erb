@@ -46,8 +46,4 @@
   <%= render partial: 'cities', locals: {items: @cities}  %>
 
 </div>
-<script>
-  $(function() {
-    $("#auto_location").geocomplete();
-  })
-</script>
+<%= javascript_include_tag( 'home_geocomplete' ) %>

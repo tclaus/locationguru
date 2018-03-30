@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -83,9 +83,4 @@
   </div>
 </nav>
 <% end %>
-
-<script>
-$(function () {
-  $("#auto_address_navbar").geocomplete();
-})
-</script>
+<%= javascript_include_tag( 'navbar_geocomplete' ) %>

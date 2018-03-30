@@ -3,9 +3,21 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :set_csp
 
 
   protected
+
+  def set_csp
+    # Set all restrictions for content security
+    response.headers['Content-Security-Policy'] =
+      "default-src 'self';" \
+      "script-src 'self' google-analytics.com *.googleapis.com;" \
+      "img-src 'self' maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
+      "font-src  'self' https://fonts.gstatic.com;"\
+      "connect-src 'self';"
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
