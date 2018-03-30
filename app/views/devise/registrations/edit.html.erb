@@ -74,7 +74,8 @@
         <label class="btn btn-default btn-change-avatar">
           <%= t('.upload_new_avatar') %>
           <span style="display:none;">
-            <%= form.file_field :avatar, onchange: "form.submit()"%>
+            <%= form.file_field :avatar, id: "profile"%>
+            <%= javascript_include_tag('profile_pic_upload') %>
           </span>
         </label>
         <%= form.submit style: "display:none;" %>

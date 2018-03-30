@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   def set_csp
     # Set all restrictions for content security
     response.headers['Content-Security-Policy'] =
-      "default-src 'self';" \
-      "script-src 'self' google-analytics.com *.googleapis.com;" \
+      "default-src 'none';" \
+      "script-src 'self' google-analytics.com maps.googleapis.com;" \
       "img-src 'self' maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
       "font-src  'self' https://fonts.gstatic.com;"\

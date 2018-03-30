@@ -18,4 +18,5 @@ maps_single_location.js
 search_filters.js
 maps_location_list.js
 photos_upload
+profile_pic_upload
 messages )
