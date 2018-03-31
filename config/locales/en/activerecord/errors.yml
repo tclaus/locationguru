@@ -1,0 +1,13 @@
+de:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "An email must be set"
+            password:
+              blank: "A password must be set"
+              too_short: "Too short"
+            password_confirmation:
+              confirmation: "Both password and confirmation must be the same"

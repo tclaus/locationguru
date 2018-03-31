@@ -4,48 +4,48 @@
       <li class="sidebar-item">
         <%= link_to t('your_listings'), locations_path, class: "sidebar-link active" %>
       </li>
-      <li class="sidebar-item">
-        <%= link_to t('your_trips'), your_trips_path, class: "sidebar-link" %>
-      </li>
-      <li class="sidebar-item">
-        <%= link_to t('your_reservations'), your_reservations_path, class: "sidebar-link" %>
-      </li>
     </ul>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-      <%= t('your_listings') %>
+      <%= t('your_listings') %>  (<%= @locations.count %>)
       </div>
     </div>
     <div class="panel-body">
-      <% @locations.each do |location| %>
-          <div class="row">
+      <% if @locations.count==0 %>
+      <div class="row">
+        <%= t('no_locations_yet') %>
+      </div>
+      <% else %>
+        <% @locations.each do |location| %>
+            <div class="row">
 
-            <div class="col-md-1" style="font-size:3em; color:#319d5d;">
-              <% if location.active? %>
-                <i class="fa fa-check-circle"></i>
-              <% else %>
-                <i class="fa fa-circle-o"></i>
-              <% end %>
-            </div>
+              <div class="col-md-1" style="font-size:3em; color:#319d5d;">
+                <% if location.active? %>
+                  <i class="fa fa-check-circle"></i>
+                <% else %>
+                  <i class="fa fa-circle-o"></i>
+                <% end %>
+              </div>
 
-            <div class="col-md-2">
-              <%= link_to listing_location_path(location) do %>
-                <%= image_tag location.cover_photo(:thumb) %>
-              <% end %>
+              <div class="col-md-2">
+                <%= link_to listing_location_path(location) do %>
+                  <%= image_tag location.cover_photo(:thumb) %>
+                <% end %>
+              </div>
+              <div class="col-md-7">
+                <%= link_to listing_location_path(location) do %>
+                <h4> <%= location.listing_name %> </h4>
+                <% end %>
+              </div>
+              <div class="col-md-2 right">
+                <%= link_to t('update'), listing_location_path(location), class:"btn btn-form action-listing", style:"width:150px" %>
+                <%= link_to t('delete'), location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')}, class:"btn btn-danger btn-sm action-listing", style:"width:150px" %>
+              </div>
             </div>
-            <div class="col-md-7">
-              <%= link_to listing_location_path(location) do %>
-              <h4> <%= location.listing_name %> </h4>
-              <% end %>
-            </div>
-            <div class="col-md-2 right">
-              <%= link_to t('update'), listing_location_path(location), class:"btn btn-form action-listing", style:"width:150px" %>
-              <%= link_to t('delete'), location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')}, class:"btn btn-danger btn-sm action-listing", style:"width:150px" %>
-            </div>
-          </div>
-          <hr/>
+            <hr/>
+        <% end %>
       <% end %>
     </div>
   </div>

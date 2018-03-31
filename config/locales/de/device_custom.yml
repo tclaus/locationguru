@@ -15,6 +15,8 @@ de:
         current_password: "Aktuelles Passwort"
         profile_image: "Profilbild"
         upload_new_avatar: "Neues Bild hochladen"
+      new:
+        use_alternative_login: "Oder:"
     sessions:
       new:
         forgot_your_password: "Passwort wieder herstellen"

@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
       "script-src 'self' google-analytics.com maps.googleapis.com;" \
-      "img-src 'self' maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "img-src 'self' www.gravatar.com maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
-      "font-src  'self' https://fonts.gstatic.com;"\
+      "font-src  'self' fonts.gstatic.com;"\
       "connect-src 'self';"\
       "form-action 'self';"\
       "base-uri 'self'"
