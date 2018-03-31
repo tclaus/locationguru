@@ -19,7 +19,7 @@ class Location < ApplicationRecord
   end
 
   def has_amemities
-    has_heating || has_kitchen || has_outdoor || has_music_eq || 
+    has_heating || has_kitchen || has_outdoor || has_music_eq ||
        has_furniture || has_parking_space || has_air_conditioning
   end
 
