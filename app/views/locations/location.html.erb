@@ -45,8 +45,8 @@
                   <% if current_user.isAdmin %>
                   <br>
                   <% if @location.geocoded? %>
-                  <i class="fa fa-check"></i>
-                  <% end %>
+                    <i class="fa fa-check"></i>
+                    <% end %>
                   long.: <%= @location.longitude %>, lat.: <%= @location.latitude %>
                   <% end %>
               </div>
