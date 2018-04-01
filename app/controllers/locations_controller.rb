@@ -130,7 +130,7 @@ class LocationsController < ApplicationController
   end
 
   def is_authorized
-    redirect_to root_path, alert: t('not_authorized') unless current_user.id == @location.user_id
+    redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
   end
 
   def set_location_active
