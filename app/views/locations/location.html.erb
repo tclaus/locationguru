@@ -42,12 +42,15 @@
                   id: "auto_location",
                   required:true %>
                   <%= javascript_include_tag('home_geocomplete') %>
-                  <% if current_user.isAdmin %>
-                  <br>
-                  <% if @location.geocoded? %>
-                    <i class="fa fa-check"></i>
+                    <% if current_user.isAdmin %>
+                    <br>
+                    <% if @location.geocoded? %>
+                      <i class="fa fa-check"></i>
+                      long.: <%= @location.longitude %>, lat.: <%= @location.latitude %>
+                      <% else %>
+                      Not geocoded.
                     <% end %>
-                  long.: <%= @location.longitude %>, lat.: <%= @location.latitude %>
+
                   <% end %>
               </div>
             </div>

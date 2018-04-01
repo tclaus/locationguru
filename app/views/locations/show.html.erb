@@ -25,7 +25,7 @@
 
           <% if !@location.address.blank? %>
           <address>
-            <%= @location.address.gsub(/(?:\n\r?|\r\n?|,)/, '<br>').html_safe %>
+            <%= html_line_breaks(@location.address) %>
           </address>
           <% end %>
       </div>
@@ -64,7 +64,7 @@
     <div class="row">
       <div class="col-md-12">
         <h3><%= t('.about_this_listing') %></h3>
-        <p><%= @location.summary %></p>
+        <p><%= html_line_breaks(@location.summary) %></p>
       </div>
     </div>
 

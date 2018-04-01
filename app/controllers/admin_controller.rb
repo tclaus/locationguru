@@ -10,9 +10,13 @@ class AdminController < ApplicationController
   end
 
 def users
-  @users = User.all
+  @users = User.all.order(:id)
   render "admin/userlist"
 end
+
+# Todo: show locations
+# Name, aktiv / Inaktiv
+# Name des Erstellers
 
   private
 
