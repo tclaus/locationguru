@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   has_many :guest_reviews
 
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :geocode , if: :address_changed?
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
