@@ -5,11 +5,7 @@ class LocationsController < ApplicationController
                 :photo_upload, :amenities, :location, :update, :destroy]
 
   def index
-    if current_user.isAdmin
-      @locations = Location.all
-    else
       @locations = current_user.locations
-    end
   end
 
   def new

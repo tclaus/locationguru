@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   # Admin
   get 'admin' => 'admin#index'
   get 'admin/users' => 'admin#users'
+  get 'admin/locations' => 'admin#locations'
 
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code
