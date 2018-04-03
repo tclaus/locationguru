@@ -176,6 +176,23 @@ a:hover {
   font-weight: 500;
   line-height: 25px;
 }
+
+div.or {
+  hr {
+    color: lightgray;
+    box-shadow: 0 0 1px lightgray;
+  }
+  span {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    display: block;
+    background-color: white;
+    display: block;
+    width: 50px;
+    font-size: 1.2em;
+  }
+}
+
 // Avatar
 .avatar-small {
   width: 28px;

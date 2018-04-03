@@ -21,3 +21,4 @@ en:
       new:
         forgot_your_password: "reset password"
         sign_up: "Register"
+        use_alternative_login: OR

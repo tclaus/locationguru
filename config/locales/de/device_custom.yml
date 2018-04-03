@@ -16,8 +16,9 @@ de:
         profile_image: "Profilbild"
         upload_new_avatar: "Neues Bild hochladen"
       new:
-        use_alternative_login: "Oder:"
+        use_alternative_login: "ODER"
     sessions:
       new:
         forgot_your_password: "Passwort wieder herstellen"
         sign_up: "Registrieren"
+        use_alternative_login: ODER
