@@ -45,7 +45,7 @@
     details: false,
     detailsAttribute: "name",
     detailsScope: null,
-    autoselect: true,
+    autoselect: false,
     location: false,
 
     mapOptions: {
