@@ -42,12 +42,14 @@ class PagesController < ApplicationController
     simpleLocations = Array.new
     if !locations.blank?
       locations.each do |l|
-        simpleLocation =  SimpleLocation.new()
-        simpleLocation.id = l.id
-        simpleLocation.listing_name = l.listing_name
-        simpleLocation.latitude = l.latitude
-        simpleLocation.longitude = l.longitude
-        simpleLocations.push simpleLocation
+        if l.geocoded?
+          simpleLocation =  SimpleLocation.new()
+          simpleLocation.id = l.id
+          simpleLocation.listing_name = l.listing_name
+          simpleLocation.latitude = l.latitude
+          simpleLocation.longitude = l.longitude
+          simpleLocations.push simpleLocation
+        end
       end
     end
     return simpleLocations
