@@ -1,3 +1,5 @@
+require 'simpleLocation'
+
 class PagesController < ApplicationController
   def home
     @locations = Location.where(active: true).order('RANDOM()').limit(3)
@@ -33,6 +35,22 @@ class PagesController < ApplicationController
     #          maybe too much data in future!
     @search = locations.ransack(params[:q])
     @locations = @search.result
+    @simpleLocations = createSimpleLocations(@locations)
+  end
+
+  def createSimpleLocations(locations)
+    simpleLocations = Array.new
+    if !locations.blank?
+      locations.each do |l|
+        simpleLocation =  SimpleLocation.new()
+        simpleLocation.id = l.id
+        simpleLocation.listing_name = l.listing_name
+        simpleLocation.latitude = l.latitude
+        simpleLocation.longitude = l.longitude
+        simpleLocations.push simpleLocation
+      end
+    end
+    return simpleLocations
   end
 
   def cities
