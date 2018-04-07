@@ -12,10 +12,11 @@ class ApplicationController < ActionController::Base
     # Set all restrictions for content security
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
-      "script-src 'self' google-analytics.com maps.googleapis.com;" \
-      "img-src 'self' www.gravatar.com maps.googleapis.com maps.gstatic.com graph.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "script-src 'self' google-analytics.com maps.googleapis.com connect.facebook.net;" \
+      "img-src 'self' www.gravatar.com maps.googleapis.com maps.gstatic.com graph.facebook.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
       "font-src  'self' fonts.gstatic.com;"\
+      "child-src 'self' staticxx.facebook.com www.facebook.com;" \
       "connect-src 'self';"\
       "form-action 'self';"\
       "base-uri 'self'"
