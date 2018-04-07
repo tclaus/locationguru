@@ -14,3 +14,5 @@ de:
       has_music_eq: "Musik Anlage"
       near_by: "In der Nähe von"
       distance_from: "km entfernt"
+      inactive_location_warning: "Diese Location ist nicht aktiv"
+      inactive_location_description_warning: "Füge der Location ein Foto, Beschreibung und Kontaktdaten hinzu um es veröffentlichen zu können"

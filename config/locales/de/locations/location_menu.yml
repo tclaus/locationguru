@@ -6,5 +6,5 @@ de:
       description: "Bescheibung"
       photos: "Fotos"
       location: "Ort / Kontakt"
-      deactivate: "Deaktivieren"
-      publish: "Veröffentlichen"
+      isActive: "Veröffentlicht"
+      isInactive: "Nicht Aktiv"

@@ -4,7 +4,12 @@
 <% meta_tag :siteUrl, 'https://' + request.host + listing_location_path + '/' + @location.id.to_s %>
 <% meta_tag :page_title,@location.listing_name %>
 <% # Keywords: 'fix + town' %>
-
+<% if !@location.active %>
+<div class="alert alert-danger text-center">
+  <%= t('.inactive_location_warning') %> <br>
+<span class="small"><%= t('.inactive_location_description_warning') %></span>
+</div>
+<% end %>
 <div class="row">
   <div class="col-md-12">
     <%= image_tag @location.cover_photo(nil), class: "img-header" %>
@@ -18,7 +23,7 @@
   <div class="col-md-8">
     <!-- listing name -->
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <h1><%= @location.listing_name %></h1>
           <%= social_share_button_tag(@location.listing_name,
             image: @location.cover_photo(:medium),

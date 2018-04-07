@@ -6,5 +6,5 @@ en:
       description: "Description"
       photos: "Photos"
       location: "Location / Contact"
-      deactivate: "Deactivate"
-      publish: "Publish"
+      isActive: "Published"
+      isInactive: "Inactive"

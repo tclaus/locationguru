@@ -14,3 +14,5 @@ en:
       has_music_eq: "Music Equipment"
       near_by: "near by"
       distance_from: "km distance"
+      inactive_location_warning: "This venue is not aktivated"
+      inactive_location_description_warning: "Add a photo, description and contact data to publish it."
