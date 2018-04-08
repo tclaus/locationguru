@@ -30,8 +30,12 @@ class LocationsController < ApplicationController
     @guest_reviews = @location.guest_reviews
 
     if !@location.active
-
-      if !is_owner && !current_user.isAdmin
+      if !current_user.blank?
+         if !is_owner && !current_user.isAdmin
+          logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
+          redirect_to root_path
+        end
+      else
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
         redirect_to root_path
       end

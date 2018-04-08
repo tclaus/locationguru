@@ -14,7 +14,11 @@ class Location < ApplicationRecord
     if !photos.empty?
       photos[0].image.url(size)
     else
-      'empty_thumb.png'
+      if size == ':medium'
+        'empty_thumb_medium.png'
+      else
+        'empty_thumb.png'
+      end
     end
   end
 

@@ -220,6 +220,12 @@ div.or {
   width: 100%;
 }
 
+img.location_thumb {
+  width: 100px;
+  height:100px;
+  object-fit:scale-down;
+}
+
 // forms
 
 .form-group {
