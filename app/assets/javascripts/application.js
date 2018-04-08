@@ -22,4 +22,4 @@
 //= require selectric
 //= require selectric-activate
 //= require social-share-button
-//= require facebook_share
+//= require social_share_buttons
