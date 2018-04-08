@@ -8,3 +8,4 @@ en:
       location: "Location / Contact"
       isActive: "Published"
       isInactive: "Inactive"
+      location_preview: "Preview"
