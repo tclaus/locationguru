@@ -1,5 +1,8 @@
 
 @media (max-width: 1024px) {
+  .container {
+    width: 95% !important;
+  }
   .row#detailSearch {
     margin-left: 0 !important;
     margin-right: 0 !important;

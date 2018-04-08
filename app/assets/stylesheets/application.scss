@@ -252,7 +252,8 @@ div.or {
 }
 
 .sidebar-link {
-  color: $sidebar-color;
+  color: $action-button-background;
+  font-weight: normal;
   text-decoration: none;
 }
 
@@ -262,7 +263,7 @@ div.or {
 }
 
 .active.sidebar-link {
-  color: $default-textcolor;
+  color: $action-button-background;
   font-weight: bold;
   text-decoration: none;
 }

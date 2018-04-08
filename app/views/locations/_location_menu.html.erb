@@ -18,6 +18,10 @@
       <span class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
+    <% else %>
+    <span class="pull-right text-babu">
+      <i class="fa fa-circle-o"></i>
+    </span>
     <% end %>
   </li>
   <li class="sidebar-item">
@@ -26,6 +30,10 @@
       <span id="photo_check" class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
+      <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
+      </span>
     <% end %>
   </li>
   <li class="sidebar-item">
@@ -33,6 +41,10 @@
     <% if !@location.address.blank? %>
       <span class="pull-right text-babu">
         <i class="fa fa-check"></i>
+      </span>
+      <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
       </span>
     <% end %>
   </li>

@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
 
     if !@location.active
 
-      if !is_owner
+      if !is_owner && !current_user.isAdmin
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
         redirect_to root_path
       end
