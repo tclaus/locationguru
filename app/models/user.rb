@@ -37,6 +37,10 @@ class User < ApplicationRecord
    locations.where('active = true')
  end
 
+ def inactiveLocations
+   locations.where('active = false')
+ end
+
 def isAdmin
    if self.role == "admin"
      return true
