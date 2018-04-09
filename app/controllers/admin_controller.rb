@@ -18,7 +18,11 @@ class AdminController < ApplicationController
     logger.debug("Query with params #{params}")
     if params[:userid]
       logger.debug(" Filter with userid")
-      @locations = Location.where({user_id: params[:userid], active: params[:active] }).order(:id)
+      if params[:active] == "true"
+        @locations = Location.where({user_id: params[:userid], active: :true }).order(:id)
+      else
+        @locations = Location.where(['user_id= ? and (active = false or active is NULL)',params[:userid]]).order(:id)
+      end
     else
       logger.debug(" Load all locations")
       @locations = Location.all.order(:id)

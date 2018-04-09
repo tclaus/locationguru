@@ -10,6 +10,8 @@ class Location < ApplicationRecord
   validates :kind_type, presence: true
   validates :location_type, presence: true
 
+  before_create :setInactive
+
   def cover_photo(size)
     if !photos.empty?
       photos[0].image.url(size)
@@ -29,6 +31,11 @@ class Location < ApplicationRecord
 
   def average_rating
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
+  end
+
+private
+  def setInactive
+    self.active = false
   end
 
 end
