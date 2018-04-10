@@ -52,8 +52,9 @@ Rails.application.routes.draw do
     get 'admin' => :index
     get 'admin/users' => :users
     get 'admin/locations' => :locations
+    post 'admin/recalculation' => :recalculation
   end
-  
+
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code
   end

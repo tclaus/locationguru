@@ -47,6 +47,7 @@
                     <% if @location.geocoded? %>
                       <i class="fa fa-check"></i>
                       long.: <%= @location.longitude %>, lat.: <%= @location.latitude %>
+                      City: <%= @location.city %>
                       <% else %>
                       Not geocoded.
                     <% end %>

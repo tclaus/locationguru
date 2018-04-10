@@ -30,6 +30,10 @@ class AdminController < ApplicationController
     render "admin/locations"
   end
 
+  def recalculation
+    ReverseGeolocationJob.perform_later
+  end
+
   private
 
   def permitSearchParams(params)
