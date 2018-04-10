@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get '/your_reservations' => 'reservations#your_reservations'
 
   get 'search' => 'pages#search'
-
+  
   get 'impressum' => 'impressum#show'
   get 'privacy' => 'privacy#show'
   get 'contact' => 'contact#show'

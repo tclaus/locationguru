@@ -28,7 +28,7 @@
   </div>
 <% end %>
 
-<!-- Locations -->
+<% # Locations %>
 <div>
   <h3><%= t('.locations') %></h3>
 </div>
@@ -40,13 +40,27 @@
   <%= render 'pages/no_locations_found' %>
 <% end %>
 
+<% # Cities %>
+<hr>
 <div><h3>
   <%= t('.cities') %>
 </h3></div>
 <br/>
 <div class="row">
-
   <%= render partial: 'cities', locals: {items: @cities}  %>
-
 </div>
+
+<% # Link farm, small links %>
+<div>
+<hr>
+<%= t('.locations_in') %>
+<% # Should load cities as search lists, async? %>
+  <% @linkClouds.each do |target| %>
+    <% if target.city %>
+    <% # TODO keine Suche starten, sondern ein Link-Path aufrufen %>
+      <%= link_to target.city, 'search?search=' + target.city , class: "link-cloud" %>
+    <% end %>
+  <% end %>
+</div>
+
 <%= javascript_include_tag( 'home_geocomplete' ) %>
