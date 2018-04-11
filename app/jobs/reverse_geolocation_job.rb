@@ -13,7 +13,5 @@ class ReverseGeolocationJob < ApplicationJob
       end
     end
 
-
-
   end
 end
