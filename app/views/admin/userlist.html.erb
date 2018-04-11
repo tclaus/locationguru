@@ -8,7 +8,7 @@
        <th scope="col">ID</th>
        <th scope="col">Email</th>
        <th scope="col">Name</th>
-       <th scope="col">Locations</th>
+       <th scope="col">Locations active/inactive</th>
        <th scope="col">Created</th>
        <th scope="col">Provider</th>
       </tr>
@@ -17,7 +17,9 @@
         <td><%= user.id %></td>
         <td><%= mail_to user.email %></td>
         <td><%= user.fullname %></td>
-        <td><%= user.activeLocations.count %> / <%= user.locations.count %></td>
+        <td>
+          <%= link_to user.activeLocations.count, admin_locations_path(active: :true, userid: user.id) %> /
+          <%= link_to user.inactiveLocations.count, admin_locations_path(active: :false, userid: user.id) %></td>
         <td><%= user.created_at %></td>
         <% if user.provider.blank? %>
           <td>Site</td>

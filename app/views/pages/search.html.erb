@@ -2,11 +2,16 @@
   <div id="left">
     <!-- search Panel -->
     <div class="row">
-      <div class="col-md-offset-4 col-md-6">
-        <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
+      <div class="col-sm-offset-3 col-sm-6">
+        <div id="filter" class="btn btn-default"
+        data-less-filters="<%= t('.lessFilters') %>"
+        data-more-filters="<%= t('.moreFilters') %>"
+          data-toggle="collapse"
+          data-target="#collapsePanel">
           <%= t('.moreFilters') %>
           <i class="fa fa-chevron-down"></i>
-        </button>
+        </div>
+        <%= javascript_include_tag('search_filters') %>
       </div>
     </div>
     <div class="row" id="detailSearch">
@@ -62,8 +67,10 @@
           </div>
         </div>
         <hr/>
-        <div class="row text-center">
-          <%= f.submit t('search'), class: "btn btn-form" %>
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4">
+            <%= f.submit t('search'), class: "btn btn-default" %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -80,59 +87,9 @@
 </div>
 <div id="right">
   <!-- google map -->
-  <div id="map" style="width: 100%; height: 100%">
+  <div id="map" data-mapdata='<%= raw @simpleLocations.to_json.gsub("</", "<\\/") %>' style="width: 100%; height: 100%">
 
-    <script>
-      function initialize(locations) {
-        if (locations instanceof Array) {
-          if (locations.length > 0) {
-            $('#map').show();
-            var location = {
-              lat: locations[0].latitude,
-              lng: locations[0].longitude
-            }
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: location,
-              zoom: 12
-            });
-
-            var marker;
-            var infoWindow;
-
-            locations.forEach(function (aLocation) {
-              marker = new google.maps.Marker({
-                position: {
-                  lat: aLocation.latitude,
-                  lng: aLocation.longitude
-                },
-                map: map
-              });
-
-              infoWindow = new google.maps.InfoWindow({
-                content: "<div class='map_price'> " + aLocation.listing_name + " </div>"
-              });
-              infoWindow.open(map, marker);
-            });
-          } else {
-            $('#map').hide();
-          }
-        }
-      }
-      google.maps.event.addDomListener(window, 'load', initialize(<%= raw @locations.to_json %>));
-    </script>
+  <%= javascript_include_tag('maps_location_list') %>
   </div>
 </div>
 </div>
-
-<script>
-var open = true;
-$('#filter').click(function () {
-  if (open) {
-    $('#filter').html("<%= t('.lessFilters') %> <i class='fa fa-chevron-up'></i>");
-  } else {
-    $('#filter').html("<%= t('.moreFilters') %> <i class='fa fa-chevron-down'></i>");
-  }
-  open = !open;
-});
-</script>

@@ -5,3 +5,4 @@ en:
       select_location_type: "Venue kind"
       locations: "Venues"
       cities: "Cities"
+      locations_in: "More venues in:"

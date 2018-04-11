@@ -11,7 +11,6 @@
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://code.jquery.com/ui/1.11.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -19,12 +18,12 @@
     <meta name='keywords' content="<%= yield_meta_tag(:keywords, t('.meta_keywords')) %>"/>
 
     <% # Open Graph facebook %>
-    <meta name='og:url' content="<%= yield_meta_tag(:siteUrl,'https://www.locationguru.net') %>">
-    <meta name='og:type' content='website'>
-    <meta name='og:title' content='<%= page_title %>'>
-    <meta name='og:image' content="<%= yield_meta_tag(:image, 'https://www.locationguru.net/apple-touch-icon.png') %>">
-    <meta name='og:image_alt' content='Locationguru logo'>
-    <meta name='og:description' content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
+    <meta name="og:url" content="<%= yield_meta_tag(:siteUrl,'https://www.locationguru.net') %>">
+    <meta name="og:type" content="website">
+    <meta name="og:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
+    <meta name="og:image" content="<%= yield_meta_tag(:image, 'https://www.locationguru.net/apple-touch-icon.png') %>">
+    <meta name="og:image_alt" content="Locationguru logo">
+    <meta name="og:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
 
     <% # Open Graph twitter %>
     <meta name='twitter:title' content='<%= page_title %>'>
@@ -44,6 +43,7 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
     <%= render 'shared/navbar' %>
     <%= render 'shared/messages' %>
 

@@ -1,31 +1,65 @@
+require 'simpleLocation'
+
 class PagesController < ApplicationController
   def home
     @locations = Location.where(active: true).order('RANDOM()').limit(3)
     @cities = cities.sample(4)
+    @linkClouds = loadCitiesLinks
+  end
+
+  # Loads all available cities as searchable links
+  def loadCitiesLinks
+    # TODO Cache for one day
+     Location.select('city').group('city').order('city')
   end
 
   def search
-    logger.debug "* Search Params: #{params}"
+    logger.debug "*Search Params: #{params}"
     if params[:search].present? && params[:search].strip != ''
       session[:loc_search] = params[:search]
     end
 
     if session[:loc_search] && session[:loc_search] != ''
-      @locations_address = Location.where(active: true)
+      logger.debug " *Location query on geocordinates"
+      locations = Location.where(active: true)
                                    .near(session[:loc_search], 15, order: 'distance')
+    end
 
-      logger.debug "Found after location query: #{@locations_address} locations"
-    else
-      # If no location, return all locations ( Need to better fetch from database)
-      @locations_address = Location.where(active: true).all
-      logger.debug "Simply return all locations"
+    if locations.blank?
+      logger.debug " *Location query with like on name"
+      locations = Location.where("active = true and listing_name ilike ?", "%#{session[:loc_search]}%")
+      logger.debug "Found in names: #{locations.count}"
+    end
+
+    if locations.blank?
+      # If no location and no direct hit, return all locations ( Need to better fetch from database)
+      logger.debug " *Simply return all locations"
+      locations = Location.where(active: true).all
     end
 
 
     # Step 3 - Ransack filters in memory other data (Ameni)
     #          maybe too much data in future!
-    @search = @locations_address.ransack(params[:q])
+    @search = locations.ransack(params[:q])
     @locations = @search.result
+    @simpleLocations = createSimpleLocations(@locations)
+  end
+
+  def createSimpleLocations(locations)
+    simpleLocations = Array.new
+    if !locations.blank?
+      locations.each do |l|
+        if l.geocoded?
+          simpleLocation =  SimpleLocation.new()
+          simpleLocation.id = l.id
+          simpleLocation.listing_name = l.listing_name
+          simpleLocation.latitude = l.latitude
+          simpleLocation.longitude = l.longitude
+          simpleLocations.push simpleLocation
+        end
+      end
+    end
+    return simpleLocations
   end
 
   def cities

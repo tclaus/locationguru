@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is Location Guru.
+A ruby-on-rails platform for handling venues.
 
-Things you may want to cover:
+Configuration
+Upload to heroku
+1. $: Heroku login
+2. Setup Datenbase on heroku
+    heroku run rake db:schema:load
+    heroku run rake db:seed
 
-* Ruby version
+Migrate Database:
+On every update dont forget a
 
-* System dependencies
+  heroku rake db:migrate
 
-* Configuration
+to set database to latest state.
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bulk Update Locations:
+  rake geocode:all CLASS=Location SLEEP=0.25

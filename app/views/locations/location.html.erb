@@ -38,9 +38,21 @@
                 <%= f.label :address, t('.address') %>
                 <%= f.text_area :address, rows: 5,
                 placeholder: t('.placeholder_venue_address'),
-                class:"form-control",
-                  id:"autoaddress",
+                class: "form-control",
+                  id: "auto_location",
                   required:true %>
+                  <%= javascript_include_tag('home_geocomplete') %>
+                    <% if current_user.isAdmin %>
+                    <br>
+                    <% if @location.geocoded? %>
+                      <i class="fa fa-check"></i>
+                      long.: <%= @location.longitude %>, lat.: <%= @location.latitude %>
+                      City: <%= @location.city %>
+                      <% else %>
+                      Not geocoded.
+                    <% end %>
+
+                  <% end %>
               </div>
             </div>
           </div>
@@ -53,9 +65,3 @@
   </div>
 </div>
 </div>
-
-<script>
-  $(function() {
-    $("#autoaddress").geocomplete();
-  })
-</script>

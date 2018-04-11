@@ -25,6 +25,10 @@ module ApplicationHelper
      ENV['maps_key']
   end
 
+  def html_line_breaks(rawText)
+    rawText.gsub(/(?:\n\r?|\r\n?|,)/, '<br>').html_safe
+  end
+
   def page_title
     if request.domain == "venueguru.net"
       return "Venue Guru"

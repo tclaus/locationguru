@@ -29,9 +29,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
 
+
 # Photos and avatars
-gem 'aws-sdk', '~>2.8'
-gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk-s3'
+gem "paperclip", "~> 6.0.0"
 
 # Non Blocking Notifications
 gem 'toastr-rails', '~>1.0'

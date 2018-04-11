@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
                 :photo_upload, :amenities, :location, :update, :destroy]
 
   def index
-    @locations = current_user.locations
+      @locations = current_user.locations
   end
 
   def new
@@ -30,8 +30,12 @@ class LocationsController < ApplicationController
     @guest_reviews = @location.guest_reviews
 
     if !@location.active
-
-      if !is_owner
+      if !current_user.blank?
+         if !is_owner && !current_user.isAdmin
+          logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
+          redirect_to root_path
+        end
+      else
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
         redirect_to root_path
       end
@@ -126,7 +130,7 @@ class LocationsController < ApplicationController
   end
 
   def is_authorized
-    redirect_to root_path, alert: t('not_authorized') unless current_user.id == @location.user_id
+    redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
   end
 
   def set_location_active

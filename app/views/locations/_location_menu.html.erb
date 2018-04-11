@@ -18,6 +18,10 @@
       <span class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
+    <% else %>
+    <span class="pull-right text-babu">
+      <i class="fa fa-circle-o"></i>
+    </span>
     <% end %>
   </li>
   <li class="sidebar-item">
@@ -25,6 +29,10 @@
     <% if !@location.photos.blank? %>
       <span id="photo_check" class="pull-right text-babu">
         <i class="fa fa-check"></i>
+      </span>
+      <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
       </span>
     <% end %>
   </li>
@@ -34,22 +42,29 @@
       <span class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
+      <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
+      </span>
     <% end %>
   </li>
-  <li class="sidebar-item">
-    <%= link_to "So sieht es aus", @location %>
+  <li class="sidebar-item location_preview">
+    <%= link_to t('.location_preview'), @location %>
   </li>
 </ul>
 
 <hr/>
 
-<%  is_ready = !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank? %>
+  <% is_ready = !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank? %>
   <% if @location.active %>
-    <%    button_name = t(".deactivate") %>
-    <% else %>
-      <%    button_name = t(".publish") %><% end %>
+    <% button_name = t(".isActive") %>
+    <% button_class = "location_menu btn btn-block btn-success" %>
+  <% else %>
+    <% button_name = t(".isInactive") %>
+    <% button_class = "location_menu btn btn-block btn-warning" %>
+  <% end %>
 
-      <%= form_for @location do |f| %>
-      <%= f.hidden_field :active, value: !@location.active %>
-      <%= f.submit button_name ,id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
-    <% end %>
+  <%= form_for @location do |f| %>
+    <%= f.hidden_field :active, value: !@location.active %>
+    <%= f.submit button_name ,id: "publish_button", class: button_class, disabled: !is_ready %>
+  <% end %>

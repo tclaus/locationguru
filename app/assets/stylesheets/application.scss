@@ -41,7 +41,6 @@ a:hover {
 .container {
   margin-top: 20px;
   width: 80%;
-  color: rgba(0,0,0,0.5);
 }
 
 .icon-babu,
@@ -56,6 +55,7 @@ a:hover {
 // Navbar
 .navbar-default {
   background-color: $navbar-background;
+  margin-bottom: 0px;
 }
 
 .navbar-default .navbar-brand {
@@ -143,6 +143,10 @@ a:hover {
   background-color: $facebook-button-color-active;
 }
 
+.btn.location_menu {
+  color: white;
+}
+
 .action-listing {
   padding-top: 5px;
   margin-top: 5px;
@@ -176,21 +180,50 @@ a:hover {
   font-weight: 500;
   line-height: 25px;
 }
+
+div.or {
+  hr {
+    color: lightgray;
+    box-shadow: 0 0 1px lightgray;
+  }
+  span {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    display: block;
+    background-color: white;
+    display: block;
+    width: 50px;
+    font-size: 1.2em;
+  }
+}
+
 // Avatar
 .avatar-small {
   width: 28px;
+  height: 28px;
+  object-fit:scale-down;
 }
 
 .avatar-medium {
   width: 48px;
+  height: 48px;
+  object-fit:scale-down;
 }
 
 .avatar-large {
   width: 68px;
+  height: 68px;
+  object-fit:scale-down;
 }
 
 .avatar-full {
   width: 100%;
+}
+
+img.location_thumb {
+  width: 100px;
+  height:100px;
+  object-fit:scale-down;
 }
 
 // forms
@@ -225,7 +258,8 @@ a:hover {
 }
 
 .sidebar-link {
-  color: $sidebar-color;
+  color: $action-button-background;
+  font-weight: normal;
   text-decoration: none;
 }
 
@@ -235,9 +269,13 @@ a:hover {
 }
 
 .active.sidebar-link {
-  color: $default-textcolor;
+  color: $action-button-background;
   font-weight: bold;
   text-decoration: none;
+}
+
+li.location_preview {
+  margin-top: 5px;
 }
 
 .right {
@@ -267,6 +305,7 @@ a:hover {
 .img-avatar {
   height: 200px;
   width: 200px;
+  object-fit:scale-down;
 }
 // Header Picture in Listing
 .img-header {
@@ -349,4 +388,14 @@ a:hover {
 .banner {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.link-cloud-block {
+  margin-top: 10px;
+}
+
+a.link-cloud {
+  margin-top: 25px;
+  padding: 10px 10px;
+  background-color: beige;
 }

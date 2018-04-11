@@ -5,3 +5,4 @@ de:
       select_location_type: "Art der Location"
       locations: "Locations"
       cities: "Städte"
+      locations_in: "Weitere Locations in:"

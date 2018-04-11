@@ -31,10 +31,13 @@
 </div>
 
   <div class="actions">
-    <%= f.submit t('.sign_in'), class:"btn btn-normal btn-block" %>
+    <%= f.submit t('.sign_in'), class:"btn btn-default btn-block" %>
   </div>
 <% end %>
-<hr/>
+<div class="or">
+  <hr/>
+<span><%= t('.use_alternative_login') %></span>
+</div>
 <%= link_to t('sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class:"btn btn-facebook btn-block" %>
 </div>
 </div>

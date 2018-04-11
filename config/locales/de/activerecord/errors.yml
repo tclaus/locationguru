@@ -1,0 +1,13 @@
+de:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Eine Email-Adresse muss vergeben werden"
+            password:
+              blank: "Ein Passwort muss vergeben werden"
+              too_short: "Zu kurz. Benutze ein längeres Passwort"
+            password_confirmation:
+              confirmation: "Passwort und bestätigung müssen gleich sein."
