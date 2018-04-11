@@ -3,9 +3,16 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_filter :set_csp
+
 
 
   protected
+
+  def set_csp
+    response.headers['Content-Security-Policy'] = "default-src *;
+    image-src https://s3.eu-central-1.amazonaws.com/eventlocation-photos"
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])

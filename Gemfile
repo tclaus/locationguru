@@ -53,6 +53,9 @@ gem 'geocoder'
 gem 'ransack', '~> 1.7'
 gem 'social-share-button'
 
+# Use Queue backend
+gem 'resque'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

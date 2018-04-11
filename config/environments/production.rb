@@ -13,7 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.exceptions_app = self.routes
-  
+
   config.action_controller.perform_caching = true
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
@@ -60,8 +60,9 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "LocationGuru_#{Rails.env}"
+  config.active_job.queue_adapter     = :resque
+  config.active_job.queue_name_prefix = "LocationGuru_#{Rails.env}"
+
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = { host: ENV['hostname'] }
