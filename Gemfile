@@ -29,6 +29,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
 
+
 # Photos and avatars
 gem 'aws-sdk-s3'
 gem "paperclip", "~> 6.0.0"
