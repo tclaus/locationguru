@@ -1,6 +1,9 @@
 
 Voraussetzungen:
 Posgres ist installiert
+(ungebunsvariable setzen)
+
+Redis-server installieren
 
 Upload to heroku
 1. $: Heroku login
@@ -12,4 +15,4 @@ On every update dont forget a
 
   heroku rake db:migrate
 
-to set databse to latest state.
+to set database to latest state.
