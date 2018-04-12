@@ -1,2 +1,2 @@
 
-redis = Redis.new(url: ENV["REDIS_URL"])
+REDIT = Redis.new(url: ENV["REDISTOGO_URL"])
