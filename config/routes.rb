@@ -1,3 +1,5 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
 
   root 'pages#home'
@@ -10,6 +12,10 @@ Rails.application.routes.draw do
                            sign_up: 'registration' },
              controllers: { omniauth_callbacks: 'omniauth_callbacks',
                             registrations: 'registrations' }
+
+  authenticate :user do
+    mount Resque::Server, at: '/jobs'
+  end
 
   resources :users, only: [:show] do
     member do
@@ -39,7 +45,7 @@ Rails.application.routes.draw do
   get '/your_reservations' => 'reservations#your_reservations'
 
   get 'search' => 'pages#search'
-  
+
   get 'impressum' => 'impressum#show'
   get 'privacy' => 'privacy#show'
   get 'contact' => 'contact#show'

@@ -8,7 +8,6 @@ one:
   summary: MyText
   active: true
   user_id: 1
-  city: Dortmund
 
 two:
   id: 2
@@ -29,8 +28,18 @@ three:
   active: true
   user_id: 1
 
-inactive:
+withAddress:
   id: 4
+  kind_type: 2
+  location_type: 2
+  listing_name: "Has coordinates, no City"
+  summary: "Has coordinates, no City"
+  active: true
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+  
+inactive:
+  id: 40
   kind_type: 2
   location_type: 2
   listing_name: Inavtive Location

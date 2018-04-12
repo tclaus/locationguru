@@ -3,6 +3,8 @@ Voraussetzungen:
 Posgres ist installiert
 (ungebunsvariable setzen)
 
+$: bundle install
+
 Redis-server installieren
 
 Upload to heroku

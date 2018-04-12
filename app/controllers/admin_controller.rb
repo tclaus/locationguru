@@ -32,6 +32,7 @@ class AdminController < ApplicationController
 
   def recalculation
     ReverseGeolocationJob.perform_later
+    redirect_back(fallback_location: request.referer)
   end
 
   private
