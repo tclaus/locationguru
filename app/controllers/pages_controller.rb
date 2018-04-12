@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   # Loads all available cities as searchable links
   def loadCitiesLinks
     # TODO Cache for one day
-     Location.select('city').group('city').order('city')
+     Location.where(active: true).select('city').group('city').order('city')
   end
 
   def search
