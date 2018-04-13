@@ -19,7 +19,7 @@
       </div>
     <% end %>
     <ul class="nav navbar-nav navbar-right">
-      <li>
+      <li class="show-desktop-only">
         <button class="btn btn-form btn-small navbar-button">
           <%= link_to t('.become_a_host'), new_location_path %>
         </button>
@@ -70,17 +70,21 @@
     current_page?(admin_path) ||
     current_page?(admin_users_path)) %>
 
-<nav class="navbar navbar-default">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li <% if current_page?(dashboard_path) %> class="active" <% end %>>
-        <%= link_to t('dashboard'), dashboard_path %></li>
-      <li <% if current_page?(locations_path) %> class="active" <% end %>><%= link_to t('manage'), locations_path %></li>
-      <% if current_user.isAdmin %>
-        <li <% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li <% if current_page?(dashboard_path) %> class="active" <% end %>>
+          <%= link_to t('dashboard'), dashboard_path %></li>
+        <li <% if current_page?(locations_path) %> class="active" <% end %>><%= link_to t('manage'), locations_path %></li>
+        <% if current_user.isAdmin %>
+          <li <% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 <% end %>
+<div class="container show-mobile-only">
+  <%= link_to t('.become_a_host'), new_location_path, class: "btn btn-default" %>
+</div>
+
 <%= javascript_include_tag( 'navbar_geocomplete' ) %>

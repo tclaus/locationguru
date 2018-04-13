@@ -1,10 +1,20 @@
 
 @media (max-width: 1024px) {
+
   .container {
-    width: 95% !important;
+    width: 95%;
   }
+
   .row#detailSearch {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+
+  .show-mobile-only {
+    visibility: show;
+  }
+
+  .show-desktop-only {
+    visibility:hidden;
   }
 }
