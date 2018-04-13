@@ -11,10 +11,10 @@
   }
 
   .show-mobile-only {
-    visibility: show;
+
   }
 
   .show-desktop-only {
-    visibility:hidden;
+    display: none;
   }
 }
