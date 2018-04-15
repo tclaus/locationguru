@@ -4,10 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :set_csp
-
-
+  before_action :getCitiesLinkCloud
 
   protected
+
+  # Load cities cloud
+  def getCitiesLinkCloud
+      # Cache these a bit? 
+      @linkClouds =  Location.where(active: true).select('city').group('city').order('city')
+  end
 
   def set_csp
     # Set all restrictions for content security

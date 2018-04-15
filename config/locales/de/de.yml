@@ -18,5 +18,5 @@ de:
   login: "Anmelden"
   sign_up: "Registrieren"
   search: "Suchen"
-  something_went_wrong_create_location: "Beim Anlegen hat etwas nicht geklappt. Fehlt ein Feld?"
+  something_went_wrong_create_location: "Beim Anlegen hat etwas nicht geklappt."
   no_locations_yet: "Noch keine Locations angelegt"

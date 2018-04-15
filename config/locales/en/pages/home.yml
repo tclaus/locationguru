@@ -5,4 +5,6 @@ en:
       select_location_type: "Venue kind"
       locations: "Venues"
       cities: "Cities"
+  link_cloud:
+    show:
       locations_in: "More venues in:"

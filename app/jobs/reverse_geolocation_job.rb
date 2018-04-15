@@ -7,7 +7,7 @@ class ReverseGeolocationJob < ApplicationJob
     logger.debug 'Start Recalculation of geocoordinates'
     Location.all.each do |location|
       if !location.geocoded? && location.address?
-        logger.debug "Processing not geocoded location#{location.id}: #{location.listing_name}"
+        logger.debug "Processing not geocoded location #{location.id}: #{location.listing_name}"
         location.geocode
         location.save
       end

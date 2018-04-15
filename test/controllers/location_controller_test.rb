@@ -21,8 +21,8 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
         location_type: 1
       }
     }
-    assert_response :redirect
-    follow_redirect!
+
+    assert_response :success
 
   end
 

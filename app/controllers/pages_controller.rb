@@ -4,13 +4,6 @@ class PagesController < ApplicationController
   def home
     @locations = Location.where(active: true).order('RANDOM()').limit(3)
     @cities = cities.sample(4)
-    @linkClouds = loadCitiesLinks
-  end
-
-  # Loads all available cities as searchable links
-  def loadCitiesLinks
-    # TODO Cache for one day
-     Location.where(active: true).select('city').group('city').order('city')
   end
 
   def search
@@ -45,6 +38,7 @@ class PagesController < ApplicationController
     @simpleLocations = createSimpleLocations(@locations)
   end
 
+# Needed to easyly access google maps
   def createSimpleLocations(locations)
     simpleLocations = Array.new
     if !locations.blank?

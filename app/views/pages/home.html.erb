@@ -53,16 +53,7 @@
 <% # Link farm, small links %>
 <div>
 <hr>
-<%= t('.locations_in') %> <br>
-<% # Should load cities as search lists, async? %>
-<div class="link-cloud-block">
-  <% @linkClouds.each do |target| %>
-    <% if target.city %>
-    <% # TODO keine Suche starten, sondern ein Link-Path aufrufen %>
-      <%= link_to target.city, 'search?search=' + target.city , class: "link-cloud" %>
-    <% end %>
-  <% end %>
-</div>
+
 </div>
 
 <%= javascript_include_tag( 'home_geocomplete' ) %>

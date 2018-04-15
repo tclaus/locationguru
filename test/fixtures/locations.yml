@@ -32,12 +32,24 @@ withAddress:
   id: 4
   kind_type: 2
   location_type: 2
+  listing_name: "Has address, no coordinates, no City"
+  summary: "Has address, no coordinates, no City"
+  active: true
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+
+withAddressAndCoordinates:
+  id: 5
+  kind_type: 2
+  location_type: 2
   listing_name: "Has coordinates, no City"
   summary: "Has coordinates, no City"
   active: true
   user_id: 1
   address: "44227 Dortmund, Gibbenhey 2, Germany"
-  
+  longitude: 7.4652981
+  latitude: 51.513587
+
 inactive:
   id: 40
   kind_type: 2
