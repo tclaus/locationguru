@@ -69,7 +69,7 @@
         <hr/>
         <div class="row">
           <div class="col-md-offset-4 col-md-4">
-            <%= f.submit t('search'), class: "btn btn-default" %>
+            <%= f.submit t('search'), class: "btn btn-default btn-search" %>
           </div>
         </div>
       <% end %>
@@ -87,7 +87,7 @@
 </div>
 <div id="right">
   <!-- google map -->
-  <div id="map" data-mapdata='<%= raw @simpleLocations.to_json.gsub("</", "<\\/") %>' style="width: 100%; height: 100%">
+  <div id="map" data-mapdata='<%= raw @simpleLocations.to_json.gsub("</", "<\\/") %>' class="maps-area-multiple">
 
   <%= javascript_include_tag('maps_location_list') %>
   </div>

@@ -73,12 +73,12 @@
       <%= form_for(resource, as: resource_name, url: avatar_user_path(resource_name), method: 'post', html: { multipart: false }) do |form| %>
         <label class="btn btn-default btn-change-avatar">
           <%= t('.upload_new_avatar') %>
-          <span style="display:none;">
+          <span class="hidden">
             <%= form.file_field :avatar, id: "profile"%>
             <%= javascript_include_tag('profile_pic_upload') %>
           </span>
         </label>
-        <%= form.submit style: "display:none;" %>
+        <%= form.submit class: "hidden" %>
       <% end %>
 
   </div>

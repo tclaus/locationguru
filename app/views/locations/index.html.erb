@@ -21,7 +21,7 @@
         <% @locations.each do |location| %>
             <div class="row">
 
-              <div class="col-md-1" style="font-size:3em; color:#319d5d;">
+              <div class="col-md-1" class="location-status">
                 <% if location.active? %>
                   <i class="fa fa-check-circle"></i>
                 <% else %>
@@ -40,8 +40,8 @@
                 <% end %>
               </div>
               <div class="col-md-2 right">
-                <%= link_to t('update'), listing_location_path(location), class:"btn btn-form action-listing", style:"width:150px" %>
-                <%= link_to t('delete'), location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')}, class:"btn btn-danger btn-sm action-listing", style:"width:150px" %>
+                <%= link_to t('update'), listing_location_path(location), class:"btn btn-primary action-listing" %>
+                <%= link_to t('delete'), location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')}, class:"btn btn-danger btn-sm action-listing" %>
               </div>
             </div>
             <hr/>
