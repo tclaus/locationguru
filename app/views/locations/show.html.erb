@@ -2,7 +2,8 @@
 <% # header information %>
 <% meta_tag :description, @location.listing_name + ', ' + @location.summary %>
 <% meta_tag :siteUrl, 'https://' + request.host + listing_location_path + '/' + @location.id.to_s %>
-<% meta_tag :page_title,@location.listing_name %>
+<% meta_tag :page_title,page_title + ' - ' + @location.listing_name %>
+
 <% # Keywords: 'fix + town' %>
 <% if !@location.active %>
   <div class="alert alert-danger text-center">

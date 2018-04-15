@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= page_title %>
+    <title><%= yield_meta_tag(:page_title, page_title) %>
     </title>
     <%= csrf_meta_tags %>
 

@@ -38,7 +38,7 @@ module ApplicationHelper
   end
 
   def meta_tag(tag, text)
-    content_for :"meta_#{tag}", text
+    content_for :"meta_#{tag}", text[0..100]
   end
 
   def yield_meta_tag(tag, default_text='')
