@@ -11,3 +11,14 @@ de:
               too_short: "Zu kurz. Benutze ein längeres Passwort"
             password_confirmation:
               confirmation: "Passwort und bestätigung müssen gleich sein."
+        location:
+          attributes:
+            listing_name:
+              too_long: "Titel zu lang"
+            max_persons:
+              less_than: "Personenzahl zu hoch"
+              not_a_number: "Geben Sie eine Personenanzahl ein"
+            location_type:
+              blank: "Legen Sie die Art des Ortes fest"
+            kind_type:
+              blank: "Legen Sie die Art der Location fest"

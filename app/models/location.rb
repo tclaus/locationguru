@@ -9,6 +9,8 @@ class Location < ApplicationRecord
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
+  validates :listing_name, length: {maximum: 200}
+  validates :max_persons, numericality: {less_than: 100000}
 
   before_create :setInactive
 

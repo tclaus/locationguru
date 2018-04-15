@@ -20,7 +20,8 @@ class LocationsController < ApplicationController
       redirect_to listing_location_path(@location), notice: t('saved')
     else
       logger.debug "Failed creating a location"
-      flash[:alert] = t('something_went_wrong_create_location')
+      puts @location.errors.messages.to_s
+      flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       render :new
     end
   end
@@ -108,6 +109,15 @@ class LocationsController < ApplicationController
   end
 
   private
+
+  # Splits an active recors error hash to a single string
+  def error_messages_to_s(errors)
+    text = "<br>"
+    errors.each do |field,message|
+      text = text + message.to_s + ".<br>"
+    end
+    text
+  end
 
   def is_owner
     if current_user.blank?
