@@ -13,8 +13,6 @@ class User < ApplicationRecord
       thumb: "100x100>"
       },
       convert_options: {original: "-strip", medium: "-strip", thumb: "-strip"},
-      url: "users/:hash.:extension",
-      hash_secret: "5cc92b152f1de28ba2cf25ec4432f00f488b055395fa8a9af162174017473e15878abac104c8cef7f50c7eb213e048bd02cbad131440fa9fc422a30b86d4deb7",
     default_url: "/assets/empty_avatar.png"
   }
 

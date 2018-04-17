@@ -74,7 +74,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_protocol: :https,
-    path: ':class/:id/:style/:filename',
+    org_path: ':class/:id/:style/:filename',
+    path: ':class/:id/:style/:hash.:extension',
+    hash_secret: ENV['PAPERCLIP_HASH_SECRET'],
     s3_host_name: 's3.eu-central-1.amazonaws.com',
     s3_credentials: {
       bucket: 'eventlocation-photos-dev',
