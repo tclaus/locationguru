@@ -5,7 +5,7 @@ namespace :aws do
     desc "Moves all s3 files to a new destination"
     task media: :environment do
       # Instead of 'Photo' use your own object
-      bucketName = 'eventlocation-photos-dev'
+      bucketName = ENV['s3_bucket_name']
       Photo.all.each do |m|
         [:original, :medium, :thumb].each do |style|
 

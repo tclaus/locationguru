@@ -79,7 +79,7 @@ Rails.application.configure do
     hash_secret: ENV['PAPERCLIP_HASH_SECRET'],
     s3_host_name: 's3.eu-central-1.amazonaws.com',
     s3_credentials: {
-      bucket: 'eventlocation-photos-dev',
+      bucket: ENV['s3_bucket_name'],
       access_key_id: ENV['s3_key_id'],
       secret_access_key: ENV['s3_access_key'],
       s3_region: 'eu-central-1'
