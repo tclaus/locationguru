@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post 'avatar'
     end
   end
+
   resources :locations, except: [:edit] do
     member do
       get 'listing'
@@ -32,12 +33,11 @@ Rails.application.routes.draw do
       get 'location'
       get 'preload'
       get 'preview'
-
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
   end
-
+  resources :cities, only: [:show]
   resources :guest_reviews, only: [:create, :destroy]
   resources :host_reviews, only: [:create, :destroy]
 
