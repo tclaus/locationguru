@@ -83,8 +83,9 @@
     </div>
   </nav>
 <% end %>
+<% # Show mobile only %>
 <div class="container show-mobile-only">
-  <%= link_to t('.become_a_host'), new_location_path, class: "btn btn-default" %>
+  <%= link_to t('.become_a_host'), new_location_path, class: "btn btn-default btn-block" %>
 </div>
 
 <%= javascript_include_tag( 'navbar_geocomplete' ) %>
