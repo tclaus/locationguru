@@ -1,0 +1,15 @@
+en:
+  locations:
+    presentation:
+      suitable_for:
+        no_suitables_set: "No special suitable set"
+        suitable_for: "Suitable for this kind:"
+        isForPrivateParties: "For private parties"
+        isForClubbing: "Club / Commercial"
+        isForWeddings: "Weddings"
+        isForPhotoFilm: "Photo or film"
+        isForBusiness: "Workshops, summits"
+        isForEscapeRoomGames: "Escape Room"
+        isForConferences: "Conferences"
+        isForBachelorParties: "Bachelor parties"
+        isForChristmasParties: "Christmas parties"
