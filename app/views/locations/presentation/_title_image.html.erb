@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= image_tag @location.cover_photo(:original), class: "img-header" %>
+    <% meta_tag :image, @location.cover_photo(:thumb) %>
+  </div>
+</div>

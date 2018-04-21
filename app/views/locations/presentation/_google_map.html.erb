@@ -1,0 +1,11 @@
+<% if !@location.latitude.blank? && !@location.longitude.blank? %>
+  <div class="row">
+    <div id="map" data-lat=<%= @location.latitude %>
+        data-lng=<%= @location.longitude %>
+        data-name=<%= @location.listing_name %>
+        data-image=<%= @location.cover_photo(:thumb) %>
+        class="maps-area-single">
+    </div>
+    <%= javascript_include_tag('maps_single_location') %>
+  </div>
+<% end %>

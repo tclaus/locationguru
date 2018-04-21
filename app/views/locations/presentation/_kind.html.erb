@@ -1,0 +1,27 @@
+<div class="row text-babu">
+  <div class="row text-center row-space-1">
+
+    <div class="col-xs-3">
+      <i class="fa fa-home fa-2x"></i><br>
+        <%= trKindType(KindType.find(@location.kind_type).id) %>
+    </div>
+    <div class="col-xs-3">
+      <i class="fa fa-location-arrow fa-2x"></i><br>
+      <%= trLocationType(LocationType.find(@location.location_type).id) %>
+    </div>
+    <div class="col-xs-3">
+      <i class="fa fa-cutlery fa-2x"></i><br>
+      <% if @location.catering? %>
+        <%= trCateringType(CateringType.find(@location.catering).id) %>
+      <% else %>
+        -
+      <% end %>
+    </div>
+    <% if !@location.max_persons.blank? %>
+      <div class="col-xs-3">
+        <i class="fa fa-male fa-2x"></i><br>
+        <%= @location.max_persons %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -6,6 +6,18 @@
     </span>
   </li>
   <li class="sidebar-item">
+    <%= link_to t(".suitables"), suitables_location_path, class:"sidebar-link active" %>
+    <% if @location.has_suitables %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-check"></i>
+      </span>
+    <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
+      </span>
+    <% end %>
+  </li>
+  <li class="sidebar-item">
     <%= link_to t(".amenities"), amenities_location_path, class:"sidebar-link active" %>
     <span class="pull-right text-babu">
       <i class="fa fa-check"></i>
@@ -19,9 +31,9 @@
         <i class="fa fa-check"></i>
       </span>
     <% else %>
-    <span class="pull-right text-babu">
-      <i class="fa fa-circle-o"></i>
-    </span>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
+      </span>
     <% end %>
   </li>
   <li class="sidebar-item">
@@ -30,7 +42,7 @@
       <span id="photo_check" class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
-      <% else %>
+    <% else %>
       <span class="pull-right text-babu">
         <i class="fa fa-circle-o"></i>
       </span>
@@ -42,7 +54,7 @@
       <span class="pull-right text-babu">
         <i class="fa fa-check"></i>
       </span>
-      <% else %>
+    <% else %>
       <span class="pull-right text-babu">
         <i class="fa fa-circle-o"></i>
       </span>
@@ -55,16 +67,18 @@
 
 <hr/>
 
-  <% is_ready = !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank? %>
+<% is_ready = !@location.listing_name.blank? &&
+!@location.photos.blank? &&
+!@location.address.blank? &&
+@location.has_suitables %>
   <% if @location.active %>
     <% button_name = t(".isActive") %>
     <% button_class = "location_menu btn btn-block btn-success" %>
   <% else %>
     <% button_name = t(".isInactive") %>
-    <% button_class = "location_menu btn btn-block btn-warning" %>
-  <% end %>
+    <% button_class = "location_menu btn btn-block btn-warning" %><% end %>
 
-  <%= form_for @location do |f| %>
+    <%= form_for @location do |f| %>
     <%= f.hidden_field :active, value: !@location.active %>
     <%= f.submit button_name ,id: "publish_button", class: button_class, disabled: !is_ready %>
   <% end %>

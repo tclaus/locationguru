@@ -1,11 +1,11 @@
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorized, only: [:listing, :pricing, :description,
-                :photo_upload, :amenities, :location, :update, :destroy]
+  before_action :is_authorized, only: %i[listing pricing description
+                                         photo_upload suitables amenities location update destroy]
 
   def index
-      @locations = current_user.locations
+    @locations = current_user.locations
   end
 
   def new
@@ -13,13 +13,13 @@ class LocationsController < ApplicationController
   end
 
   def create
-    logger.debug "Creating a location"
+    logger.debug 'Creating a location'
     @location = current_user.locations.build(location_params)
     if @location.save
       logger.debug "Created location with ID #{@location.id}"
       redirect_to listing_location_path(@location), notice: t('saved')
     else
-      logger.debug "Failed creating a location"
+      logger.debug 'Failed creating a location'
       puts @location.errors.messages.to_s
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       render :new
@@ -30,18 +30,20 @@ class LocationsController < ApplicationController
     @photos = @location.photos
     @guest_reviews = @location.guest_reviews
 
-    if !@location.active
+    unless @location.active
       if !current_user.blank?
-         if !is_owner && !current_user.isAdmin
+        if !is_owner && !current_user.isAdmin
           logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
           redirect_to root_path
-        end
+       end
       else
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
         redirect_to root_path
       end
     end
+  end
 
+  def suitables
   end
 
   def listing; end
@@ -103,36 +105,30 @@ class LocationsController < ApplicationController
     else
       flash[:notice] = t('.could_not_delete_this_location')
     end
-    if request.referer
-      redirect_back(fallback_location: request.referer)
-    end
+    redirect_back(fallback_location: request.referer) if request.referer
   end
 
   private
 
   # Splits an active recors error hash to a single string
   def error_messages_to_s(errors)
-    text = "<br>"
-    errors.each do |field,message|
-      text = text + message.to_s + ".<br>"
+    text = '<br>'
+    errors.each do |_field, message|
+      text = text + message.to_s + '.<br>'
     end
     text
   end
 
   def is_owner
-    if current_user.blank?
-      return false
-    end
+    return false if current_user.blank?
 
-    if current_user.id == @location.user_id
-      return true
-    end
-    return false
+    return true if current_user.id == @location.user_id
+    false
   end
 
   def is_conflict(start_date, end_date, location)
-    check = location.reservations.where("? < start_date AND end_date < ? ",start_date, end_date)
-    check.size > 0
+    check = location.reservations.where('? < start_date AND end_date < ? ', start_date, end_date)
+    !check.empty?
   end
 
   def set_location
@@ -166,6 +162,15 @@ class LocationsController < ApplicationController
                                      :has_music_eq,
                                      :has_furniture,
                                      :has_parking_space,
-                                     :catering)
+                                     :catering,
+                                     :isForPrivateParties,
+                                     :isForClubbing,
+                                     :isForWeddings,
+                                     :isForPhotoFilm,
+                                     :isForBusiness,
+                                     :isForEscapeRoomGames,
+                                     :isForConferences,
+                                     :isForBachelorParties,
+                                     :isForChristmasParties)
   end
 end

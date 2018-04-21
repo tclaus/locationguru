@@ -41,6 +41,11 @@ class Location < ApplicationRecord
        has_furniture || has_parking_space || has_air_conditioning
   end
 
+  def has_suitables
+    isForBusiness || isForClubbing || isForWeddings || isForPhotoFilm ||
+    isForConferences || isForPrivateParties || isForBachelorParties || isForChristmasParties
+  end
+
   def average_rating
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end

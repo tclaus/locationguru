@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'location_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.suitables') %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForPrivateParties, t('.isForPrivateParties') %>
+                <%= f.check_box :isForPrivateParties %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForClubbing, t('.isForClubbing') %>
+                <%= f.check_box :isForClubbing %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForWeddings, t('.isForWeddings') %>
+                <%= f.check_box :isForWeddings %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForPhotoFilm, t('.isForPhotoFilm') %>
+                <%= f.check_box :isForPhotoFilm %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForBusiness, t('.isForBusiness'), class: "left" %>
+                <%= f.check_box :isForBusiness, class: "right" %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :isForEscapeRoomGames, t('.isForEscapeRoomGames') %>
+                <%= f.check_box :isForEscapeRoomGames %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForConferences, t('.isForConferences') %>
+                <%= f.check_box :isForConferences %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :isForBachelorParties, t('.isForBachelorParties') %>
+                <%= f.check_box :isForBachelorParties %>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit t('.save') ,class:"btn btn-form" %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -4,6 +4,7 @@ de:
       listing: "Basis"
       amenities: "Ausstattung"
       description: "Bescheibung"
+      suitables: "Geeignet für"
       photos: "Fotos"
       location: "Ort / Kontakt"
       isActive: "Veröffentlicht"
