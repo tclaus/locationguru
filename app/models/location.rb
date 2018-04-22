@@ -11,6 +11,7 @@ class Location < ApplicationRecord
   validates :location_type, presence: true
   validates :listing_name, length: {maximum: 200}
   validates :max_persons, numericality: {less_than: 100000}
+  validates :suitableForText, length: {maximum: 50}
 
   before_create :setInactive
 
@@ -43,7 +44,8 @@ class Location < ApplicationRecord
 
   def has_suitables
     isForBusiness || isForClubbing || isForWeddings || isForPhotoFilm ||
-    isForConferences || isForPrivateParties || isForBachelorParties || isForChristmasParties
+    isForConferences || isForPrivateParties || isForBachelorParties || isForChristmasParties ||
+    !suitableForText.blank?
   end
 
   def average_rating

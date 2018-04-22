@@ -2,8 +2,8 @@ de:
   locations:
     presentation:
       suitable_for:
-        no_suitables_set: "Keine besondere Eignung angegeben,"
-        suitable_for: "Geeignet für diese Art der Verantstaltung:"
+        no_suitables_set: "Keine besondere Eignung angegeben"
+        suitable_for: "Geeignet für:"
         isForPrivateParties: "Für private Feiern"
         isForClubbing: "Club / Kommerziell"
         isForWeddings: "Hochzeiten"

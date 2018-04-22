@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420060207) do
+ActiveRecord::Schema.define(version: 20180422072226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,20 +36,20 @@ ActiveRecord::Schema.define(version: 20180420060207) do
   create_table "locations", force: :cascade do |t|
     t.string "listing_name"
     t.text "summary"
-    t.boolean "active", default: false, null: false
+    t.boolean "active"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
     t.decimal "max_persons", precision: 5
-    t.boolean "has_heating", default: false, null: false
-    t.boolean "has_kitchen", default: false, null: false
-    t.boolean "has_outdoor", default: false, null: false
-    t.boolean "has_parking_space", default: false, null: false
-    t.boolean "has_furniture", default: false, null: false
+    t.boolean "has_heating"
+    t.boolean "has_kitchen"
+    t.boolean "has_outdoor"
+    t.boolean "has_parking_space"
+    t.boolean "has_furniture"
     t.string "catering"
-    t.boolean "has_air_conditioning", default: false, null: false
-    t.boolean "has_music_eq", default: false, null: false
+    t.boolean "has_air_conditioning"
+    t.boolean "has_music_eq"
     t.string "location_type"
     t.string "kind_type"
     t.string "catering_types"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180420060207) do
     t.float "longitude"
     t.string "phonenumber"
     t.string "website"
-    t.boolean "isExclusiveAvailable",default: false, null: false
+    t.boolean "isExclusiveAvailable"
     t.string "email"
     t.string "city"
     t.string "country"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180420060207) do
     t.boolean "isForConferences", default: false, null: false
     t.boolean "isForBachelorParties", default: false, null: false
     t.boolean "isForChristmasParties", default: false, null: false
+    t.string "suitableForText"
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
     t.index ["email"], name: "index_locations_on_email"

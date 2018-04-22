@@ -11,4 +11,5 @@ en:
       isForConferences: "Konferenzen, Schulungen"
       isForBachelorParties: "Bachelor Parties"
       isForChristmasParties: "Christmas parties"
+      suitableForText: "Other:"
       save: "Save"

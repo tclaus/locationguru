@@ -22,3 +22,5 @@ en:
               blank: "Choose location kind"
             kind_type:
               blank: "Choose venue kind"
+            suitableForText:
+              too_long: "'Suitable for' too long"

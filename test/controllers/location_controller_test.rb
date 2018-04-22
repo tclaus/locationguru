@@ -71,6 +71,12 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get suitable for' do
+    sign_in users(:host)
+    get '/locations/1/suitables'
+    assert_response :success
+  end
+
   test 'should get upload photo' do
     sign_in users(:host)
     get '/locations/1/photo_upload'

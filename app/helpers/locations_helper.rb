@@ -4,6 +4,9 @@ module LocationsHelper
     if location.isForPrivateParties
       text << t('.isForPrivateParties')
     end
+    if location.isForWeddings
+      text << t('.isForWeddings')
+    end
     if location.isForClubbing
       text << t('.isForClubbing')
     end
@@ -21,6 +24,9 @@ module LocationsHelper
     end
     if location.isForChristmasParties
       text << t('.isForChristmasParties')
+    end
+    if !location.suitableForText.blank?
+        text << location.suitableForText
     end
     text.join(', ')
   end

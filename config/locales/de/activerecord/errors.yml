@@ -22,3 +22,5 @@ de:
               blank: "Legen Sie die Art des Ortes fest"
             kind_type:
               blank: "Legen Sie die Art der Location fest"
+            suitableForText:
+              too_long: "'Geeignet für' Text zu lang"

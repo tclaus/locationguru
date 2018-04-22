@@ -64,10 +64,13 @@ class LocationsController < ApplicationController
     new_params = location_params
     new_params = location_params.merge(active: true) if set_location_active
     if @location.update(new_params)
-      flash[:notice] = 'Updated...'
+      logger.debug "Updated location with ID #{@location.id}"
+      flash[:notice] = t('updatedLocation')
       redirect_to listing_location_path(@location), notice: t('updated')
     else
-      flash[:alert] = t('something_went_wrong')
+      logger.debug 'Failed updating a location'
+      puts @location.errors.messages.to_s
+      flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       redirect_back(fallback_location: request.referer)
     end
   end
@@ -171,6 +174,7 @@ class LocationsController < ApplicationController
                                      :isForEscapeRoomGames,
                                      :isForConferences,
                                      :isForBachelorParties,
-                                     :isForChristmasParties)
+                                     :isForChristmasParties,
+                                     :suitableForText)
   end
 end
