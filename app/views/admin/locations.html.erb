@@ -7,6 +7,7 @@
       <tr>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
+       <th scope="col">Aktiv</th>
        <th scope="col">Creator</th>
        <th scope="col">Created At</th>
        <th scope="col">Geocoded</th>
@@ -14,8 +15,18 @@
       <% @locations.each do |location| %>
       <tr>
         <td><%= location.id %></td>
-        <td><%= link_to location.listing_name, location_path(location) %></td>
-        <td><%= location.user.email %> / <%= location.user.id %></td>
+        <td>
+          <%= link_to location.listing_name, location_path(location) %> <br>
+          <%= location.country %> / <%= location.city %>
+        </td>
+        <td>
+          <% if location.active? %>
+            <i class="fa fa-check"></i>
+          <% else %>
+            <i class="fa fa-circle-o"></i>
+          <% end %>
+        </td>
+        <td><%= mail_to location.user.email %> / <%= location.user.id %></td>
         <td><%= location.created_at %></td>
         <td><% if location.geocoded? %>
           <i class="fa fa-check"></i>
