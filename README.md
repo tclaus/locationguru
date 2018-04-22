@@ -27,7 +27,7 @@ Upload to heroku
 Migrate Database:
 On every update don't forget a
 
-$: heroku rake db:migrate
+$: heroku run rake db:migrate -a <appname>
 
 to set database to latest state.
 
