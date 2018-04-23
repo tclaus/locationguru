@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   # Load cities cloud
   def getCitiesLinkCloud
-      # Cache these a bit? 
+      # Cache these a bit?
       @linkClouds =  Location.where(active: true).select('city').group('city').order('city')
   end
 
@@ -18,12 +18,12 @@ class ApplicationController < ActionController::Base
     # Set all restrictions for content security
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
-      "script-src 'self' google-analytics.com maps.googleapis.com connect.facebook.net;" \
-      "img-src 'self' www.gravatar.com maps.googleapis.com maps.gstatic.com graph.facebook.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "script-src 'self'  www.googletagmanager.com google-analytics.com www.google-analytics.com maps.googleapis.com connect.facebook.net;" \
+      "img-src 'self' www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com graph.facebook.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com;" \
       "font-src  'self' fonts.gstatic.com;"\
       "child-src 'self' staticxx.facebook.com www.facebook.com;" \
-      "connect-src 'self';"\
+      "connect-src 'self' www.google-analytics.com;"\
       "form-action 'self';"\
       "base-uri 'self'"
   end
