@@ -1,5 +1,7 @@
-
 @media (max-width: 1024px) {
+  H1 {
+    font-size: 2em;
+  }
 
   .container {
     width: 95%;
@@ -10,9 +12,7 @@
     margin-right: 0 !important;
   }
 
-  .show-mobile-only {
-
-  }
+  .show-mobile-only {}
 
   .show-desktop-only {
     display: none;
