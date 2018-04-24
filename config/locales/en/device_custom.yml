@@ -15,6 +15,12 @@ en:
         current_password: "Current password"
         profile_image: "Profile image"
         upload_new_avatar: "Upload a new image"
+        your_phone_number: "Phone Number"
+        addPhoneNumber: "Add phone number"
+        verify: "Enter verification code"
+        verificationCode: "Verification Pin"
+        yourVerificationPin: "Pin"
+        verify: "Verify"
       new:
         use_alternative_login: "Or use facebbok:"
     sessions:

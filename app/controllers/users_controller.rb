@@ -19,10 +19,42 @@ class UsersController < ApplicationController
      redirect_back(fallback_location: request.referer, notice: t('saved'))
   end
 
+  def update_phone_number
+    current_user.update_attributes(user_params)
+    if !user_params[:phone_number].blank?
+      current_user.generate_pin
+      current_user.send_pin(t('.SMS_YourPin'))
+    else
+      current_user.pin = ""
+      current_user.save
+    end
+    # TODO: Can the phone number be checked?
+    redirect_to edit_user_registration_path, notice: "Saved..."
+  rescue Exception => e
+      logger.error "Error sending pin: #{e.message}"
+      redirect_to edit_user_registration_path , alert: t('.errorSendingPin')
+  end
+
+  def verify_phone_number
+    current_user.verify_pin(params[:user][:pin])
+    if current_user.phone_verified
+      flash[:notice] = t('.yourPhoneNumberIsVerified')
+    else
+      flash[:alert] = t('.cannotVerifyYourPhoneNumber')
+    end
+    redirect_to edit_user_registration_path
+  rescue Exception => e
+    logger.error "Error verify pin: #{e.message}"
+    redirect_to edit_user_registration_path, alert: t('.errorVerifingPin')
+  end
 
 protected
   def avatar_user_params
     params.require(:user).permit(:avatar)
+  end
+
+  def user_params
+    params.require(:user).permit(:phone_number, :pin)
   end
 
 end

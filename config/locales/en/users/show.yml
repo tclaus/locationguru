@@ -9,3 +9,10 @@ en:
       review_from_hosts: "Host reviews"
       listings: "Event Venues:"
       you_dont_have_any_entries: "You have still no venues"
+    update_phone_number:
+      SMS_YourPin: "Your Locationguru pin: "
+      errorSendingPin: "Der Bestätigungscode konnte nicht gesendet werden."
+    verify_phone_number:
+      yourPhoneNumberIsVerified: "Die Telefonnummer konnte besttigt werden."
+      cannotVerifyYourPhoneNumber: "Die Telefonnummer konnte nicht bestätigt werden."
+      errorVerifingPin: "Ein Fehler ist aufgetreten."

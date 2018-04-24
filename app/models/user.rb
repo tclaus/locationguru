@@ -40,7 +40,7 @@ class User < ApplicationRecord
  end
 
 def isAdmin
-   if self.role == "admin"
+  if self.role == "admin"
      return true
   else
     return false
@@ -67,5 +67,25 @@ end
       end
     end
   end
+
+def generate_pin
+  self.pin = SecureRandom.hex(2)
+  self.phone_verified = false
+  save
+end
+
+def send_pin(text)
+  # Todo: als Job? Habe ja ein Jobber..
+  @client = Twilio::REST::Client.new
+  @client.messages.create(
+    from: ENV['twilio_from_phone'],
+    to: self.phone_number,
+    body: text + self.pin
+  )
+end
+
+def verify_pin(entered_pin)
+  update(phone_verified: true) if self.pin == entered_pin
+end
 
 end

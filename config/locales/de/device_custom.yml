@@ -15,6 +15,12 @@ de:
         current_password: "Aktuelles Passwort"
         profile_image: "Profilbild"
         upload_new_avatar: "Neues Bild hochladen"
+        your_phone_number: "Telefonnummer"
+        addPhoneNumber: "Telefonnummer angeben"
+        verify: "Code eingeben"
+        verificationCode: "Bestätigungscode"
+        yourVerificationPin: "Code"
+        verify: "Bestätigen"
       new:
         use_alternative_login: "ODER"
     sessions:
