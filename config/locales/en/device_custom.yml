@@ -20,7 +20,8 @@ en:
         verify: "Enter verification code"
         verificationCode: "Verification Pin"
         yourVerificationPin: "Pin"
-        verify: "Verify"
+        save_new_number: "Save"
+        verify_pin: "OK"
       new:
         use_alternative_login: "Or use facebbok:"
     sessions:

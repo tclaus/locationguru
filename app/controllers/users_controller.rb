@@ -31,19 +31,26 @@ class UsersController < ApplicationController
     # TODO: Can the phone number be checked?
     redirect_to edit_user_registration_path, notice: "Saved..."
   rescue Exception => e
+    logger.error "#{e.inspect}"
       logger.error "Error sending pin: #{e.message}"
       redirect_to edit_user_registration_path , alert: t('.errorSendingPin')
   end
 
   def verify_phone_number
-    current_user.verify_pin(params[:user][:pin])
-    if current_user.phone_verified
-      flash[:notice] = t('.yourPhoneNumberIsVerified')
+
+    if !params[:user][:pin].blank?
+      current_user.verify_pin(params[:user][:pin])
+      if current_user.phone_verified
+        flash[:notice] = t('.yourPhoneNumberIsVerified')
+      else
+        flash[:alert] = t('.cannotVerifyYourPhoneNumber')
+      end
+      redirect_to edit_user_registration_path
     else
-      flash[:alert] = t('.cannotVerifyYourPhoneNumber')
+      redirect_to edit_user_registration_path
     end
-    redirect_to edit_user_registration_path
   rescue Exception => e
+    logger.error "#{e.inspect}"
     logger.error "Error verify pin: #{e.message}"
     redirect_to edit_user_registration_path, alert: t('.errorVerifingPin')
   end

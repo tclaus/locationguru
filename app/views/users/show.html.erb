@@ -17,13 +17,15 @@
               <span class="pull-right icon-babu">
                 <i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
-          <% if current_user.phone_verified %>
           <li><%= t('.phone_number')%>
             <span class="pull-right icon-babu">
-              <i class="fa fa-check-circle-o"></i>
-            </span>
-          </li>
-          <% end %>
+            <% if current_user.phone_verified %>
+            <i class="fa fa-check-circle-o"></i>
+            <% else %>
+            <i class="fa fa-circle-o"></i>
+            <% end %>
+          </span>
+        </li>
       </ul>
     </div>
   </div>

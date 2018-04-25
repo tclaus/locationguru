@@ -20,7 +20,8 @@ de:
         verify: "Code eingeben"
         verificationCode: "Bestätigungscode"
         yourVerificationPin: "Code"
-        verify: "Bestätigen"
+        save_new_number: "Speichern"
+        verify_pin: "OK"
       new:
         use_alternative_login: "ODER"
     sessions:

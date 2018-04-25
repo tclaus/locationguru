@@ -10,7 +10,7 @@ de:
       listings: "Event Locations:"
       you_dont_have_any_entries: "Du hast noch keine Locations eingetragen."
     update_phone_number:
-      SMS_YourPin: "Ihr Locationguru pin: "
+      SMS_YourPin: "Ihr Locationguru Pin: "
       errorSendingPin: "Der Bestätigungscode konnte nicht gesendet werden."
     verify_phone_number:
       yourPhoneNumberIsVerified: "Die Telefonnummer konnte besttigt werden."
