@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="center">
-      <%= image_tag avatar_url(current_user), class: "avatar-full" %>
+      <%= image_tag avatar_url(current_user), class: "avatar-full", alt: "Profile" %>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -20,7 +20,8 @@
                 <i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
 
-            <li><%= t('.phone_number')%> <span class="pull-right icon-babu">
+            <li><%= t('.phone_number')%>
+              <span class="pull-right icon-babu">
               <% if current_user.phone_verified %>
               <i class="fa fa-check-circle-o"></i>
               <% else %>

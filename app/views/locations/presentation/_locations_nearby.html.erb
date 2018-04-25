@@ -5,7 +5,7 @@
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
-            <%= image_tag location.cover_photo(:medium) %>
+            <%= image_tag location.cover_photo(:medium), alt: location.listing_name %>
           </div>
           <div class="panel-body">
             <%= link_to location.listing_name, location %>

@@ -130,7 +130,7 @@
 </div>
 <div class="col-md-3">
 <%= t('.profile_image') %>
-<%= image_tag avatar_url(current_user), alt: "Profile image", class: "img-avatar img-rounded" %>
+<%= image_tag avatar_url(current_user), alt: "Profile", class: "img-avatar img-rounded" %>
 <%= form_for(resource, as: resource_name, url: avatar_user_path(resource_name), method: 'post', html: { multipart: false }) do |form| %>
 <label class="btn btn-default btn-change-avatar">
   <%= t('.upload_new_avatar') %>

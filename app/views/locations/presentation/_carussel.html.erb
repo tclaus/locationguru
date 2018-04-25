@@ -11,7 +11,7 @@
       <div class="carousel-inner">
         <% @photos.each do |photo| %>
           <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-            <%= image_tag photo.image.url() %>
+            <%= image_tag photo.image.url(), alt: @location.listing_name %>
           </div>
         <% end %>
       </div>
