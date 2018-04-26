@@ -3,7 +3,7 @@ de:
     description:
       description: "Beschreibung"
       listing_name: "Name des Eintrages"
-      what_is_your_listing_name: "Kurzer Hinweistext"
+      what_is_your_listing_name: "Kurzer Hinweistext, allgemein bekannter Name"
       summary: "Beschreibender Text"
       describe_your_location: "Beschreibe etwas besonderes, was genau dieser Ort ausmacht."
       save: "Speichern"
