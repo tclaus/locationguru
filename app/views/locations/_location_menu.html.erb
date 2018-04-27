@@ -1,5 +1,17 @@
 <ul class="sidebar-list">
   <li class="sidebar-item">
+    <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
+    <% if !@location.listing_name.blank? %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-check"></i>
+      </span>
+    <% else %>
+      <span class="pull-right text-babu">
+        <i class="fa fa-circle-o"></i>
+      </span>
+    <% end %>
+  </li>
+  <li class="sidebar-item">
     <%= link_to t(".listing"), listing_location_path, class:"sidebar-link active" %>
     <span class="pull-right text-babu">
       <i class="fa fa-check"></i>
@@ -22,19 +34,6 @@
     <span class="pull-right text-babu">
       <i class="fa fa-check"></i>
     </span>
-  </li>
-
-  <li class="sidebar-item">
-    <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
-    <% if !@location.listing_name.blank? %>
-      <span class="pull-right text-babu">
-        <i class="fa fa-check"></i>
-      </span>
-    <% else %>
-      <span class="pull-right text-babu">
-        <i class="fa fa-circle-o"></i>
-      </span>
-    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to t(".photos"), photo_upload_location_path, class:"sidebar-link active" %>

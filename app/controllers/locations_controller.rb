@@ -66,7 +66,7 @@ class LocationsController < ApplicationController
     if @location.update(new_params)
       logger.debug "Updated location with ID #{@location.id}"
       flash[:notice] = t('updatedLocation')
-      redirect_to listing_location_path(@location), notice: t('updated')
+      redirect_to description_location_path(@location), notice: t('updated')
     else
       logger.debug 'Failed updating a location'
       puts @location.errors.messages.to_s
