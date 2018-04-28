@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
     if @message.save
       # Send a mail to receiver
       LocationMailer.with(message: @message, location: @location).location_mail.deliver_later
+      # Send mail for reference to sender
+      LocationMailer.with(message: @message, location: @location).location_mail_to_sender.deliver_later
 
       flash[:notice] = t('.message_send')
       redirect_to location_path(@location)

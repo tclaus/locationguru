@@ -1,5 +1,6 @@
 class LocationMailer < ApplicationMailer
 
+  # Send to location owner
   def location_mail
     @location = params[:location]
     @message = params[:message]
@@ -9,6 +10,18 @@ class LocationMailer < ApplicationMailer
     mail(to: email_with_name,
       from: "#{@message.name} (Locationguru) <no-reply@locationguru.net>",
       reply_to: @message.email,
-      subject: "You got mail from locationGuru for #{@location.listing_name}")
+      subject: "You got mail from LocationGuru for '#{@location.listing_name}'")
   end
+
+  # reference amil to sender
+  def location_mail_to_sender
+    @location = params[:location]
+    @message = params[:message]
+
+    email_with_name = "#{@message.name} (Locationguru) <#{@message.email}>"
+
+    mail(to: email_with_name,
+      subject: "Your message for: '#{@location.listing_name}'")
+  end
+
 end
