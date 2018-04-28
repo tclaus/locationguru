@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= t('.send_a_message') %> <br>
+    <small><%= @location.listing_name %></small>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @message, url: location_messages_path(@location) do |f| %>
+
+        <div class="form-group">
+          <%= f.label(:email, t('.email')) %>
+          <%= f.email_field :email, placeholder: t('.your_email'), class:"form-control", required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label(:name, t('.name')) %>
+          <%= f.text_field :name, placeholder: t('.your_name'), class:"form-control", required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label(:message, t('.message')) %>
+          <%= f.text_area :message, placeholder: t('.your_message'), class:"form-control", required: true, size: "30x10" %>
+        </div>
+        <div class="form-group">
+          <%= f.label(:accept, t('.accept_data_processing')) %>
+          <%= f.check_box :accept, class:"form-control", required: true %>
+        </div>
+        <div>
+          <%= f.submit t('.create'), class:"btn btn-default" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

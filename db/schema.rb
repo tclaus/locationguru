@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424172049) do
+ActiveRecord::Schema.define(version: 20180428172536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,10 +72,24 @@ ActiveRecord::Schema.define(version: 20180424172049) do
     t.boolean "isForBachelorParties", default: false, null: false
     t.boolean "isForChristmasParties", default: false, null: false
     t.string "suitableForText"
+    t.boolean "isPro"
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
     t.index ["email"], name: "index_locations_on_email"
     t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "location_id"
+    t.string "email"
+    t.string "name"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "accept"
+    t.index ["location_id"], name: "index_locations_on_location_id"
+    t.index ["user_id"], name: "index_message_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|

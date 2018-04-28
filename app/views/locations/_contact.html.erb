@@ -7,24 +7,27 @@
   </div>
   <div class="panel-body">
     <div>
+      <%= link_to t('.send_a_message'),send_message_location_path(@location), class: "btn btn-default" %>
       <table class="contact-table">
         <tbody>
           <% if !@location.website.blank? %>
-          <tr>
-            <td><%= t('.website') %></td>
-            <td class="text-right"><%= link_to @location.website %></td>
-          </tr>
+            <tr>
+              <td><%= t('.website') %></td>
+              <td class="text-right"><%= link_to @location.website %></td>
+            </tr>
           <% end %>
           <% if !@location.phonenumber.blank? %>
-          <tr>
-            <td> <%= t('.phonenumber') %></td>
-            <td class="text-right"> <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a></span></td>
-          </tr>
+            <tr>
+              <td> <%= t('.phonenumber') %></td>
+              <td class="text-right"> <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a></span></td>
+            </tr>
           <% end %>
-          <tr>
-            <td><%= t('.email') %></td>
-            <td class="text-right"><%= mail_to @location.email %></td>
-          </tr>
+          <% if !@location.isPro %>
+            <tr>
+              <td><%= t('.email') %></td>
+              <td class="text-right"><%= mail_to @location.email %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

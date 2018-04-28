@@ -36,10 +36,13 @@ Rails.application.routes.draw do
       get 'location'
       get 'preload'
       get 'preview'
+      get 'send_message'
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
+    resources :messages, only: [:create, :show]
   end
+
   resources :cities, only: [:show]
   resources :guest_reviews, only: [:create, :destroy]
   resources :host_reviews, only: [:create, :destroy]

@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
         if !is_owner && !current_user.isAdmin
           logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
           redirect_to root_path
-       end
+        end
       else
         logger.warn "Tried to load inactive location without authorization: #{@location.id}"
         redirect_to root_path
@@ -59,6 +59,13 @@ class LocationsController < ApplicationController
   end
 
   def location; end
+
+  def send_message
+      @message = current_user.messages.build
+      @message.location_id = @location.id
+      
+  end
+
 
   def update
     new_params = location_params

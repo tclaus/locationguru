@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Catering Types. Where to get food&bevarage?
-CateringType.delete_all()
-KindType.delete_all()
-LocationType.delete_all()
-Translation.delete_all()
+CateringType.delete_all
+KindType.delete_all
+LocationType.delete_all
+Translation.delete_all
 
 CateringType.create([{ id: 1,
                        name: 'Flexible' },
@@ -50,8 +50,12 @@ KindType.create([{ id: 1,
                    name: 'Boat/Ship' },
                  { id: 15,
                    name: 'Beachclub' },
-                {id: 16,
-                   name: 'country house'}])
+                 { id: 16,
+                   name: 'country house' },
+                 { id: 17,
+                   name: 'warehouse' },
+                 { id: 18,
+                   name: 'industry' }])
 
 # Where is it? How to get there
 LocationType.create([{ id: 1,
@@ -59,7 +63,9 @@ LocationType.create([{ id: 1,
                      { id: 2,
                        name: 'City' },
                      { id: 3,
-                       name: 'Coast' }])
+                       name: 'Coast' },
+                     { id: 4,
+                       name: 'Mountains' }])
 
 # Translations:
 # DE
@@ -135,10 +141,18 @@ Translation.create([{ category: 'CateringType',
                       text_id: 15,
                       language_id: 'de',
                       translation: 'Strandhaus' },
-                      { category: 'KindType',
-                        text_id: 16,
-                        language_id: 'de',
-                        translation: 'Landhaus' },
+                    { category: 'KindType',
+                      text_id: 16,
+                      language_id: 'de',
+                      translation: 'Landhaus' },
+                    { category: 'KindType',
+                      text_id: 17,
+                      language_id: 'de',
+                      translation: 'Lagehalle' },
+                    { category: 'KindType',
+                      text_id: 18,
+                      language_id: 'de',
+                      translation: 'Industrie' },
                     { category: 'LocationType',
                       text_id: 1,
                       language_id: 'de',
@@ -150,7 +164,11 @@ Translation.create([{ category: 'CateringType',
                     { category: 'LocationType',
                       text_id: 3,
                       language_id: 'de',
-                      translation: 'Küste' }])
+                      translation: 'Küste' },
+                    { category: 'LocationType',
+                      text_id: 4,
+                      language_id: 'de',
+                      translation: 'Berge' }])
 
 # EN
 Translation.create([{ category: 'CateringType',
@@ -225,10 +243,18 @@ Translation.create([{ category: 'CateringType',
                       text_id: 15,
                       language_id: 'en',
                       translation: 'Beachhouse' },
-                      { category: 'KindType',
-                        text_id: 16,
-                        language_id: 'en',
-                        translation: 'Countryhouse' },
+                    { category: 'KindType',
+                      text_id: 16,
+                      language_id: 'en',
+                      translation: 'Countryhouse' },
+                    { category: 'KindType',
+                      text_id: 17,
+                      language_id: 'en',
+                      translation: 'Warehouse' },
+                    { category: 'KindType',
+                      text_id: 18,
+                      language_id: 'en',
+                      translation: 'Industry' },
                     { category: 'LocationType',
                       text_id: 1,
                       language_id: 'en',
@@ -240,4 +266,8 @@ Translation.create([{ category: 'CateringType',
                     { category: 'LocationType',
                       text_id: 3,
                       language_id: 'en',
-                      translation: 'Coast' }])
+                      translation: 'Coast' },
+                    { category: 'LocationType',
+                      text_id: 4,
+                      language_id: 'en',
+                      translation: 'Mountains' }])
