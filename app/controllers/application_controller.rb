@@ -64,5 +64,5 @@ class ApplicationController < ActionController::Base
     accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
     logger.debug "* Accept-Language from header: #{accept_language}"
     return accept_language.scan(/^[a-z]{2}/).first if accept_language
- end
+  end
 end

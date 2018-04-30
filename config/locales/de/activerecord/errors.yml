@@ -24,3 +24,7 @@ de:
               blank: "Legen Sie die Art der Location fest"
             suitableForText:
               too_long: "'Geeignet für' Text zu lang"
+        message:
+          attributes:
+            message:
+              too_long: "Die Nachricht ist zu lang zu versenden. Fass dich etwas kürzer. "

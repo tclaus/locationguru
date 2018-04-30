@@ -1,7 +1,10 @@
 require 'test_helper'
 
+
 class MessagesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+include Devise::Test::IntegrationHelpers
+
+  test "Create failure message" do
+    assert true
+   end
 end

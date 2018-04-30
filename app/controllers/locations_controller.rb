@@ -19,8 +19,7 @@ class LocationsController < ApplicationController
       logger.debug "Created location with ID #{@location.id}"
       redirect_to listing_location_path(@location), notice: t('saved')
     else
-      logger.debug 'Failed creating a location'
-      puts @location.errors.messages.to_s
+      logger.warn 'Failed creating a location'
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       render :new
     end
@@ -63,7 +62,7 @@ class LocationsController < ApplicationController
   def send_message
       @message = current_user.messages.build
       @message.location_id = @location.id
-      
+
   end
 
 
@@ -75,8 +74,7 @@ class LocationsController < ApplicationController
       flash[:notice] = t('updatedLocation')
       redirect_to description_location_path(@location), notice: t('updated')
     else
-      logger.debug 'Failed updating a location'
-      puts @location.errors.messages.to_s
+      logger.debug "Failed updating a location. #{@location.errors.messages.to_s}"
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       redirect_back(fallback_location: request.referer)
     end

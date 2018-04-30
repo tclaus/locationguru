@@ -9,15 +9,15 @@
 
         <div class="form-group">
           <%= f.label(:email, t('.email')) %>
-          <%= f.email_field :email, placeholder: t('.your_email'), class:"form-control", required: true %>
+          <%= f.email_field :email, placeholder: t('.your_email'), maxlength: 50, class:"form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.label(:name, t('.name')) %>
-          <%= f.text_field :name, placeholder: t('.your_name'), class:"form-control", required: true %>
+          <%= f.text_field :name, placeholder: t('.your_name'), maxlength: 50, class:"form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.label(:message, t('.message')) %>
-          <%= f.text_area :message, placeholder: t('.your_message'), class:"form-control", required: true, size: "30x10" %>
+          <%= f.text_area :message, placeholder: t('.your_message'), maxlength: 2000, class:"form-control", required: true, size: "30x5" %>
         </div>
         <div class="form-group">
           <%= f.label(:accept, t('.accept_data_processing')) %>

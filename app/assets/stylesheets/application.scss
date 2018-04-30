@@ -424,3 +424,14 @@ li.location_preview {
   background-color: beige;
   display: inline-flex;
 }
+
+.top-right {
+  text-align: right;
+  position: absolute;
+  right: 10px;
+}
+
+.message-scroller {
+  overflow: scroll;
+  max-height: 300px;
+}

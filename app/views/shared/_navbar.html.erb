@@ -61,10 +61,9 @@
   </div>
   <!-- /.navbar-collapse -->
 </div>
-<!-- /.container-fluid -->
 </nav>
 
-<% if (user_signed_in?) && !current_page?(root_path) &&
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?(new_location_path) &&
     (current_page?("/locations/") ||
     current_page?(dashboard_path) ||
     current_page?(admin_path) ||
@@ -83,9 +82,14 @@
     </div>
   </nav>
 <% end %>
-<% # Show mobile only %>
+
+<% # Show mobile only, and only in non-admin fields %>
+<% if (current_page?(root_path) ||
+  current_page?("suitables")
+ )%>
 <div class="container show-mobile-only">
   <%= link_to t('.become_a_host'), new_location_path, class: "btn btn-default btn-block" %>
 </div>
+<% end %>
 
 <%= javascript_include_tag( 'navbar_geocomplete' ) %>

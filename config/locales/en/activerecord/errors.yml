@@ -24,3 +24,7 @@ en:
               blank: "Choose venue kind"
             suitableForText:
               too_long: "'Suitable for' too long"
+        message:
+           attributes:
+             message:
+               too_long: "Die Nachricht ist zu lang zu versenden. Fass dich etwas kürzer. "

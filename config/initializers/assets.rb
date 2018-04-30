@@ -12,12 +12,14 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w( navbar_geocomplete.js
-home_geocomplete.js
-average_rating.js
-maps_single_location.js
-search_filters.js
-maps_location_list.js
+home_geocomplete
+average_rating
+maps_single_location
+search_filters
+maps_location_list
 photos_upload
 profile_pic_upload
 messages
-google_analytics.js)
+google_analytics
+select_message
+send_message_on_button)
