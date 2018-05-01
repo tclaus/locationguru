@@ -2,3 +2,4 @@ de:
   messages:
     show:
       answer_message: "Antwort senden"
+      yesterday: "Gestern"

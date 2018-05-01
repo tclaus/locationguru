@@ -1,3 +1,4 @@
+<%= puts "Render messages: #{flash.inspect}" %>
 <% unless flash.empty? %>
     <% flash.each do |key, value| %>
       <% type = key.to_s.gsub('alert','error').gsub('notice','success') %>

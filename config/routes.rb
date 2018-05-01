@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
-    resources :messages, only: [:create, :show]
+    resources :messages, only: [:create, :show, :destroy]
   end
 
   resources :cities, only: [:show]
@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
   # DashboardsController
   get 'dashboard' => 'dashboards#index'
+  get 'dashboard/unread_count' => 'dashboards#unreadMessageCount'
+  get 'dashboard/unread_count_json' => 'dashboards#unreadMessageCountJSON'
 
   # Admin
   controller :admin do

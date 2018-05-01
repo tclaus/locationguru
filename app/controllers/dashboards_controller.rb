@@ -3,19 +3,24 @@ class DashboardsController < ApplicationController
 
   def index
     @locations = current_user.locations
-    # Messages, sortirt nach locations
+    # Messages, sortiert nach locations
     # group by locationId, where user_id = ICH, order by created_at
 
     @messages_overview = groupded_messages
     @unreadMessageCount = unreadMessageCount
   end
 
-private
-  def unreadMessageCount
-    Message
-    .where(user_id: current_user.id, isRead: false)
-    .count()
+  def unreadMessageCountJSON
+    render json: unreadMessageCount
   end
+
+private
+
+def unreadMessageCount
+  Message
+  .where(user_id: current_user.id, isRead: false)
+  .count()
+end
 
   def groupded_messages
 
