@@ -1,0 +1,9 @@
+de:
+  location_mailer:
+    location_mail:
+      subject: "Sie haben eine Nachricht für '%{location_name}'"
+      send_you_a_message_for: "%{sender} hat Ihnen eine für '%{location_name}' eine Nachricht gesendet."
+      your_inbox: "Ihr Nachrichteneingang:"
+    location_mail_to_sender:
+      you_send_this_message: "Sie haben diese Nachricht gesendet:"
+      your_message_for: "Ihre Nachricht für '%{location_name}'"

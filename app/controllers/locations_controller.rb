@@ -3,6 +3,8 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorized, only: %i[listing pricing description
                                          photo_upload suitables amenities location update destroy]
+  before_action :location_is_active, only: %i[send_message]
+
 
   def index
     @locations = current_user.locations
@@ -62,9 +64,7 @@ class LocationsController < ApplicationController
   def send_message
       @message = current_user.messages.build
       @message.location_id = @location.id
-
   end
-
 
   def update
     new_params = location_params
@@ -150,6 +150,12 @@ class LocationsController < ApplicationController
   def set_location_active
     params[:active] && !@location.listing_name.blank? && !@location.photos.blank? && !@location.address.blank?
   end
+
+  def location_is_active
+    logger.debug " Check location is active"
+    redirect_to root_path, alert: t('location_inactive') unless (@location.active)
+  end
+
 
   def location_params
     params.require(:location).permit(:location_type,

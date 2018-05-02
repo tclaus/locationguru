@@ -1,10 +1,8 @@
 
 Location Guru
 ===============================================
-<%=@location.listing_name %>
 
-
-You send this message:
+<%= t('.you_send_this_message_for', @location.listing_name) %>
 -
 <%= @message.message %>
 -

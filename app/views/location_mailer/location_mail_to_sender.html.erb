@@ -5,16 +5,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>LocationGuru</h1>
-    <small><%=@location.listing_name %></small>
+    <h1>Location Guru</h1>
     <p>
-      You send this message:
+      <%= t('.you_send_this_message_for',location_name: @location.listing_name) %>
     </p>
     <p>
       <%= html_line_breaks(@message.message) %>
     </p>
     <br>
-    https://Locationguru.net
+    https://Locationguru.net/
 
   </body>
 </html>

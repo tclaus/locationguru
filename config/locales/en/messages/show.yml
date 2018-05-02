@@ -3,3 +3,5 @@ en:
     show:
       answer_message: "Send Answer"
       yesterday: "Yesterday"
+    create:
+      message_send: "Nachricht gesendet"

@@ -99,6 +99,7 @@ en:
         unhappy: Unhappy?
         update: Update
         we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+        yourPhoneNumber: "Your phone number"
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.

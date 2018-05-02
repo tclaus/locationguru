@@ -8,7 +8,6 @@ module ApplicationHelper
 
     # From Oauth login provder (facebook)
     if user.image
-      logger.debug 'Show facebook image'
       secureUrl = user.image
       secureUrl.sub! 'http://', 'https://'
       secureUrl + '?width=300'

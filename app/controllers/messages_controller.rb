@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
       redirect_to location_path(@location)
     else
       logger.warn "Failure saving message: #{@message.errors.messages.to_s}"
-      flash[:notice] = t('.message_send')
+      flash[:notice] = t('.message_send_error')
       render send_message_path(@message)
     end
   end
@@ -51,9 +51,7 @@ class MessagesController < ApplicationController
   private
 
   def set_location
-
     @location = Location.find(params[:location_id])
-    logger.debug "set location: #{@location}"
   end
 
   def is_authorized
