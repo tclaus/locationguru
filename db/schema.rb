@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430065851) do
+ActiveRecord::Schema.define(version: 20180502180343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20180430065851) do
     t.boolean "isForBachelorParties", default: false, null: false
     t.boolean "isForChristmasParties", default: false, null: false
     t.string "suitableForText"
-    t.boolean "isPro"
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
     t.index ["email"], name: "index_locations_on_email"
@@ -172,6 +171,7 @@ ActiveRecord::Schema.define(version: 20180430065851) do
     t.string "role"
     t.boolean "phone_verified"
     t.string "pin"
+    t.boolean "isPremium", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

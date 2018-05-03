@@ -64,6 +64,10 @@ class User < ApplicationRecord
     end
   end
 
+  def hasPremium
+    self.isPremium || isAdmin
+  end
+
   def generate_pin
     self.pin = SecureRandom.hex(2)
     self.phone_verified = false
@@ -71,7 +75,6 @@ class User < ApplicationRecord
   end
 
   def send_pin(text)
-    # TODO: als Job? Habe ja ein Jobber..
     @client = Twilio::REST::Client.new
     @client.messages.create(
       from: ENV['twilio_from_phone'],

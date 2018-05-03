@@ -7,7 +7,15 @@
   </div>
   <div class="panel-body">
     <div>
-      <%= link_to t('.send_a_message'),send_message_location_path(@location), class: "btn btn-default" %>
+      <% if @location.user.hasPremium %>
+        <div class="text-center">
+          <%= link_to t('.send_a_message'),send_message_location_path(@location), class: "btn btn-default" %>
+        </div>
+        <% if !@location.website.blank? || !@location.phonenumber.blank? %>
+          <hr>
+        <% end %>
+      <% end %>
+
       <table class="contact-table">
         <tbody>
           <% if !@location.website.blank? %>
@@ -19,10 +27,13 @@
           <% if !@location.phonenumber.blank? %>
             <tr>
               <td> <%= t('.phonenumber') %></td>
-              <td class="text-right"> <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a></span></td>
+              <td class="text-right">
+                <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a>
+              </td>
             </tr>
+
           <% end %>
-          <% if !@location.isPro %>
+          <% if !@location.user.hasPremium %>
             <tr>
               <td><%= t('.email') %></td>
               <td class="text-right"><%= mail_to @location.email %></td>

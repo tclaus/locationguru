@@ -19,10 +19,13 @@
           <%= f.label(:message, t('.message')) %>
           <%= f.text_area :message, placeholder: t('.your_message'), maxlength: 2000, class:"form-control", required: true, size: "30x5" %>
         </div>
-        <div class="form-group">
-          <%= f.label(:accept, t('.accept_data_processing')) %>
-          <%= f.check_box :accept, class:"form-control", required: true %>
-        </div>
+
+          <%= f.label :accept do %>
+
+            <%= f.check_box :accept, required: true %>
+            <%= t('.accept_data_processing') %>
+          <% end %>
+
         <div>
           <%= f.submit t('.create'), class:"btn btn-default" %>
         </div>
