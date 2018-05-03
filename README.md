@@ -20,14 +20,18 @@ Start / Update in Productive-Configuration
 ------------------------------------------
 Upload to heroku
 1. $: Heroku login
-2. Setup Datenbase on heroku
-    heroku run rake db:schema:load
-    heroku run rake db:seed
+2. Setup Database on heroku
+    heroku run rake db:schema:load -a locationguru-dev
+    heroku run rake db:seed -a locationguru-dev
 
 Migrate Database:
 On every update don't forget a
 
-$: heroku run rake db:migrate -a <appname>
+Development:
+  heroku run rake db:migrate -a locationguru-dev
+
+Production:
+  heroku run rake db:migrate -a locationguru
 
 to set database to latest state.
 

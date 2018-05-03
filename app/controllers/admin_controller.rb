@@ -6,6 +6,7 @@ class AdminController < ApplicationController
     @totalUsers = User.count
     @totalLocations = Location.count
     @totalActiveLocations = Location.where(active: true).count
+    @totalMessages = Message.count
     render "admin/index"
   end
 

@@ -20,6 +20,10 @@
               <td class="text-left"><%= t('.total_active_locations') %></td>
               <td class="statistic-table right"><%= @totalActiveLocations %></td>
             </tr>
+            <tr>
+              <td class="text-left"><%= t('.total_messages') %></td>
+              <td class="statistic-table right"><%= @totalMessages %></td>
+            </tr>
           </tbody>
         </table>
         <%= link_to 'Start Recalculation of geodata', admin_recalculation_path, method: :post %>

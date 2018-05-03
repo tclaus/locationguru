@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :send_message]
   before_action :is_authorized, only: %i[listing pricing description
                                          photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
@@ -62,7 +62,8 @@ class LocationsController < ApplicationController
   def location; end
 
   def send_message
-      @message = current_user.messages.build
+      @message = Message.new
+      @message.user_id = @location.user_id
       @message.location_id = @location.id
   end
 

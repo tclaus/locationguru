@@ -15,6 +15,11 @@ Upload to heroku
 
 On every update dont forget a
 
-  heroku rake db:migrate
+Development:
+  heroku run rake db:migrate -a locationguru-dev
+
+Production:
+heroku run rake db:migrate -a locationguru
+
 
 to set database to latest state.
