@@ -21,7 +21,7 @@ class LocationMailer < ApplicationMailer
     email_with_name = "#{@message.name} (Location Guru) <#{@message.email}>"
 
     mail(to: email_with_name,
-      subject: t('.subject',location_name: @location.listing_name))
+      subject: t('.subject', location_name: @location.listing_name))
   end
 
 end
