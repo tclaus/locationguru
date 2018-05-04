@@ -1,5 +1,4 @@
-
-  var flashMessages = $('span#messages');
+ var flashMessages = $('span#messages');
   flashMessages.each(function(i,element) {
     var type = $(element).data('type');
     var message = $(element).data('message');
