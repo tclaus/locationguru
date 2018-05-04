@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="center">
-      <%= image_tag avatar_url(@user), class:"avatar-full", class:"Profile" %>
+      <%= image_tag avatar_url(@user), alt:"Avatar",class:"avatar-full" %>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading"><%= t('.verification') %></div>
@@ -19,45 +19,47 @@
           <% end %>
           <li><%= t('.phone_number')%>
             <span class="pull-right icon-babu">
-            <% if current_user.phone_verified %>
-            <i class="fa fa-check-circle-o"></i>
-            <% else %>
-            <i class="fa fa-circle-o"></i>
-            <% end %>
-          </span>
-        </li>
-      </ul>
+              <% if current_user.phone_verified %>
+                <i class="fa fa-check-circle-o"></i>
+              <% else %>
+                <i class="fa fa-circle-o"></i>
+              <% end %>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <h2><%= @user.fullname %></h2>
+    <div class="description ">
+      <%= @user.description %>
+    </div>
+    <h4><%= t('.listings') %>
+      (<%= @locations.length %>)</h4>
+    <br/>
+    <div class="row">
+      <% if !@locations.empty? %>
+        <%= render partial: 'locations/location_list' %>
+      <% else %>
+        <%= t('.you_dont_have_any_entries') %>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="col-md-9">
-  <h2><%= @user.fullname %></h2>
-  <div class="description ">
-    <%= @user.description %>
-  </div>
-  <h4><%= t('.listings') %>
-    (<%= @locations.length %>)</h4>
-  <br/>
-  <div class="row">
-    <% if !@locations.empty? %>
-      <%= render partial: 'locations/location_list' %>
-    <% else %>
-      <%= t('.you_dont_have_any_entries') %>
-    <% end %>
-  </div>
-</div>
-</div>
 
+<div class="hidden">
 <h4><%= t('.review_from_guests') %>
-(<%= @guest_reviews.count %>)</h4>
+  (<%= @guest_reviews.count %>)</h4>
 <div class="row">
-<%= render "reviews/guest_list" %>
+  <%= render "reviews/guest_list" %>
 </div>
 <br/>
 
 <h4><%= t('.review_from_hosts') %>
-(<%= @host_reviews.count %>)</h4>
+  (<%= @host_reviews.count %>)</h4>
 <div class="row">
-<%= render "reviews/host_list" %>
+  <%= render "reviews/host_list" %>
 </div>
 <br/>
+</div>
