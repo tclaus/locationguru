@@ -6,4 +6,4 @@ de:
       your_inbox: "Ihr Nachrichteneingang:"
     location_mail_to_sender:
       you_send_this_message: "Sie haben diese Nachricht gesendet:"
-      your_message_for: "Ihre Nachricht für '%{location_name}'"
+      subject: "Ihre Nachricht an '%{location_name}'"

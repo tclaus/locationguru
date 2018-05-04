@@ -6,4 +6,4 @@ en:
       your_inbox: "Your inbox:"
     location_mail_to_sender:
       you_send_this_message: "You have send this message:"
-      your_message_for: "Your message for '%{location_name}'"
+      subject: "Your message for '%{location_name}'"
