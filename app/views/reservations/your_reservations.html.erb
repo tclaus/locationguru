@@ -31,7 +31,7 @@
               <% end %>
             </div>
             <div class="col-md-5">
-              <%= link_to reservation.location.listing_name, location_path(reservation.location) %> <br/> <br/>
+              <%= link_to reservation.location.listing_name, location_path(reservation.location) %> <br> <br>
               <span>
               <%= link_to user_path(reservation.user) do %>
                 <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>

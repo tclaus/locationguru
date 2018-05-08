@@ -5,7 +5,7 @@
         <%= link_to t('.edit_profile'), edit_user_registration_path, class: "sidebar-link active" %>
       </li>
     </ul>
-    <br/>
+    <br>
   </div>
   <%= link_to t('.view_my_profile'), user_path(current_user.id), class: "btn btn-default" %>
 
@@ -40,7 +40,7 @@
           <% end %>
 
           <div class="form-group">
-            <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br/>
+            <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br>
             <%= f.password_field :password, autocomplete: "off",placeholder: t('.password'), class: "form-control" %>
           </div>
 
@@ -52,7 +52,7 @@
         <% end %>
 
       </div>
-      <hr/>
+      <hr>
   <% # Enable when payments are activated %>
       <div class="panel panel-default hidden">
         <div class="panel-heading">

@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="row" id="detailSearch">
-      <br/>
+      <br>
       <div class="collapse" id="collapsePanel">
         <%= search_form_for @search, url: search_path, remote: true do |f|%>
         <%= t('.ammenities') %>
@@ -25,7 +25,7 @@
             <%= t('.isExclusiveAvailable') %>
           </div>
         </div>
-        <hr/>
+        <hr>
         <div class="row">
           <div class="col-md-6 select">
             <div class="form-group">
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr>
         <div class="row">
           <div class="col-md-4">
             <%= check_box_tag "q[has_heating_eq]", true %>
@@ -66,7 +66,7 @@
             <%= t('.hasParkingSpace') %>
           </div>
         </div>
-        <hr/>
+        <hr>
         <div class="row">
           <div class="col-md-offset-4 col-md-4">
             <%= f.submit t('search'), class: "btn btn-default btn-search" %>
@@ -74,7 +74,7 @@
         </div>
       <% end %>
     </div>
-    <br/>
+    <br>
 
     <div class="row" id="location_listing">
       <% if !@locations.empty? %>

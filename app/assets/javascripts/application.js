@@ -24,3 +24,4 @@
 //= require social-share-button
 //= require social_share_buttons
 //= require flash_messages
+//= require card

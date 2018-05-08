@@ -14,6 +14,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -49,7 +50,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/messages' %>
-  
+
     <div class="container">
       <%= yield %>
       <%= render partial: 'link_cloud/show' %>

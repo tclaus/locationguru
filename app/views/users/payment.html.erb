@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'payment_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.payment_method') %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <% if !@current_card.blank? %>
+            <%= t('.your_current_card') %><br>
+            <%= t('.last4_charcters_of_card') %>:
+            <%= @current_card[:number] %>,
+            <%= @current_card[:expiry] %>
+            <br><br>
+          <% end %>
+
+          <%= form_tag("/add_card", method: "post", id: "add-card") do %>
+          <i id="card-info" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></i>
+
+          <div class="form-row">
+            <label for="card-element">
+              <%= t('.credit_or_debit_card') %>
+            </label>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+          </div>
+          <br>
+          <div class="form-row">
+            <% if current_user.stripe_id %>
+              <button type="submit" class="btn btn-normal"><%= t('.update_card') %></button>
+            <% else %>
+              <button type="submit" class="btn btn-normal"><%= t('.add_card') %></button>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<%= javascript_include_tag 'cards' %>

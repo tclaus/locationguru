@@ -31,9 +31,9 @@
             </div>
 
             <div class="col-md-5">
-              <%= link_to trip.location.listing_name, location_path(trip.location) %> <br/> <br/>
+              <%= link_to trip.location.listing_name, location_path(trip.location) %> <br> <br>
               <span class="pull-right text-center">
-                <%= image_tag avatar_url(trip.location.user), class:"img-circle avatar-small" %> <br/>
+                <%= image_tag avatar_url(trip.location.user), class:"img-circle avatar-small" %> <br>
                 <%= link_to user_path(trip.location.user) do %>
                   <%= trip.location.user.fullname %>
                 <% end %>
@@ -43,7 +43,7 @@
               <%= render partial: "reviews/guest_form", locals: {reservation: trip} %>
             </div>
           </div>
-          <hr/>
+          <hr>
       <% end %>
     </div>
   </div>

@@ -4,10 +4,10 @@
 </div>
 <% else %>
  <% @guest_reviews.order(id: :desc).each do |r| %>
- <hr/>
+ <hr>
  <div class="row">
    <div class="col-md-3 text-center">
-     <%= image_tag avatar_url(r.guest), class: "img-circle avatar-medium" %> <br/> <br/>
+     <%= image_tag avatar_url(r.guest), class: "img-circle avatar-medium" %> <br> <br>
      <strong> <$= r.guest.fullname %> </strong>
    </div>
    <div class="col-md-9">

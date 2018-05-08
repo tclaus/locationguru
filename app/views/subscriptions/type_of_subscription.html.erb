@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/payment_menu' %>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <%= t('.standard') %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <ul>
+            <li>
+              <%= t('.name_description_contact')%>
+            </li>
+            <li>
+              <%= t('.multiple_photos')%>
+            </li>
+            <li>
+              <%= t('.found_in_searches')%>
+            </li>
+            <li>
+              <%= t('.contact_by_mail_phone_and_web')%>
+            </li>
+          </ul>
+
+        <small>
+          <%= t('.included_free') %>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <%= t('.premium') %>
+        <% if @hasSubscription %>
+          <span class="text-right">Active</span>
+        <% end %>
+          <br>
+        <small><%= t('.like_standard_including') %></small>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+
+         <ul>
+           <li>
+             <%= t('.check_for_text_and_photos') %>
+           </li>
+           <li>
+             <%= t('.prominent_in_search_results') %>
+           </li>
+           <li>
+             <%= t('.shown_on_mainpage') %>
+           </li>
+           <li>
+             <%= t('.contact_formular') %>
+           </li>
+           <li>
+             <%= t('.verified_phone_number') %>
+           </li>
+         </ul>
+         <small>9,99€ <%= t('.fee_per_month') %></small>
+         <% if @hasSubscription %>
+         <%= link_to t('.deactivate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_deactivate')}, class:"btn btn-default " %>
+         <% else %>
+         <%= link_to t('.activate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_activate')}, class:"btn btn-default " %>
+         <% end %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

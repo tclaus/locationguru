@@ -19,8 +19,8 @@
       <%= select(:location, :location_type, kindTypeArray, {:prompt=> t('.select_location_type')}, {:class => "form-control select"}) %>
     </div>
   </div>
-  <br/>
-  <br/>
+  <br>
+  <br>
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
       <%= submit_tag t('search'), class:"btn btn-default btn-search" %>
@@ -32,7 +32,7 @@
 <div>
   <h3><%= t('.locations') %></h3>
 </div>
-<br/>
+<br>
 
 <% if !@locations.empty? %>
   <%= render 'locations/location_list' %>
@@ -45,7 +45,7 @@
 <div><h3>
   <%= t('.cities') %>
 </h3></div>
-<br/>
+<br>
 <div class="row">
   <%= render partial: 'cities', locals: {items: @cities}  %>
 </div>

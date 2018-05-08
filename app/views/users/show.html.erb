@@ -37,7 +37,7 @@
     </div>
     <h4><%= t('.listings') %>
       (<%= @locations.length %>)</h4>
-    <br/>
+    <br>
     <div class="row">
       <% if !@locations.empty? %>
         <%= render partial: 'locations/location_list' %>
@@ -54,12 +54,12 @@
 <div class="row">
   <%= render "reviews/guest_list" %>
 </div>
-<br/>
+<br>
 
 <h4><%= t('.review_from_hosts') %>
   (<%= @host_reviews.count %>)</h4>
 <div class="row">
   <%= render "reviews/host_list" %>
 </div>
-<br/>
+<br>
 </div>

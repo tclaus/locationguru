@@ -56,6 +56,9 @@ gem 'ransack', '~> 1.7'
 gem 'social-share-button'
 gem 'twilio-ruby'
 
+# Payments
+gem 'stripe'
+
 # Use Queue backend
 gem 'resque'
 

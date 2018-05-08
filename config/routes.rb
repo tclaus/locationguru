@@ -69,6 +69,13 @@ Rails.application.routes.draw do
     post 'admin/recalculation' => :recalculation
   end
 
+  # payments
+  get '/payment_method' => 'users#payment'
+  get '/subscriptions' => 'subscriptions#view'
+  post'/subscriptions' => 'subscriptions#toggleSubscription'
+  
+  post '/add_card' => 'users#add_card'
+
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code
   end

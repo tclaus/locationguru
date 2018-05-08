@@ -23,4 +23,6 @@ profile_pic_upload
 flash_messages
 google_analytics
 select_message
-send_message_on_button)
+send_message_on_button
+cards
+)
