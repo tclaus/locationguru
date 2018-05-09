@@ -2,6 +2,5 @@
   "name": "LocationGuru",
   "private": true,
   "dependencies": {
-    "card": "^2.4.0"
   }
 }
