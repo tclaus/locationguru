@@ -4,6 +4,7 @@ de:
       become_a_host: "Biete deine Location an"
       dashboard: "Übersicht"
       manage: "Verwalte deine Locations"
+      account_settings: "Account Einstellungen"
       your_reservations: "Reservierungen"
       your_bookings: "Buchungen"
       profile: "Profil"

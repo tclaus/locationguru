@@ -4,6 +4,7 @@ en:
       become_a_host: "Submit your Venue"
       dashboard: "Dashboard"
       manage: "Manage venues"
+      account_settings: "Account Settings"
       your_reservations: "Reservations"
       your_bookings: "Bookings"
       profile: "Profile"

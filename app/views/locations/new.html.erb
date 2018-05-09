@@ -44,9 +44,15 @@
               <%= f.text_field :max_persons, value: 0, prompt: "50",class: "form-control" %>
             </div>
           </div>
-
-          <div> <%= f.submit t('.create'), class:"btn btn-form" %></div>
         </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-8">
+
+          <div class="text-right"> <%= f.submit t('.create'), class:"btn btn-default" %></div>
+          </div>
+        </div>
+
+
       <% end %>
     </div>
   </div>

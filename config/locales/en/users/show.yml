@@ -16,3 +16,5 @@ en:
       yourPhoneNumberIsVerified: "Die Telefonnummer konnte besttigt werden."
       cannotVerifyYourPhoneNumber: "Die Telefonnummer konnte nicht bestätigt werden."
       errorVerifingPin: "Ein Fehler ist aufgetreten."
+    add_card:
+      your_card_is_saved: "Die neue Karte wurde gespeichert"

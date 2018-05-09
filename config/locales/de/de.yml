@@ -1,8 +1,7 @@
 de:
   locationguru_title: "Location Guru"
   locationguru_subtitle: "Finde eine Location, die zu deiner Veranstaltung passt"
-  site_slogan: "Einfach. Kostenlos"
-  hello: "Hallo welt"
+  site_slogan: "Einfach - Kostenlos"
   saved: "Gespeichert"
   something_went_wrong: "Ein Fehler ist aufgetreten..."
   something_went_wrong_need_location: "Um eine Location anzulegen müsen Sie die Art angeben."

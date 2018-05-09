@@ -71,10 +71,12 @@ Rails.application.routes.draw do
 
   # payments
   get '/payment_method' => 'users#payment'
+  delete '/payment_method' => 'users#delete_card'
+  post '/add_card' => 'users#add_card'
+
   get '/subscriptions' => 'subscriptions#view'
   post'/subscriptions' => 'subscriptions#toggleSubscription'
-  
-  post '/add_card' => 'users#add_card'
+
 
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code

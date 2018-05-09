@@ -62,15 +62,19 @@ class UsersController < ApplicationController
         customer = Stripe::Customer.retrieve(current_user.stripe_id)
         if !customer.default_source.blank?
           source =  customer.sources.retrieve(customer.default_source)
-          puts "current customer: #{customer.inspect}"
-          puts "Source: #{source.inspect}"
           @current_card = {:number => "#{source.last4}",
             :expiry => "#{source.exp_month}/#{source.exp_year}"
           }
         end
     end
+  end
 
-
+  def delete_card
+    if !current_user.stripe_id.blank?
+      customer = Stripe::Customer.retrieve(current_user.stripe_id)
+      defaultSource = customer.default_source
+      customer.sources.retrieve(defaultSource).delete
+    end
   end
 
   def add_card
@@ -92,6 +96,7 @@ class UsersController < ApplicationController
     flash[:notice] = t('.your_card_is_saved')
     redirect_to payment_method_path
   rescue Stripe::CardError => e
+    puts "error message: #{e.inspect}"
     flash[:alert] = e.message
     redirect_to payment_method_path
   end

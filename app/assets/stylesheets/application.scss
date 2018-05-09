@@ -13,6 +13,7 @@ body {
   color: $default-textcolor;
   background-color: $main-background;
   font-family: "Varela Round", "Helvetica Neue", "Arial", sans-serif;
+  font-weight: lighter;
 }
 
 footer {
@@ -78,11 +79,6 @@ a:hover {
   width: 100%;
 }
 
-.btn-small {
-  padding: 5px 15px;
-  margin-top: 15px;
-}
-
 .btn:focus,
 .btn:hover {
   color: $color-lighter-2;
@@ -108,13 +104,11 @@ a:hover {
 
 .btn.btn-normal {
   border: 1px solid $brand-textcolor;
-
 }
 
 .btn.btn-normal:active {
   outline: none;
   border-color: $brand-textcolor-active;
-
 }
 
 .btn.btn-form {
