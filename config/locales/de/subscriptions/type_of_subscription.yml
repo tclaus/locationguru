@@ -19,4 +19,7 @@ de:
       activate: "Aktivieren"
       are_you_sure_to_deactivate: "Möchten Sie Ihr Abo deaktivieren? In der nächsten Zahlungsperiode endet Ihr Abo."
       are_you_sure_to_activate: "Möchten Sie das Abo starten? Sie können monatlich kündigen."
-      
+    toggleSubscription:
+      you_have_revoked_your_subscription: "Ihr Abo wurde beendet"
+      you_have_started_your_subscription: "Sie haben das Abo gestartet"
+      you_must_enter_a_card_first: "Sie müssen erst eine Kreditkarte angeben"

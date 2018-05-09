@@ -95,9 +95,10 @@ class UsersController < ApplicationController
 
     flash[:notice] = t('.your_card_is_saved')
     redirect_to payment_method_path
+
   rescue Stripe::CardError => e
-    puts "error message: #{e.inspect}"
-    flash[:alert] = e.message
+    logger.warn "Stripe error: #{e.message}"
+    flash[:alert] = t(e.code, scope:'stripe.error')
     redirect_to payment_method_path
   end
 

@@ -1,0 +1,4 @@
+en:
+  stripe:
+    error:
+      card_declined: " Your card was declined. Your request was in test mode, but used a non test card."

@@ -1,24 +1,23 @@
 class SubscriptionsController < ApplicationController
   def view
     @hasSubscription = hasSubscription
-    render 'type_of_subscription'
+    render 'subscriptions/type_of_subscription'
   end
 
   def toggleSubscription
     if hasSubscription
       revokeSubscription
+      flash[:notice] = t('.you_have_revoked_your_subscription')
     else
-      if flash[:notice] = 'You have activated a subscription'
+      if
         if current_user.stripe_id.blank?
-          flash[:notice] = 'enter a card first'
-          render '/payment_method'
-        else
-          # has a card?
+          flash[:notice] = t('.you_must_enter_a_card_first')
         end
       end
       activateSubscription
+      flash[:notice] = t('.you_have_started_your_subscription')
     end
-    render 'type_of_subscription'
+    render 'subscriptions/type_of_subscription'
   end
 
   private
