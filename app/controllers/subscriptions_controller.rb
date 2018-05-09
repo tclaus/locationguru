@@ -37,7 +37,7 @@ class SubscriptionsController < ApplicationController
       customer: customer.id.to_s,
       items: [
         {
-          plan: ENV['subscription_id']
+          plan: ENV['stripe_subscription_id']
         }
       ]
     )
