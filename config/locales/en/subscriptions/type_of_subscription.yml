@@ -17,6 +17,7 @@ en:
       fee_per_month: "per month."
       deactivate: "Deactivate"
       activate: "Activate"
+      active: "Active"
       are_you_sure_to_deactivate: "Do you want to stop your subscription? With next payment your subscription ends."
       are_you_sure_to_activate: "Do you want to start your subscription? Your can revoke every month."
     toggleSubscription:

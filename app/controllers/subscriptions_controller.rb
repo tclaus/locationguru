@@ -17,7 +17,7 @@ class SubscriptionsController < ApplicationController
       activateSubscription
       flash[:notice] = t('.you_have_started_your_subscription')
     end
-    render 'subscriptions/type_of_subscription'
+    redirect_to subscriptions_path
   end
 
   private

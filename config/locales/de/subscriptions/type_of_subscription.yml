@@ -17,6 +17,7 @@ de:
       fee_per_month: "pro Monat. Jederzeit kündbar."
       deactivate: "Deaktivieren"
       activate: "Aktivieren"
+      active: "Aktiv"
       are_you_sure_to_deactivate: "Möchten Sie Ihr Abo deaktivieren? In der nächsten Zahlungsperiode endet Ihr Abo."
       are_you_sure_to_activate: "Möchten Sie das Abo starten? Sie können monatlich kündigen."
     toggleSubscription:

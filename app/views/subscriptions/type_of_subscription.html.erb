@@ -5,10 +5,10 @@
   <div class="col-md-4">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <%= t('.standard') %>
+        <h3><%= t('.standard') %></h3>
       </div>
       <div class="panel-body">
-        <div class="container">
+
           <ul>
             <li>
               <%= t('.name_description_contact')%>
@@ -27,7 +27,7 @@
         <small>
           <%= t('.included_free') %>
         </small>
-        </div>
+
 
       </div>
     </div>
@@ -36,15 +36,14 @@
   <div class="col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <%= t('.premium') %>
-        <% if @hasSubscription %>
-          <span class="text-right">Active</span>
-        <% end %>
-          <br>
+        <h3><%= t('.premium') %>
+          <% if @hasSubscription %>
+            <small class="subscription_active"><%= t('.active') %></small>
+          <% end %>
+        </h3>
         <small><%= t('.like_standard_including') %></small>
       </div>
       <div class="panel-body">
-        <div class="container">
 
          <ul>
            <li>
@@ -65,12 +64,11 @@
          </ul>
          <small>9,99€ <%= t('.fee_per_month') %></small>
          <% if @hasSubscription %>
-         <%= link_to t('.deactivate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_deactivate')}, class:"btn btn-default " %>
+         <%= link_to t('.deactivate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_deactivate')}, class:"btn btn-default btn-block" %>
          <% else %>
-         <%= link_to t('.activate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_activate')}, class:"btn btn-default " %>
+         <%= link_to t('.activate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_activate')}, class:"btn btn-default btn-block" %>
          <% end %>
 
-        </div>
 
       </div>
     </div>
