@@ -40,7 +40,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= t('.notifications') %>
-        <% if current_user.hasPremium? %>
+        <% if current_user.hasPremium %>
         (<span id="unread_count"><%= @unreadMessageCount %></span>
         <%= t('.unread') %>)
         <% end %>
@@ -48,7 +48,7 @@
       <div class="panel-body message-scroller">
 
         <div class="list-group">
-          <% if current_user.hasPremium? %>
+          <% if current_user.hasPremium %>
           <% @messages_overview.each do |message| %>
             <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
 
