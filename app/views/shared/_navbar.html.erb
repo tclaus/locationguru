@@ -67,7 +67,10 @@
     (current_page?("/locations/") ||
     current_page?(dashboard_path) ||
     current_page?(admin_path) ||
-    current_page?(admin_users_path)) %>
+    current_page?(admin_users_path) ||
+    current_page?(subscriptions_path) ||
+    current_page?(payment_method_path)
+    ) %>
 
   <nav class="navbar navbar-default">
     <div class="container">

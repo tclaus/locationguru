@@ -40,6 +40,8 @@ class SubscriptionsController < ApplicationController
         }
       ]
     )
+    current_user.isPremium = true
+    current_user.save
   end
 
   def revokeSubscription
@@ -47,5 +49,7 @@ class SubscriptionsController < ApplicationController
     first_subscription = customer[:subscriptions][:data][0]
     sub = Stripe::Subscription.retrieve(first_subscription.id)
     sub.delete
+    current_user.isPremium = false
+    current_user.save
   end
 end
