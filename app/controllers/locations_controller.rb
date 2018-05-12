@@ -5,13 +5,21 @@ class LocationsController < ApplicationController
                                          photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
 
-
   def index
     @locations = current_user.locations
   end
 
   def new
     @location = current_user.locations.build
+  end
+
+  def restrict
+    @location.isRestricted = !@location.isRestricted
+    @location.save
+    render json:{isRestricted:@location.isRestricted }
+    #respond_to do |format|
+    #      format.json { render json: @location.to_json, :only => [:isRestriced]}
+    #    end
   end
 
   def create

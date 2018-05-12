@@ -25,4 +25,5 @@ google_analytics
 select_message
 send_message_on_button
 cards
+location_restricted
 )

@@ -1,8 +1,11 @@
 require 'simpleLocation'
 
 class PagesController < ApplicationController
+
+  # Show only unrestriced locations on main Page
   def home
-    @locations = Location.where(active: true).order('RANDOM()').limit(3)
+    @locations = Location.where(active: true, isRestricted: false)
+      .order('RANDOM()').limit(3)
     @cities = cities.sample(4)
   end
 

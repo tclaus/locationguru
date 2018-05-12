@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       get 'preload'
       get 'preview'
       get 'send_message'
+      post 'restrict'
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]

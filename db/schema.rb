@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505054316) do
+ActiveRecord::Schema.define(version: 20180512074349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180505054316) do
     t.boolean "isForChristmasParties", default: false, null: false
     t.string "suitableForText"
     t.boolean "isPro"
+    t.boolean "isRestricted", default: false, null: false
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
     t.index ["email"], name: "index_locations_on_email"
