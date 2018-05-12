@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
-  before_action :authenticate_user!, except: [:show, :send_message]
+  before_action :authenticate_user!, except: %i[show send_message]
   before_action :is_authorized, only: %i[listing pricing description
                                          photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
@@ -16,10 +16,7 @@ class LocationsController < ApplicationController
   def restrict
     @location.isRestricted = !@location.isRestricted
     @location.save
-    render json:{isRestricted:@location.isRestricted }
-    #respond_to do |format|
-    #      format.json { render json: @location.to_json, :only => [:isRestriced]}
-    #    end
+    render json: { isRestricted: @location.isRestricted }
   end
 
   def create
@@ -52,8 +49,7 @@ class LocationsController < ApplicationController
     end
   end
 
-  def suitables
-  end
+  def suitables; end
 
   def listing; end
 
@@ -70,9 +66,9 @@ class LocationsController < ApplicationController
   def location; end
 
   def send_message
-      @message = Message.new
-      @message.user_id = @location.user_id
-      @message.location_id = @location.id
+    @message = Message.new
+    @message.user_id = @location.user_id
+    @message.location_id = @location.id
   end
 
   def update
@@ -83,7 +79,7 @@ class LocationsController < ApplicationController
       flash[:notice] = t('updatedLocation')
       redirect_to description_location_path(@location), notice: t('updated')
     else
-      logger.debug "Failed updating a location. #{@location.errors.messages.to_s}"
+      logger.debug "Failed updating a location. #{@location.errors.messages}"
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       redirect_back(fallback_location: request.referer)
     end
@@ -161,10 +157,9 @@ class LocationsController < ApplicationController
   end
 
   def location_is_active
-    logger.debug " Check location is active"
-    redirect_to root_path, alert: t('location_inactive') unless (@location.active)
+    logger.debug ' Check location is active'
+    redirect_to root_path, alert: t('location_inactive') unless @location.active
   end
-
 
   def location_params
     params.require(:location).permit(:location_type,
