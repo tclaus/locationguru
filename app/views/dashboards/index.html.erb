@@ -12,20 +12,20 @@
           <% if current_user.confirmation_token %>
             <li><%= t('.email_address') %>
               <span class="pull-right icon-babu">
-                <i class="fa fa-check-circle-o"></i></span></li>
+                <i class="fas fa-check-circle"></i></span></li>
           <% end %>
           <% if current_user.provider %>
             <li><%= t('.facebook') %>
               <span class="pull-right icon-babu">
-                <i class="fa fa-check-circle-o"></i></span></li>
+                <i class="fas fa-check-circle"></i></span></li>
           <% end %>
 
           <li><%= t('.phone_number')%>
             <span class="pull-right icon-babu">
               <% if current_user.phone_verified %>
-                <i class="fa fa-check-circle-o"></i>
+                <i class="fas fa-check-circle"></i>
               <% else %>
-                <i class="fa fa-circle-o"></i>
+                <i class="far fa-circle"></i>
               <% end %>
             </span>
           </li>
@@ -53,12 +53,12 @@
             <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
 
               <% if message.is_read %>
-                <i class="fa fa-dot-circle-o invisible" aria-hidden="true"></i>
+                <i class="far fa-dot-circle invisible" aria-hidden="true"></i>
               <% else %>
-                <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                <i class="far fa-dot-circle" aria-hidden="true"></i>
               <% end %>
               <%= link_to location_message_path(message.location_id, message.id), method: :delete, remote: true, class: "top-right" do %>
-              <i class="fa fa-trash" aria-hidden="true" data-message="<%= message.id%>"></i>
+              <i class="far fa-trash-alt" aria-hidden="true" data-message="<%= message.id%>"></i>
             <% end %>
             <div>
               <span>

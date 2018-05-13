@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    logger.debug "*Search Params: #{params}"
+    logger.debug "* Search Params: #{params}"
     if params[:search].present? && params[:search].strip != ''
       session[:loc_search] = params[:search]
     end

@@ -320,7 +320,7 @@ DEPENDENCIES
   devise (~> 4.2)
   devise-i18n
   dotenv-rails
-  font-awesome-sass
+  font-awesome-sass (~> 5.0)
   geocoder
   jbuilder (~> 2.5)
   jquery-rails

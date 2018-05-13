@@ -5,9 +5,9 @@ var moreFilters = $('#filter').data('more-filters');
 
 $('#filter').click(function () {
   if (open) {
-    $('#filter').html(lessFilters + '<i class="fa fa-chevron-up"></i>');
+    $('#filter').html(lessFilters + '<i class="fas fa-chevron-up"></i>');
   } else {
-    $('#filter').html(moreFilters + '<i class="fa fa-chevron-down"></i>');
+    $('#filter').html(moreFilters + '<i class="fas fa-chevron-down"></i>');
   }
   open = !open;
 });
