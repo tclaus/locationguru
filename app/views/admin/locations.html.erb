@@ -23,7 +23,7 @@
         <td>
           <%= link_to restrict_location_path(location), method: :post, remote: true, data:{id: location.id}, class:"toggle_restriced" do %>
             <% if location.isRestricted? %>
-              <i class=fas fa-check></i>
+              <i class="fas fa-check"></i>
             <% else %>
               <i class="fas fa-minus"></i>
             <% end %>
@@ -31,7 +31,7 @@
         </td>
         <td>
           <% if location.active? %>
-            <i class=fas fa-check></i>
+            <i class="fas fa-check"></i>
           <% else %>
             <i class="fas fa-minus"></i>
           <% end %>
@@ -39,7 +39,7 @@
         <td><%= mail_to location.user.email %> / <%= location.user.id %></td>
         <td><%= location.created_at %></td>
         <td><% if location.geocoded? %>
-          <i class=fas fa-check></i>
+          <i class="fas fa-check"></i>
           long.: <%= location.longitude %>, lat.: <%= location.latitude %>
           <% else %>
           <div class="text-center">Not geocoded.</div>

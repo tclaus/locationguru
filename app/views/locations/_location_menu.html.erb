@@ -3,7 +3,7 @@
     <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
     <% if !@location.listing_name.blank? %>
       <span class="pull-right text-babu">
-        <i class=fas fa-check></i>
+        <i class="fas fa-check"></i>
       </span>
     <% else %>
       <span class="pull-right text-babu">
@@ -14,14 +14,14 @@
   <li class="sidebar-item">
     <%= link_to t(".listing"), listing_location_path, class:"sidebar-link active" %>
     <span class="pull-right text-babu">
-      <i class=fas fa-check></i>
+      <i class="fas fa-check"></i>
     </span>
   </li>
   <li class="sidebar-item">
     <%= link_to t(".suitables"), suitables_location_path, class:"sidebar-link active" %>
     <% if @location.has_suitables %>
       <span class="pull-right text-babu">
-        <i class=fas fa-check></i>
+        <i class="fas fa-check"></i>
       </span>
     <% else %>
       <span class="pull-right text-babu">
@@ -32,14 +32,14 @@
   <li class="sidebar-item">
     <%= link_to t(".amenities"), amenities_location_path, class:"sidebar-link active" %>
     <span class="pull-right text-babu">
-      <i class=fas fa-check></i>
+      <i class="fas fa-check"></i>
     </span>
   </li>
   <li class="sidebar-item">
     <%= link_to t(".photos"), photo_upload_location_path, class:"sidebar-link active" %>
     <% if !@location.photos.blank? %>
       <span id="photo_check" class="pull-right text-babu">
-        <i class=fas fa-check></i>
+        <i class="fas fa-check"></i>
       </span>
     <% else %>
       <span class="pull-right text-babu">
@@ -51,7 +51,7 @@
     <%= link_to t(".location"), location_location_path, class:"sidebar-link active" %>
     <% if !@location.address.blank? %>
       <span class="pull-right text-babu">
-        <i class=fas fa-check></i>
+        <i class="fas fa-check"></i>
       </span>
     <% else %>
       <span class="pull-right text-babu">
