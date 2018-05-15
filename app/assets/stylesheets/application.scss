@@ -7,6 +7,8 @@
 @import "color-palette";
 @import "desktop";
 @import "mobile";
+@import "jquery-ui.min";
+@import "jquery-ui.theme.min";
 
 body {
   color: $default-textcolor;
