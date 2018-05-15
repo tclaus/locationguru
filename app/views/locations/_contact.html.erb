@@ -21,7 +21,7 @@
           <% if !@location.website.blank? %>
             <tr>
               <td><%= t('.website') %></td>
-              <td class="text-right"><%= link_to @location.website %></td>
+              <td class="text-right"><%= link_to @location.website, @location.website %></td>
             </tr>
           <% end %>
           <% if !@location.phonenumber.blank? %>

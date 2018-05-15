@@ -355,8 +355,12 @@ li.location_preview {
   padding-left: 25px;
 }
 
-.contact-table td {
+.contact-table {
   width: 100%;
+  border: none;
+}
+
+.contact-table td {
   border: none;
   border-bottom: 1px solid $light-background;
   padding: 10px;
