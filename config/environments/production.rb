@@ -70,9 +70,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
-    domain:               'mg.locationguru.net',
+    domain:               'locationguru.net',
     user_name:            'postmaster@mg.locationguru.net',
-    password:             '03457c8363d1c3dd8b0f6f35174d2a8a-2b4c5a6c-95f5931f',
+    password:             '46a5c90317a8b496a4d40467ecbf2323-bdd08c82-c9cde12c',
     authentication:       'plain',
     enable_starttls_auto: true
   }
