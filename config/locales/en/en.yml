@@ -18,4 +18,6 @@ en:
   sign_up: "Register"
   search: "Search"
   something_went_wrong_create_location: "To submit your venue all fields must be filled."
+  your_location_is_now_inactive: "Your location is not active"
+  your_location_is_now_active: "Your location is now active"
   no_locations_yet: "Yet no venues"

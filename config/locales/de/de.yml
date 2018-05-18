@@ -18,4 +18,6 @@ de:
   sign_up: "Registrieren"
   search: "Suchen"
   something_went_wrong_create_location: "Beim Anlegen hat etwas nicht geklappt."
+  your_location_is_now_inactive: "Die Location ist nun nicht mehr aktiv"
+  your_location_is_now_active: "Die Location ist nun aktiv"
   no_locations_yet: "Noch keine Locations angelegt"

@@ -24,4 +24,28 @@ class LocationMailer < ApplicationMailer
       subject: t('.subject', location_name: @location.listing_name))
   end
 
+  def location_activated
+    @location = params[:location]
+    @edit_url = params[:edit_url]
+    @show_url = params[:show_url]
+    email_with_name = "LocationGuru.net <#{@location.user.email}>"
+
+    mail(to: email_with_name,
+      from: "Location Guru <no-reply@locationguru.net>",
+      subject: t('.subject', location_name: @location.listing_name))
+  end
+
+  def location_deactivated
+    @location = params[:location]
+    @edit_url = params[:edit_url]
+    @show_url = params[:show_url]
+
+    email_with_name = "LocationGuru.net <#{@location.user.email}>"
+
+    mail(to: email_with_name,
+      from: "Location Guru <no-reply@locationguru.net>",
+      subject: t('.subject', location_name: @location.listing_name))
+  end
+
+
 end

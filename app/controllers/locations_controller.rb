@@ -74,10 +74,30 @@ class LocationsController < ApplicationController
   def update
     new_params = location_params
     new_params = location_params.merge(active: true) if set_location_active
+    old_status = @location.active
     if @location.update(new_params)
       logger.debug "Updated location with ID #{@location.id}"
-      flash[:notice] = t('updatedLocation')
-      redirect_to description_location_path(@location), notice: t('updated')
+
+
+      # Sent status change mail
+      if old_status != @location.active
+        if @location.active == true
+          # Set a flash 'Aktivated'
+          # Send Your locations is activated mail
+          flash[:notice] = t('your_location_is_now_active')
+          LocationMailer.with(location: @location, edit_url: listing_location_url, show_url: location_url).location_activated.deliver_later
+        else
+          # Set a flash 'Deaktivated
+          # Send Your locations is deactivated mail
+          flash[:notice] = t('your_location_is_now_inactive')
+          LocationMailer.with(location: @location,edit_url: listing_location_url, show_url: location_url).location_deactivated.deliver_later
+        end
+      else
+        redirect_to description_location_path(@location), notice: t('updated')
+        return
+      end
+      redirect_to description_location_path(@location)
+      return
     else
       logger.debug "Failed updating a location. #{@location.errors.messages}"
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)

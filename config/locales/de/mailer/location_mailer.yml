@@ -7,3 +7,36 @@ de:
     location_mail_to_sender:
       you_send_this_message: "Sie haben diese Nachricht gesendet:"
       subject: "Ihre Nachricht an '%{location_name}'"
+    location_activated:
+      body_html: "Ihre Location '%{location_name}' wurde aktiviert. <br>
+Das heisst, sie ist nun öffentlich auf der Seite auffindbar. <br>
+<br>
+Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
+Auf<br>
+%{show_url}<br>
+finden Sie den Eintrag, so wie ihn Interessenten sehen.<br>
+<br>
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
+%{edit_url}<br>
+zu der Bearbeiten-Oberfläche.<br>"
+      body_text: "Ihre Location '%{location_name}' wurde aktiviert.
+Das heisst, sie ist nun öffentlich auf der Seite auffindbar.
+
+Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
+Auf
+%{show_url}
+finden Sie den Eintrag, so wie ihn Interessenten sehen.
+
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier
+%{edit_url}
+zu der Bearbeiten-Oberfläche."
+      subject: "Ihre Location wurde aktiviert: '%{location_name}'"
+    location_deactivated:
+      body_html: "Ihre Location ‚%{location_name} wurde deaktiviert. <br>
+Das heisst, sie ist nicht mehr öffentlich auf der Seite zu finden.<br>
+<br>
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier:<br>
+%{edit_url}<br>
+zu der Bearbeiten-Oberfläche<br>
+"
+      subject: "Ihre Location wurde entfernt: '%{location_name}'"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512074349) do
+ActiveRecord::Schema.define(version: 2018_05_16_055715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 20180512074349) do
     t.string "suitableForText"
     t.boolean "isPro"
     t.boolean "isRestricted", default: false, null: false
+    t.boolean "MailSentNotActivated1", default: false, null: false
+    t.boolean "MailSentNotActivated2", default: false, null: false
+    t.boolean "MailSentNotActivated3", default: false, null: false
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
     t.index ["email"], name: "index_locations_on_email"

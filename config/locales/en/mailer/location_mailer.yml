@@ -7,3 +7,35 @@ en:
     location_mail_to_sender:
       you_send_this_message: "You have send this message:"
       subject: "Your message for '%{location_name}'"
+    location_activated:
+      body_html: "Your venue '%{location_name}' is now public available.<br>
+You need nothing to do than wait for your intersents.<br>
+At<br>
+%{show_url}<br>
+you will find the public entry.<br>
+<br>
+To edit your venue go here:<br>
+%{edit_url}<br>"
+      body_text: "Your venue '%{location_name}' is now public available.
+You need nothing to do than wait for your intersents.
+At
+%{show_url}
+you will find the public entry.
+
+To edit your venue go here:
+%{edit_url}"
+      subject: "Your venue '%{location_name}' is now active"
+    location_deactivated:
+      body_html: "Your venue '%{location_name}'' is not active.<br>
+That means it is not visible for the public but you can make edits and activate it again.<br>
+<br>
+To edit your venue visit this link:<br>
+%{edit_url}<br>
+"
+      body_text: "Your venue '%{location_name}'' is not active.
+That means it is not visible for the public but you can make edits and activate it again.
+
+To edit your venue visit this link:
+%{edit_url}
+"
+      subject: "Your venue '%{location_name}' is now active"
