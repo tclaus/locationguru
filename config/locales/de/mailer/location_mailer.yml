@@ -39,4 +39,4 @@ Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier:<br>
 %{edit_url}<br>
 zu der Bearbeiten-Oberfläche<br>
 "
-      subject: "Ihre Location wurde entfernt: '%{location_name}'"
+      subject: "Ihre Location wurde deaktiviert: '%{location_name}'"
