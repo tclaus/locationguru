@@ -10,6 +10,7 @@ en:
         email: "email"
         phone_number: "Phone number"
         description: "About you"
+        language: "Language"
         password: "Password"
         password_confirmation: "Confirm password"
         current_password: "Current password"

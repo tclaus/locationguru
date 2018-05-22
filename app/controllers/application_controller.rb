@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[fullname phone_number description])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[fullname phone_number description language_id])
   end
 
   # Redirect after login
@@ -43,8 +43,12 @@ class ApplicationController < ActionController::Base
 
   # sets the localizaton from request Header
   def set_locale
-    I18n.locale = get_valid_language
-    logger.debug "* Locale set to '#{I18n.locale}'"
+    if current_user.blank?
+      I18n.locale = get_valid_language
+      logger.debug "* Locale set to '#{I18n.locale}'"
+    else
+      I18n.locale = current_user.language_id
+    end
   end
 
   # Returns a valid language ID. Fall back to a default

@@ -31,6 +31,11 @@ class User < ApplicationRecord
     user.role = 'admin' if user.email == ENV['admin_role2']
   end
 
+  before_create do
+    logger.debug "* Set users locale to '#{I18n.locale}'"
+    self.language_id = I18n.locale if self.language_id.blank?
+  end
+
   def activeLocations
     locations.where('active = true')
   end
@@ -68,6 +73,7 @@ class User < ApplicationRecord
     self.isPremium || isAdmin
   end
 
+# Phone verification
   def generate_pin
     self.pin = SecureRandom.hex(2)
     self.phone_verified = false

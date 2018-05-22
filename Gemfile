@@ -61,6 +61,7 @@ gem 'stripe'
 
 # Use Queue backend
 gem 'resque'
+gem 'rufus-scheduler'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

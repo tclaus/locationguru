@@ -85,12 +85,12 @@ class LocationsController < ApplicationController
           # Set a flash 'Aktivated'
           # Send Your locations is activated mail
           flash[:notice] = t('your_location_is_now_active')
-          LocationMailer.with(location: @location, edit_url: listing_location_url, show_url: location_url).location_activated.deliver_later
+          LocationMailer.with(location: @location, edit_url: listing_location_url(@location), show_url: location_url(@location)).location_activated.deliver_later
         else
           # Set a flash 'Deaktivated
           # Send Your locations is deactivated mail
           flash[:notice] = t('your_location_is_now_inactive')
-          LocationMailer.with(location: @location,edit_url: listing_location_url, show_url: location_url).location_deactivated.deliver_later
+          LocationMailer.with(location: @location,edit_url: listing_location_url(@location), show_url: location_url(@location)).location_deactivated.deliver_later
         end
       else
         redirect_to description_location_path(@location), notice: t('updated')

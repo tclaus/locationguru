@@ -50,6 +50,17 @@ withAddressAndCoordinates:
   longitude: 7.4652981
   latitude: 51.513587
 
+not_activated:
+  id: 6
+  kind_type: 2
+  location_type: 2
+  listing_name: "Long not activated"
+  summary: "Has coordinates, no City"
+  active: false
+  created_at: "01.01.2017"
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+
 inactive:
   id: 40
   kind_type: 2

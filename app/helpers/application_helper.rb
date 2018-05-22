@@ -39,6 +39,7 @@ module ApplicationHelper
     ENV['maps_key']
   end
 
+# created <br> tags from raw text CR/LF
   def html_line_breaks(rawText)
     rawText.gsub(/(?:\n\r?|\r\n?)/, '<br>').html_safe
   end

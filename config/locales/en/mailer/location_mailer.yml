@@ -26,7 +26,7 @@ To edit your venue go here:
 %{edit_url}"
       subject: "Your venue '%{location_name}' is now active"
     location_deactivated:
-      body_html: "Your venue '%{location_name}'' is not active.<br>
+      body_html: "Your venue '%{location_name}' is not active.<br>
 That means it is not visible for the public but you can make edits and activate it again.<br>
 <br>
 To edit your venue visit this link:<br>
