@@ -39,13 +39,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
     domain:               'sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
     user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
     password:             'e4c1961e976f9151e657e9df43e0f192',
+    api_key: "key-26a32dc537ec9b4bf11a07db96099bf3",
     authentication:       'plain',
     enable_starttls_auto: true
   }

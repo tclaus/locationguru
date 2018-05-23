@@ -43,7 +43,7 @@ gem 'devise', '~>4.2'
 gem 'devise-i18n'
 
 # Send emails
-gem 'sendgrid-ruby'
+gem 'mailgun-ruby', git: 'https://github.com/mailgun/mailgun-ruby'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

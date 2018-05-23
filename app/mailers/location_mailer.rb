@@ -28,8 +28,8 @@ class LocationMailer < ApplicationMailer
     @show_url = location_url(@location)
     email_with_name = "LocationGuru.net <#{@location.user.email}>"
     mail(to: email_with_name,
-         from: 'Location Guru <no-reply@locationguru.net>',
-         subject: t('.subject', location_name: @location.listing_name))
+                 from: 'Location Guru <no-reply@locationguru.net>',
+                 subject: t('.subject', location_name: @location.listing_name))
   end
 
   def location_deactivated
@@ -39,7 +39,7 @@ class LocationMailer < ApplicationMailer
 
     email_with_name = "LocationGuru.net <#{@location.user.email}>"
     mail(to: email_with_name,
-         from: 'Location Guru <no-reply@locationguru.net>',
-         subject: t('.subject', location_name: @location.listing_name))
+                   from: 'Location Guru <no-reply@locationguru.net>',
+                   subject: t('.subject', location_name: @location.listing_name))
   end
 end
