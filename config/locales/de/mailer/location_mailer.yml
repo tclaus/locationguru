@@ -17,7 +17,7 @@ Auf<br>
 finden Sie den Eintrag, so wie ihn Interessenten sehen.<br>
 <br>
 Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
-%{edit_url}<br>
+<a href='%{edit_url}'>Bearbeiten</a><br>
 zu der Bearbeiten-Oberfläche.<br>"
       body_text: "Ihre Location '%{location_name}' wurde aktiviert.
 Das heisst, sie ist nun öffentlich auf der Seite auffindbar.
@@ -27,8 +27,8 @@ Auf
 %{show_url}
 finden Sie den Eintrag, so wie ihn Interessenten sehen.
 
-Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier
-%{edit_url}
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
+%{edit_url}<br>
 zu der Bearbeiten-Oberfläche."
       subject: "Ihre Location wurde aktiviert: '%{location_name}'"
     location_deactivated:
@@ -36,7 +36,7 @@ zu der Bearbeiten-Oberfläche."
 Das heisst, sie ist nicht mehr öffentlich auf der Seite zu finden.<br>
 <br>
 Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier:<br>
-%{edit_url}<br>
+<a href='%{edit_url}'>Bearbeiten</a><br>
 zu der Bearbeiten-Oberfläche<br>
 "
       subject: "Ihre Location wurde deaktiviert: '%{location_name}'"

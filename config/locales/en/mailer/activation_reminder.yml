@@ -7,7 +7,7 @@ en:
             Very good. <br><br>
             But it shows that it is not activated yet. You need to activate your enty in order to make it public.<br>
             You can directly edit your entry here:<br>
-            %{edit_url}"
+            <a href='%{edit_url}'>%{location_name}</a>"
       footer: "Regadards,
       locationguru.net"
     second_activation_reminder:
@@ -19,7 +19,7 @@ en:
             Is there something we can do for you? Do we need to do something better?<br><br>
             If your have any questions, dont hesitate to send us a message.<br>
             You can directly edit your entry here:<br>
-            %{edit_url} <br><br>
+            <a href='%{edit_url}'>%{location_name}</a> <br><br>
             You can also delete this entry at any time if you dont want to use it any more. <br>
             "
       footer: "Regadards,
@@ -31,7 +31,7 @@ en:
             But this entry is still not activated<br>
             Is there something we can do for you? Do we need to do something better?<br><br>
             You can directly edit your entry here:<br>
-            %{edit_url}
+            <a href='%{edit_url}'>%{location_name}</a>
             "
       footer: "Regadards,
             locationguru.net"

@@ -11,6 +11,7 @@
         <div class="form-group">
           <%= f.label(:listing_name, t('.listing_name')) %>
           <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
+          <small><%= t('.short_location_name_rule') %></small>
         </div>
       </div>
 
