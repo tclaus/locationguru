@@ -55,6 +55,7 @@ Rails.application.routes.draw do
 
   get 'impressum' => 'impressum#show'
   get 'privacy' => 'privacy#show'
+  get 'gtc' => 'gtc#show_gtc'
   get 'contact' => 'contact#show'
 
   # DashboardsController
