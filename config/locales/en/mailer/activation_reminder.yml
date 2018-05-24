@@ -8,7 +8,7 @@ en:
             But it shows that it is not activated yet. You need to activate your enty in order to make it public.<br>
             You can directly edit your entry here:<br>
             <a href='%{edit_url}'>%{location_name}</a>"
-      footer: "Regadards,
+      footer: "Regadards, <br>
       locationguru.net"
     second_activation_reminder:
       subject: "'%{location_name}' is still not activated for nearly a week"
@@ -22,7 +22,7 @@ en:
             <a href='%{edit_url}'>%{location_name}</a> <br><br>
             You can also delete this entry at any time if you dont want to use it any more. <br>
             "
-      footer: "Regadards,
+      footer: "Regadards,<br>
       locationguru.net"
     last_activation_reminder:
       subject: "'%{location_name}' is not activated for more than a month"
@@ -33,5 +33,5 @@ en:
             You can directly edit your entry here:<br>
             <a href='%{edit_url}'>%{location_name}</a>
             "
-      footer: "Regadards,
+      footer: "Regadards,<br>
             locationguru.net"
