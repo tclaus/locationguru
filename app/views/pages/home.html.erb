@@ -50,10 +50,10 @@
   <%= render partial: 'cities', locals: {items: @cities}  %>
 </div>
 
-<% # Link farm, small links %>
 <div>
-<hr>
-
+  <% # Footer text #%>
+  <hr>
+  <%= t('.home_page_footer') %>
 </div>
 
 <%= javascript_include_tag( 'home_geocomplete' ) %>

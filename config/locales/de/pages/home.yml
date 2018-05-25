@@ -5,6 +5,7 @@ de:
       select_location_type: "Art der Location"
       locations: "Locations"
       cities: "Städte"
+      home_page_footer: "Hier finden Sie Locations aller Art. Ob Vereinshaus in einer KGV, ein Raum in einer Gastronomie, Partyzelt, Leuchtturm oder ein aussergewöhnliches Haus oder Halle. Für Parties, Clubbing, Hochzeiten, Geburtstage und vieles mehr."
   link_cloud:
     show:
       locations_in: "Weitere Locations in:"
