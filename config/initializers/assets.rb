@@ -26,4 +26,6 @@ select_message
 send_message_on_button
 cards
 location_restricted
+cookie_banner/cookie_banner_de
+cookie_banner/cookie_banner_en
 )
