@@ -69,7 +69,13 @@
     current_page?(admin_path) ||
     current_page?(admin_users_path) ||
     current_page?(subscriptions_path) ||
-    current_page?(payment_method_path)
+    current_page?(payment_method_path) ||
+    current_page?(listing_location_path) ||
+    current_page?(suitables_location_path) ||
+    current_page?(amenities_location_path) ||
+    current_page?(description_location_path) ||
+    current_page?(photo_upload_location_path) ||
+    current_page?(location_location_path)
     ) %>
 
   <nav class="navbar navbar-default">
@@ -77,7 +83,7 @@
       <ul class="nav navbar-nav">
         <li <% if current_page?(dashboard_path) %> class="active" <% end %>><%= link_to t('dashboard'), dashboard_path %></li>
         <li <% if current_page?(locations_path) %> class="active" <% end %>><%= link_to t('manage'), locations_path %></li>
-        <li <% if current_page?(payment_method_path) %> class="active" <% end %>><%= link_to t('account_settings'), payment_method_path %></li>
+        <li <% if current_page?(payment_method_path) %> class="active" <% end %>><%= link_to t('account_settings'), subscriptions_path %></li>
         <% if current_user.isAdmin %>
           <li <% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
         <% end %>

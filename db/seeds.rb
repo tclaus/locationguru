@@ -17,7 +17,9 @@ CateringType.create([{ id: 1,
                      { id: 2,
                        name: 'Fixed Partner' },
                      { id: 3,
-                       name: 'No Catering' }])
+                       name: 'No Catering' },
+                       {id: 4,
+                         name: 'In-house'}])
 
 # What do I expect from the location?
 KindType.create([{ id: 1,

@@ -1,6 +1,10 @@
 <ul class="sidebar-list">
   <li class="sidebar-item">
-    <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
+    <% if current_page?(description_location_path) %>
+      <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
+    <% else %>
+    <%= link_to t(".description"), description_location_path, class:"sidebar-link" %>
+    <% end %>
     <% if !@location.listing_name.blank? %>
       <span class="pull-right text-babu">
         <i class="fas fa-check"></i>
@@ -12,13 +16,21 @@
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to t(".listing"), listing_location_path, class:"sidebar-link active" %>
+    <% if current_page?(listing_location_path) %>
+      <%= link_to t(".listing"), listing_location_path, class:"sidebar-link active" %>
+    <% else %>
+    <%= link_to t(".listing"), listing_location_path, class:"sidebar-link" %>
+    <% end %>
     <span class="pull-right text-babu">
       <i class="fas fa-check"></i>
     </span>
   </li>
   <li class="sidebar-item">
-    <%= link_to t(".suitables"), suitables_location_path, class:"sidebar-link active" %>
+    <% if current_page?(suitables_location_path) %>
+      <%= link_to t(".suitables"), suitables_location_path, class:"sidebar-link active" %>
+    <% else %>
+      <%= link_to t(".suitables"), suitables_location_path, class:"sidebar-link" %>
+    <% end %>
     <% if @location.has_suitables %>
       <span class="pull-right text-babu">
         <i class="fas fa-check"></i>
@@ -30,13 +42,21 @@
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to t(".amenities"), amenities_location_path, class:"sidebar-link active" %>
+    <% if current_page?(amenities_location_path) %>
+      <%= link_to t(".amenities"), amenities_location_path, class:"sidebar-link active" %>
+    <% else %>
+    <%= link_to t(".amenities"), amenities_location_path, class:"sidebar-link" %>
+    <% end %>
     <span class="pull-right text-babu">
       <i class="fas fa-check"></i>
     </span>
   </li>
   <li class="sidebar-item">
-    <%= link_to t(".photos"), photo_upload_location_path, class:"sidebar-link active" %>
+    <% if current_page?(photo_upload_location_path) %>
+      <%= link_to t(".photos"), photo_upload_location_path, class:"sidebar-link active" %>
+    <% else %>
+    <%= link_to t(".photos"), photo_upload_location_path, class:"sidebar-link" %>
+    <% end %>
     <% if !@location.photos.blank? %>
       <span id="photo_check" class="pull-right text-babu">
         <i class="fas fa-check"></i>
@@ -48,7 +68,11 @@
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to t(".location"), location_location_path, class:"sidebar-link active" %>
+    <% if current_page?(location_location_path) %>
+      <%= link_to t(".location"), location_location_path, class:"sidebar-link active" %>
+    <% else %>
+    <%= link_to t(".location"), location_location_path, class:"sidebar-link" %>
+    <% end %>
     <% if !@location.address.blank? %>
       <span class="pull-right text-babu">
         <i class="fas fa-check"></i>
