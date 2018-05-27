@@ -21,7 +21,7 @@
           <% if !@location.website.blank? %>
             <tr>
               <td><%= t('.website') %></td>
-              <td class="text-right">
+              <td>
                 <% if @location.website.size > 28 %>
                   <%= link_to @location.website.slice(0,28) + '...', @location.website %>
                 <% else %>
@@ -33,7 +33,7 @@
           <% if !@location.phonenumber.blank? %>
             <tr>
               <td> <%= t('.phonenumber') %></td>
-              <td class="text-right">
+              <td>
                 <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a>
               </td>
             </tr>
