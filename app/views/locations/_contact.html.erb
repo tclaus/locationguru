@@ -42,7 +42,7 @@
           <% if !@location.user.hasPremium %>
             <tr>
               <td><%= t('.email') %></td>
-              <td class="text-right"><%= mail_to @location.email %></td>
+              <td><%= mail_to @location.email %></td>
             </tr>
           <% end %>
         </tbody>
