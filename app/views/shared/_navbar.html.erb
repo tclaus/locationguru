@@ -63,6 +63,17 @@
 </div>
 </nav>
 
+<% # Fake path with ID %>
+<% if @location %>
+  <% id = @location.id %>
+<% else %>
+  <% id = 1 %>
+<% end %>
+<% if @message %>
+  <% message_id = @message.id %>
+<% else %>
+  <% message_id = 1 %>
+<% end %>
 <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(new_location_path) &&
     (current_page?("/locations/") ||
     current_page?(dashboard_path) ||
@@ -71,12 +82,12 @@
     current_page?(subscriptions_path) ||
     current_page?(payment_method_path) ||
     current_page?(admin_locations_path) ||
-    current_page?(suitables_location_path) ||
-    current_page?(amenities_location_path) ||
-    current_page?(description_location_path) ||
-    current_page?(photo_upload_location_path) ||
-    current_page?(location_location_path) ||
-    current_page?(location_message_path)
+    current_page?(suitables_location_path(id: id)) ||
+    current_page?(amenities_location_path(id: id)) ||
+    current_page?(description_location_path(id: id)) ||
+    current_page?(photo_upload_location_path(id: id)) ||
+    current_page?(location_location_path(id: id)) ||
+    current_page?(location_message_path(id: message_id, location_id: id))
     ) %>
 
   <nav class="navbar navbar-default">
