@@ -25,6 +25,7 @@ en:
         verify_pin: "OK"
       new:
         use_alternative_login: "Or use facebbok:"
+        accept_gtc_form: "I accept the <a href='/gtc'>GTCs</a>."
     sessions:
       new:
         forgot_your_password: "reset password"

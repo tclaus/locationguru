@@ -28,4 +28,5 @@ cards
 location_restricted
 cookie_banner/cookie_banner_de
 cookie_banner/cookie_banner_en
+register_user/accept_gtc
 )
