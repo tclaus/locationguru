@@ -17,8 +17,8 @@ de:
             Sehr gut. <br><br>
             Allerdings wurde dieser Eintrag bisher noch nicht aktiviert.<br>
             Ist es etwas, das wir noch erledigen müssen? Können wir Ihnen bei etwas bei ihrem Eintrag helfen?<br><br>
-            Wenn Sie Fragen haben oder wir Ihnen helfen können, so senden Sie uns einfach eine Naxchricht.<br>
-            Sie können den Eintrag unter diesem Link direkt bearbeiten:<br>
+            Wenn Sie Fragen haben oder wir Ihnen helfen können, so senden Sie uns einfach eine Nachricht.<br>
+            Sie können den Eintrag hier direkt bearbeiten:<br>
             <a href='%{edit_url}'>%{location_name}</a>"
       footer: "Mit freundlichen Grüssen,<br>
       locationguru.net"
