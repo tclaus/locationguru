@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     redirect_to edit_user_registration_path, alert: t('.errorVerifingPin')
   end
 
+# Payments
   def payment
 
     # Show current card and subscription, if available

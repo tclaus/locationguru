@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   before_create do
     logger.debug "* Set users locale to '#{I18n.locale}'"
-    self.language_id = I18n.locale if self.language_id.blank?
+    self.language_id = I18n.locale
   end
 
   def activeLocations

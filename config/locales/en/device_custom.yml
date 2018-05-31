@@ -24,7 +24,7 @@ en:
         save_new_number: "Save"
         verify_pin: "OK"
       new:
-        use_alternative_login: "Or use facebbok:"
+        use_alternative_login: "Or use facebook:"
         accept_gtc_form: "I accept the <a href='/gtc'>GTCs</a>."
     sessions:
       new:
