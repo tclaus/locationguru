@@ -7,6 +7,7 @@
       <tr>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
+       <th scope="col"></th>
        <th scope="col">Restriced</th>
        <th scope="col">Aktiv</th>
        <th scope="col">Creator</th>
@@ -19,6 +20,11 @@
         <td>
           <%= link_to location.listing_name, location_path(location) %> <br>
           <%= location.country %> / <%= location.city %>
+        </td>
+        <td>
+          <%= link_to listing_location_path(location) do %>
+          <i class="far fa-edit"></i>
+          <% end %>
         </td>
         <td>
           <%= link_to restrict_location_path(location), method: :post, remote: true, data:{id: location.id}, class:"toggle_restriced" do %>
