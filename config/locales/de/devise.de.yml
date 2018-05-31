@@ -91,7 +91,7 @@ de:
     registrations:
       destroyed: Ihr Account wurde gelöscht.
       edit:
-        are_you_sure: Sind Sie sicher?
+        are_you_sure: "Sind Sie sicher? Alle locations, ihre nachrichten und Ihr Zugang werden gelöscht. Sie können sich aber jederzeit wieder anmelden."
         cancel_my_account: Konto löschen
         currently_waiting_confirmation_for_email: Warte auf Bestätigung von %{email}.
         leave_blank_if_you_don_t_want_to_change_it: freilassen, wenn Sie das nicht ändern wollen
