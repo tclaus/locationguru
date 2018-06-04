@@ -30,7 +30,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
 
-
 # Photos and avatars
 gem 'aws-sdk-s3'
 gem "paperclip", "~> 6.0.0"
@@ -54,6 +53,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
 gem 'ransack', '~> 1.7'
 gem 'twilio-ruby'
+gem "simple_calendar", "~> 2.0"
 
 # Payments
 gem 'stripe'

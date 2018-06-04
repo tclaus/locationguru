@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
+      logger.debug("Create reservation")
     location = Location.find(params[:location_id])
     if current_user == location.user
       flash[:alert] = t("you_cannot_book_you_own_property")
@@ -25,6 +26,8 @@ class ReservationsController < ApplicationController
 
   def your_reservations
     @locations = current_user.locations
+    logger.debug("Show reservations")
+    @meetings = current_user.reservations.all
   end
 
   private
