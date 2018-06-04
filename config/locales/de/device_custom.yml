@@ -24,7 +24,6 @@ de:
         save_new_number: "Speichern"
         verify_pin: "OK"
       new:
-        use_alternative_login: "ODER"
         accept_gtc_form: "Ich bestätige das ich die <a href='/gtc'>AGBs</a> und die Datenschutzerklärung gelesen habe"
     sessions:
       new:

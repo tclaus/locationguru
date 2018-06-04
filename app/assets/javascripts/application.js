@@ -21,6 +21,4 @@
 //= require geocomplete
 //= require selectric
 //= require selectric-activate
-//= require social-share-button
-//= require social_share_buttons
 //= require flash_messages

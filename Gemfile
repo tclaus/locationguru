@@ -53,7 +53,6 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'geocoder'
 gem 'ransack', '~> 1.7'
-gem 'social-share-button'
 gem 'twilio-ruby'
 
 # Payments

@@ -1,10 +1,6 @@
 <div class="row">
   <div class="col-md-12">
     <h1><%= @location.listing_name %></h1>
-      <%= remove_onClick_eventhandler(social_share_button_tag(@location.listing_name,
-        image: @location.cover_photo(:medium),
-        desc: @location.listing_name)) %>
-
       <% if !@location.address.blank? %>
       <address>
         <%= html_line_breaks(@location.address) %>
