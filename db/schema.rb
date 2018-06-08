@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_054657) do
+ActiveRecord::Schema.define(version: 2018_06_07_062023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_054657) do
     t.datetime "updated_at", null: false
     t.boolean "accept"
     t.boolean "isRead", default: false, null: false
+    t.date "inquery_date"
     t.index ["location_id"], name: "index_locations_on_location_id"
     t.index ["user_id"], name: "index_message_on_user_id"
   end
@@ -114,11 +115,11 @@ ActiveRecord::Schema.define(version: 2018_05_22_054657) do
     t.bigint "user_id"
     t.bigint "location_id"
     t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "price"
-    t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "from_type"
+    t.string "status"
     t.index ["location_id"], name: "index_reservations_on_location_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

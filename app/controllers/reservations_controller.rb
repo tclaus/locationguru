@@ -2,21 +2,18 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-      logger.debug("Create reservation")
+    # Only here, if user is logged in. Date is requeted
     location = Location.find(params[:location_id])
     if current_user == location.user
       flash[:alert] = t("you_cannot_book_you_own_property")
+      redirect_back(fallback_location: request.referer)
     else
-      start_date = Date.parse(reservation_params[:start_date])
-      end_date = Date.parse(reservation_params[:end_date])
-      days = (end_date - start_date) + 1
-      @reservation = current_user.reservations.build(reservation_params)
-      @reservation.location = location
-      @reservation.total = 42 * days
-      @reservation.save
+      # Only logged - in user can start a reservation
+      date_str = reservation_params[:start_date]
+      date =  Date.parse(date_str).strftime("%F")
 
-      flash[:notice] = t("booked_successfully")
-      redirect_to location
+      logger.debug("Redirect to create message")
+      redirect_to send_message_location_path(location, date: date)
     end
   end
 

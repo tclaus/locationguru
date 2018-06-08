@@ -92,7 +92,7 @@
     current_page?(description_location_path(id: id)) ||
     current_page?(photo_upload_location_path(id: id)) ||
     current_page?(location_location_path(id: id)) ||
-    current_page?(location_message_path(id: message_id, location_id: id))
+    current_page?(send_message_location_path(id: id))
     ) %>
 
   <nav class="navbar navbar-default">

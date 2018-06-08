@@ -76,12 +76,9 @@
             $('#reservation_end_date').attr("disabled", false);
 
             var start_date = $('#reservation_start_date').datepicker('getDate');
-            var end_date = $('#reservation_end_date').datepicker('getDate');
-            var nights = (end_date - start_date)/1000/60/60/24 + 1;
 
             var input = {
-              'start_date': start_date,
-              'end_date': end_date
+              'start_date': start_date
             }
 
             $.ajax({

@@ -44,9 +44,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :show, :destroy]
   end
 
-
-
-
   resources :cities, only: [:show]
   resources :guest_reviews, only: [:create, :destroy]
   resources :host_reviews, only: [:create, :destroy]

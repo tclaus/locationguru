@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
-  before_action :authenticate_user!, except: %i[show send_message]
+  before_action :authenticate_user!, except: %i[preload preview show send_message]
   before_action :is_authorized, only: %i[listing pricing description
                                          photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
@@ -69,6 +69,14 @@ class LocationsController < ApplicationController
     @message = Message.new
     @message.user_id = @location.user_id
     @message.location_id = @location.id
+    @message.inquery_date = params[:date]
+
+    if !current_user.blank?
+      @message.email = current_user.email
+      @message.name = current_user.fullname
+    end
+
+    logger.debug "Send message with params: #{params}"
   end
 
   def update
@@ -106,20 +114,20 @@ class LocationsController < ApplicationController
   end
 
   def preload
-    # Pass back to client
+    # load inavaible dates to frontent
     today = Date.today
     reservations = @location.reservations.where(
-      'start_date >= ? OR end_date >= ? ', today, today
-    )
+      'start_date >= ? ', today
+    ).select('id, status, start_date')
 
     render json: reservations
   end
 
   def preview
+    # Check if is reserverd
     start_date = Date.parse(params[:start_date])
-    end_date = Date.parse(params[:end_date])
     output = {
-      conflict: is_conflict(start_date, end_date, @location)
+      status: reservation_status(start_date, @location)
     }
     render json: output
   end
@@ -143,7 +151,7 @@ class LocationsController < ApplicationController
 
   private
 
-  # Splits an active recors error hash to a single string
+  # Splits an active record error hash to a single string
   def error_messages_to_s(errors)
     text = '<br>'
     errors.each do |_field, message|
@@ -159,9 +167,15 @@ class LocationsController < ApplicationController
     false
   end
 
-  def is_conflict(start_date, end_date, location)
-    check = location.reservations.where('? < start_date AND end_date < ? ', start_date, end_date)
-    !check.empty?
+  # Is selected date in conflict with other reservations?
+  #
+  def reservation_status(start_date, location)
+    check = location.reservations.where('start_date = ? ', start_date)
+    if check.empty?
+      return 'free'
+    else
+      return check.first.status
+    end
   end
 
   def set_location

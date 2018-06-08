@@ -6,7 +6,28 @@ class MessagesController < ApplicationController
   before_action :is_authorized, only: %i[show]
 
   def create
+    # create a message and if a date was given, create a reservation
     @location = Location.find(params[:location_id])
+
+    if !permitMessages[:inquery_date].blank?
+      # create reservations
+      logger.info "Create a new reservation"
+      if !current_user.blank?
+        @reservation = current_user.reservations.build()
+      else
+        @reservation = Reservations.new()
+      end
+      @reservation.location = @location
+      @reservation.email = permitMessages[:email]
+      @reservation.from_type = 'customer' #customer / owner
+      @reservation.status = 'inquery' # inquery (anfrage), booked
+      @reservation.start_date = permitMessages[:inquery_date]
+      logger.info "reservation startdate = #{@reservation.start_date}"
+      if !@reservation.save
+        logger.warn "Failure saving a new reservation: #{@reservation.errors.messages.to_s}"
+      end
+
+    end
 
     @message = Message.new(permitMessages)
     @message.location_id = @location.id
@@ -64,6 +85,7 @@ class MessagesController < ApplicationController
                                     :email,
                                     :name,
                                     :message,
+                                    :inquery_date,
                                     :accept)
   end
 end
