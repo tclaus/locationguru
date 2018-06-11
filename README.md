@@ -6,7 +6,8 @@ A ruby-on-rails platform for handling venues.
 Local installation
 ------------------
 Install Postgres Database
-  (Set environment var?)
+ Use Postgress App from Postges Server: https://postgresapp.com
+ 
 $: bundle install
 
 On OSX install redis-server
