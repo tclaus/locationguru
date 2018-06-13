@@ -44,17 +44,25 @@ Check selected date with backend and print a message in UI
   }
 
 
-  $("#datepicker").datepicker($.datepicker.regional[regional]);
 
   // Set Datepicker properties
-  $("#datepicker").datepicker({
+var dpOptions = $.extend(
+  {},
+  $.datepicker.regional[regional],
+  {
     numberOfMonths: 1,
     showButtonPanel: true,
     minDate: 0,
     maxDate: '18M',
     beforeShowDay: checkDate,
     onSelect: selected
-  });
+  }
+);
+
+  $("#datepicker").datepicker(dpOptions);
+
+
+
 
   // Preload unavailable dates
   $.ajax({
