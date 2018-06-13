@@ -115,6 +115,7 @@ class LocationsController < ApplicationController
 
   def preload
     # load inavaible dates to frontent
+    logger.debug "Preload available dates"
     today = Date.today
     reservations = @location.reservations.where(
       'start_date >= ? ', today
