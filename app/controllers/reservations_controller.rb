@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def create
     # Only here, if user is logged in. Date is requeted

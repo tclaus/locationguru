@@ -1,21 +1,25 @@
 module ApplicationHelper
   def avatar_url(user)
-    # User defined avatar
-    if user.avatar.exists?
-      logger.debug 'Show avatar'
-      return user.avatar.url
-    end
-
-    # From Oauth login provder (facebook)
-    if user.image
-      secureUrl = user.image
-      secureUrl.sub! 'http://', 'https://'
-      secureUrl + '?width=300'
+    if !user
+      "https://www.gravatar.com/avatar/unknown.jpg?d=mm&s=150"
     else
-      logger.debug 'Show gravatar'
-      # Load from gravatar
-      user_id = Digest::MD5.hexdigest(user.email.downcase)
-      "https://www.gravatar.com/avatar/#{user_id}.jpg?d=mm&s=150"
+      # User defined avatar
+      if user.avatar.exists?
+        logger.debug 'Show avatar'
+        return user.avatar.url
+      end
+
+      # From Oauth login provder (facebook)
+      if user.image
+        secureUrl = user.image
+        secureUrl.sub! 'http://', 'https://'
+        secureUrl + '?width=300'
+      else
+        logger.debug 'Show gravatar'
+        # Load from gravatar
+        user_id = Digest::MD5.hexdigest(user.email.downcase)
+        "https://www.gravatar.com/avatar/#{user_id}.jpg?d=mm&s=150"
+      end
     end
   end
 

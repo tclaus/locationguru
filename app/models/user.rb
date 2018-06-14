@@ -48,6 +48,11 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
+  def isSystem
+    # system user can not log in  are used as a placeholder for incomming messages with reservations
+    role == 'SYSTEM'
+  end
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
     if user

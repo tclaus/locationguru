@@ -4,9 +4,7 @@ $(function() {
   var previewUrl = $('#datepicker').data('preview_url');
   var preloadUrl = $('#datepicker').data('preload_url');
 
-
   function checkDate(date) {
-    console.log('check Date: ', date);
     // reserved dates are marked. all other dates are free
     dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     return [$.inArray(dmy, unavailableDates) == -1];
@@ -16,7 +14,6 @@ $(function() {
 Check selected date with backend and print a message in UI
 */
   function selected(selected) {
-    console.log('check selected day: ', selected);
     var start_date = $('#datepicker').datepicker('getDate');
     var input = {
       'start_date': start_date
@@ -26,11 +23,11 @@ Check selected date with backend and print a message in UI
       url: previewUrl,
       data: input,
       success: function(data) {
-        console.log('Backend answered successfully', data);
         // Conflict: Date already reserved
         if (data.status == 'inquery') {
           $('#message').text("These date is requested but still free.");
           $('#btn_book').attr('disabled', false);
+          $('#reservation_start_date').val(start_date);
         } else if (data.status == 'booked') {
           $('#message').text("This date is booked.");
           $('#btn_book').attr('disabled', true);
@@ -43,9 +40,8 @@ Check selected date with backend and print a message in UI
     });
   }
 
-
-
   // Set Datepicker properties
+  // Regional settings must pe part of options!
 var dpOptions = $.extend(
   {},
   $.datepicker.regional[regional],
@@ -61,17 +57,12 @@ var dpOptions = $.extend(
 
   $("#datepicker").datepicker(dpOptions);
 
-
-
-
   // Preload unavailable dates
   $.ajax({
     url: preloadUrl,
     dateTyp: 'json',
     success: function(data) {
-      console.log('Successfully preloaded unavailable dates: ', data);
       $.each(data, function(arrID, arrValue) {
-        console.log(' Data: ', arrValue);
         if (arrValue.status === 'booked') {
           d = new Date(arrValue.start_date);
           unavailableDates.push($.datepicker.formatDate('d-m-yy', d));

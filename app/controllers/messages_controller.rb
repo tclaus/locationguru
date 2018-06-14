@@ -15,16 +15,21 @@ class MessagesController < ApplicationController
       if !current_user.blank?
         @reservation = current_user.reservations.build()
       else
-        @reservation = Reservations.new()
+        @reservation = Reservation.new()
+         # System user - no logged in user has created
+         # this reservation
+        @reservation.user = dummy_user(permitMessages[:email])
       end
       @reservation.location = @location
       @reservation.email = permitMessages[:email]
-      @reservation.from_type = 'customer' #customer / owner
-      @reservation.status = 'inquery' # inquery (anfrage), booked
+      @reservation.from_type = 'customer' # who has created this data? customer / owner
+      @reservation.status = 'inquery' # current status of reservation: inquery (anfrage), booked
       @reservation.start_date = permitMessages[:inquery_date]
-      logger.info "reservation startdate = #{@reservation.start_date}"
+      logger.info " Reservation startdate = #{@reservation.start_date}"
       if !@reservation.save
-        logger.warn "Failure saving a new reservation: #{@reservation.errors.messages.to_s}"
+        logger.warn " Failure saving a new reservation: #{@reservation.errors.messages.to_s}"
+      else
+        logger.info " New reservation created"
       end
 
     end
@@ -46,6 +51,27 @@ class MessagesController < ApplicationController
       flash[:notice] = t('.message_send_error')
       render send_message_path(@message)
     end
+  end
+
+ # create a dummy user to enable semi - anonymous inqueries
+  def dummy_user(mail)
+    # Find a user by index_users_on_email!
+    user = User.find_by(email: mail)
+    if (user.blank?)
+      user = User.new()
+      user.email = "SYSTEM.#{mail}"
+      user.role = "SYSTEM" # Mark as temporary added user
+      user.fullname = "Temporary System user"
+      user.password = "No Password here!" #TODO generate a randon hash!
+      if user.save
+        logger.info "* Created new temporary user with: #{user.attributes.inspect}"
+      else
+        logger.error "Failed creating a new user with error: #{user.errors.messages.to_s}"
+      end
+    else
+      logger.info "Found existing user with given mail address: #{mail}"
+    end
+    return user
   end
 
   def show;

@@ -22,37 +22,49 @@
         <% end %>
       <% end %>
 
-      <%= link_to 'add', location_reservations_path(1,1), method: :post, class: "btn btn-default" %>
-
+      <% @hasReservations = false %>
       <% @locations.each do |location| %>
+
         <% location.reservations.each do |reservation| %>
+          <% @hasReservations = true %>
           <div class="row">
             <div class="col-md-2">
               <%= reservation.start_date.strftime('%v') %>
             </div>
             <div class="col-md-2">
-              <%= link_to room_path(reservation.room) do %>
-              <%= image_tag reservation.room.cover_photo(:thumb) %>
-            <% end %>
+              <%= link_to location_path(reservation.location) do %>
+                <%= image_tag reservation.location.cover_photo(:thumb) %>
+              <% end %>
+            </div>
+            <div class="col-md-5">
+              <%= link_to reservation.location.listing_name, location_path(reservation.location) %><br/><br/>
+              <span>
+                <% if !reservation.user.blank? %>
+                  <% if !reservation.user.isSystem %>
+                    <%= link_to user_path(reservation.user) do %>
+                      <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
+                      <%= reservation.user.fullname %>
+                    <% end %>
+                  <% else %>
+                  <% # System user %>
+                  <%= reservation.email %>
+                  <% end %>
+                <% else %>
+                  <%= image_tag avatar_url(nil), class: "img-circle avatar-small" %>
+                  <%= t('.unknown_or_deleted_user') %>
+                <% end %>
+              </span>
+            </div>
+            <div class="col-md-3 text-right">
+              <%= t('.reservation_status') %>: <%= reservation.status %>
+            </div>
           </div>
-          <div class="col-md-5">
-            <%= link_to reservation.room.listing_name, room_path(reservation.room) %><br/><br/>
-            <span>
-              <%= link_to user_path(reservation.user) do %>
-              <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
-              <%= reservation.user.fullname %>
-            <% end %>
-          </span>
-        </div>
-        <div class="col-md-3 text-right">
-          <%= render partial: "reviews/host_form", locals: {reservation: reservation} %>
-        </div>
-      </div>
-      <hr/>
-
-    <% end %>
-  <% end %>
-
+        <hr/>
+        <% end %>
+      <% end %>
+      <% if !@hasReservations %>
+        <%= t('.you_have_no_reservation_for_any_location') %>
+      <% end %>
 </div>
 </div>
 </div>
