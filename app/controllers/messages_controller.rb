@@ -23,6 +23,7 @@ class MessagesController < ApplicationController
       @reservation.location = @location
       @reservation.email = permitMessages[:email]
       @reservation.from_type = 'customer' # who has created this data? customer / owner
+      @reservation.message = permitMessages[:message]
       @reservation.status = 'inquery' # current status of reservation: inquery (anfrage), booked
       @reservation.start_date = permitMessages[:inquery_date]
       logger.info " Reservation startdate = #{@reservation.start_date}"

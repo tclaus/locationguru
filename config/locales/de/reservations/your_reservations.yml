@@ -1,0 +1,12 @@
+de:
+  reservations:
+    your_reservations:
+      your_reservations: "Deine Reservierungsanfragen"
+      previous: "Zurück"
+      next: "Vor"
+      received: "Erhalten"
+      location: "Location"
+      status: "Status"
+      inquery: "Anfrage"
+      booked: "Reserviert"
+      unknown_or_deleted_user: "Unbekannter Benutzer"

@@ -4,9 +4,11 @@ en:
       subject: "You got mail for '%{location_name}'"
       send_you_a_message_for: "%{sender} sent you a message for location '%{location_name}'"
       your_inbox: "Your inbox:"
+      inquery_date: "Inquery Date"
     location_mail_to_sender:
       you_send_this_message: "You have send this message:"
       subject: "Your message for '%{location_name}'"
+      inquery_date: "Inquery Date"
     location_activated:
       body_html: "Your venue '%{location_name}' is now public available.<br>
 You need nothing to do than wait for your intersents.<br>

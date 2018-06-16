@@ -1,15 +1,11 @@
 <div class="row">
   <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", locations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %></li>
-    </ul>
+    <%= render '/location_menu/entries_menu' %>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Your Reservations
+        <%= t('.your_reservations') %>
       </div>
       <div class="panel-body">
 
@@ -23,13 +19,20 @@
       <% end %>
 
       <% @hasReservations = false %>
+      <div class="row">
+        <div class="col-md-2"><%= t('.received') %></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5"><%= t('.location') %></div>
+        <div class="col-md-3"><%= t('.status') %></div>
+      </div>
+      <hr>
       <% @locations.each do |location| %>
 
         <% location.reservations.each do |reservation| %>
           <% @hasReservations = true %>
           <div class="row">
             <div class="col-md-2">
-              <%= reservation.start_date.strftime('%v') %>
+              <%= l reservation.created_at, format: :short_date %>
             </div>
             <div class="col-md-2">
               <%= link_to location_path(reservation.location) do %>
@@ -37,7 +40,7 @@
               <% end %>
             </div>
             <div class="col-md-5">
-              <%= link_to reservation.location.listing_name, location_path(reservation.location) %><br/><br/>
+              <%= link_to reservation.location.listing_name, location_path(reservation.location) %><br/>
               <span>
                 <% if !reservation.user.blank? %>
                   <% if !reservation.user.isSystem %>
@@ -50,13 +53,14 @@
                   <%= reservation.email %>
                   <% end %>
                 <% else %>
-                  <%= image_tag avatar_url(nil), class: "img-circle avatar-small" %>
                   <%= t('.unknown_or_deleted_user') %>
                 <% end %>
+                <br>
+                <%= reservation.message %>
               </span>
             </div>
             <div class="col-md-3 text-right">
-              <%= t('.reservation_status') %>: <%= reservation.status %>
+              <%= t(reservation.status, scope:'reservations.your_reservations') %>: <%= l reservation.start_date, format: :short_date %>
             </div>
           </div>
         <hr/>
