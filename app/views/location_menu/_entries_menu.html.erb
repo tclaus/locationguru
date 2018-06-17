@@ -1,0 +1,16 @@
+<ul class="sidebar-list">
+  <li class="sidebar-item">
+    <% if current_page?(locations_path) %>
+      <%= link_to t('your_listings'), locations_path, class: "sidebar-link active" %>
+    <% else %>
+      <%= link_to t('your_listings'), locations_path, class: "sidebar-link" %>
+    <% end %>
+  </li>
+  <li class="sidebar-item">
+    <% if current_page?(reservations_show_all_path) %>
+      <%= link_to t('your_reservations'), reservations_show_all_path, class: "sidebar-link active" %>
+    <% else %>
+      <%= link_to t('your_reservations'), reservations_show_all_path, class: "sidebar-link" %>
+    <% end %>
+  </li>
+</ul>

@@ -8,11 +8,17 @@
   <div class="panel-body">
     <div>
       <% if @location.user.hasPremium %>
-        <div class="text-center">
-          <%= link_to t('.send_a_message'),send_message_location_path(@location), class: "btn btn-default" %>
-        </div>
-        <% if !@location.website.blank? || !@location.phonenumber.blank? %>
-          <hr>
+        <%= form_for([@location, @location.reservations.new]) do |f| %>
+
+          <div id="datepicker" data-preview_url="<%= preview_location_path(@location) %>" data-preload_url = "<%= preload_location_path(@location) %>"></div>
+          <%= f.hidden_field :start_date,readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
+          <span id="message"></span>
+
+          <% if !@location.website.blank? || !@location.phonenumber.blank? %>
+            <hr>
+            <% # phone number / website %>
+          <% end %>
+          <%= f.submit t('.send_a_message'), id: "btn_book", class: "btn btn-default btn-block", disabled: true %>
         <% end %>
       <% end %>
 
@@ -52,3 +58,5 @@
 
 </div>
 </div>
+
+<%= javascript_include_tag 'datepicker_inquery' %>

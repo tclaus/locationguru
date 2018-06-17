@@ -6,7 +6,29 @@ class MessagesController < ApplicationController
   before_action :is_authorized, only: %i[show]
 
   def create
+    # create a message and if a date was given, create a reservation
     @location = Location.find(params[:location_id])
+
+    if !permitMessages[:inquery_date].blank?
+      # create reservations
+      logger.info "Create a new reservation"
+
+      @reservation = Reservation.new()
+      @reservation.user = @location.user # For location
+      @reservation.location = @location
+      @reservation.email = permitMessages[:email]
+      @reservation.from_type = 'customer' # who has created this data? customer / owner
+      @reservation.message = permitMessages[:message]
+      @reservation.status = 'inquery' # current status of reservation: inquery (anfrage), booked
+      @reservation.start_date = permitMessages[:inquery_date]
+      logger.info " Reservation startdate = #{@reservation.start_date}"
+      if !@reservation.save
+        logger.warn " Failure saving a new reservation: #{@reservation.errors.messages.to_s}"
+      else
+        logger.info " New reservation created"
+      end
+
+    end
 
     @message = Message.new(permitMessages)
     @message.location_id = @location.id
@@ -25,6 +47,27 @@ class MessagesController < ApplicationController
       flash[:notice] = t('.message_send_error')
       render send_message_path(@message)
     end
+  end
+
+ # create a dummy user to enable semi - anonymous inqueries
+  def dummy_user(mail)
+    # Find a user by index_users_on_email!
+    user = User.find_by(email: mail)
+    if (user.blank?)
+      user = User.new()
+      user.email = "SYSTEM.#{mail}"
+      user.role = "SYSTEM" # Mark as temporary added user
+      user.fullname = "Temporary System user"
+      user.password = "No Password here!" #TODO generate a randon hash!
+      if user.save
+        logger.info "* Created new temporary user with: #{user.attributes.inspect}"
+      else
+        logger.error "Failed creating a new user with error: #{user.errors.messages.to_s}"
+      end
+    else
+      logger.info "Found existing user with given mail address: #{mail}"
+    end
+    return user
   end
 
   def show;
@@ -64,6 +107,7 @@ class MessagesController < ApplicationController
                                     :email,
                                     :name,
                                     :message,
+                                    :inquery_date,
                                     :accept)
   end
 end

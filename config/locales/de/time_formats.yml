@@ -1,0 +1,4 @@
+de:
+  time:
+    formats:
+      short_date: "%-d.%m.%y"

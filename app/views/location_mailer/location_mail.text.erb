@@ -4,6 +4,7 @@ Location Guru
 <%=@location.listing_name %>
 
 <%= t('.send_you_a_message_for',sender: @message.name , location_name: @location.listing_name) %>
+<%= t('.inquery_date') %>: <%= @message.inquery_date %>
 -
 <%= @message.message %>
 -

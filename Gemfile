@@ -23,13 +23,12 @@ gem 'puma', '~> 3.7'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass', '~> 5.0'
 gem 'jquery-rails'
-gem 'jquery-ui-rails', '~>5.0'
+gem 'jquery-ui-rails', '~>6.0'
 gem 'sass-rails', '~> 5.0'
 
 # Authorization
 gem 'omniauth', '~>1.6'
 gem 'omniauth-facebook', '~>4.0'
-
 
 # Photos and avatars
 gem 'aws-sdk-s3'
@@ -54,6 +53,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
 gem 'ransack', '~> 1.7'
 gem 'twilio-ruby'
+gem "simple_calendar", "~> 2.0"
 
 # Payments
 gem 'stripe'

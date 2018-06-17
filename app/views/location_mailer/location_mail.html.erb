@@ -1,13 +1,8 @@
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
     <h1>Location Guru</h1>
     <p>
-      <%= t('.send_you_a_message_for',sender: @message.name , location_name: @location.listing_name) %>
+      <%= t('.send_you_a_message_for',sender: @message.name , location_name: @location.listing_name) %> <br>
+      <%= t('.inquery_date') %>: <%= @message.inquery_date %>
     </p>
     <p>
       <%= html_line_breaks(@message.message) %>
@@ -15,6 +10,3 @@
     <br>
     <%= t('.your_inbox') %> <br>
     <a href='https://Locationguru.net/dashboard'>Übersicht</a>
-
-  </body>
-</html>

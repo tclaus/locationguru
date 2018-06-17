@@ -4,9 +4,11 @@ de:
       subject: "Sie haben eine Nachricht für '%{location_name}'"
       send_you_a_message_for: "%{sender} hat Ihnen für '%{location_name}' eine Nachricht gesendet."
       your_inbox: "Ihr Nachrichteneingang:"
+      inquery_date: "Anfrage Datum"
     location_mail_to_sender:
       you_send_this_message: "Sie haben diese Nachricht gesendet:"
       subject: "Ihre Nachricht an '%{location_name}'"
+      inquery_date: "Anfrage Datum"
     location_activated:
       body_html: "Ihre Location '%{location_name}' wurde aktiviert. <br>
 Das heisst, sie ist nun öffentlich auf der Seite auffindbar. <br>
