@@ -11,3 +11,4 @@ de:
       delete: "Löschen"
       status: "Status"
       unknown_or_deleted_user: "Unbekannter Benutzer"
+      you_have_no_reservation_for_any_location: "Es liegen noch keine Reservierungen vor"
