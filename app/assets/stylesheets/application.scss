@@ -9,6 +9,7 @@
 @import "mobile";
 @import "jquery-ui.min";
 @import "jquery-ui.theme.min";
+@import "simple_calendar";
 
 body {
   color: $default-textcolor;
@@ -466,4 +467,10 @@ li.feature {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+
+// Sinmple calendar
+.calendar-cell {
+  word-break: normal;
 }

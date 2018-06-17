@@ -12,14 +12,9 @@ class MessagesController < ApplicationController
     if !permitMessages[:inquery_date].blank?
       # create reservations
       logger.info "Create a new reservation"
-      if !current_user.blank?
-        @reservation = current_user.reservations.build()
-      else
-        @reservation = Reservation.new()
-         # System user - no logged in user has created
-         # this reservation
-        @reservation.user = dummy_user(permitMessages[:email])
-      end
+
+      @reservation = Reservation.new()
+      @reservation.user = @location.user # For location
       @reservation.location = @location
       @reservation.email = permitMessages[:email]
       @reservation.from_type = 'customer' # who has created this data? customer / owner

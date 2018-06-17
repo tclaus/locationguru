@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:accept, :destroy, :show_all]
 
   def create
     # Only here, if user is logged in. Date is requeted
@@ -17,21 +17,67 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def your_trips
-    @trips = current_user.reservations.order(start_date: :asc)
+  def show
+    # Show only reservation for ONE Location
   end
 
-  def your_reservations
+  def show_all
     @locations = current_user.locations
     logger.debug("Show reservations")
-    @meetings = current_user.reservations.all
+    @reservations = current_user.reservations.all.order(:start_date)
+    render 'show'
+  end
+
+  def accept
+    reservation = Reservation.find(params[:id])
+    if !reservation.blank?
+      if check_reservation_owner(reservation)
+        reservation.set_status_booked
+      else
+        flash[:warning] = "You are not allowed to accept this reservation"
+      end
+    else
+      flash[:warning] = "Reservation not found"
+    end
+    redirect_to reservations_show_all_path
+  end
+
+  def reject
+    reservation = Reservation.find(params[:id])
+    if !reservation.blank?
+      if check_reservation_owner(reservation)
+        reservation.set_status_inquery
+      else
+        flash[:warning] = "You are not allowed to reject this reservation"
+      end
+    else
+      flash[:warning] = "Reservation not found"
+    end
+    redirect_to reservations_show_all_path
+  end
+
+  def destroy
+    logger.debug "Delete reservation #{params.inspect}"
+    reservation = Reservation.find(params[:id])
+    if !reservation.blank?
+      if check_reservation_owner(reservation)
+        reservation.destroy
+      else
+        flash[:warning] = "You are not allowed to delete this reservation"
+      end
+    else
+      flash[:warning] = "Reservation not found"
+    end
+    redirect_to reservations_show_all_path
   end
 
   private
 
-  def reservation_params
-    params.require(:reservation).permit(:start_date,
-                                        :end_date)
+  def check_reservation_owner(reservation)
+    (reservation.location.user.id == current_user.id)
+  end
 
+  def reservation_params
+    params.require(:reservation).permit(:start_date)
   end
 end

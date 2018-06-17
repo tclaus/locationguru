@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery-ui/i18n/datepicker-de
 //= require jquery-ui/i18n/datepicker-en-GB
+//= require rails-ujs
 //= require toastr
 //= require bootstrap-sprockets
 //= require jquery.raty

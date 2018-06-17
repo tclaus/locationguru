@@ -7,10 +7,10 @@
     <% end %>
   </li>
   <li class="sidebar-item">
-    <% if current_page?(your_reservations_path) %>
-      <%= link_to t('your_reservations'), your_reservations_path, class: "sidebar-link active" %>
+    <% if current_page?(reservations_show_all_path) %>
+      <%= link_to t('your_reservations'), reservations_show_all_path, class: "sidebar-link active" %>
     <% else %>
-      <%= link_to t('your_reservations'), your_reservations_path, class: "sidebar-link" %>
+      <%= link_to t('your_reservations'), reservations_show_all_path, class: "sidebar-link" %>
     <% end %>
   </li>
 </ul>

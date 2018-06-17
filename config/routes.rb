@@ -40,16 +40,17 @@ Rails.application.routes.draw do
       post 'restrict'
     end
     resources :photos, only: [:create, :destroy]
-    resources :reservations, only: [:create]
-    resources :messages, only: [:create, :show, :destroy]
+    resources :reservations, only: [:show, :create, :destroy]
+    resources :messages, only: [:show, :create, :destroy]
   end
 
   resources :cities, only: [:show]
-  resources :guest_reviews, only: [:create, :destroy]
-  resources :host_reviews, only: [:create, :destroy]
 
-  get '/your_trips' => 'reservations#your_trips'
-  get '/your_reservations' => 'reservations#your_reservations'
+  controller :reservation do
+      get '/reservations/show_all'
+      patch '/reservations/accept'
+      patch '/reservations/reject'
+  end
 
   get 'search' => 'pages#search'
 
@@ -59,9 +60,11 @@ Rails.application.routes.draw do
   get 'contact' => 'contact#show'
 
   # DashboardsController
-  get 'dashboard' => 'dashboards#index'
-  get 'dashboard/unread_count' => 'dashboards#unreadMessageCount'
-  get 'dashboard/unread_count_json' => 'dashboards#unreadMessageCountJSON'
+  controller :dashboards do
+    get 'dashboard' => :index
+    get 'dashboard/unread_count' => :unreadMessageCount
+    get 'dashboard/unread_count_json' => :unreadMessageCountJSON
+  end
 
   # Admin
   controller :admin do

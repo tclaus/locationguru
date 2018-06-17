@@ -9,16 +9,14 @@ $(document).ready(function() {
   });
 
   // Capture delete-event and delete item
-  $('i.fa.fa-trash').on('click', function(e) {
+  $('i.far.fa-trash-alt').on('click', function(e) {
     var message_id = $(this).data('message');
-    $('#' + message_id).slideUp( 400 );
+    $('#' + message_id).slideUp(400);
     // Calc the unread counter, if needed
-      $.get( "/dashboard/unread_count_json", function(data, resp ) {
-        if (resp == "success") {
-          $('#unread_count').text(data);
-        }
+    $.get("/dashboard/unread_count_json", function(data, resp) {
+      if (resp == "success") {
+        $('#unread_count').text(data);
+      }
+    });
   });
-
-  });
-
 });

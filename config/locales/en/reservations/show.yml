@@ -1,0 +1,13 @@
+en:
+  reservations:
+    inquery: "Inquery"
+    booked: "reserved"
+    show:
+      your_reservations: "Your reservations"
+      received: "Receided"
+      location: "Venue"
+      accept: "Accept"
+      reject: "Reject"
+      delete: "Delete"
+      status: "Status"
+      unknown_or_deleted_user: "Unknown user"
