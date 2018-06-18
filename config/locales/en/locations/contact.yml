@@ -6,3 +6,6 @@ en:
       phonenumber: "Phone:"
       email: "e-mail:"
       send_a_message: "Send Message"
+      free_text: "Free"
+      booked_text: "Booked"
+      requested_text: "Requested but still free"

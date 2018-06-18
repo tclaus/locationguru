@@ -6,3 +6,6 @@ de:
       phonenumber: "Telefon:"
       email: "E-Mail:"
       send_a_message: "Nachricht senden"
+      free_text: "Frei"
+      booked_text: "Belegt"
+      requested_text: "Bereits angefragt aber noch frei"

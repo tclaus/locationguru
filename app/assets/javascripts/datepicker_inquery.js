@@ -4,6 +4,10 @@ $(function() {
   var previewUrl = $('#datepicker').data('preview_url');
   var preloadUrl = $('#datepicker').data('preload_url');
 
+  var booked_text = $('#datepicker').data('booked_text');
+  var free_text = $('#datepicker').data('free_text');
+  var requested_text = $('#datepicker').data('requested_text');
+
   function checkDate(date) {
     // reserved dates are marked. all other dates are free
     dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
@@ -25,14 +29,14 @@ Check selected date with backend and print a message in UI
       success: function(data) {
         // Conflict: Date already reserved
         if (data.status == 'inquery') {
-          $('#message').text("These date is requested but still free.");
+          $('#message').text(requested_text);
           $('#btn_book').attr('disabled', false);
           $('#reservation_start_date').val(start_date);
         } else if (data.status == 'booked') {
-          $('#message').text("This date is booked.");
+          $('#message').text(booked_text);
           $('#btn_book').attr('disabled', true);
         } else {
-          $('#message').text("This date is free ");
+          $('#message').text(free_text);
           $('#btn_book').attr('disabled', false);
           $('#reservation_start_date').val(start_date);
         }

@@ -10,7 +10,14 @@
       <% if @location.user.hasPremium %>
         <%= form_for([@location, @location.reservations.new]) do |f| %>
 
-          <div id="datepicker" data-preview_url="<%= preview_location_path(@location) %>" data-preload_url = "<%= preload_location_path(@location) %>"></div>
+          <div id="datepicker"
+            data-preview_url="<%= preview_location_path(@location) %>"
+            data-preload_url="<%= preload_location_path(@location) %>"
+            data-free_text="<%= t('.free_text')%>"
+            data-booked_text="<%= t('.booked_text')%>"
+            data-requested_text="<%= t('.requested_text')%>">
+          </div>
+
           <%= f.hidden_field :start_date,readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
           <span id="message"></span>
 

@@ -5,6 +5,7 @@ de:
       email: "Email:"
       your_email: "Deine Email-Adresse"
       name: "Name:"
+      date: "Datum:"
       your_name: "Dein Name."
       message: "Nachricht"
       your_message: "Gibt in der Nachricht an, was genau du vor hast, wie viele Leute werden erwartet und eventuell ein Wunschdatum"
