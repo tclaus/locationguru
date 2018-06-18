@@ -14,6 +14,7 @@ en:
       shown_on_mainpage: "Shown on main page"
       contact_formular: "Contact form. Hide your mail address"
       verified_phone_number: "Phone number shown as 'Checked'"
+      available_dates: "Available Calendar"
       fee_per_month: "per month."
       deactivate: "Deactivate"
       activate: "Activate"
