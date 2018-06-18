@@ -4,6 +4,10 @@ class ErrorsController < ApplicationController
     render status_code.to_s, :status => status_code
   end
 
+  def render_error(status)
+    render status: status, template: "errors/#{status}"
+  end
+
 protected
 
   def status_code
