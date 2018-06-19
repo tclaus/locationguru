@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
       "font-src  'self' fonts.gstatic.com;"\
       "child-src 'self' js.stripe.com staticxx.facebook.com www.facebook.com;" \
       "connect-src 'self' api.stripe.com www.google-analytics.com;"\
-      "frame-src 'self' js.stripe.com" \
+      "frame-src 'self' js.stripe.com;" \
       "form-action 'self';"\
       "base-uri 'self'"
   end
