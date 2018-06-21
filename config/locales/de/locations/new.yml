@@ -11,7 +11,7 @@ de:
       description: "Beschreibung"
       listing_name: "Name des Eintrages"
       what_is_your_listing_name: "Kurzer, allgemein bekannter Name der Location"
-      short_location_name_rule: "Schreiben Sie nicht etwa 'zu vermieten' oder einen 'Partylocation in Dresden', da dies aus der Anzeige selber hervorgeht"
+      short_location_name_rule: "Schreiben Sie nicht etwa 'zu vermieten' oder einen '... in Dresden', da dies aus der Anzeige selber hervorgeht"
       base_entry_always_free: "Die Basiseintragung ist immer kostenlos!"
       summary: "Beschreibender Text"
       describe_your_location: "Beschreibe etwas besonderes, was genau dieser Ort ausmacht."
