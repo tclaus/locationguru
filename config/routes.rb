@@ -66,6 +66,12 @@ Rails.application.routes.draw do
     get 'dashboard/unread_count_json' => :unreadMessageCountJSON
   end
 
+ # Guids
+  controller :guides do
+    get 'guides/kgv' => :kgv
+    get 'guides/clubhouse' => :kgv
+  end
+
   # Admin
   controller :admin do
     get 'admin' => :index

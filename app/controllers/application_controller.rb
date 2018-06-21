@@ -8,6 +8,24 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    # Needed to easyly access google maps
+    def createSimpleLocations(locations)
+      simpleLocations = Array.new
+      if !locations.blank?
+        locations.each do |l|
+          if l.geocoded?
+            simpleLocation =  SimpleLocation.new()
+            simpleLocation.id = l.id
+            simpleLocation.listing_name = l.listing_name
+            simpleLocation.latitude = l.latitude
+            simpleLocation.longitude = l.longitude
+            simpleLocations.push simpleLocation
+          end
+        end
+      end
+      return simpleLocations
+    end
+
   # Load cities cloud
   def getCitiesLinkCloud
       # Cache these a bit?

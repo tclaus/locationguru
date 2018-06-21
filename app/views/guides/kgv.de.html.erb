@@ -1,0 +1,28 @@
+
+  <div id="left">
+
+    <h2>Vereinsheim / Vereinshaus (KGV) mieten
+    </h2>
+    <small>Für kleine Gruppen mit einem besonderen Charme</small>
+    <br>
+    <p>
+      Sie haben nur eine kleine Gesellschaft, suchen etwas nettes in der Nähe? Dann schauen Sie doch mal bei den örtlichen Vereinsheimen zum Beispiel in einer Kleingartenanlage (KGV) vorbei. Oft reicht das bereits aus und ist meisst sehr kostengünstig.
+    </p>
+    <br>
+
+    <div class="row" id="location_listing">
+      <% if !@locations.empty? %>
+        <%= render partial: 'locations/location_list' %>
+      <% else %>
+        <%= render partial: 'pages/no_locations_found' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="right">
+    <!-- google map -->
+    <div id="map" data-mapdata='<%= raw @simpleLocations.to_json.gsub("</", "<\\/") %>' class="maps-area-multiple">
+
+      <%= javascript_include_tag('maps_location_list') %>
+    </div>
+  </div>
