@@ -27,7 +27,6 @@ class MessagesController < ApplicationController
       else
         logger.info " New reservation created"
       end
-
     end
 
     @message = Message.new(permitMessages)
@@ -35,6 +34,10 @@ class MessagesController < ApplicationController
     @message.user_id = @location.user_id
 
     if @message.save
+      
+      # Increate mail send counter
+      Counter.increase_mail(@message.id)
+
       # Send a mail to receiver
       LocationMailer.with(message: @message, location: @location).location_mail.deliver_later
       # Send mail for reference to sender

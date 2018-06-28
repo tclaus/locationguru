@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_130927) do
+ActiveRecord::Schema.define(version: 2018_06_28_201821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 2018_06_16_130927) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "counters", force: :cascade do |t|
+    t.string "context"
+    t.integer "year"
+    t.integer "month"
+    t.integer "day"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "context_type"
+    t.index ["context"], name: "index_counters_on_context"
+    t.index ["context_type"], name: "index_counters_on_context_type"
+    t.index ["day"], name: "index_counters_on_day"
+    t.index ["month"], name: "index_counters_on_month"
+    t.index ["year"], name: "index_counters_on_year"
   end
 
   create_table "kind_types", force: :cascade do |t|
@@ -94,6 +110,7 @@ ActiveRecord::Schema.define(version: 2018_06_16_130927) do
     t.boolean "accept"
     t.boolean "isRead", default: false, null: false
     t.date "inquery_date"
+    t.date "for_date"
     t.index ["location_id"], name: "index_locations_on_location_id"
     t.index ["user_id"], name: "index_message_on_user_id"
   end

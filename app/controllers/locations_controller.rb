@@ -47,6 +47,7 @@ class LocationsController < ApplicationController
         redirect_to root_path
       end
     end
+    Counter.increase_location(@location.id)
   end
 
   def suitables; end
