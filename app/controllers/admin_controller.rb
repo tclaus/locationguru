@@ -1,3 +1,5 @@
+include CounterHelper
+
 class AdminController < ApplicationController
   before_action :authenticate_user!
   before_action :isAdmin
@@ -28,6 +30,7 @@ class AdminController < ApplicationController
       logger.debug(" Load all locations")
       @locations = Location.all.order(:id)
     end
+    CounterHelper::load_total_numbers(@locations)
     render "admin/locations"
   end
 

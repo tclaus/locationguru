@@ -7,6 +7,7 @@ class Location < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode , if: :address_changed?
+  after_validation :reverse_geocode
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
@@ -23,8 +24,8 @@ class Location < ApplicationRecord
       obj.country = geo.country_code
     end
   end
-  after_validation :reverse_geocode
 
+  attr_accessor :total_count
 
   def cover_photo(size)
     if !photos.empty?

@@ -33,8 +33,9 @@
               </div>
               <div class="col-md-7">
                 <%= link_to listing_location_path(location) do %>
-                <h4> <%= location.listing_name %> </h4>
+                  <h4> <%= location.listing_name %> </h4>
                 <% end %>
+                <%= t('.total_visits') %>: <%= location.total_count %>
               </div>
               <div class="col-md-2 right">
                 <%= link_to t('update'), listing_location_path(location), class:"btn btn-primary action-listing" %>

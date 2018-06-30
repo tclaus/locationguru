@@ -16,3 +16,4 @@ de:
       location_deleted: "Dieser Eintrag wurde gelöscht"
     index:
       are_you_sure_delete_location: "Möchten Sie diesen Eintrag wirklich löschen?"
+      total_visits: "Aufrufe bisher"

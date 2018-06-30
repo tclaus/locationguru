@@ -1,3 +1,5 @@
+include CounterHelper
+
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: %i[preload preview show send_message]
@@ -7,6 +9,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = current_user.locations
+    CounterHelper::load_total_numbers(@locations)
   end
 
   def new

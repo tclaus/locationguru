@@ -7,6 +7,7 @@
       <tr>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
+       <th scope="col">Calls</th>
        <th scope="col"></th>
        <th scope="col">Restriced</th>
        <th scope="col">Aktive</th>
@@ -20,6 +21,9 @@
         <td>
           <%= link_to location.listing_name, location_path(location) %> <br>
           <%= location.country %> / <%= location.city %>
+        </td>
+        <td>
+          <%= location.total_count %>
         </td>
         <td>
           <%= link_to listing_location_path(location) do %>
