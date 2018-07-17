@@ -25,11 +25,13 @@ private
     logger.debug "Start quering locations not activated older than #{date}"
     locations_Level1 = Location.where('active = false AND "MailSentNotActivated3" = false AND created_at < ?', date )
     locations_Level1.all.each do |location|
-      send_not_activated_mail_level3(location)
-      location.MailSentNotActivated1 = true
-      location.MailSentNotActivated2 = true
-      location.MailSentNotActivated3 = true
-      location.save
+      if !location.user.blank?
+        send_not_activated_mail_level3(location)
+        location.MailSentNotActivated1 = true
+        location.MailSentNotActivated2 = true
+        location.MailSentNotActivated3 = true
+        location.save
+      end
     end
   end
 
@@ -37,10 +39,12 @@ private
     logger.debug "Start quering locations not activated older than #{date}"
     locations_Level1 = Location.where('active = false AND "MailSentNotActivated2" = false AND created_at < ?', date )
     locations_Level1.all.each do |location|
-      send_not_activated_mail_level2(location)
-      location.MailSentNotActivated1 = true
-      location.MailSentNotActivated2 = true
-      location.save
+      if !location.user.blank?
+        send_not_activated_mail_level2(location)
+        location.MailSentNotActivated1 = true
+        location.MailSentNotActivated2 = true
+        location.save
+      end
     end
   end
 
@@ -48,9 +52,11 @@ private
     logger.debug "Start quering locations not activated older than #{date}"
     locations_Level1 = Location.where('active = false AND "MailSentNotActivated1" = false AND created_at < ?', date )
     locations_Level1.all.each do |location|
-      send_not_activated_mail_level1(location)
-      location.MailSentNotActivated1 = true
-      location.save
+      if !location.user.blank?
+        send_not_activated_mail_level1(location)
+        location.MailSentNotActivated1 = true
+        location.save
+      end
     end
   end
 
