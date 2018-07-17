@@ -46,7 +46,11 @@
             <i class="fas fa-minus"></i>
           <% end %>
         </td>
-        <td><%= mail_to location.user.email %> / <%= location.user.id %></td>
+        <% if !location.user.blank? %>
+          <td><%= mail_to location.user.email %> / <%= location.user.id %></td>
+        <% else %>
+          <td> Invalid User </td>
+        <% end %>
         <td><%= location.created_at %></td>
         <td><% if location.geocoded? %>
           <i class="fas fa-check"></i>
