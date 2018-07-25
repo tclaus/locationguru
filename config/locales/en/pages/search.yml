@@ -1,0 +1,14 @@
+en:
+  pages:
+    search:
+      moreFilters: "More criterias"
+      lessFilters: "Less criterias"
+      ammenities: "Amenities"
+      isExclusiveAvailable: "Exclusive available"
+      locationType: "Kind of Location"
+      kindType: "Kind of Venue"
+      hasHeating: "Heating"
+      hasKitchen: "Kitchen"
+      hasMusicEquipment: "Music equipment"
+      hasOutdoor: "Outdoor"
+      hasParkingSpace: "Parking"

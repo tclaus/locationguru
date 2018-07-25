@@ -1,0 +1,13 @@
+en:
+  locations:
+    presentation:
+      amenity:
+          amenities: "Amenities:"
+          no_amenities_set: "No amenities set"
+          has_kitchen: "Kitchen"
+          has_outdoor: "Outdoor"
+          has_parking_space: "Parking"
+          has_furniture: "Furniture"
+          has_heating: "Heated"
+          has_air_conditioning: "Air Cond."
+          has_music_eq: "Music Eq."

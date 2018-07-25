@@ -1,0 +1,17 @@
+de:
+  locations:
+    new:
+      create_your_location: "Neue Location anlegen"
+      location_type: "Wo gelegen"
+      select_location_type: "Wähle einen Ort"
+      location_kind: "Entspricht... "
+      select_location_kind: "Wähle eine Art"
+      maximum_number_of_persons: "Maximale Personen"
+      create: "Anlegen"
+      description: "Beschreibung"
+      listing_name: "Name des Eintrages"
+      what_is_your_listing_name: "Kurzer, allgemein bekannter Name der Location"
+      short_location_name_rule: "Schreiben Sie nicht etwa 'zu vermieten' oder einen '... in Dresden', da dies aus der Anzeige selber hervorgeht"
+      base_entry_always_free: "Die Basiseintragung ist immer kostenlos!"
+      summary: "Beschreibender Text"
+      describe_your_location: "Beschreibe etwas besonderes, was genau dieser Ort ausmacht."

@@ -1,0 +1,6 @@
+en:
+  locations:
+    presentation:
+      locations_nearby:
+        near_by: "Near by"
+        distance_from: "km distance"

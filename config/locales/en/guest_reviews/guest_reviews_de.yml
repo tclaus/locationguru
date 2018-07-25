@@ -1,0 +1,7 @@
+en:
+  guest_reviews:
+    create:
+      you_already_reviewed_this_reservation: "You already submitted a review"
+      review_created: "Review submitted"
+      not_found_this_reservation: "This reservation could not be found."
+      removed_review: "Review removed"

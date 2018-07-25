@@ -1,0 +1,30 @@
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "An email must be set"
+            password:
+              blank: "A password must be set"
+              too_short: "Too short"
+            password_confirmation:
+              confirmation: "Both password and confirmation must be the same"
+        location:
+          attributes:
+            listing_name:
+              too_long: "Title too long"
+            max_persons:
+              less_than: "Invalid person number"
+              not_a_number: "Set a persons count"
+            location_type:
+              blank: "Choose location kind"
+            kind_type:
+              blank: "Choose venue kind"
+            suitableForText:
+              too_long: "'Suitable for' too long"
+        message:
+           attributes:
+             message:
+               too_long: "Die Nachricht ist zu lang zu versenden. Fass dich etwas kürzer. "

@@ -1,0 +1,8 @@
+
+<% unless flash.empty? %>
+    <% flash.each do |key, value| %>
+      <% type = key.to_s.gsub('alert','error').gsub('notice','success') %>
+      <span id="messages" data-type="<%= type %>" data-message="<%= value %>" ></span>
+    <% end %>
+    <%= javascript_include_tag('flash_messages') %>
+<% end %>

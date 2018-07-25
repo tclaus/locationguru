@@ -1,0 +1,8 @@
+de:
+  errors:
+    '500':
+      internal_error_occured: "Ein interner Fehler ist aufgetreten"
+      we_are_working_to_fix_it: "Wir arbeiten bereits daran, das Problem zu beheben."
+      error_try_these_links: "Versuchen Sie einen dieser Links"
+      homepage: "Startseite"
+      search_page: "Suche"

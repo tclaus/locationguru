@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-3">
+    <h4><%= t('.amenities') %></h4>
+  </div>
+  <% if @location.has_amemities %>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="amenities">
+          <% if @location.has_kitchen %> <li><%= t('.has_kitchen') %></li> <% end %>
+          <% if @location.has_outdoor %> <li><%= t('.has_outdoor') %></li> <% end %>
+          <% if @location.has_parking_space %><li><%= t('.has_parking_space') %></li> <% end %>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="amenities">
+          <% if @location.has_furniture %> <li><%= t('.has_furniture') %></li> <% end %>
+          <% if @location.has_heating %> <li><%= t('.has_heating') %></li> <% end %>
+          <% if @location.has_air_conditioning %> <li><%= t('.has_air_conditioning') %></li> <% end %>
+          <% if @location.has_music_eq %> <li><%= t('.has_music_eq') %></li> <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="col-md-9">
+    <%= t('.no_amenities_set') %>
+  </div>
+  <% end %>
+</div>

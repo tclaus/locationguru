@@ -1,0 +1,16 @@
+
+<h1><%= t('.page_not_found') %> </h1>
+
+<div class="col-md-4">
+  <div class="panel-default">
+    <div class="panel-heading">
+      <%= t('.error_try_these_links') %>
+    </div>
+    <div class="panel">
+      <ul>
+        <li><%= link_to t('.homepage'), root_path %></li>
+        <li><%= link_to t('.search_page'), search_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+de:
+  locations:
+    location:
+      location: "Location"
+      placeholder_venue_email: "Kontakt e-Mail"
+      placeholder_venue_website: "Webseite mit mehr Infos"
+      placeholder_venue_address: "Adresse der Location"
+      placeholer_venue_phone_number: "Kontakt Telefonnummner"
+      email: "E-Mail"
+      website: "Webseite"
+      phone_number: "Telefonnummer"
+      address: "Adresse"
+      save: "Speichern"
+    destroy:
+      could_not_delete_this_location: "Diese Location konnte nicht gelöscht werden"
+      location_deleted: "Dieser Eintrag wurde gelöscht"
+    index:
+      are_you_sure_delete_location: "Möchten Sie diesen Eintrag wirklich löschen?"
+      total_visits: "Aufrufe bisher"

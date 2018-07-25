@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>
+      <i class="fas fa-info"></i>
+      <%= t('.contact') %>
+    </span>
+  </div>
+  <div class="panel-body">
+    <div>
+      <% if @location.user.hasPremium %>
+        <%= form_for([@location, @location.reservations.new]) do |f| %>
+
+          <div id="datepicker"
+            data-preview_url="<%= preview_location_path(@location) %>"
+            data-preload_url="<%= preload_location_path(@location) %>"
+            data-free_text="<%= t('.free_text')%>"
+            data-booked_text="<%= t('.booked_text')%>"
+            data-requested_text="<%= t('.requested_text')%>">
+          </div>
+
+          <%= f.hidden_field :start_date,readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
+          <span id="message"></span>
+
+          <% if !@location.website.blank? || !@location.phonenumber.blank? %>
+            <hr>
+            <% # phone number / website %>
+          <% end %>
+          <%= f.submit t('.send_a_message'), id: "btn_book", class: "btn btn-default btn-block", disabled: true %>
+        <% end %>
+      <% end %>
+
+      <table class="contact-table">
+        <tbody>
+          <% if !@location.website.blank? %>
+            <tr>
+              <td><%= t('.website') %></td>
+              <td>
+                <% if @location.website.size > 28 %>
+                  <%= link_to @location.website.slice(0,28) + '...', @location.website %>
+                <% else %>
+                  <%= link_to @location.website, @location.website %>
+                <% end %>
+            </td>
+            </tr>
+          <% end %>
+          <% if !@location.phonenumber.blank? %>
+            <tr>
+              <td> <%= t('.phonenumber') %></td>
+              <td>
+                <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a>
+              </td>
+            </tr>
+
+          <% end %>
+          <% if !@location.user.hasPremium %>
+            <tr>
+              <td><%= t('.email') %></td>
+              <td><%= mail_to @location.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+
+</div>
+</div>
+
+<%= javascript_include_tag 'datepicker_inquery' %>

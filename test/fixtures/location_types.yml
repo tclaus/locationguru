@@ -1,0 +1,13 @@
+
+
+countryside:
+  id: 1
+  name: Countryside
+
+city:
+  id: 2
+  name: City
+
+coast:
+  id: 3
+  name: Coast

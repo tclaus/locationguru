@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="center">
+      <%= image_tag avatar_url(current_user), class: "avatar-full", alt: "Profile" %>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= current_user.fullname %>
+      </div>
+      <div class="panel-body">
+        <ui class="sidebar-list">
+          <% if current_user.confirmation_token %>
+            <li><%= t('.email_address') %>
+              <span class="pull-right icon-babu">
+                <i class="fas fa-check-circle"></i></span></li>
+          <% end %>
+          <% if current_user.provider %>
+            <li><%= t('.facebook') %>
+              <span class="pull-right icon-babu">
+                <i class="fas fa-check-circle"></i></span></li>
+          <% end %>
+
+          <li><%= t('.phone_number')%>
+            <span class="pull-right icon-babu">
+              <% if current_user.phone_verified %>
+                <i class="fas fa-check-circle"></i>
+              <% else %>
+                <i class="far fa-circle"></i>
+              <% end %>
+            </span>
+          </li>
+
+        </ui>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+
+    <!-- Notifications -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.notifications') %>
+        <% if current_user.hasPremium %>
+        (<span id="unread_count"><%= @unreadMessageCount %></span>
+        <%= t('.unread') %>)
+        <% end %>
+      </div>
+      <div class="panel-body message-scroller">
+
+        <div class="list-group">
+          <% if current_user.hasPremium %>
+          <% @messages_overview.each do |message| %>
+            <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
+
+              <% if message.is_read %>
+                <i class="far fa-dot-circle invisible" aria-hidden="true"></i>
+              <% else %>
+                <i class="far fa-dot-circle" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to location_message_path(message.location_id, message.id), method: :delete, remote: true, class: "top-right" do %>
+              <i class="far fa-trash-alt" aria-hidden="true" data-message="<%= message.id%>"></i>
+            <% end %>
+            <div>
+              <span>
+                <strong><%= message.listing_name %></strong>
+              </span>
+              <span class="top-right"><%= simple_date(message.created_at) %></span>
+            </div>
+            <div><%= message.name %>:
+              <%= truncate(message.message, length: 60, separator:' ') %></div>
+          </button>
+
+        <% end %>
+        <% else %>
+        <%= t('.messages_only_for_premium_subscribers') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- Your listings -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= t('.your_listings') %>
+      (<%= @locations.length %>)
+    </div>
+    <div class="panel-body">
+      <%= render partial: "locations/location_list" %>
+    </div>
+  </div>
+</div>
+</div>
+<%= javascript_include_tag 'select_message' %>

@@ -1,0 +1,7 @@
+de:
+  errors:
+    '404':
+      page_not_found: "Seite nicht gefunden"
+      error_try_these_links: "Versuchen Sie einen dieser Links"
+      homepage: "Startseite"
+      search_page: "Suche"

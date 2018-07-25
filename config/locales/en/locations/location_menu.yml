@@ -1,0 +1,12 @@
+en:
+  locations:
+    location_menu:
+      listing: "Basis"
+      amenities: "Amenities"
+      description: "Description"
+      photos: "Photos"
+      suitables: "Suitable for"
+      location: "Location / Contact"
+      isActive: "Published"
+      isInactive: "Inactive"
+      location_preview: "Preview"

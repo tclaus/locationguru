@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/payment_menu' %>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3><%= t('.standard') %></h3>
+      </div>
+      <div class="panel-body">
+
+          <ul>
+            <li class="feature">
+              <%= t('.name_description_contact')%>
+            </li>
+            <li class="feature">
+              <%= t('.multiple_photos')%>
+            </li>
+            <li class="feature">
+              <%= t('.found_in_searches')%>
+            </li>
+            <li class="feature">
+              <%= t('.contact_by_mail_phone_and_web')%>
+            </li>
+          </ul>
+
+        <small>
+          <%= t('.included_free') %>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3><%= t('.premium') %>
+          <% if @hasSubscription %>
+            <small class="subscription_active"><%= t('.active') %></small>
+          <% end %>
+        </h3>
+        <small><%= t('.like_standard_including') %></small>
+      </div>
+      <div class="panel-body">
+
+         <ul>
+           <li class="feature">
+             <%= t('.check_for_text_and_photos') %>
+           </li>
+           <li class="feature">
+             <%= t('.prominent_in_search_results') %>
+           </li>
+           <li class="feature">
+             <%= t('.shown_on_mainpage') %>
+           </li>
+           <li class="feature">
+             <%= t('.contact_formular') %>
+           </li>
+           <li class="feature">
+             <%= t('.verified_phone_number') %>
+           </li>
+           <li class="feature">
+             <%= t('.available_dates') %>
+           </li>
+         </ul>
+         <small>9,99€ <%= t('.fee_per_month') %></small>
+         <% if @hasSubscription %>
+         <%= link_to t('.deactivate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_deactivate')}, class:"btn btn-default btn-block" %>
+         <% else %>
+         <%= link_to t('.activate'), subscriptions_path, method: :post, data:{confirm: t('.are_you_sure_to_activate')}, class:"btn btn-default btn-block" %>
+         <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>

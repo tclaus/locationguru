@@ -1,0 +1,25 @@
+
+Voraussetzungen:
+Posgres ist installiert
+(ungebunsvariable setzen)
+
+$: bundle install
+
+Redis-server installieren
+
+Upload to heroku
+1. $: Heroku login
+2. Datenbank initialisisren:
+    heroku run rake db:schema:load
+    heroku run rake db:seed
+
+On every update dont forget a
+
+Development:
+  heroku run rake db:migrate -a locationguru-dev
+
+Production:
+heroku run rake db:migrate -a locationguru
+
+
+to set database to latest state.

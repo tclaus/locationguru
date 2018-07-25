@@ -1,0 +1,11 @@
+de:
+  locations:
+    contact:
+      contact: "Kontakt"
+      website: "Web:"
+      phonenumber: "Telefon:"
+      email: "E-Mail:"
+      send_a_message: "Nachricht senden"
+      free_text: "Frei"
+      booked_text: "Belegt"
+      requested_text: "Bereits angefragt aber noch frei"

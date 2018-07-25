@@ -1,0 +1,37 @@
+en:
+  send_not_activated_mail_mailer:
+    first_activation_reminder:
+      subject: "'%{location_name}' is still not activated"
+      body: "Hello,<br>
+            your have an new entry on locationguru.net '%{location_name}' created.<br>
+            Very good. <br><br>
+            But it shows that it is not activated yet. You need to activate your enty in order to make it public.<br>
+            You can directly edit your entry here:<br>
+            <a href='%{edit_url}'>%{location_name}</a>"
+      footer: "Regadards, <br>
+      locationguru.net"
+    second_activation_reminder:
+      subject: "'%{location_name}' is still not activated for nearly a week"
+      body: "Hi,
+            your have an new entry on locationguru.net '%{location_name}' created.<br>
+            Very good. <br><br>
+            But it shows that for nearly a week this entry needs to be activated.<br> You need to activate your enty in order to make it public.<br>
+            Is there something we can do for you? Do we need to do something better?<br><br>
+            If your have any questions, dont hesitate to send us a message.<br>
+            You can directly edit your entry here:<br>
+            <a href='%{edit_url}'>%{location_name}</a> <br><br>
+            You can also delete this entry at any time if you dont want to use it any more. <br>
+            "
+      footer: "Regadards,<br>
+      locationguru.net"
+    last_activation_reminder:
+      subject: "'%{location_name}' is not activated for more than a month"
+      body: "Hi,<br>
+          your have an new entry on locationguru.net '%{location_name}' created.<br>
+            But this entry is still not activated<br>
+            Is there something we can do for you? Do we need to do something better?<br><br>
+            You can directly edit your entry here:<br>
+            <a href='%{edit_url}'>%{location_name}</a>
+            "
+      footer: "Regadards,<br>
+            locationguru.net"
