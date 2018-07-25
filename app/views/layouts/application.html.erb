@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta property="language" content="de">
+
+    <title><%= yield_meta_tag(:page_title, page_title) %>
+    </title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name='description' content="<%= yield_meta_tag(:description, t('.meta_description')) %>"/>
+    <meta name='keywords' content="<%= yield_meta_tag(:keywords, t('.meta_keywords')) %>"/>
+
+    <% # Open Graph facebook %>
+    <meta property="og:url" content="<%= yield_meta_tag(:siteUrl,'https://locationguru.net') %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
+    <meta property="og:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
+    <meta property="og:image" content="<%= yield_meta_tag(:image, 'https://locationguru.net/assets/front_image.jpg') %>">
+    <meta property="fb:app_id" content="2063304280615106">
+
+    <% # Open Graph twitter %>
+    <meta name="twitter:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@vanchesa">
+    <meta name="twitter:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
+    <meta name="twitter:image" content="<%= yield_meta_tag(:image, 'https://locationguru.net/assets/front_image.jpg') %>">
+
+    <% # Favicons %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#d7f4f1">
+    <meta name="theme-color" content="#d7f4f1">
+
+    <% # CookieBanner %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <%= javascript_include_tag('cookie_banner/cookie_banner_de') %>
+  </head>
+
+  <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/messages' %>
+
+    <div class="container">
+      <%= yield %>
+      <%= render 'link_cloud/show' %>
+      <%= render 'kind_cloud/venue_kinds' %>
+    </div>
+
+    <%= render 'shared/footer' %>
+  </body>
+</html>

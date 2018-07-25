@@ -1,0 +1,75 @@
+<% meta_tag :page_title, page_title + ' - ' + @location.listing_name %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'location_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= render 'location_small_name' %> <br>
+        <%= t('.amenities') %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :has_heating, t('.heating') %>
+                <%= f.check_box :has_heating %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label:has_kitchen, t('.kitchen') %>
+                <%= f.check_box :has_kitchen %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :has_music_eq,t('.music_equipment') %>
+                <%= f.check_box :has_music_eq %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :has_outdoor, t('.outside_area') %>
+                <%= f.check_box :has_outdoor %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :has_parking_space, t('.parking_space') %>
+                <%= f.check_box :has_parking_space %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group right">
+                <%= f.label :has_furniture, t('.furnished') %>
+                <%= f.check_box :has_furniture %>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group select">
+                <%= f.label :catering, t('.catering') %>
+                <% cateringTypeArray = CateringType.all.map {|type| [trCateringType(type.id), type.id]} %>
+                <%= f.select(:catering, options_for_select(cateringTypeArray), prompt: t('.select_catering_type')) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit t('.save') ,class:"btn btn-default" %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

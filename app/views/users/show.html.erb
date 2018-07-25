@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="center">
+      <%= image_tag avatar_url(@user), alt:"Avatar",class:"avatar-full" %>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= t('.verification') %></div>
+      <div class="panel-body">
+        <ul class="sidebar-list">
+          <% if @user.confirmation_token %>
+            <li><%= t('.email_address') %>
+              <span class="pull-right icon-babu">
+                <i class="fas fa-check-circle"></i></span></li>
+          <% end %>
+          <% if @user.provider %>
+            <li><%= t('.facebook') %>
+              <span class="pull-right icon-babu">
+                <i class="fas fa-check-circle"></i></span></li>
+          <% end %>
+          <li><%= t('.phone_number')%>
+            <span class="pull-right icon-babu">
+              <% if current_user.phone_verified %>
+                <i class="fas fa-check-circle"></i>
+              <% else %>
+                <i class="far fa-circle"></i>
+              <% end %>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <h2><%= @user.fullname %></h2>
+    <div class="description ">
+      <%= @user.description %>
+    </div>
+    <h4><%= t('.listings') %>
+      (<%= @locations.length %>)</h4>
+    <br>
+    <div class="row">
+      <% if !@locations.empty? %>
+        <%= render partial: 'locations/location_list' %>
+      <% else %>
+        <%= t('.you_dont_have_any_entries') %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="hidden">
+<h4><%= t('.review_from_guests') %>
+  (<%= @guest_reviews.count %>)</h4>
+<div class="row">
+  <%= render "reviews/guest_list" %>
+</div>
+<br>
+
+<h4><%= t('.review_from_hosts') %>
+  (<%= @host_reviews.count %>)</h4>
+<div class="row">
+  <%= render "reviews/host_list" %>
+</div>
+<br>
+</div>

@@ -1,0 +1,10 @@
+en:
+  locations:
+    description:
+      description: "Description"
+      listing_name: "Name of listing"
+      what_is_your_listing_name: "Short name"
+      short_location_name_rule: "Don't write 'best location' or '... in NY'. This is already in the description or address field."
+      summary: "Descriptive text"
+      describe_your_location: "Write something special about this venue."
+      save: "Save"

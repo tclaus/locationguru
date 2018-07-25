@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: ENV["REDISTOGO_URL"]
+  channel_prefix: LocationGuru_production

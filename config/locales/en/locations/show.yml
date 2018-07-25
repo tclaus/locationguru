@@ -1,0 +1,18 @@
+en:
+  locations:
+    show:
+      review: "Reviews"
+      about_this_listing: "About this listing"
+      amenities: "Amenities"
+      no_amenities_set: "No special amenities set"
+      has_kitchen: "Kitchen"
+      has_outdoor: "Outdoor"
+      has_parking_space: "Parking"
+      has_furniture: "Seating"
+      has_heating: "Heating"
+      has_air_conditioning: "Air Conditioning"
+      has_music_eq: "Music Equipment"
+      near_by: "near by"
+      distance_from: "km distance"
+      inactive_location_warning: "This venue is not aktivated"
+      inactive_location_description_warning: "Add a photo, description and contact data to publish it."

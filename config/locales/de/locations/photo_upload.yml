@@ -1,0 +1,6 @@
+de:
+  locations:
+    photo_upload:
+      photos: "Fotos"
+      select_photos: "Fotos auswählen"
+      send_photos: "Hochladen"

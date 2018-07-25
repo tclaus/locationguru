@@ -1,0 +1,476 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "selectric";
+@import "toastr";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "color-palette";
+@import "desktop";
+@import "mobile";
+@import "jquery-ui.min";
+@import "jquery-ui.theme.min";
+@import "simple_calendar";
+
+body {
+  color: $default-textcolor;
+  background-color: $main-background;
+  font-family: "Varela Round", "Helvetica Neue", "Arial", sans-serif;
+  font-weight: lighter;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+h1 {
+  color: $brand-textcolor;
+}
+
+a {
+  color: $action-button-background;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.translation_missing {
+  color: red;
+  font-style: italic;
+}
+
+.icon-babu,
+.text-babu {
+  color: $brand-textcolor-active;
+}
+
+.text-brand {
+  color: $brand-textcolor;
+}
+// Navbar
+.navbar-default {
+  background-color: $navbar-background;
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand {
+  color: $brand-textcolor;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.navbar-button {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.navbar-button a:hover {
+  color: $color-lighter-2;
+}
+// Buttons
+.btn {
+  //color: $color-lighter-1;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 9px 27px;
+}
+
+.btn-block {
+  display: block;
+  white-space: normal;
+  width: 100%;
+}
+
+.btn:focus,
+.btn:hover {
+  color: $color-lighter-2;
+}
+
+.btn.btn-default {
+  // width: 100%;
+  border-color: $border-color;
+  color: $brand-textcolor;
+  // border-radius: 2px;
+  // padding: 10px 0;
+  margin-top: 10px;
+}
+
+.btn.btn-search {
+  width: 100%;
+}
+
+.btn-change-avatar {
+  width: 200px !important;
+  margin-top: 10px;
+}
+
+.btn.btn-normal {
+  border: 1px solid $brand-textcolor;
+}
+
+.btn.btn-normal:active {
+  outline: none;
+  border-color: $brand-textcolor-active;
+}
+
+.btn.btn-form {
+  border: 1px solid $info-textcolor;
+  background-color: $info-textcolor;
+}
+
+.btn.btn-form:active {
+  outline: none;
+  border-color: $info-textcolor-active;
+  background-color: $info-textcolor-active;
+}
+
+.btn.btn-facebook {
+  color: $facebook-button-text-color;
+  border: 1px solid $facebook-button-color;
+  background-color: $facebook-button-color;
+}
+
+.btn.btn-facebook:active {
+  outline: none;
+  border-color: $facebook-button-color-active;
+  background-color: $facebook-button-color-active;
+}
+
+.btn.location_menu {
+  color: white;
+}
+
+.action-listing {
+  padding-top: 5px;
+  margin-top: 5px;
+}
+// Panels
+.panel-default .panel-heading {
+  background-color: $panel-heading;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.description {
+  color: $default-textcolor;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+div.or {
+  hr {
+    color: lightgray;
+    box-shadow: 0 0 1px lightgray;
+  }
+
+  span {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    display: block;
+    background-color: white;
+    display: block;
+    width: 50px;
+    font-size: 1.2em;
+  }
+}
+
+.listing_name {
+  font-size: 1.5em;
+}
+
+.listing_city {
+  font-weight: lighter;
+}
+
+// Avatar
+.avatar-small {
+  width: 28px;
+  height: 28px;
+  object-fit: scale-down;
+}
+
+.avatar-medium {
+  width: 48px;
+  height: 48px;
+  object-fit: scale-down;
+}
+
+.avatar-large {
+  width: 68px;
+  height: 68px;
+  object-fit: scale-down;
+}
+
+.avatar-full {
+  width: 100%;
+}
+
+img.location_thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down;
+}
+// forms
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  border-radius: 2px;
+  height: 4rem;
+}
+
+.form-group input {
+  border: 1px solid $info-textcolor;
+}
+
+.form-group textarea {
+  border: 1px solid $info-textcolor;
+}
+// sidebar
+.sidebar-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar-item {
+  padding: 0;
+  font-size: 16px;
+  color: $sidebar-color;
+}
+
+.sidebar-link {
+  color: $action-button-background;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.sidebar-link:focus,
+.sidebar-link:hover {
+  color: $sidebar-color-hover;
+  text-decoration: none;
+}
+
+.active.sidebar-link {
+  color: $action-button-background;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+li.location_preview {
+  margin-top: 5px;
+}
+
+li.feature {
+  padding-bottom: 10px;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+// Active / Inactive signs
+.location-status {
+  color: #319d5d;
+  padding-top:30px;
+}
+// Photo upload
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: white;
+  display: block;
+}
+
+.img-avatar {
+  height: 200px;
+  width: 200px;
+  object-fit: scale-down;
+}
+// Header Picture in Listing
+
+.img-header {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: 320px;
+  object-fit: scale-down;
+}
+
+.img.avatar.rounded {
+  vertical-align: middle;
+  border-radius: 6px !important;
+}
+
+.panel-heading.preview {
+  padding: 0;
+}
+
+.panel-heading.preview img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: scale-down;
+}
+
+.amenities li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.statistic-table.right {
+  padding-left: 25px;
+}
+
+.contact-table {
+  width: 100%;
+  border: none;
+}
+
+.contact-table td {
+  border: none;
+  border-bottom: 1px solid $light-background;
+  padding: 10px;
+}
+
+.contact-table .total td {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-control.datepicker {
+  color: $action-button-background;
+  background-color: white;
+  border: 1px solid $action-button-background;
+  text-align: center;
+}
+
+.message-alert {
+  color: $message-alert;
+  font-size: 14px;
+  padding-top: 10px;
+}
+// search
+#main {
+  height: 100%;
+  overflow: hidden;
+}
+
+// Maps on right side
+.maps-area-single {
+  width: 100%;
+  height: 400px;
+}
+// Maps Area multiple resultes
+.maps-area-multiple {
+  width: 100%;
+  height: 100%;
+}
+
+// Home Page
+.discovery-card {
+  height: 326px;
+  width:100%;
+  object-fit: cover;
+}
+
+.banner {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.link-cloud-block {
+  margin-top: 10px;
+}
+
+.link-cloud {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: beige;
+  display: inline-flex;
+}
+
+.top-right {
+  text-align: right;
+  position: absolute;
+  right: 10px;
+}
+
+.message-scroller {
+  overflow: scroll;
+  max-height: 300px;
+}
+
+.subscription_active {
+  color:white;
+}
+
+// Stripe payment
+.StripeElement {
+  background-color: white;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.29);
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+
+// Sinmple calendar
+.calendar-cell {
+  word-break: normal;
+}

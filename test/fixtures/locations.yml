@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  kind_type: 1
+  location_type: 1
+  listing_name: Ultimative party location
+  summary: MyText
+  active: true
+  user_id: 1
+
+two:
+  id: 2
+  kind_type: 1
+  location_type: 1
+  listing_name: My house
+  summary: MyText
+  active: true
+  user_id: 1
+  city: bochum
+
+three:
+  id: 3
+  kind_type: 2
+  location_type: 2
+  listing_name: Tante Amanda
+  summary: Tante Amanda Restaurant
+  active: true
+  user_id: 1
+
+withAddress:
+  id: 4
+  kind_type: 2
+  location_type: 2
+  listing_name: "Has address, no coordinates, no City"
+  summary: "Has address, no coordinates, no City"
+  active: true
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+
+withAddressAndCoordinates:
+  id: 5
+  kind_type: 2
+  location_type: 2
+  listing_name: "Has coordinates, no City"
+  summary: "Has coordinates, no City"
+  active: true
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+  longitude: 7.4652981
+  latitude: 51.513587
+
+not_activated:
+  id: 6
+  kind_type: 2
+  location_type: 2
+  listing_name: "Long not activated"
+  summary: "Has coordinates, no City"
+  active: false
+  created_at: "01.01.2017"
+  user_id: 1
+  address: "44227 Dortmund, Gibbenhey 2, Germany"
+
+inactive:
+  id: 40
+  kind_type: 2
+  location_type: 2
+  listing_name: Inavtive Location
+  summary: Dont show to other user
+  active: false
+  user_id: 2

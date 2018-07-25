@@ -1,0 +1,32 @@
+de:
+  sign_in_with_facebook: "Mit facebook anmelden"
+  devise:
+    registrations:
+      edit:
+        edit_profile: "Daten bearbeiten"
+        view_my_profile: "Profil anzeigen"
+        your_profile: "Profil bearbeiten"
+        full_name: "Name"
+        email: Email
+        phone_number: "Telefon"
+        description: "Über den Anbieter"
+        language: "Sprache"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        current_password: "Aktuelles Passwort"
+        profile_image: "Profilbild"
+        upload_new_avatar: "Neues Bild hochladen"
+        your_phone_number: "Telefonnummer"
+        addPhoneNumber: "Telefonnummer angeben"
+        verify: "Code eingeben"
+        verificationCode: "Bestätigungscode"
+        yourVerificationPin: "Code"
+        save_new_number: "Speichern"
+        verify_pin: "OK"
+      new:
+        accept_gtc_form: "Ich bestätige das ich die <a href='/gtc'>AGBs</a> und die Datenschutzerklärung gelesen habe"
+    sessions:
+      new:
+        forgot_your_password: "Passwort wieder herstellen"
+        sign_up: "Registrieren"
+        use_alternative_login: ODER

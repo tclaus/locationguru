@@ -1,0 +1,14 @@
+de:
+  reservations:
+    inquery: "Anfrage"
+    booked: "Reserviert"
+    show:
+      your_reservations: "Deine Reservierungsanfragen"
+      received: "Erhalten"
+      location: "Location"
+      accept: "Annehmen"
+      reject: "Abweisen"
+      delete: "Löschen"
+      status: "Status"
+      unknown_or_deleted_user: "Unbekannter Benutzer"
+      you_have_no_reservation_for_any_location: "Es liegen noch keine Reservierungen vor"

@@ -1,0 +1,50 @@
+<% meta_tag :page_title, page_title + ' - ' + @location.listing_name %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'location_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= render 'location_small_name' %> <br>
+        <%= t('.listing') %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+            <div class="row">
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <%= label_tag(:location_type, t('.location_type')) %>
+                  <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
+                  <%= f.select(:location_type, options_for_select(locationTypeArray), prompt: t('.select_location_type')) %>
+                </div>
+              </div>
+
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <%= label_tag(:kind_type, t('.location_kind')) %>
+                  <% locationKindArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+                  <%= f.select(:kind_type, options_for_select(locationKindArray), prompt: t('.select_kind_type')) %>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <%= label_tag(:max_persons, t('.max_persons')) %>
+                  <%= f.number_field(:max_persons, min: 1, max:85000) %>
+                </div>
+              </div>
+
+            </div>
+            <div class="text-center">
+            <div>
+              <%= f.submit t('.save'), class:"btn btn-default" %>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

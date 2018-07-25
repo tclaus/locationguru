@@ -1,0 +1,11 @@
+de:
+  dashboards:
+    index:
+      facebook: "Facebook"
+      email_address: "E-Mail"
+      phone_number: "Telefon"
+      notifications: "Nachrichten"
+      your_listings: "Einträge"
+      yesterday: "Gestern"
+      unread: "Ungelesene"
+      messages_only_for_premium_subscribers: "Nachrichten-Zentrale nur für Premium Abonenten"

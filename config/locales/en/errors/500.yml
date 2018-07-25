@@ -1,0 +1,8 @@
+en:
+  errors:
+    '500':
+      internal_error_occured: "An internal error occured "
+      we_are_working_to_fix_it: "We work hard to fix this problem"
+      error_try_these_links: "Try one of these links"
+      homepage: "Startpage"
+      search_page: "Search"

@@ -1,0 +1,16 @@
+en:
+  locations:
+    new:
+      create_your_location: "Create a new venue"
+      location_type: "Located in"
+      select_location_type: "Select a location type"
+      location_kind: "Is like... "
+      select_location_kind: "Select a kind"
+      maximum_number_of_persons: "Persons"
+      create: "Create"
+      description: "Description"
+      listing_name: "Name of Venue"
+      what_is_your_listing_name: "Short info text, common knowing name"
+      base_entry_always_free: "Base entry is always free!"
+      summary: "Descriptive text"
+      describe_your_location: "Describe something special."

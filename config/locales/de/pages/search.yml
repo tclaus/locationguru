@@ -1,0 +1,14 @@
+de:
+  pages:
+    search:
+      moreFilters: "Mehr Filterkriterien"
+      lessFilters: "Weniger Filterkriterien"
+      ammenities: "Ausstattung"
+      isExclusiveAvailable: "Exklusiv verfügbar"
+      locationType: "In welcher Umgebung gelegen"
+      kindType: "Art der Location"
+      hasHeating: "Beheizt"
+      hasKitchen: "Küche"
+      hasMusicEquipment: "Musikanlage vorhanden"
+      hasOutdoor: "Mit Aussenbereich"
+      hasParkingSpace: "Parkplätze"

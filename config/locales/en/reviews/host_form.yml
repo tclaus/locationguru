@@ -1,0 +1,6 @@
+en:
+  reviews:
+    host_form:
+      review_host: "Review guest"
+      review_your_host: "Review your guest"
+      add_review: "Submit Review"

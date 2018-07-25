@@ -1,0 +1,6 @@
+en:
+  locations:
+    photo_upload:
+      photos: "Photos"
+      select_photos: "Select photos"
+      send_photos: "Upload"

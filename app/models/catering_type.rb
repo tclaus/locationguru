@@ -1,0 +1,2 @@
+class CateringType < ApplicationRecord
+end

@@ -1,0 +1,6 @@
+en:
+  reviews:
+    guest_list:
+      there_are_no_reviews: "No reviews until now"
+    host_list:
+      there_are_no_reviews: "No reviews until now"

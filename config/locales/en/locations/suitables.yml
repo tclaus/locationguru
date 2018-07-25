@@ -1,0 +1,15 @@
+en:
+  locations:
+    suitables:
+      suitables: "Suitables for this events"
+      isForPrivateParties: "Private parties"
+      isForClubbing: "Club / Commercial"
+      isForWeddings: "Weddings"
+      isForPhotoFilm: "Photo / Film"
+      isForBusiness: "Courses, Workshops"
+      isForEscapeRoomGames: "Escape Room"
+      isForConferences: "Konferenzen, Schulungen"
+      isForBachelorParties: "Bachelor Parties"
+      isForChristmasParties: "Christmas parties"
+      suitableForText: "Other:"
+      save: "Save"

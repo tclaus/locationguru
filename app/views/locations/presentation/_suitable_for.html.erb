@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-3">
+    <h4><%= t('.suitable_for') %></h4>
+  </div>
+  <% if @location.has_suitables %>
+  <div class="col-md-9">
+    <span>
+    <%= suitable_for(@location) %>
+  </span>
+  </div>
+  <% else %>
+  <div class="col-md-9">
+    <%= t('.no_suitables_set') %>
+  </div>
+  <% end %>
+</div>

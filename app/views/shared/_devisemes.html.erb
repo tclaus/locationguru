@@ -1,0 +1,6 @@
+<% unless resource.errors.empty? %>
+    <% resource.errors.full_messages.each do |value| %>
+      <span id="messages" data-type="error" data-message="<%= value %>" ></span>
+    <% end %>
+    <%= javascript_include_tag('messages') %>
+<% end %>

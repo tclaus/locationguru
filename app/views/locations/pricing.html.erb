@@ -1,0 +1,29 @@
+<% meta_tag :page_title, page_title + ' - ' + @location.listing_name %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'location_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Pricing <br>
+        <%= render 'location_small_name' %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+          <div class="row">
+            <div class="form-group">
+              <label>Price</label>
+
+            </div>
+          </div>
+          <div class="text-center">
+            <%= f.submit "Save" ,class:"btn btn-form" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

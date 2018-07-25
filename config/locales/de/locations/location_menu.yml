@@ -1,0 +1,12 @@
+de:
+  locations:
+    location_menu:
+      listing: "Basis"
+      amenities: "Ausstattung"
+      description: "Bescheibung"
+      suitables: "Geeignet für"
+      photos: "Fotos"
+      location: "Ort / Kontakt"
+      isActive: "Veröffentlicht"
+      isInactive: "Nicht Aktiv"
+      location_preview: "So sieht es aus"

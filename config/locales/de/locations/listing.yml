@@ -1,0 +1,11 @@
+de:
+  locations:
+    listing:
+      listing: "Basis"
+      location_type: "Wo gelegen"
+      location_kind: "Entspricht... "
+      select_catering_type: "Wähle..."
+      select_location_type: "Wähle..."
+      select_kind_type: "Wähle..."
+      max_persons: "Maximale Personen"
+      save: "Speichern"
