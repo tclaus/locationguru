@@ -68,14 +68,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['hostname'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.org',
-    port:                 587,
-    domain:               'locationguru.net',
-    user_name:            'postmaster@locationguru.net',
-    password:             '46a5c90317a8b496a4d40467ecbf2323-bdd08c82-c9cde12c',
+    address:              ENV['SMTP_SERVER'],
+    port:                 ENV['SMTP_SERVER_PORT'],
+    domain:               ENV['SMPT_SEND_FROM_DOMAIN'],
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMPT_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

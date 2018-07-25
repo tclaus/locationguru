@@ -41,12 +41,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    address:              'smtp.mailgun.org',
-    port:                 587,
-    domain:               'sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
-    user_name:            'postmaster@sandbox5d56481c838a41e8bd5296ba586ea017.mailgun.org',
-    password:             'e4c1961e976f9151e657e9df43e0f192',
-    api_key: "key-26a32dc537ec9b4bf11a07db96099bf3",
+    address:              ENV['SMTP_SERVER'],
+    port:                 ENV['SMTP_SERVER_PORT'],
+    domain:               ENV['SMPT_SEND_FROM_DOMAIN'],
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMPT_PASSWORD'],
+    api_key:              ENV['SMTP_API_KEY'],
     authentication:       'plain',
     enable_starttls_auto: true
   }
