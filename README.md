@@ -67,19 +67,18 @@ Start / Update in Productive-Configuration
 Upload to heroku
 1. $: Heroku login
 2. Setup Database on heroku
-    heroku run rake db:schema:load -a locationguru-dev
-    heroku run rake db:seed -a locationguru-dev
+    heroku run rake db:schema:load -a <app name>
+    heroku run rake db:seed -a <app name>
 
 Migrate Database:
 On every update don't forget a
 
 Development:
-  heroku run rake db:migrate -a locationguru-dev
-
-Production:
-  heroku run rake db:migrate -a locationguru
+  heroku run rake db:migrate -a <app name>
 
 to set database to latest state.
+
+In Procfile there is a line 'release: bundle exec rake db:migrate' that should do the DB:Migration task automatically on deployment.
 
 Bulk Update Locations:
   rake geocode:all CLASS=Location SLEEP=0.25
