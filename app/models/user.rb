@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def hasPremium
-    self.isPremium || isAdmin
+    true
   end
 
 # Phone verification

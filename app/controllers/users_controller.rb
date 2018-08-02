@@ -55,54 +55,6 @@ class UsersController < ApplicationController
     redirect_to edit_user_registration_path, alert: t('.errorVerifingPin')
   end
 
-# Payments
-  def payment
-
-    # Show current card and subscription, if available
-    if !current_user.stripe_id.blank?
-        customer = Stripe::Customer.retrieve(current_user.stripe_id)
-        if !customer.default_source.blank?
-          source =  customer.sources.retrieve(customer.default_source)
-          @current_card = {:number => "#{source.last4}",
-            :expiry => "#{source.exp_month}/#{source.exp_year}"
-          }
-        end
-    end
-  end
-
-  def delete_card
-    if !current_user.stripe_id.blank?
-      customer = Stripe::Customer.retrieve(current_user.stripe_id)
-      defaultSource = customer.default_source
-      customer.sources.retrieve(defaultSource).delete
-    end
-  end
-
-  def add_card
-    if current_user.stripe_id.blank?
-      customer = Stripe::Customer.create(
-        email: current_user.email
-      )
-      current_user.stripe_id = customer.id
-      current_user.save
-
-      # Add credit card to stripe
-      customer.sources.create(source: params[:stripeToken])
-    else
-      customer = Stripe::Customer.retrieve(current_user.stripe_id)
-      customer.source = params[:stripeToken]
-      customer.save
-    end
-
-    flash[:notice] = t('.your_card_is_saved')
-    redirect_to payment_method_path
-
-  rescue Stripe::CardError => e
-    logger.warn "Stripe error: #{e.message}"
-    flash[:alert] = t(e.code, scope:'stripe.error')
-    redirect_to payment_method_path
-  end
-
   protected
 
   def avatar_user_params

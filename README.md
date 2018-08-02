@@ -37,7 +37,14 @@ To get a full list of tasks available in Rails and what db tasks you have simply
 
 $: rails --tasks
 
-Start the server:
+Start the server
+------------------
+1. start the redis-server
+2. start a batch job queue
+3. start rails server
+
+$: resdis-server
+$: QUEUE=* rake environment resque:work
 
 $: rails s
 
