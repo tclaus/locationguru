@@ -1,4 +1,0 @@
-de:
-  stripe:
-    error:
-      card_declined: "Die Karte kann nicht genutzt werden."
