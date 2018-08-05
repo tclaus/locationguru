@@ -55,9 +55,6 @@ gem 'ransack', '~> 1.7'
 gem 'twilio-ruby'
 gem "simple_calendar", "~> 2.0"
 
-# Payments
-gem 'stripe'
-
 # Use Queue backend
 gem 'resque'
 gem 'rufus-scheduler'
