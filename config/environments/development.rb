@@ -43,9 +43,9 @@ Rails.application.configure do
   config.action_mailer.mailgun_settings = {
     address:              ENV['SMTP_SERVER'],
     port:                 ENV['SMTP_SERVER_PORT'],
-    domain:               ENV['SMPT_SEND_FROM_DOMAIN'],
+    domain:               ENV['SMTP_SEND_FROM_DOMAIN'],
     user_name:            ENV['SMTP_USERNAME'],
-    password:             ENV['SMPT_PASSWORD'],
+    password:             ENV['SMTP_PASSWORD'],
     api_key:              ENV['SMTP_API_KEY'],
     authentication:       'plain',
     enable_starttls_auto: true
