@@ -3,10 +3,13 @@
 This is Location Guru.
 A ruby-on-rails platform for handling venues.
 
+Production Site can be visited under: [locationguru.net](https://locationguru.net) or
+[venueguru.net](https://venueguru.net)
+
 Local installation
 ------------------
 Install Postgres Database
- * Use Postgress App from Postges Server: https://postgresapp.com
+Use Postgres App from Postgres Server: [postgresapp.com](https://postgresapp.com)
 
 You need to create local test and development databases:
 
