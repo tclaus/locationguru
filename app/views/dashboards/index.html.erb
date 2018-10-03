@@ -52,7 +52,7 @@
           <% @messages_overview.each do |message| %>
             <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
 
-              <% if message.is_read %>
+              <% if message.isRead %>
                 <i class="far fa-dot-circle invisible" aria-hidden="true"></i>
               <% else %>
                 <i class="far fa-dot-circle" aria-hidden="true"></i>
@@ -62,7 +62,11 @@
             <% end %>
             <div>
               <span>
-                <strong><%= message.listing_name %></strong>
+                <% if !message.location.nil? %>
+                  <strong><%= message.location.listing_name %></strong>
+                <% else %>
+                  <strong>-Location wurde entfernt-</strong>
+                <% end %>
               </span>
               <span class="top-right"><%= simple_date(message.created_at) %></span>
             </div>

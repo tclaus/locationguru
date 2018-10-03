@@ -1,24 +1,27 @@
 <div class="panel panel-default">
+  <% if !@message.location.nil? %>
+    <% listing_name = @message.location.listing_name %>
+  <% else %>
+    <% listing_name = "Unbekannte oder gelöschte Location" %>
+  <% end %>
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @message.listing_name %></h3>
+    <h3 class="panel-title"><%= listing_name %></h3>
   </div>
   <div class="panel-body">
 
     <div>
       <div>
       <span>
-        <strong><%= @message.listing_name %></strong>
+        <strong><%= listing_name %></strong>
       </span>
       </div>
-      <div clas="top-right">
-          <%= simple_date(@message.created_at) %>
-      </div>
+        <%= @message.created_at.strftime("%d.%m.%Y") %>
     </div>
     <%= link_to t('.answer_message'), "#{}",
     id:"mail_to_link",
     data: {
       mail: @message.email,
-      subject:"#{@message.listing_name} | Locationguru.net",
+      subject:"#{listing_name} | Locationguru.net",
       body:"" },
       class: "btn btn-default btn-small" %>
 
