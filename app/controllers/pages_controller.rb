@@ -36,6 +36,7 @@ class PagesController < ApplicationController
 
     # Step 3 - Ransack filters in memory other data (Ameni)
     #          maybe too much data in future!
+
     @search = locations.ransack(params[:q])
     @locations = @search.result
     @simpleLocations = createSimpleLocations(@locations)

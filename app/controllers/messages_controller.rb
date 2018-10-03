@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
     @message.user_id = @location.user_id
 
     if @message.save
-      
+
       # Increate mail send counter
       Counter.increase_mail(@message.id)
 
@@ -76,11 +76,11 @@ class MessagesController < ApplicationController
   def show;
 
     @message = Message
-    .select('messages.id as id, messages.email as email, messages.name as name, messages.message as message, messages."isRead" as is_read, locations.id as location_id, locations.listing_name as listing_name, messages.created_at as created_at')
-    .joins(:location)
+    .includes(:location)
     .find(params[:id])
-    if !@message.is_read
-      @message.is_read = true
+
+    if !@message.isRead
+      @message.isRead = true
       message = Message.find(@message.id)
       message.isRead = true
       message.save

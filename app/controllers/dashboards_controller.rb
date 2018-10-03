@@ -25,8 +25,7 @@ end
   def groupded_messages
 
     Message
-    .select('messages.id as id, messages.email as email, messages.name as name, messages.message as message, messages."isRead" as is_read, locations.id as location_id, locations.listing_name as listing_name, messages.created_at as created_at')
-    .joins(:location)
+    .includes(:location)
     .where("messages.user_id = ?",current_user.id)
     .order("messages.created_at desc")
 

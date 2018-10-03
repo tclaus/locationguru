@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.4.2'
 
 #git_source(:github) do |repo_name|
 #  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -51,7 +51,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'geocoder'
-gem 'ransack', '~> 1.7'
+gem 'ransack', '~> 1.7.0'
 gem 'twilio-ruby'
 gem "simple_calendar", "~> 2.0"
 
@@ -63,7 +63,7 @@ gem 'rufus-scheduler'
 gem 'coffee-rails', '~> 4.2'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5.2.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
