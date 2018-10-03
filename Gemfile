@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.2'
+ruby '2.5.1'
 
 #git_source(:github) do |repo_name|
 #  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -51,7 +51,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'geocoder'
-gem 'ransack', '~> 1.7.0'
+gem 'ransack'
 gem 'twilio-ruby'
 gem "simple_calendar", "~> 2.0"
 
