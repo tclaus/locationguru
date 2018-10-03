@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
       "script-src 'self' js.stripe.com www.googletagmanager.com google-analytics.com www.google-analytics.com maps.googleapis.com connect.facebook.net cdnjs.cloudflare.com;" \
-      "img-src 'self' www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com graph.facebook.com platform-lookaside.fbsbx.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "img-src 'self' data: www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com graph.facebook.com platform-lookaside.fbsbx.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com cdnjs.cloudflare.com;" \
       "font-src  'self' fonts.gstatic.com;"\
       "child-src 'self' js.stripe.com staticxx.facebook.com www.facebook.com;" \
