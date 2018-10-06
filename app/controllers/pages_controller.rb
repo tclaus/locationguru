@@ -10,34 +10,36 @@ class PagesController < ApplicationController
   end
 
   def search
-    logger.debug "* Search Params: #{params}"
     if params[:search].present? && params[:search].strip != ''
       session[:loc_search] = params[:search]
     end
 
+    locations = Location.where(active: true)
+
     if session[:loc_search] && session[:loc_search] != ''
-      logger.debug " *Location query on geocordinates"
+      logger.debug " *Location query on geocordinates with #{session[:loc_search]}"
       locations = Location.where(active: true)
                                    .near(session[:loc_search], 15, order: 'distance')
+      # logger.debug " Found in geocordinates: #{locations.count(:all)}"
     end
 
     if locations.blank?
       logger.debug " *Location query with like on name"
       locations = Location.where("active = true and listing_name ilike ?", "%#{session[:loc_search]}%")
-      logger.debug "Found in names: #{locations.count}"
+      # logger.debug " Found in names: #{locations.count(:all)}"
     end
 
     if locations.blank?
       # If no location and no direct hit, return all locations ( Need to better fetch from database)
       logger.debug " *Simply return all locations"
-      locations = Location.where(active: true).all
+      locations = Location.where(active: true)
+      # logger.debug " Found all queries: #{locations.count(:all)}"
     end
 
 
     # Step 3 - Ransack filters in memory other data (Ameni)
     #          maybe too much data in future!
-
-    @search = Location.ransack(params[:q])
+    @search = locations.ransack(params[:q])
     @locations = @search.result
     @simpleLocations = createSimpleLocations(@locations)
   end
