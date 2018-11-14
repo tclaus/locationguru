@@ -10,7 +10,7 @@ ruby '2.5.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.1'
 gem 'rails-i18n', '~> 5.1'
 
 # Use Postgres as the database for Active Record
@@ -24,7 +24,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass', '~> 5.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~>6.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 
 # Authorization
 gem 'omniauth', '~>1.6'
@@ -32,7 +32,7 @@ gem 'omniauth-facebook', '~>4.0'
 
 # Photos and avatars
 gem 'aws-sdk-s3'
-gem "paperclip", "~> 6.0.0"
+gem 'paperclip', '~> 6.0.0'
 
 # Non Blocking Notifications
 gem 'toastr-rails', '~>1.0'
@@ -53,7 +53,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
 gem 'ransack'
 gem 'twilio-ruby'
-gem "simple_calendar", "~> 2.0"
+gem 'simple_calendar', '~> 2.0'
 
 # Use Queue backend
 gem 'resque'
