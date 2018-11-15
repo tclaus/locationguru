@@ -1,0 +1,97 @@
+{
+  "name": "locationguru",
+  "scripts": {
+  },
+  "env": {
+    "admin_role1": {
+      "required": true
+    },
+    "FACEBOOK_APP_CODE": {
+      "required": true
+    },
+    "FACEBOOK_APP_ID": {
+      "required": true
+    },
+    "hostname": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "maps_key": {
+      "required": true
+    },
+    "PAPERCLIP_HASH_SECRET": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "REDIS_PROVIDER": {
+      "required": true
+    },
+    "REDISTOGO_URL": {
+      "required": true
+    },
+    "s3_access_key": {
+      "required": true
+    },
+    "s3_bucket_name": {
+      "required": true
+    },
+    "s3_key_id": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SMTP_API_KEY": {
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "required": true
+    },
+    "SMTP_SEND_FROM_DOMAIN": {
+      "required": true
+    },
+    "SMTP_SERVER": {
+      "required": true
+    },
+    "SMTP_SERVER_PORT": {
+      "required": true
+    },
+    "SMTP_USERNAME": {
+      "required": true
+    }
+  },
+  "formation": {
+    "resque": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "papertrail",
+    "heroku-postgresql",
+    "redistogo"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
