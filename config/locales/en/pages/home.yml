@@ -6,6 +6,7 @@ en:
       locations: "Venues"
       cities: "Cities"
       home_page_footer: "Get your venues here. Find clubhouses, rooms, venues for your party, weeding or club. Add your venue for free"
+      recent_venues: Newest Venues
   link_cloud:
     show:
       locations_in: "More venues in:"

@@ -1,12 +1,18 @@
 require 'simpleLocation'
 
+##
+# Top level class
 class PagesController < ApplicationController
-
   # Show only unrestriced locations on main Page
   def home
     @locations = Location.where(active: true, isRestricted: false)
-      .order('RANDOM()').limit(3)
+                         .order('RANDOM()')
+                         .limit(3)
     @cities = cities.sample(4)
+    @recent_locations = Location.where(active: true, isRestricted: false)
+                                .order(:created_at)
+                                .reverse_order
+                                .limit(3)
   end
 
   def search
@@ -19,23 +25,22 @@ class PagesController < ApplicationController
     if session[:loc_search] && session[:loc_search] != ''
       logger.debug " *Location query on geocordinates with #{session[:loc_search]}"
       locations = Location.where(active: true)
-                                   .near(session[:loc_search], 15, order: 'distance')
+                          .near(session[:loc_search], 15, order: 'distance')
       # logger.debug " Found in geocordinates: #{locations.count(:all)}"
     end
 
     if locations.blank?
-      logger.debug " *Location query with like on name"
-      locations = Location.where("active = true and listing_name ilike ?", "%#{session[:loc_search]}%")
+      logger.debug ' *Location query with like on name'
+      locations = Location.where('active = true and listing_name ilike ?', "%#{session[:loc_search]}%")
       # logger.debug " Found in names: #{locations.count(:all)}"
     end
 
     if locations.blank?
       # If no location and no direct hit, return all locations ( Need to better fetch from database)
-      logger.debug " *Simply return all locations"
+      logger.debug ' *Simply return all locations'
       locations = Location.where(active: true)
       # logger.debug " Found all queries: #{locations.count(:all)}"
     end
-
 
     # Step 3 - Ransack filters in memory other data (Ameni)
     #          maybe too much data in future!

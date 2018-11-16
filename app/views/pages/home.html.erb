@@ -35,6 +35,12 @@
 
 <% if !@locations.empty? %>
   <%= render 'locations/location_list' %>
+  <hr>
+  <div><h3>
+    <%= t('.recent_venues') %>
+  </h3></div>
+  <br>
+  <%= render 'locations/recent_locations' %>
 <% else %>
   <%= render 'pages/no_locations_found' %>
 <% end %>
