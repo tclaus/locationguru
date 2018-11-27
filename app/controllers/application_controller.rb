@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -8,28 +10,29 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    # Needed to easyly access google maps
-    def createSimpleLocations(locations)
-      simpleLocations = Array.new
-      if !locations.blank?
-        locations.each do |l|
-          if l.geocoded?
-            simpleLocation =  SimpleLocation.new()
-            simpleLocation.id = l.id
-            simpleLocation.listing_name = l.listing_name
-            simpleLocation.latitude = l.latitude
-            simpleLocation.longitude = l.longitude
-            simpleLocations.push simpleLocation
-          end
-        end
+  # Needed to easyly access google maps
+  def createSimpleLocations(locations)
+    simple_locations = []
+    unless locations.blank?
+      locations.each do |l|
+        next unless l.geocoded?
+
+        simple_location =  SimpleLocation.new
+        simple_location.id = l.id
+        simple_location.listing_name = l.listing_name
+        simple_location.latitude = l.latitude
+        simple_location.longitude = l.longitude
+        simple_locations.push simple_location
       end
-      return simpleLocations
     end
+    simple_locations
+  end
 
   # Load cities cloud
   def getCitiesLinkCloud
-      # Cache these a bit?
-      @linkClouds =  Location.where(active: true).select('city').group('city').order('city')
+    # Cache these a bit?
+    @link_clouds = Location.where(active: true).select('city').group('city')
+    .order('city')
   end
 
   def set_csp
@@ -74,9 +77,9 @@ class ApplicationController < ActionController::Base
     locale = extract_locale_from_accept_language_header
     logger.debug "* Extracted Locale ID: #{locale}"
     if !locale.blank? &&
-      (locale == "de" ||
-        locale == "en")
-        locale
+       (locale == 'de' ||
+         locale == 'en')
+      locale
     else
       DEFAULT_LANGUAGE
     end

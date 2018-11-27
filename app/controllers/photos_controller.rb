@@ -1,8 +1,10 @@
-class PhotosController < ApplicationController
+# frozen_string_literal: true
 
+class PhotosController < ApplicationController
   def create
     @location = Location.find(params[:location_id])
     return unless params[:images]
+
     params[:images].each do |img|
       @location.photos.create(image: img)
     end
@@ -22,7 +24,7 @@ class PhotosController < ApplicationController
       respond_to :js
     else
       logger.debug "Not allowed to delete photo #{@photo.id}"
-      flash[:alert] = "not allowed to delete photo"
+      flash[:alert] = 'not allowed to delete photo'
       render status: :not_found
     end
   end

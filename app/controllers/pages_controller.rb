@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simpleLocation'
 
 ##
@@ -46,7 +48,7 @@ class PagesController < ApplicationController
     #          maybe too much data in future!
     @search = locations.ransack(params[:q])
     @locations = @search.result
-    @simpleLocations = createSimpleLocations(@locations)
+    @simple_locations = createSimpleLocations(@locations)
   end
 
   def cities

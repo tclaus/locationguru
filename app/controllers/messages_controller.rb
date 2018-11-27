@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include ApplicationHelper
 
 class MessagesController < ApplicationController
@@ -9,11 +11,11 @@ class MessagesController < ApplicationController
     # create a message and if a date was given, create a reservation
     @location = Location.find(params[:location_id])
 
-    if !permitMessages[:inquery_date].blank?
+    unless permitMessages[:inquery_date].blank?
       # create reservations
-      logger.info "Create a new reservation"
+      logger.info 'Create a new reservation'
 
-      @reservation = Reservation.new()
+      @reservation = Reservation.new
       @reservation.user = @location.user # For location
       @reservation.location = @location
       @reservation.email = permitMessages[:email]
@@ -23,9 +25,9 @@ class MessagesController < ApplicationController
       @reservation.start_date = permitMessages[:inquery_date]
       logger.info " Reservation startdate = #{@reservation.start_date}"
       if !@reservation.save
-        logger.warn " Failure saving a new reservation: #{@reservation.errors.messages.to_s}"
+        logger.warn " Failure saving a new reservation: #{@reservation.errors.messages}"
       else
-        logger.info " New reservation created"
+        logger.info ' New reservation created'
       end
     end
 
@@ -39,47 +41,50 @@ class MessagesController < ApplicationController
       Counter.increase_mail(@message.id)
 
       # Send a mail to receiver
-      LocationMailer.with(message: @message, location: @location).location_mail.deliver_later
+      LocationMailer
+        .with(message: @message, location: @location)
+        .location_mail.deliver_later
       # Send mail for reference to sender
-      LocationMailer.with(message: @message, location: @location).location_mail_to_sender.deliver_later
+      LocationMailer
+        .with(message: @message, location: @location)
+        .location_mail_to_sender.deliver_later
 
       flash[:notice] = t('.message_send')
       redirect_to location_path(@location)
     else
-      logger.warn "Failure saving message: #{@message.errors.messages.to_s}"
+      logger.warn "Failure saving message: #{@message.errors.messages}"
       flash[:notice] = t('.message_send_error')
       render send_message_path(@message)
     end
   end
 
- # create a dummy user to enable semi - anonymous inqueries
+  # create a dummy user to enable semi - anonymous inqueries
   def dummy_user(mail)
     # Find a user by index_users_on_email!
     user = User.find_by(email: mail)
-    if (user.blank?)
-      user = User.new()
+    if user.blank?
+      user = User.new
       user.email = "SYSTEM.#{mail}"
-      user.role = "SYSTEM" # Mark as temporary added user
-      user.fullname = "Temporary System user"
-      user.password = "No Password here!" #TODO generate a randon hash!
+      user.role = 'SYSTEM' # Mark as temporary added user
+      user.fullname = 'Temporary System user'
+      user.password = 'No Password here!' # TODO: generate a randon hash!
       if user.save
         logger.info "* Created new temporary user with: #{user.attributes.inspect}"
       else
-        logger.error "Failed creating a new user with error: #{user.errors.messages.to_s}"
+        logger.error "Failed creating a new user with error: #{user.errors.messages}"
       end
     else
       logger.info "Found existing user with given mail address: #{mail}"
     end
-    return user
+    user
   end
 
-  def show;
-
+  def show
     @message = Message
-    .includes(:location)
-    .find(params[:id])
+               .includes(:location)
+               .find(params[:id])
 
-    if !@message.isRead
+    unless @message.isRead
       @message.isRead = true
       message = Message.find(@message.id)
       message.isRead = true
@@ -101,7 +106,7 @@ class MessagesController < ApplicationController
   end
 
   def is_authorized
-     redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
+    redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
   end
 
   def permitMessages

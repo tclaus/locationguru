@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -12,7 +14,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
-  config.exceptions_app = self.routes
+  config.exceptions_app = routes
 
   config.action_controller.perform_caching = true
 
@@ -54,7 +56,7 @@ Rails.application.configure do
   config.log_level = :warn
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -68,13 +70,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['hostname'] }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    address:              ENV['SMTP_SERVER'],
-    port:                 ENV['SMTP_SERVER_PORT'],
-    domain:               ENV['SMTP_SEND_FROM_DOMAIN'],
-    user_name:            ENV['SMTP_USERNAME'],
-    password:             ENV['SMTP_PASSWORD'],
-    api_key:              ENV['SMTP_API_KEY'],
-    authentication:       'plain',
+    address: ENV['SMTP_SERVER'],
+    port: ENV['SMTP_SERVER_PORT'],
+    domain: ENV['SMTP_SEND_FROM_DOMAIN'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    api_key: ENV['SMTP_API_KEY'],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
 
@@ -96,7 +98,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -119,5 +121,4 @@ Rails.application.configure do
       s3_region: 'eu-central-1'
     }
   }
-
 end

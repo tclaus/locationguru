@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class SendActivationReminderMailsJob < ApplicationJob
   queue_as :default
 
- # Send out a mail to every location not activated for a decent peroid of time
-  def perform(*args)
+  # Send out a mail to every location not activated for a decent peroid of time
+  def perform(*_args)
     logger.debug 'Start reminder activation job'
 
     now = Date.today
@@ -16,50 +18,48 @@ class SendActivationReminderMailsJob < ApplicationJob
     now = Date.today
     time_ago = (now - 1)
     perform_query_level1(time_ago)
-
   end
 
-private
+  private
 
   def perform_query_level3(date)
     logger.debug "Start quering locations not activated older than #{date}"
-    locations_Level1 = Location.where('active = false AND "MailSentNotActivated3" = false AND created_at < ?', date )
+    locations_Level1 = Location.where('active = false AND "MailSentNotActivated3" = false AND created_at < ?', date)
     locations_Level1.all.each do |location|
-      if !location.user.blank?
-        send_not_activated_mail_level3(location)
-        location.MailSentNotActivated1 = true
-        location.MailSentNotActivated2 = true
-        location.MailSentNotActivated3 = true
-        location.save
-      end
+      next if location.user.blank?
+
+      send_not_activated_mail_level3(location)
+      location.MailSentNotActivated1 = true
+      location.MailSentNotActivated2 = true
+      location.MailSentNotActivated3 = true
+      location.save
     end
   end
 
   def perform_query_level2(date)
     logger.debug "Start quering locations not activated older than #{date}"
-    locations_Level1 = Location.where('active = false AND "MailSentNotActivated2" = false AND created_at < ?', date )
+    locations_Level1 = Location.where('active = false AND "MailSentNotActivated2" = false AND created_at < ?', date)
     locations_Level1.all.each do |location|
-      if !location.user.blank?
-        send_not_activated_mail_level2(location)
-        location.MailSentNotActivated1 = true
-        location.MailSentNotActivated2 = true
-        location.save
-      end
+      next if location.user.blank?
+
+      send_not_activated_mail_level2(location)
+      location.MailSentNotActivated1 = true
+      location.MailSentNotActivated2 = true
+      location.save
     end
   end
 
   def perform_query_level1(date)
     logger.debug "Start quering locations not activated older than #{date}"
-    locations_Level1 = Location.where('active = false AND "MailSentNotActivated1" = false AND created_at < ?', date )
+    locations_Level1 = Location.where('active = false AND "MailSentNotActivated1" = false AND created_at < ?', date)
     locations_Level1.all.each do |location|
-      if !location.user.blank?
-        send_not_activated_mail_level1(location)
-        location.MailSentNotActivated1 = true
-        location.save
-      end
+      next if location.user.blank?
+
+      send_not_activated_mail_level1(location)
+      location.MailSentNotActivated1 = true
+      location.save
     end
   end
-
 
   def send_not_activated_mail_level1(location)
     logger.info " * Send not activated mail1 to Location_id: #{location.id} with name #{location.listing_name}"
@@ -80,11 +80,10 @@ private
   end
 
   def set_language(location)
-    if !location.user.blank?
-      I18n.locale = location.user.language_id
-    else
-      I18n.locale = "de"
-    end
+    I18n.locale = if !location.user.blank?
+                    location.user.language_id
+                  else
+                    'de'
+                  end
   end
-
 end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'resque/server'
 
 Rails.application.routes.draw do
-
   root 'pages#home'
 
   devise_for :users,
@@ -39,17 +40,17 @@ Rails.application.routes.draw do
       get 'send_message'
       post 'restrict'
     end
-    resources :photos, only: [:create, :destroy]
-    resources :reservations, only: [:show, :create, :destroy]
-    resources :messages, only: [:show, :create, :destroy]
+    resources :photos, only: %i[create destroy]
+    resources :reservations, only: %i[show create destroy]
+    resources :messages, only: %i[show create destroy]
   end
 
   resources :cities, only: [:show]
 
   controller :reservation do
-      get '/reservations/show_all'
-      patch '/reservations/accept'
-      patch '/reservations/reject'
+    get '/reservations/show_all'
+    patch '/reservations/accept'
+    patch '/reservations/reject'
   end
 
   get 'search' => 'pages#search'
@@ -66,7 +67,7 @@ Rails.application.routes.draw do
     get 'dashboard/unread_count_json' => :unreadMessageCountJSON
   end
 
- # Guids
+  # Guids
   controller :guides do
     get 'guides/kgv' => :kgv
     get 'guides/clubhouse' => :kgv
@@ -80,8 +81,7 @@ Rails.application.routes.draw do
     post 'admin/recalculation' => :recalculation
   end
 
-  %w( 404 422 500 ).each do |code|
-    get code, :to => "errors#show", :code => code
+  %w[404 422 500].each do |code|
+    get code, to: 'errors#show', code: code
   end
-
 end

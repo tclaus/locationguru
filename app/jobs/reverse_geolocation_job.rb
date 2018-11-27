@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReverseGeolocationJob < ApplicationJob
   queue_as :default
 
@@ -11,11 +13,11 @@ class ReverseGeolocationJob < ApplicationJob
         location.geocode
         location.save
       end
-      if location.geocoded?
-        logger.debug "Processing reverse geocode #{location.id}: #{location.listing_name}"
-        location.reverse_geocode
-        location.save
-      end
+      next unless location.geocoded?
+
+      logger.debug "Processing reverse geocode #{location.id}: #{location.listing_name}"
+      location.reverse_geocode
+      location.save
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -18,8 +20,8 @@ CateringType.create([{ id: 1,
                        name: 'Fixed Partner' },
                      { id: 3,
                        name: 'No Catering' },
-                       {id: 4,
-                         name: 'In-house'}])
+                     { id: 4,
+                       name: 'In-house' }])
 
 # What do I expect from the location?
 KindType.create([{ id: 1,
@@ -83,10 +85,10 @@ Translation.create([{ category: 'CateringType',
                       text_id: 3,
                       language_id: 'de',
                       translation: 'Kein Catering/ Selbst organisieren' },
-                      { category: 'CateringType',
-                        text_id: 4,
-                        language_id: 'de',
-                        translation: 'Kann gestellt werden' },
+                    { category: 'CateringType',
+                      text_id: 4,
+                      language_id: 'de',
+                      translation: 'Kann gestellt werden' },
                     { category: 'KindType',
                       text_id: 1,
                       language_id: 'de',
@@ -189,10 +191,10 @@ Translation.create([{ category: 'CateringType',
                       text_id: 3,
                       language_id: 'en',
                       translation: 'No catering / Self organized' },
-                      { category: 'CateringType',
-                        text_id: 4,
-                        language_id: 'de',
-                        translation: 'On Site' },
+                    { category: 'CateringType',
+                      text_id: 4,
+                      language_id: 'de',
+                      translation: 'On Site' },
                     { category: 'KindType',
                       text_id: 1,
                       language_id: 'en',

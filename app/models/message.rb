@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :location
@@ -11,5 +13,4 @@ class Message < ApplicationRecord
 
   validates :message, presence: true,
                       length: { maximum: 2000 }
-            
 end
