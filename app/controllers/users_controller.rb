@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except:[:show]
+  before_action :authenticate_user!, except: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -45,10 +47,8 @@ class UsersController < ApplicationController
       else
         flash[:alert] = t('.cannotVerifyYourPhoneNumber')
       end
-      redirect_to edit_user_registration_path
-    else
-      redirect_to edit_user_registration_path
     end
+    redirect_to edit_user_registration_path
   rescue Exception => e
     logger.error e.inspect.to_s
     logger.error "Error verify pin: #{e.message}"

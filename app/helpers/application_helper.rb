@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def avatar_url(user)
     if !user
-      "https://www.gravatar.com/avatar/unknown.jpg?d=mm&s=150"
+      'https://www.gravatar.com/avatar/unknown.jpg?d=mm&s=150'
     else
       # User defined avatar
       if user.avatar.exists?
@@ -27,23 +29,18 @@ module ApplicationHelper
     to_time = Time.zone.now
 
     # TODO: localize!
-    if from_time.today?
-      return from_time.strftime("%T")
-    end
+    return from_time.strftime('%T') if from_time.today?
 
-    if (to_time - from_time) >= 1.days
-      return t('.yesterday')
-    end
+    return t('.yesterday') if (to_time - from_time) >= 1.days
 
-      return from_time.strftime("%d.%m.%y")
-
+    from_time.strftime('%d.%m.%y')
   end
 
   def maps_key
     ENV['maps_key']
   end
 
-# created <br> tags from raw text CR/LF
+  # created <br> tags from raw text CR/LF
   def html_line_breaks(rawText)
     rawText.gsub(/(?:\n\r?|\r\n?)/, '<br>').html_safe
   end

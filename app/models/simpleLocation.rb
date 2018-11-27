@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SimpleLocation
   attr_accessor :id
   attr_accessor :listing_name

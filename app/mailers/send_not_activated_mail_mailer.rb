@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendNotActivatedMailMailer < ApplicationMailer
   default from: 'Thorsten Claus <thorsten.claus@locationguru.net>'
 

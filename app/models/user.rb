@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -78,7 +80,7 @@ class User < ApplicationRecord
     true
   end
 
-# Phone verification
+  # Phone verification
   def generate_pin
     self.pin = SecureRandom.hex(2)
     self.phone_verified = false

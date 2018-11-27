@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!, only: [:accept, :destroy, :show_all]
+  before_action :authenticate_user!, only: %i[accept destroy show_all]
 
   def create
     # Only here, if user is logged in. Date is requeted
     location = Location.find(params[:location_id])
     if current_user == location.user
-      flash[:alert] = t("you_cannot_book_you_own_property")
+      flash[:alert] = t('you_cannot_book_you_own_property')
       redirect_back(fallback_location: request.referer)
     else
       # Only logged - in user can start a reservation
       date_str = reservation_params[:start_date]
-      date =  Date.parse(date_str).strftime("%F")
+      date = Date.parse(date_str).strftime('%F')
 
-      logger.debug("Redirect to create message")
+      logger.debug('Redirect to create message')
       redirect_to send_message_location_path(location, date: date)
     end
   end
@@ -23,7 +25,7 @@ class ReservationsController < ApplicationController
 
   def show_all
     @locations = current_user.locations
-    logger.debug("Show reservations")
+    logger.debug('Show reservations')
     @reservations = current_user.reservations.all.order(:start_date)
     render 'show'
   end
@@ -34,10 +36,10 @@ class ReservationsController < ApplicationController
       if check_reservation_owner(reservation)
         reservation.set_status_booked
       else
-        flash[:warning] = "You are not allowed to accept this reservation"
+        flash[:warning] = 'You are not allowed to accept this reservation'
       end
     else
-      flash[:warning] = "Reservation not found"
+      flash[:warning] = 'Reservation not found'
     end
     redirect_to reservations_show_all_path
   end
@@ -48,10 +50,10 @@ class ReservationsController < ApplicationController
       if check_reservation_owner(reservation)
         reservation.set_status_inquery
       else
-        flash[:warning] = "You are not allowed to reject this reservation"
+        flash[:warning] = 'You are not allowed to reject this reservation'
       end
     else
-      flash[:warning] = "Reservation not found"
+      flash[:warning] = 'Reservation not found'
     end
     redirect_to reservations_show_all_path
   end
@@ -63,10 +65,10 @@ class ReservationsController < ApplicationController
       if check_reservation_owner(reservation)
         reservation.destroy
       else
-        flash[:warning] = "You are not allowed to delete this reservation"
+        flash[:warning] = 'You are not allowed to delete this reservation'
       end
     else
-      flash[:warning] = "Reservation not found"
+      flash[:warning] = 'Reservation not found'
     end
     redirect_to reservations_show_all_path
   end

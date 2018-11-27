@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -13,8 +15,8 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Uncomment this to test error pages
-  #config.consider_all_requests_local = false
-  #config.exceptions_app = self.routes
+  # config.consider_all_requests_local = false
+  # config.exceptions_app = self.routes
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -41,13 +43,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    address:              ENV['SMTP_SERVER'],
-    port:                 ENV['SMTP_SERVER_PORT'],
-    domain:               ENV['SMTP_SEND_FROM_DOMAIN'],
-    user_name:            ENV['SMTP_USERNAME'],
-    password:             ENV['SMTP_PASSWORD'],
-    api_key:              ENV['SMTP_API_KEY'],
-    authentication:       'plain',
+    address: ENV['SMTP_SERVER'],
+    port: ENV['SMTP_SERVER_PORT'],
+    domain: ENV['SMTP_SEND_FROM_DOMAIN'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    api_key: ENV['SMTP_API_KEY'],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
 
@@ -86,5 +88,4 @@ Rails.application.configure do
       s3_region: 'eu-central-1'
     }
   }
-
 end

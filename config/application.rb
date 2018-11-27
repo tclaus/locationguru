@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -23,6 +25,5 @@ module LocationGuru
 
     # Supporting gziped responses
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
-
   end
 end

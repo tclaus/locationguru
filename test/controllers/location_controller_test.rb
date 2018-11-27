@@ -1,37 +1,38 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class LocationControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-# Admin - Site later
-#  test 'should get index' do
-#    get '/admin'
-#    assert_response :success
-#  end
+  # Admin - Site later
+  #  test 'should get index' do
+  #    get '/admin'
+  #    assert_response :success
+  #  end
 
-  test "should create a location" do
+  test 'should create a location' do
     sign_in users(:host)
-    get "/locations/new"
+    get '/locations/new'
     assert_response :success
 
     post locations_path, params: {
       location: {
-        listing_name: "test-name",
+        listing_name: 'test-name',
         kind_type: 1,
         location_type: 1
       }
     }
 
     assert_response :success
-
   end
 
-  test "should delete a location" do
-      sign_in users(:host)
-      location = locations(:one)
-      delete "/locations/" + location.id.to_s
+  test 'should delete a location' do
+    sign_in users(:host)
+    location = locations(:one)
+    delete '/locations/' + location.id.to_s
 
-      assert :success
+    assert :success
   end
 
   test 'should get specific location' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include CounterHelper
 
 class LocationsController < ApplicationController
@@ -9,7 +11,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = current_user.locations
-    CounterHelper::load_total_numbers(@locations)
+    CounterHelper.load_total_numbers(@locations)
   end
 
   def new
@@ -41,7 +43,7 @@ class LocationsController < ApplicationController
 
     unless @location.active
       if !current_user.blank?
-        if !is_owner && !current_user.isAdmin
+        if !owner? && !current_user.isAdmin
           logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
           redirect_to root_path
         end
@@ -75,7 +77,7 @@ class LocationsController < ApplicationController
     @message.location_id = @location.id
     @message.inquery_date = params[:date]
 
-    if !current_user.blank?
+    unless current_user.blank?
       @message.email = current_user.email
       @message.name = current_user.fullname
     end
@@ -90,19 +92,24 @@ class LocationsController < ApplicationController
     if @location.update(new_params)
       logger.debug "Updated location with ID #{@location.id}"
 
-
       # Sent status change mail
       if old_status != @location.active
         if @location.active == true
           # Set a flash 'Aktivated'
           # Send Your locations is activated mail
           flash[:notice] = t('your_location_is_now_active')
-          LocationMailer.with(location: @location, edit_url: listing_location_url(@location), show_url: location_url(@location)).location_activated.deliver_later
+          LocationMailer
+            .with(location: @location,
+              edit_url: listing_location_url(@location),
+              show_url: location_url(@location)).location_activated.deliver_later
         else
           # Set a flash 'Deaktivated
           # Send Your locations is deactivated mail
           flash[:notice] = t('your_location_is_now_inactive')
-          LocationMailer.with(location: @location,edit_url: listing_location_url(@location), show_url: location_url(@location)).location_deactivated.deliver_later
+          LocationMailer
+            .with(location: @location,
+              edit_url: listing_location_url(@location),
+              show_url: location_url(@location)).location_deactivated.deliver_later
         end
       else
         redirect_to description_location_path(@location), notice: t('updated')
@@ -119,11 +126,13 @@ class LocationsController < ApplicationController
 
   def preload
     # load inavaible dates to frontent
-    logger.debug "Preload available dates"
+    logger.debug 'Preload available dates'
     today = Date.today
-    reservations = @location.reservations.where(
+    reservations = @location.reservations
+    .where(
       'start_date >= ? ', today
-    ).select('id, status, start_date')
+      )
+    .select('id, status, start_date')
 
     render json: reservations
   end
@@ -165,10 +174,11 @@ class LocationsController < ApplicationController
     text
   end
 
-  def is_owner
+  def owner?
     return false if current_user.blank?
 
     return true if current_user.id == @location.user_id
+
     false
   end
 
@@ -176,11 +186,10 @@ class LocationsController < ApplicationController
   #
   def reservation_status(start_date, location)
     check = location.reservations.where('start_date = ? ', start_date)
-    if check.empty?
-      return 'free'
-    else
-      return check.first.status
-    end
+
+    return 'free' if check.empty?
+
+    return check.first.status
   end
 
   def set_location
@@ -188,7 +197,8 @@ class LocationsController < ApplicationController
   end
 
   def is_authorized
-    redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
+    redirect_to root_path,
+      alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
   end
 
   def set_location_active

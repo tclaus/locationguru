@@ -1,7 +1,9 @@
-class GtcController < ApplicationController
+# frozen_string_literal: true
 
-# general terms and conditions
+##
+# General Terms and Conditions static page handler
+class GtcController < ApplicationController
   def show_gtc
-    render "gtc/gtc"
+    render 'gtc/gtc'
   end
 end

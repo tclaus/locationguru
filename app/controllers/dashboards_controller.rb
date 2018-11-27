@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,28 +9,25 @@ class DashboardsController < ApplicationController
     # group by locationId, where user_id = ICH, order by created_at
 
     @messages_overview = groupded_messages
-    @unreadMessageCount = unreadMessageCount
+    @unread_message_count = unread_message_count
   end
 
   def unreadMessageCountJSON
-    render json: unreadMessageCount
+    render json: unread_message_count
   end
 
-private
+  private
 
-def unreadMessageCount
-  Message
-  .where(user_id: current_user.id, isRead: false)
-  .count()
-end
+  def unread_message_count
+    Message
+      .where(user_id: current_user.id, isRead: false)
+      .count
+  end
 
   def groupded_messages
-
     Message
-    .includes(:location)
-    .where("messages.user_id = ?",current_user.id)
-    .order("messages.created_at desc")
-
+      .includes(:location)
+      .where('messages.user_id = ?', current_user.id)
+      .order('messages.created_at desc')
   end
-
 end

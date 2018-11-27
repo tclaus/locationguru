@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Location < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy
@@ -6,19 +8,18 @@ class Location < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   geocoded_by :address
-  after_validation :geocode , if: :address_changed?
+  after_validation :geocode, if: :address_changed?
   after_validation :reverse_geocode
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
-  validates :listing_name, length: {maximum: 200}
-  validates :max_persons, numericality: {less_than: 100000}
-  validates :suitableForText, length: {maximum: 50}
+  validates :listing_name, length: { maximum: 200 }
+  validates :max_persons, numericality: { less_than: 100_000 }
+  validates :suitableForText, length: { maximum: 50 }
 
   before_create :setInactive
 
-  reverse_geocoded_by :latitude, :longitude do |obj,results|
-
+  reverse_geocoded_by :latitude, :longitude do |obj, results|
     if geo = results.first
       obj.city    = geo.city
       obj.country = geo.country_code
@@ -41,22 +42,22 @@ class Location < ApplicationRecord
 
   def has_amemities
     has_heating || has_kitchen || has_outdoor || has_music_eq ||
-       has_furniture || has_parking_space || has_air_conditioning
+      has_furniture || has_parking_space || has_air_conditioning
   end
 
   def has_suitables
     isForBusiness || isForClubbing || isForWeddings || isForPhotoFilm ||
-    isForConferences || isForPrivateParties || isForBachelorParties || isForChristmasParties ||
-    !suitableForText.blank?
+      isForConferences || isForPrivateParties || isForBachelorParties || isForChristmasParties ||
+      !suitableForText.blank?
   end
 
   def average_rating
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 
-private
+  private
+
   def setInactive
     self.active = false
   end
-
 end
