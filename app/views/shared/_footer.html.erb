@@ -4,7 +4,7 @@
     <a href="#"><%= t('.back_top') %></a>
   </p>
 
-  <p>© 2017-2018 <a href="https://Claus-Software.de">Claus-Software</a>
+  <p>© 2017-<%= Time.now.strftime("%Y") %> <a href="https://Claus-Software.de">Claus-Software</a>
     ·
     <%= link_to t('.become_a_host'), new_location_path %>
     ·
@@ -18,10 +18,4 @@
     ·
     E-Mail: <%= mail_to 'support@locationguru.net' %>
   </p>
-  <p>
-    <a href="https://www.facebook.com/thorstenclaus74/">
-      <i class="fab fa-facebook fa-3x" aria-hidden="true"></i>
-    </a>
-  </p>
-
 </footer>
