@@ -71,6 +71,8 @@ $: rails s
 
 Open your browser at: http://localhost:3000
 
+Write tests and running
+$: rails test
 
 Start / Update in Productive-Configuration
 ------------------------------------------
