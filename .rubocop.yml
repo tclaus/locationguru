@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+
+Style/Encoding:
+  Enabled: false
+
+Style/StringLiterals:
+  enabled: false
