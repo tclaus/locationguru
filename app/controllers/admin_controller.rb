@@ -41,6 +41,12 @@ class AdminController < ApplicationController
     render 'admin/locations'
   end
 
+  def messages
+    # TODO: Make this in pages! Currently its OK
+    @messages = Message.all.order(:id)
+    render 'admin/messages'
+  end
+
   def recalculation
     ReverseGeolocationJob.perform_later
     redirect_back(fallback_location: request.referer)

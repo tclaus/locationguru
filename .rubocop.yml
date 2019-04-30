@@ -1,0 +1,11 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+
+Style/Encoding:
+  Enabled: false
+
+Style/StringLiterals:
+  enabled: false

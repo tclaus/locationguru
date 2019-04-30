@@ -10,12 +10,8 @@
   <div class="panel-body">
 
     <div>
-      <div>
-      <span>
-        <strong><%= listing_name %></strong>
-      </span>
-      </div>
-        <%= @message.created_at.strftime("%d.%m.%Y") %>
+      <%= @message.name %> &lt;<%= @message.email %>&gt;
+      , Erhalten: <%= @message.created_at.strftime("%d.%m.%Y") %>
     </div>
     <%= link_to t('.answer_message'), "#{}",
     id:"mail_to_link",
@@ -28,10 +24,11 @@
     <div>
       <br>
       <strong>
-        <%= @message.name %>
-        &lt;<%= @message.email %>&gt;
-      </div>
+        <% if @message.inquery_date? %>
+          Für: <%= @message.inquery_date.strftime("%d.%m.%Y") %>
+        <% end %>
     </strong>
+    </div>
     <div>
       <hr>
       <p>
