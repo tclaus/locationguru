@@ -70,8 +70,9 @@
               </span>
               <span class="top-right"><%= simple_date(message.created_at) %></span>
             </div>
-            <% if message.inquery_date.nil? %>
-              Für: <strong><%= message.inquery_date.strftime("%d.%m.%Y") %></strong>
+            <% if message.inquery_date? %>
+              Für:
+                <strong><%= message.inquery_date.strftime("%d.%m.%Y") %></strong>
             <% end %>
             <div><%= message.name %>:
               <%= truncate(message.message, length: 60, separator:' ') %></div>
