@@ -1,6 +1,5 @@
 <% meta_tag :page_title,page_title + ' - Admin Messages' %>
-<%= t('.total_messages') %>
-<%= @messages.count %>
+Total Messages: <%= @messages.count %>
 <br>
 <div class="table-responsive">
   <table class="table table-striped">
@@ -18,7 +17,14 @@
       <tr>
         <td><%= message.id %></td>
         <td><%= message.user_id %></td>
-        <td><%= message.location_id %></td>
+        <% if !message.location.nil? %>
+          <td>
+            <%= link_to listing_location_path(message.location) do %>
+             <%= message.location.listing_name %></td>
+            <% end %>
+        <% else %>
+          <td><%= message.location_id %></td>
+        <% end %>
         <td><%= message.email %></td>
         <td><%= message.name %></td>
         <td><%= message.inquery_date %></td>
