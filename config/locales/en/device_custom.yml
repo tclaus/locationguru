@@ -27,6 +27,9 @@ en:
         accept_gtc_form: "I accept the <a href='/gtc'>GTCs</a>."
     sessions:
       new:
-        forgot_your_password: "reset password"
+        forgot_your_password: "Reset Password"
         sign_up: "Register"
         use_alternative_login: OR
+        retired_facebook_login_message: "Facebook login retired. To change to email/password login
+        choose  'Reset Password' open the mail and choose another password. After that you can
+        use the Email/Password login."

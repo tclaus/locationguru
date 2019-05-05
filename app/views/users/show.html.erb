@@ -1,19 +1,11 @@
 <div class="row">
   <div class="col-md-3">
-    <div class="center">
-      <%= image_tag avatar_url(@user), alt:"Avatar",class:"avatar-full" %>
-    </div>
     <div class="panel panel-default">
       <div class="panel-heading"><%= t('.verification') %></div>
       <div class="panel-body">
         <ul class="sidebar-list">
           <% if @user.confirmation_token %>
             <li><%= t('.email_address') %>
-              <span class="pull-right icon-babu">
-                <i class="fas fa-check-circle"></i></span></li>
-          <% end %>
-          <% if @user.provider %>
-            <li><%= t('.facebook') %>
               <span class="pull-right icon-babu">
                 <i class="fas fa-check-circle"></i></span></li>
           <% end %>

@@ -1,8 +1,5 @@
 <div class="row">
   <div class="col-md-3">
-    <div class="center">
-      <%= image_tag avatar_url(current_user), class: "avatar-full", alt: "Profile" %>
-    </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= current_user.fullname %>
@@ -40,10 +37,8 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= t('.notifications') %>
-        <% if current_user.hasPremium %>
         (<span id="unread_count"><%= @unread_message_count %></span>
         <%= t('.unread') %>)
-        <% end %>
       </div>
       <div class="panel-body message-scroller">
 

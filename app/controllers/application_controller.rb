@@ -11,18 +11,13 @@ class ApplicationController < ActionController::Base
   protected
 
   # Needed to easyly access google maps
-  def createSimpleLocations(locations)
+  def create_simple_locations(locations)
     simple_locations = []
     unless locations.blank?
-      locations.each do |l|
-        next unless l.geocoded?
+      locations.each do |location|
+        next unless location.geocoded?
 
-        simple_location =  SimpleLocation.new
-        simple_location.id = l.id
-        simple_location.listing_name = l.listing_name
-        simple_location.latitude = l.latitude
-        simple_location.longitude = l.longitude
-        simple_locations.push simple_location
+        simple_locations.push create_simple_location(location)
       end
     end
     simple_locations
@@ -39,11 +34,11 @@ class ApplicationController < ActionController::Base
     # Set all restrictions for content security
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
-      "script-src 'self' js.stripe.com www.googletagmanager.com google-analytics.com www.google-analytics.com maps.googleapis.com connect.facebook.net cdnjs.cloudflare.com;" \
-      "img-src 'self' data: www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com graph.facebook.com platform-lookaside.fbsbx.com www.facebook.com lookaside.facebook.com s3.eu-central-1.amazonaws.com;" \
+      "script-src 'self' js.stripe.com www.googletagmanager.com google-analytics.com www.google-analytics.com maps.googleapis.com cdnjs.cloudflare.com;" \
+      "img-src 'self' data: www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com platform-lookaside.fbsbx.com s3.eu-central-1.amazonaws.com;" \
       "style-src 'self' 'unsafe-inline' *.googleapis.com cdnjs.cloudflare.com;" \
       "font-src  'self' fonts.gstatic.com;"\
-      "child-src 'self' js.stripe.com staticxx.facebook.com www.facebook.com;" \
+      "child-src 'self' js.stripe.com;" \
       "connect-src 'self' api.stripe.com www.google-analytics.com;"\
       "frame-src 'self' js.stripe.com;" \
       "form-action 'self';"\
@@ -62,10 +57,19 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def create_simple_location(location)
+    simple_location =  SimpleLocation.new
+    simple_location.id = location.id
+    simple_location.listing_name = location.listing_name
+    simple_location.latitude = location.latitude
+    simple_location.longitude = location.longitude
+    simple_location
+  end
+
   # sets the localizaton from request Header
   def set_locale
     if current_user.blank?
-      I18n.locale = get_valid_language
+      I18n.locale = valid_language
       logger.debug "* Locale set to '#{I18n.locale}'"
     else
       I18n.locale = current_user.language_id
@@ -73,7 +77,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Returns a valid language ID. Fall back to a default
-  def get_valid_language
+  def valid_language
     locale = extract_locale_from_accept_language_header
     logger.debug "* Extracted Locale ID: #{locale}"
     if !locale.blank? &&
