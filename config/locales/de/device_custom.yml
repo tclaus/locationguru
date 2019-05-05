@@ -30,3 +30,6 @@ de:
         forgot_your_password: "Passwort wieder herstellen"
         sign_up: "Registrieren"
         use_alternative_login: ODER
+        retired_facebook_login_message: "Der Login durch facebook wurde abgestellt.
+        Um sich erneut anzumelden, wählen sie 'Passwort wieder herstellen' und geben ihre
+        normale Email-Adresse ein. Der Login wird dann auf email/passwort umgestellt."

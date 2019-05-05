@@ -48,7 +48,7 @@ class PagesController < ApplicationController
     #          maybe too much data in future!
     @search = locations.ransack(params[:q])
     @locations = @search.result
-    @simple_locations = createSimpleLocations(@locations)
+    @simple_locations = create_simple_locations(@locations)
   end
 
   def cities

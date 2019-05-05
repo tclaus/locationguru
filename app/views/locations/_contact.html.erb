@@ -7,7 +7,6 @@
   </div>
   <div class="panel-body">
     <div>
-      <% if @location.user.hasPremium %>
         <%= form_for([@location, @location.reservations.new]) do |f| %>
 
           <div id="datepicker"
@@ -27,8 +26,7 @@
           <% end %>
           <%= f.submit t('.send_a_message'), id: "btn_book", class: "btn btn-default btn-block", disabled: true %>
         <% end %>
-      <% end %>
-
+      
       <table class="contact-table">
         <tbody>
           <% if !@location.website.blank? %>
