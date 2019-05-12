@@ -20,7 +20,7 @@ class Location < ApplicationRecord
   before_create :setInactive
 
   reverse_geocoded_by :latitude, :longitude do |obj, results|
-    if geo == results.first
+    if (geo = results.first)
       obj.city    = geo.city
       obj.country = geo.country_code
     end
@@ -31,12 +31,10 @@ class Location < ApplicationRecord
   def cover_photo(size)
     if !photos.empty?
       photos[0].image.url(size)
+    elsif size == ':medium'
+      'empty_thumb_medium.png'
     else
-      if size == ':medium'
-        'empty_thumb_medium.png'
-      else
-        'empty_thumb.png'
-      end
+      'empty_thumb.png'
     end
   end
 
