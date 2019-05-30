@@ -12,6 +12,7 @@ Total Messages: <%= @messages.count %>
        <th scope="col">Inquery Date</th>
        <th scope="col">Message</th>
        <th scope="col">Created at</th>
+       <th scope="col">Is Read</th>
       </tr>
       <% @messages.each do |message| %>
       <tr>
@@ -30,6 +31,13 @@ Total Messages: <%= @messages.count %>
         <td><%= message.inquery_date %></td>
         <td><%= message.message %></td>
         <td><%= message.created_at %></td>
+        <td>
+        <% if message.isRead? %>
+          <i class="fas fa-check"></i>
+        <% else %>
+          <i class="fas fa-minus"></i>
+        <% end %>
+        </td>
       </tr>
       <% end %>
     </table>
