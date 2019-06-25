@@ -1,7 +1,8 @@
 <% meta_tag :page_title,page_title + ' - Admin Userlist' %>
 <%= t('.total_users') %>
-<%= @users.count %>
+<%= @users.count %>, <%= link_to 'Export To File', admin_export_users_path %>
 <br>
+
 <div class="table-responsive">
   <table class="table table-striped">
       <tr>
