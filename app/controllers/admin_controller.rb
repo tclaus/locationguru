@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'tempfile'
 
 ##
 # Controls alla admin related data like userlist, venues list, active / inavtive
@@ -19,6 +20,17 @@ class AdminController < ApplicationController
   def users
     @users = User.all.order(:id)
     render 'admin/userlist'
+  end
+
+  def export_users
+    # Export file
+    users = User.all.order(:id)
+    file = Tempfile.new('exported_userlist')
+    users.each do |user|
+      file << user.email << "," << user.language_id << "\n"
+    end
+    file.flush
+    send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
   end
 
   def locations
