@@ -27,7 +27,7 @@ class AdminController < ApplicationController
     users = User.all.order(:id)
     file = Tempfile.new('exported_userlist')
     users.each do |user|
-      file << user.email << ',' << user.fullname << ',' << user.language_id << '\n'
+      file << user.email << ',' << user.fullname << ',' << user.language_id << "\n"
     end
     file.flush
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
