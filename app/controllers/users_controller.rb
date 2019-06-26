@@ -22,6 +22,13 @@ class UsersController < ApplicationController
     redirect_back(fallback_location: request.referer, notice: t('saved'))
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    logger.debug "Delete user: #{@user.id}"
+    redirect_to admin_users_path
+  end
+
   def update_phone_number
     current_user.update_attributes(user_params)
     if !user_params[:phone_number].blank?

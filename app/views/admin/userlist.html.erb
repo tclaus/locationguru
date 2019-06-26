@@ -6,16 +6,20 @@
 <div class="table-responsive">
   <table class="table table-striped">
       <tr>
+      <th></th>
        <th scope="col">ID</th>
        <th scope="col">Email</th>
        <th scope="col">Name</th>
        <th scope="col">Locations active/inactive</th>
        <th scope="col">Created</th>
+       <th scope="col">Last Login</th>
+       <th scope="col">Login count</th>
        <th scope="col">Provider</th>
        <th scope="col">Language</th>
       </tr>
       <% @users.each do |user| %>
       <tr>
+        <td><%= link_to 'Delete', user_path(user), data: { confirm: 'Are you sure?' }, method: :delete %></td>
         <td><%= user.id %></td>
         <td><%= mail_to user.email %></td>
         <td><%= user.fullname %></td>
@@ -23,6 +27,8 @@
           <%= link_to user.activeLocations.count, admin_locations_path(active: :true, userid: user.id) %> /
           <%= link_to user.inactiveLocations.count, admin_locations_path(active: :false, userid: user.id) %></td>
         <td><%= user.created_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.sign_in_count %></td>
         <% if user.provider.blank? %>
           <td>Site</td>
         <% else %>
