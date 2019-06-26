@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       post '/verify_phone_number' => 'users#verify_phone_number'
       patch '/update_phone_number' => 'users#update_phone_number'
       post 'avatar'
+      delete '' => 'users#destroy'
     end
   end
 
