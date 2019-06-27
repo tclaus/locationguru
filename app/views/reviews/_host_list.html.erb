@@ -8,7 +8,7 @@
  <div class="row">
    <div class="col-md-3 text-center">
      <br> <br>
-     <strong> <$= r.guest.fullname %> </strong>
+     <strong> <%= "#{r.guest.first_name} #{r.guest.last_name}" %> </strong>
    </div>
    <div class="col-md-9">
      <div id="star_<%= r.id %>"></div>

@@ -24,10 +24,14 @@ class AdminController < ApplicationController
 
   def export_users
     # Export file
-    users = User.all.order(:id)
+    # all with valid mail addrss
+    users = User.where('confirmed_at IS NOT NULL').order(:id)
     file = Tempfile.new('exported_userlist')
     users.each do |user|
-      file << user.email << ',' << user.fullname << ',' << user.language_id << "\n"
+      file << user.email << ','
+      file << user.first_name << ','
+      file << user.last_name << ','
+      file << user.language_id << "\n"
     end
     file.flush
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
