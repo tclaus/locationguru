@@ -66,7 +66,7 @@ class MessagesController < ApplicationController
       user = User.new
       user.email = "SYSTEM.#{mail}"
       user.role = 'SYSTEM' # Mark as temporary added user
-      user.fullname = 'Temporary System user'
+      user.first_name = 'Temporary System user'
       user.password = 'No Password here!' # TODO: generate a randon hash!
       if user.save
         logger.info "* Created new temporary user with: #{user.attributes.inspect}"

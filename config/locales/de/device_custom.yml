@@ -6,7 +6,8 @@ de:
         edit_profile: "Daten bearbeiten"
         view_my_profile: "Profil anzeigen"
         your_profile: "Profil bearbeiten"
-        full_name: "Name"
+        first_name: "Vorname"
+        last_name: "Nachname"
         email: Email
         phone_number: "Telefon"
         description: "Über den Anbieter"

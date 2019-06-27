@@ -15,6 +15,7 @@
        <th scope="col">Last Login</th>
        <th scope="col">Login count</th>
        <th scope="col">Provider</th>
+       <th scope="col">Is Confired?</th>
        <th scope="col">Language</th>
       </tr>
       <% @users.each do |user| %>
@@ -22,7 +23,7 @@
         <td><%= link_to 'Delete', user_path(user), data: { confirm: 'Are you sure?' }, method: :delete %></td>
         <td><%= user.id %></td>
         <td><%= mail_to user.email %></td>
-        <td><%= user.fullname %></td>
+        <td><%= "#{user.first_name} #{user.last_name}" %></td>
         <td>
           <%= link_to user.activeLocations.count, admin_locations_path(active: :true, userid: user.id) %> /
           <%= link_to user.inactiveLocations.count, admin_locations_path(active: :false, userid: user.id) %></td>
@@ -34,6 +35,7 @@
         <% else %>
           <td><%= user.provider %></td>
         <% end %>
+        <td><%= user.isConfirmed? %></td>
         <td><%= user.language_id %></td>
       </tr>
       <% end %>

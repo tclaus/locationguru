@@ -3,7 +3,7 @@
     <h2 class="text-center"><%= t('.sign_up') %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
     <%= f.hidden_field :language_id, value: I18n.locale, class: "form-control" %>
 

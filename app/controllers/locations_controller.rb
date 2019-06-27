@@ -79,7 +79,7 @@ class LocationsController < ApplicationController
 
     unless current_user.blank?
       @message.email = current_user.email
-      @message.name = current_user.fullname
+      @message.name = "#{current_user.first_name} #{current_user.last_name}"
     end
 
     logger.debug "Send message with params: #{params}"

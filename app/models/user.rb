@@ -19,7 +19,6 @@ class User < ApplicationRecord
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-  # validates :fullname, presence: true, length: { maximum: 50 }
 
   has_many :locations
   has_many :messages
@@ -53,6 +52,18 @@ class User < ApplicationRecord
   def isSystem
     # system user can not log in  are used as a placeholder for incomming messages with reservations
     role == 'SYSTEM'
+  end
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
+  def fullname?
+    first_name? || last_name?
+  end
+
+  def isConfirmed?
+    !confirmed_at.nil?
   end
 
   def self.from_omniauth(auth)
