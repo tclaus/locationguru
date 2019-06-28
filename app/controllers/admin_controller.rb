@@ -10,6 +10,7 @@ class AdminController < ApplicationController
   before_action :admin?
 
   def index
+    @total_confirmed_users = User.where('confirmed_at IS NOT NULL').count
     @total_users = User.count
     @total_locations = Location.count
     @total_active_locations = Location.where(active: true).count

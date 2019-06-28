@@ -10,15 +10,11 @@
           <tbody>
             <tr>
               <td class="text-left"><%= link_to t('.total_users'), admin_users_path %></td>
-              <td class="statistic-table right"><%= @total_users %></td>
+              <td class="statistic-table right"><%= "#{@total_confirmed_users} (#{@total_users})" %> </td>
             </tr>
             <tr>
               <td class="text-left"><%= link_to t('.total_locations'), admin_locations_path %></td>
-              <td class="statistic-table right"><%= @total_locations %></td>
-            </tr>
-            <tr>
-              <td class="text-left"><%= t('.total_active_locations') %></td>
-              <td class="statistic-table right"><%= @total_active_locations %></td>
+              <td class="statistic-table right"><%= "#{@total_active_locations} ( #{@total_locations})" %> </td>
             </tr>
             <tr>
               <td class="text-left"><%= link_to t('.messages'), admin_messages_path %></td>
