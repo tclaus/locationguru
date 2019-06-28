@@ -12,10 +12,6 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta name='description' content="<%= yield_meta_tag(:description, t('.meta_description')) %>"/>
@@ -45,10 +41,6 @@
     <meta name="msapplication-TileColor" content="#d7f4f1">
     <meta name="theme-color" content="#d7f4f1">
 
-    <% # CookieBanner %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-    <%= javascript_include_tag('cookie_banner/cookie_banner_de') %>
   </head>
 
   <body>
@@ -63,4 +55,12 @@
 
     <%= render 'shared/footer' %>
   </body>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+  <% # CookieBanner %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <%= javascript_include_tag('cookie_banner/cookie_banner_de') %>
 </html>
