@@ -26,7 +26,7 @@
           <% end %>
           <%= f.submit t('.send_a_message'), id: "btn_book", class: "btn btn-default btn-block", disabled: true %>
         <% end %>
-      
+
       <table class="contact-table">
         <tbody>
           <% if !@location.website.blank? %>
@@ -56,8 +56,17 @@
               <td><%= mail_to @location.email %></td>
             </tr>
           <% end %>
+          <tr>
+            <td>
+              <%= t('.weekly_calls') %>
+            </td>
+            <td>
+              <%= @weekly_calls %>
+            </td>
+          </tr>
         </tbody>
       </table>
+
     </div>
     <br>
 
