@@ -9,3 +9,4 @@ en:
       free_text: "Free"
       booked_text: "Booked"
       requested_text: "Requested but still free"
+      weekly_calls: "Calls this week:"

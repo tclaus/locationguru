@@ -40,6 +40,7 @@ class LocationsController < ApplicationController
   def show
     @photos = @location.photos
     @guest_reviews = @location.guest_reviews
+    @weekly_calls = Counter.load_7days_counts(@location.id)
 
     unless @location.active
       if !current_user.blank?
