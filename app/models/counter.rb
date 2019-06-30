@@ -6,38 +6,44 @@ class Counter < ApplicationRecord
     # context: mail, type: user_id = user_42
 
     # Find or create counters
-    counter = Counter.where(context: 'mail_send_for_user', context_type: user_id, date_of_count: Date.today).first
+    counter = Counter.where(context: 'mail_send_for_user',
+                            context_type: user_id,
+                            date_of_count: Date.today).first
+
     if counter.nil?
       Counter.create(count: 1, context: 'mail_send_for_user', context_type: user_id, date_of_count: Date.today)
     else
-      counter.count += 1
-      counter.save!
+      sql = "UPDATE counters SET count = COALESCE(count, 0) + 1 WHERE context = 'mail_send_for_user' AND context_type='#{user_id}' AND date_of_count='#{Date.today}'"
+      connection.select_value(sql).to_i
     end
   end
 
   # increases location visits for location id
   def self.increase_location(location_id)
-    logger.info 'Increase location'
-    # context : location, type: location_id
-    counter = Counter.where(context: 'location_visits_for_user', context_type: location_id, date_of_count: Date.today).first
+    logger.info "Increment location #{location_id}"
+
+    counter = Counter.where(context: 'location_visits_for_user',
+                            context_type: location_id,
+                            date_of_count: Date.today).first
     if counter.nil?
       Counter.create(count: 1, context: 'location_visits_for_user', context_type: location_id, date_of_count: Date.today)
-      logger.info 'Create location'
     else
-      counter.count += 1
-      counter.save!
-      logger.info 'Increment location'
+      sql = "UPDATE counters SET count = count + 1 WHERE context = 'location_visits_for_user' and context_type='#{location_id}' and date_of_count='#{Date.today}'"
+      connection.select_value(sql).to_i
     end
+    logger.info ' Inrement existing counter'
   end
 
   def self.load_7days_counts(location_id)
     start_date = (Date.today - 7)
     count_value = Counter.where("context = 'location_visits_for_user' AND context_type='?' AND date_of_count >= ?", location_id, start_date)
-                         .group(:id)
+                         .group(:context_type)
                          .sum(:count)
 
-    return count_value.first[1] unless count_value.empty?
-    return 0
+    logger.info "Count-value= #{count_value}"
+    value = count_value.first[1] unless count_value.empty?
+    logger.debug "Value = #{value}"
+    value
   end
 
 end
