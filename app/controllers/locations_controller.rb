@@ -130,10 +130,10 @@ class LocationsController < ApplicationController
     logger.debug 'Preload available dates'
     today = Date.today
     reservations = @location.reservations
-    .where(
-      'start_date >= ? ', today
-      )
-    .select('id, status, start_date')
+                            .where(
+                                   'start_date >= ? ', today
+                                  )
+                            .select('id, status, start_date')
 
     render json: reservations
   end
