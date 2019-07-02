@@ -6,7 +6,7 @@
 <div class="table-responsive">
   <table class="table table-striped">
       <tr>
-      <th></th>
+       <th scope="col"></th>
        <th scope="col">ID</th>
        <th scope="col">Email</th>
        <th scope="col">Name</th>
@@ -20,7 +20,10 @@
       </tr>
       <% @users.each do |user| %>
       <tr>
-        <td><%= link_to 'Delete', user_path(user), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        <td><%= link_to user_path(user), data: { confirm: 'Are you sure?' }, method: :delete do %>
+                <i class="far fa-trash"></i>
+            <% end %>
+        </td>
         <td><%= user.id %></td>
         <td><%= mail_to user.email %></td>
         <td><%= "#{user.first_name} #{user.last_name}" %></td>

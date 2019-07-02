@@ -5,10 +5,11 @@
 <div class="table-responsive">
   <table class="table table-striped">
       <tr>
+        <th scope="col"></th>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
        <th scope="col">Calls</th>
-       <th scope="col"></th>
+       <th scope="col">Edit</th>
        <th scope="col">Restriced</th>
        <th scope="col">Aktive</th>
        <th scope="col">Creator</th>
@@ -17,6 +18,10 @@
       </tr>
       <% @locations.each do |location| %>
       <tr>
+        <td>  <%= link_to location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')} do %>
+          <i class="far fa-trash"></i>
+        <% end %>
+        </td>
         <td><%= location.id %></td>
         <td>
           <%= link_to location.listing_name, location_path(location) %> <br>
