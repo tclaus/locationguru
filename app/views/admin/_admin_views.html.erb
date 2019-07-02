@@ -1,4 +1,4 @@
-<% if current_user.isAdmin %>
+<% if current_user && current_user.isAdmin %>
   <% if current_page?(admin_users_path) ||
         current_page?(admin_locations_path) ||
         current_page?(admin_messages_path) %>

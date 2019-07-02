@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
       logger.debug "Created location with ID #{@location.id}"
       redirect_to listing_location_path(@location), notice: t('saved')
     else
-      logger.warn 'Failed creating a location'
+      logger.warn "Failed creating a location: "+ error_messages_to_s(@location.errors)
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
       render :new
     end

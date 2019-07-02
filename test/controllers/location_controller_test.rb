@@ -20,11 +20,12 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
       location: {
         listing_name: 'test-name',
         kind_type: 1,
-        location_type: 1
+        location_type: 1,
+        max_persons:42
       }
     }
 
-    assert_response :success
+    assert_response :found # 302
   end
 
   test 'should delete a location' do

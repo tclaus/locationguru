@@ -24,6 +24,7 @@ en:
         yourVerificationPin: "Pin"
         save_new_number: "Save"
         verify_pin: "OK"
+        yourPhoneNumber: "Ihre Telefonnummer"
       new:
         accept_gtc_form: "I accept the <a href='/gtc'>GTCs</a>."
     sessions:
