@@ -104,9 +104,12 @@
           <li <% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
         <% end %>
       </ul>
+
     </div>
   </nav>
 <% end %>
+
+<%= render partial: "admin/admin_views" %>
 
 <% # Show mobile only, and only in non-admin fields %>
 <% if (current_page?(root_path) ||

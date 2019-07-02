@@ -1,0 +1,14 @@
+<% if current_user.isAdmin %>
+  <% if current_page?(admin_users_path) ||
+        current_page?(admin_locations_path) ||
+        current_page?(admin_messages_path) %>
+
+          <nav class="navbar navbar-default">
+              <ul class="nav navbar-nav">
+                <li class="nav-item"><%= link_to t('admin.index.total_users'), admin_users_path %></li>
+                <li class="nav-item"><%= link_to t('admin.index.total_locations'), admin_locations_path %></li>
+                <li class="nav-item"><%= link_to t('admin.index.messages'), admin_messages_path %></li>
+                </ul>
+          </nav>
+  <% end %>
+<% end %>
