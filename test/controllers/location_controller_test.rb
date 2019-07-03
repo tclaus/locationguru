@@ -21,7 +21,7 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
         listing_name: 'test-name',
         kind_type: 1,
         location_type: 1,
-        max_persons:42
+        max_persons: 42
       }
     }
 

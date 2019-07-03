@@ -2,3 +2,4 @@ de:
   locations:
     location_list:
       set_a_name: "<Kein Name>"
+      no_locations_found: "Legen Sie ihren ersten einen Eintrag an"
