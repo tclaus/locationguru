@@ -20,4 +20,10 @@
       </div>
     </div>
   <% end %>
+
+  <% if @locations.empty? %>
+    <div class="panel-body message-scroller">
+      <%= t('.no_locations_found') %>
+    </div>
+  <% end %>
 </div>
