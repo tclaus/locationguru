@@ -7,14 +7,18 @@ require 'simpleLocation'
 class PagesController < ApplicationController
   # Show only unrestriced locations on main Page
   def home
-    @locations = Location.where(active: true, isRestricted: false)
-                         .order('RANDOM()')
-                         .limit(3)
+
+    @locations = random_locations
     @cities = cities.sample(4)
     @recent_locations = Location.where(active: true, isRestricted: false)
                                 .order(:created_at)
                                 .reverse_order
                                 .limit(3)
+  end
+
+  def random_locations
+    sql = 'SELECT * from LOCATIONS WHERE active = true AND "isRestricted" = false ORDER BY Random() LIMIT 3'
+    Location.find_by_sql(sql)
   end
 
   def search
