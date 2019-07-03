@@ -15,7 +15,8 @@
             <%= link_to t('.set_a_name'), location, class: "listing_name" %>
           <% end %>
           <br>
-          <%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %>
+          <div><%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %></div>
+          <div>max. <%= location.max_persons %> Personen </div>
         </div>
       </div>
     </div>
