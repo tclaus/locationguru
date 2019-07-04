@@ -28,10 +28,6 @@ gem 'font-awesome-sass', '~> 5.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~>6.0'
 
-# Authorization
-gem 'omniauth', '~>1.6'
-gem 'omniauth-facebook', '~>4.0'
-
 # Photos and avatars
 gem 'aws-sdk-s3'
 gem 'paperclip', '~> 6.0.0'
