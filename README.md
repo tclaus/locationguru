@@ -8,9 +8,30 @@ Production Site can be visited under: [locationguru.net](https://locationguru.ne
 
 Local installation
 ------------------
+If you still have not develop in Ruby on Rails - install Ruby and Rails first:
+On OSX the best way is to use  [RVM](https://rvm.io):
+Install RVM with default Ruby and Rails in one Command:
+
+$: curl -sSL https://get.rvm.io | bash -s stable --rails
+
+You may experience errors on install ('binary not found'). In this case open a new
+Terminal so make the newly installed RVM active and install ruby with:
+$: rvm install
+
 Install Postgres Database
 Use Postgres App from Postgres Server: [postgresapp.com](https://postgresapp.com)
 
+Install redis caching from here:
+https://redis.io
+
+Export the redis local environment:
+$: export REDISTOGO_URL=localhost:6379
+
+For the environment you can create a .env file in the main directory and copy the
+line: 'export REDISTOGO_URL=localhost:6379' into it.
+
+Database Setup
+--------------
 You need to create local test and development databases:
 
 $:rails db:setup
@@ -46,9 +67,11 @@ Start the server
 2. start a batch job queue
 3. start rails server
 
-$: resdis-server
+$: redis-server
 $: QUEUE=* rake environment resque:work
 
+Start locally
+--------------
 $: rails s
 
     => Booting Puma
@@ -77,20 +100,22 @@ $: rails test
 Start / Update in Productive-Configuration
 ------------------------------------------
 Upload to heroku
+
 1. $: Heroku login
 2. Setup Database on heroku
-    heroku run rake db:schema:load -a <app name>
-    heroku run rake db:seed -a <app name>
+
+    $: heroku run rake db:schema:load -a <app name>
+    $: heroku run rake db:seed -a <app name>
 
 Migrate Database:
 On every update don't forget a
 
 Development:
-  heroku run rake db:migrate -a <app name>
+  $: heroku run rake db:migrate -a <app name>
 
 to set database to latest state.
 
 In Procfile there is a line 'release: bundle exec rake db:migrate' that should do the DB:Migration task automatically on deployment.
 
 Bulk Update Locations:
-  rake geocode:all CLASS=Location SLEEP=0.25
+  $: rake geocode:all CLASS=Location SLEEP=0.25
