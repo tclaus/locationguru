@@ -1,6 +1,7 @@
 {
   "name": "locationguru",
   "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
     "admin_role1": {
