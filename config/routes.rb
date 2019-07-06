@@ -77,6 +77,7 @@ Rails.application.routes.draw do
     get 'admin' => :index
     get 'admin/users' => :users
     get 'admin/export_users' => :export_users
+    get 'admin/export_messages' => :export_messages
     get 'admin/locations' => :locations
     get 'admin/messages' => :messages
     post 'admin/recalculation' => :recalculation
