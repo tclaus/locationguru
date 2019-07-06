@@ -64,6 +64,19 @@ class AdminController < ApplicationController
     render 'admin/messages'
   end
 
+  def export_messages
+    # Export file
+    # all with valid mail addrss
+    messages = Message.all.order(:id)
+    file = Tempfile.new('exported_messageslist')
+    messages.each do |message|
+      file << message.email << ','
+      file << message.name << "\n"
+    end
+    file.flush
+    send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_message_sender_list.csv'
+  end
+
   def recalculation
     ReverseGeolocationJob.perform_later
     redirect_back(fallback_location: request.referer)
