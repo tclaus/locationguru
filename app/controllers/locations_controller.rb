@@ -101,16 +101,16 @@ class LocationsController < ApplicationController
           flash[:notice] = t('your_location_is_now_active')
           LocationMailer
             .with(location: @location,
-              edit_url: listing_location_url(@location),
-              show_url: location_url(@location)).location_activated.deliver_later
+                  edit_url: listing_location_url(@location),
+                  show_url: location_url(@location)).location_activated.deliver_later
         else
           # Set a flash 'Deaktivated
           # Send Your locations is deactivated mail
           flash[:notice] = t('your_location_is_now_inactive')
           LocationMailer
             .with(location: @location,
-              edit_url: listing_location_url(@location),
-              show_url: location_url(@location)).location_deactivated.deliver_later
+                  edit_url: listing_location_url(@location),
+                  show_url: location_url(@location)).location_deactivated.deliver_later
         end
       else
         redirect_to description_location_path(@location), notice: t('updated')
@@ -190,7 +190,7 @@ class LocationsController < ApplicationController
 
     return 'free' if check.empty?
 
-    return check.first.status
+    check.first.status
   end
 
   def set_location

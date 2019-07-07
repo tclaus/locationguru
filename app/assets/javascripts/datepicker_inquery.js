@@ -8,12 +8,6 @@ $(function() {
   var free_text = $('#datepicker').data('free_text');
   var requested_text = $('#datepicker').data('requested_text');
 
-  function checkDate(date) {
-    // reserved dates are marked. all other dates are free
-    dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-    return [$.inArray(dmy, unavailableDates) == -1];
-  }
-
 /*
 Check selected date with backend and print a message in UI
 */
@@ -61,16 +55,43 @@ var dpOptions = $.extend(
 
   $("#datepicker").datepicker(dpOptions);
 
+  function checkDate(date) {
+
+    // reserved dates are marked. all other dates are free
+    dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    var found = inArray(dmy, unavailableDates);
+    if (found) {
+      // Kommt auf den Status an
+      if (found === 'booked') {
+        return [false];
+      } else {
+        return [true,'maybe-blocked'];
+      }
+    } else {
+      return [true];
+    }
+  }
+
+  function inArray(dmy, unavailableDates) {
+    var foundValue = null;
+    unavailableDates.forEach(function(currentValue, index, originalArray){
+      if (dmy === currentValue.date) {
+        foundValue = currentValue.status;
+      }
+    });
+    return foundValue;
+  }
+
+
+
   // Preload unavailable dates
   $.ajax({
     url: preloadUrl,
     dateTyp: 'json',
     success: function(data) {
       $.each(data, function(arrID, arrValue) {
-        if (arrValue.status === 'booked') {
           d = new Date(arrValue.start_date);
-          unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
-        }
+          unavailableDates.push({date: $.datepicker.formatDate('d-m-yy', d), status: arrValue.status});
       });
       $("#datepicker").datepicker("refresh");
     }

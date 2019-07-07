@@ -32,7 +32,8 @@ class AdminController < ApplicationController
       file << user.email << ','
       file << user.first_name << ','
       file << user.last_name << ','
-      file << user.language_id << "\n"
+      file << user.language_id << ','
+      file << 'Location_Provider' << "\n"
     end
     file.flush
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
@@ -71,7 +72,8 @@ class AdminController < ApplicationController
     file = Tempfile.new('exported_messageslist')
     messages.each do |message|
       file << message.email << ','
-      file << message.name << "\n"
+      file << message.name << ','
+      file << 'Message_Senders' << "\n"
     end
     file.flush
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_message_sender_list.csv'
