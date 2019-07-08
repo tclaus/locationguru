@@ -3,6 +3,7 @@ de:
     location:
       location: "Location"
       placeholder_venue_email: "Kontakt e-Mail"
+      hint_no_public_address: "Die e-Mail Adresse ist nicht öffentlich"
       placeholder_venue_website: "Webseite mit mehr Infos"
       placeholder_venue_address: "Adresse der Location"
       placeholer_venue_phone_number: "Kontakt Telefonnummner"
