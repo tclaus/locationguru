@@ -16,7 +16,8 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :email, t('.email') %>
-                <%= f.email_field :email, placeholder: t('.placeholder_venue_email'), class:"form-control", required:true, autocomplete:"email" %>
+                <%= f.email_field :email, value: @location.user.email, class:"form-control", required:true, autocomplete:"email", readonly:true %>
+                <%= f.label :email, t('.hint_no_public_address') %>
               </div>
             </div>
           </div>
