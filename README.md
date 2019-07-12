@@ -20,9 +20,15 @@ $: rvm install
 
 Install Postgres Database
 Use Postgres App from Postgres Server: [postgresapp.com](https://postgresapp.com)
+Init Database and start Server
 
-Install redis caching from here:
-https://redis.io
+Install redis caching Service
+You need Redis to send deferred emails
+Use Homebrew to install:
+$: brew install redis
+
+Start the service:
+$: brew services start redis
 
 Export the redis local environment:
 $: export REDISTOGO_URL=localhost:6379
@@ -39,6 +45,10 @@ $:rails db:setup
 Install GEM Files
 -----------------
 $: bundle install
+
+You may have problems with the 'pg' gem. in this case try manually this:
+$: gem install 'pg' -- --with_pg_config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config
+
 
 Install jobs / scheduler
 ------------------------
