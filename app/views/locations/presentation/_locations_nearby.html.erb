@@ -2,6 +2,7 @@
   <div class="row">
     <h3><%= t('.near_by') %></h3>
     <% for location in @location.nearbys(10).max(6).shuffle %>
+    <% if location.is_active? %>
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
@@ -15,6 +16,7 @@
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>
