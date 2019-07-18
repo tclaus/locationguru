@@ -68,8 +68,10 @@ Rails.application.routes.draw do
 
   # Guids
   controller :guides do
-    get 'guides/kgv' => :kgv
-    get 'guides/clubhouse' => :kgv
+    get 'guides/kgv' => :clubhouse
+    get 'guides/clubhouse' => :clubhouse
+    get '/guides/partylocations' => :partyvenues
+    get '/guides/partyvenues' => :partyvenues
   end
 
   # Admin
