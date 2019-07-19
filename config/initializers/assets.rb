@@ -33,4 +33,5 @@ Rails.application.config.assets.precompile += %w[
   cookie_banner/cookie_banner_en
   register_user/accept_gtc
   datepicker_inquery
+  set_main_photo
 ]
