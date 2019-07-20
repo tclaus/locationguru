@@ -32,7 +32,8 @@ class AdminController < ApplicationController
       file << user.email << ','
       file << user.first_name << ','
       file << user.last_name << ','
-      file << user.language_id << "\n"
+      file << user.language_id << ','
+      file << 'Location_Provider' << "\n"
     end
     file.flush
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
@@ -62,6 +63,20 @@ class AdminController < ApplicationController
     # TODO: Make this in pages! Currently its OK
     @messages = Message.all.order(:id)
     render 'admin/messages'
+  end
+
+  def export_messages
+    # Export file
+    # all with valid mail addrss
+    messages = Message.all.order(:id)
+    file = Tempfile.new('exported_messageslist')
+    messages.each do |message|
+      file << message.email << ','
+      file << message.name << ','
+      file << 'Message_Senders' << "\n"
+    end
+    file.flush
+    send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_message_sender_list.csv'
   end
 
   def recalculation

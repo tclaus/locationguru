@@ -53,6 +53,10 @@ class Location < ApplicationRecord
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 
+  def is_active?
+    self.active
+  end
+
   private
 
   def setInactive

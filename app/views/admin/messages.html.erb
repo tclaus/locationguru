@@ -1,5 +1,6 @@
 <% meta_tag :page_title,page_title + ' - Admin Messages' %>
-Total Messages: <%= @messages.count %>
+Total Messages: <%= @messages.count %>,
+<%= link_to 'Export To File', admin_export_messages_path %>
 <br>
 <div class="table-responsive">
   <table class="table table-striped">

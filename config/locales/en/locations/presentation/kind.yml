@@ -1,0 +1,5 @@
+en:
+  locations:
+    presentation:
+      kind:
+        max_persons: "max %{persons} persons"

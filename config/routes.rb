@@ -10,9 +10,7 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login',
                            sign_out: 'logout',
                            edit: 'profile',
-                           sign_up: 'registration' },
-             controllers: { omniauth_callbacks: 'omniauth_callbacks',
-                            registrations: 'registrations' }
+                           sign_up: 'registration' }
 
   authenticate :user do
     mount Resque::Server, at: '/jobs'
@@ -70,8 +68,10 @@ Rails.application.routes.draw do
 
   # Guids
   controller :guides do
-    get 'guides/kgv' => :kgv
-    get 'guides/clubhouse' => :kgv
+    get 'guides/kgv' => :clubhouse
+    get 'guides/clubhouse' => :clubhouse
+    get '/guides/partylocations' => :partyvenues
+    get '/guides/partyvenues' => :partyvenues
   end
 
   # Admin
@@ -79,6 +79,7 @@ Rails.application.routes.draw do
     get 'admin' => :index
     get 'admin/users' => :users
     get 'admin/export_users' => :export_users
+    get 'admin/export_messages' => :export_messages
     get 'admin/locations' => :locations
     get 'admin/messages' => :messages
     post 'admin/recalculation' => :recalculation

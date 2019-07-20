@@ -20,7 +20,7 @@
     <% if !@location.max_persons.blank? %>
       <div class="col-xs-3">
         <i class="fas fa-users fa-2x"></i><br>
-        <%= @location.max_persons %>
+        <%= t('.max_persons', persons: @location.max_persons) %>
       </div>
     <% end %>
   </div>
