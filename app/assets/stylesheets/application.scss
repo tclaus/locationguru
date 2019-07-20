@@ -344,7 +344,7 @@ li.feature {
 .panel-heading.preview img {
   width: 100%;
   max-height: 200px;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 
 .amenities li {

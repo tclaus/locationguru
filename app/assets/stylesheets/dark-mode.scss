@@ -1,7 +1,7 @@
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #1F2037 !important;
-        color: white !important;
+        color: #a2a2a2 !important;
         scrollbar-face-color: ThreeDFace !important;
         scrollbar-shadow-color: ThreeDDarkShadow !important;
         scrollbar-highlight-color: ThreeDHighlight !important;
@@ -32,9 +32,7 @@
         background-color: rgba(20, 20, 20, .4);
         border: 1px solid transparent !important;
     }
-    .panel-heading.preview img {
-        object-fit: fill !important;
-    }
+
     .link-cloud {
         background-color: #28D1B6 !important;
     }
@@ -47,8 +45,8 @@
     .btn.btn-default {
         border-color: #28D1B6 !important;
         color: #28D1B6 !important;
-
     }
+
     .btn > a:hover {
        color: #fff !important;
     }
