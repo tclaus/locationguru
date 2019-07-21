@@ -39,9 +39,14 @@ Rails.application.routes.draw do
       get 'send_message'
       post 'restrict'
     end
+
     resources :photos, only: %i[create destroy]
     resources :reservations, only: %i[show create destroy]
     resources :messages, only: %i[show create destroy]
+  end
+
+  controller :photos do
+    post 'photos/main_photo'
   end
 
   resources :cities, only: [:show]

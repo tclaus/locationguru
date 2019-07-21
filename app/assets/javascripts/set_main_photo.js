@@ -1,9 +1,16 @@
 $(function () {
+  var set_main_photo_url = "/photos/main_photo";
+
   $('.fa-star').on('click', function (event) {
     if (event.currentTarget.classList.contains('fas')) {
       // Set as Main - if already main, do nothing
       return;
     }
+    var location_id = $(event.currentTarget).data('location-id');
+    var photo_id = $(event.currentTarget).data('photo-id');
+    console.log("Locationid / photo.id=", location_id, photo_id);
+
+    post_selected(location_id, photo_id);
 
     // Toogle data
     icons = document.getElementsByClassName("fa-star");
@@ -17,5 +24,22 @@ $(function () {
       event.currentTarget.classList.remove('far');
       event.currentTarget.classList.add('fas');
   }
-)
+);
+
+function post_selected(location_id, photo_id) {
+  var input = {
+    'location_id': location_id,
+    'photo_id' : photo_id
+  };
+  // Set new main photo to backend
+  $.ajax({
+    url: set_main_photo_url,
+    method: 'POST',
+    data: input,
+    success: function(data) {
+      console.log("Succesful set main photo")
+    }
+  });
+}
+
 });

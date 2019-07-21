@@ -13,6 +13,24 @@ class PhotosController < ApplicationController
     redirect_back(fallback_location: request.referer, notice: t('saved'))
   end
 
+  # Sets or removes the main photo flag
+  def main_photo
+    @location = Location.find(params[:location_id])
+    return unless @location && current_user.id == @location.user.id
+    main_photo_id = params[:photo_id].to_i
+
+    photos = @location.photos
+    photos.each do |photo|
+      if photo.id == main_photo_id
+        photo.is_main = true
+        photo.save
+      else
+        photo.is_main = false
+        photo.save
+      end
+    end
+  end
+
   def destroy
     @photo = Photo.find(params[:id])
     @location = @photo.location
