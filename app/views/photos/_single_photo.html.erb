@@ -1,0 +1,22 @@
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading preview">
+      <% if photo.is_main %>
+        <i data-location-id='<%= photo.location_id %>' data-photo-id='<%= photo.id %>' class="fas fa-star" aria-hidden="true"></i>
+        <%= t('.main_photo') %>
+      <% else %>
+        <i data-location-id='<%= photo.location_id %>' data-photo-id='<%= photo.id %>' class="far fa-star" aria-hidden="true"></i>
+      <% end %>
+      <% if photo.image.exists? %>
+        <%= image_tag photo.image.url() %>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <span class="pull-right">
+        <%= link_to location_photo_path(photo.location_id, photo), remote: true, method: :delete, data: {confirm: t('.are_you_sure')} do %>
+        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+      <% end %>
+    </span>
+  </div>
+</div>
+</div>

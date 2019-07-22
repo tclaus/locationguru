@@ -8,7 +8,6 @@ $(function () {
     }
     var location_id = $(event.currentTarget).data('location-id');
     var photo_id = $(event.currentTarget).data('photo-id');
-    console.log("Locationid / photo.id=", location_id, photo_id);
 
     post_selected(location_id, photo_id);
 
@@ -37,7 +36,8 @@ function post_selected(location_id, photo_id) {
     method: 'POST',
     data: input,
     success: function(data) {
-      console.log("Succesful set main photo")
+      console.log("Succesful set main photo");
+      location.reload();
     }
   });
 }

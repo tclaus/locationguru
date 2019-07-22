@@ -1,4 +1,6 @@
 en:
   photos:
+    single_photo:
+        main_photo: "Main Photo"
     photos_list:
       are_you_sure: "Delete this photo?"

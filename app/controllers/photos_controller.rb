@@ -17,18 +17,20 @@ class PhotosController < ApplicationController
   def main_photo
     @location = Location.find(params[:location_id])
     return unless @location && current_user.id == @location.user.id
+
     main_photo_id = params[:photo_id].to_i
 
     photos = @location.photos
     photos.each do |photo|
       if photo.id == main_photo_id
         photo.is_main = true
-        photo.save
       else
         photo.is_main = false
-        photo.save
       end
+      photo.save
     end
+  respond_to :js
+    # render status: :OK
   end
 
   def destroy
