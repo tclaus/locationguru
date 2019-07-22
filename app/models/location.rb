@@ -17,7 +17,7 @@ class Location < ApplicationRecord
   validates :max_persons, numericality: { less_than: 100_000 }
   validates :suitableForText, length: { maximum: 50 }
 
-  before_create :setInactive
+  before_create :set_inactive
 
   reverse_geocoded_by :latitude, :longitude do |obj, results|
     if (geo = results.first)
@@ -29,12 +29,21 @@ class Location < ApplicationRecord
   attr_accessor :total_count
 
   def cover_photo(size)
-    if !photos.empty?
-      photos[0].image.url(size)
+    if !main_photo.nil?
+      main_photo.image.url(size)
     elsif size == ':medium'
       'empty_thumb_medium.png'
     else
       'empty_thumb.png'
+    end
+  end
+
+  def main_photo
+    if !photos.empty?
+      photos.each do |photo|
+        return photo if photo.is_main
+      end
+      photos[0]
     end
   end
 
@@ -54,12 +63,12 @@ class Location < ApplicationRecord
   end
 
   def is_active?
-    self.active
+    active
   end
 
   private
 
-  def setInactive
+  def set_inactive
     self.active = false
   end
 end

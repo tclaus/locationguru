@@ -5,6 +5,11 @@
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
+            <% if photo.is_main %>
+              <i data-location-id='<%= photo.location_id %>' data-photo-id='<%= photo.id %>' class="fas fa-star" aria-hidden="true"></i>
+            <% else %>
+            <i data-location-id='<%= photo.location_id %>' data-photo-id='<%= photo.id %>' class="far fa-star" aria-hidden="true"></i>
+            <% end %>
             <% if photo.image.exists? %>
               <%= image_tag photo.image.url() %>
             <% end %>
@@ -20,4 +25,5 @@
     </div>
   <% end %>
 </div>
+<%= javascript_include_tag 'set_main_photo' %>
 <% end %>
