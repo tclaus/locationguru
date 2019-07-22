@@ -26,8 +26,10 @@ class ApplicationController < ActionController::Base
   # Load cities cloud
   def getCitiesLinkCloud
     # Cache these a bit?
-    @link_clouds = Location.where(active: true).select('city').group('city')
-    .order('city')
+    @link_clouds = Location.where(active: true)
+                           .select('city')
+                           .group('city')
+                           .order('city')
   end
 
   def set_csp
