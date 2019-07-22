@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_213901) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "location_id"
-    t.boolean "is_main", default: false
+    t.boolean "is_main"
     t.index ["location_id"], name: "index_photos_on_location_id"
     t.index ["room_id"], name: "index_photos_on_room_id"
   end
