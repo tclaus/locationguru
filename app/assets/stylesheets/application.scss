@@ -70,6 +70,7 @@ a:hover {
 .navbar-button a:hover {
   color: $color-lighter-2;
 }
+
 // Buttons
 .btn {
   //color: $color-lighter-1;
@@ -441,6 +442,19 @@ li.feature {
 .message-scroller {
   overflow: scroll;
   max-height: 300px;
+}
+
+.changelog {
+  margin-left: 20px;
+  margin-right: 20px;
+  top: 20px;
+  position: relative;
+}
+
+#HW_badge_cont {
+  left: 15px !important;
+  position: absolute !important;
+  display: inline !important;
 }
 
 // Sinmple calendar

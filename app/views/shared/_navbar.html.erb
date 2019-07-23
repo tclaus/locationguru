@@ -24,6 +24,11 @@
           <%= link_to t('.become_a_host'), new_location_path %>
         </button>
       </li>
+      <li>
+        <span class="changelog" id='changelog'>
+          <i class="far fa-bell fa-2x"></i>
+        </span>
+      </li>
       <% if (!user_signed_in?) %>
         <li><%= link_to t('login'), new_user_session_path %>
         </li>
