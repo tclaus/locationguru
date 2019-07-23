@@ -60,5 +60,14 @@
   <% # CookieBanner %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+
   <%= javascript_include_tag('cookie_banner/cookie_banner_de') %>
+  <script>
+  // @see https://docs.headwayapp.co/widget for more configuration options.
+  var HW_config = {
+    selector: "#changelog", // CSS selector where to inject the badge
+    account:  "x8dbVx"
+  }
+</script>
+<script async src="https://cdn.headwayapp.co/widget.js"></script>
 </html>
