@@ -10,7 +10,7 @@
        <th scope="col">Name</th>
        <th scope="col">Calls</th>
        <th scope="col">Edit</th>
-       <th scope="col">Show on Homepage</th>
+       <th scope="col">Not on Homepage</th>
        <th scope="col">Aktive</th>
        <th scope="col">Creator</th>
        <th scope="col">Created At</th>
@@ -37,7 +37,7 @@
         </td>
         <td>
           <%= link_to restrict_location_path(location), method: :post, remote: true, data:{id: location.id}, class:"toggle_restriced" do %>
-            <% if !location.isRestricted? %>
+            <% if location.isRestricted? %>
               <i class="fas fa-check"></i>
             <% else %>
               <i class="fas fa-minus"></i>
