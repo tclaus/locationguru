@@ -1,7 +1,6 @@
 de:
   dashboards:
     index:
-      facebook: "Facebook"
       email_address: "E-Mail"
       phone_number: "Telefon"
       notifications: "Nachrichten"

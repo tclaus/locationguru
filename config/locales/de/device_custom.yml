@@ -1,5 +1,4 @@
 de:
-  sign_in_with_facebook: "Mit facebook anmelden"
   devise:
     registrations:
       edit:

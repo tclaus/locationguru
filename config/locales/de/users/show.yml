@@ -2,7 +2,6 @@ de:
   users:
     show:
       verification: 'Verifizierte Informationen'
-      facebook: "Facebook"
       email_address: "Email"
       phone_number: "Telefon"
       review_from_guests: "Bewertungen von Gästen"
