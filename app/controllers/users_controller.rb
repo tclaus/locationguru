@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @host_reviews = Review.where(type: 'HostReview', guest_id: @user.id)
   end
 
-  # Sets an avater / averrides setting from gravatar or facebook
+  # Sets an avater / averrides setting from gravatar
   def avatar
     logger.info '* Received new Avatar!'
     @user = current_user

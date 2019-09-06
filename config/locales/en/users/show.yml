@@ -2,7 +2,6 @@ en:
   users:
     show:
       verification: 'Checked information'
-      facebook: "Facebook"
       email_address: "email"
       phone_number: "Phone"
       review_from_guests: "Guest reviews"

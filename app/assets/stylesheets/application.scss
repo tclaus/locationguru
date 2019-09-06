@@ -128,18 +128,6 @@ a:hover {
   background-color: $info-textcolor-active;
 }
 
-.btn.btn-facebook {
-  color: $facebook-button-text-color;
-  border: 1px solid $facebook-button-color;
-  background-color: $facebook-button-color;
-}
-
-.btn.btn-facebook:active {
-  outline: none;
-  border-color: $facebook-button-color-active;
-  background-color: $facebook-button-color-active;
-}
-
 .btn.location_menu {
   color: white;
 }

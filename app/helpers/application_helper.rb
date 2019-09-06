@@ -11,7 +11,7 @@ module ApplicationHelper
         return user.avatar.url
       end
 
-      # From Oauth login provder (facebook)
+      # From Oauth login provder
       if user.image
         secureUrl = user.image
         secureUrl.sub! 'http://', 'https://'
