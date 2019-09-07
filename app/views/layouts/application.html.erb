@@ -47,8 +47,10 @@
 
     <div class="container">
       <%= yield %>
-      <%= render 'link_cloud/show' %>
-      <%= render 'kind_cloud/venue_kinds' %>
+      <div class="noprint">
+        <%= render 'link_cloud/show' %>
+        <%= render 'kind_cloud/venue_kinds' %>
+      </div>
     </div>
 
     <%= render 'shared/footer' %>
