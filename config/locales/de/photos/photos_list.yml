@@ -2,5 +2,4 @@ de:
   photos:
     single_photo:
       main_photo: "Hauptfoto"
-    photos_list:
       are_you_sure: "Dieses Foto löschen?"
