@@ -43,8 +43,8 @@ Rails.application.configure do
   config.action_view.raise_on_missing_translations = true
 
   # Not too verbose
-  config.log_level = :info
-  
+  # config.log_level = :info
+
   # Enable logger if needed
   config.logger = Logger.new(STDOUT)
 end
