@@ -12,4 +12,5 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get '/search'
     assert_response :success
   end
+
 end

@@ -106,7 +106,7 @@
         <li <% if current_page?(dashboard_path) %> class="active" <% end %>><%= link_to t('dashboard'), dashboard_path %></li>
         <li <% if current_page?(locations_path) || current_page?(reservations_show_all_path) %> class="active" <% end %>><%= link_to t('manage'), locations_path %></li>
         <% if current_user.isAdmin %>
-          <li <% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
+          <li id="admin-link"<% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
         <% end %>
       </ul>
 

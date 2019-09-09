@@ -15,4 +15,17 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     get '/dashboard'
     assert_response :success
   end
+
+  test 'should not get a admin-link for non admins' do
+    # Should not have 'administrator' access
+    get '/dashboard'
+    assert_select 'li#admin-link', false
+  end
+
+  test 'should get a admin-link for admins' do
+    sign_in users(:admin)
+    get '/dashboard'
+    assert_select 'li#admin-link'
+  end
+
 end

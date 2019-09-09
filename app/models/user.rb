@@ -7,6 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
+  ADMIN_ROLE = "ADMIN"
+  SYSTEM_ROLE = "SYSTEM"
+
   # Avatar
   has_attached_file :avatar,
                     styles: {
@@ -27,8 +30,8 @@ class User < ApplicationRecord
 
   # force set admin role
   after_find do |user|
-    user.role = 'admin' if user.email == ENV['admin_role1']
-    user.role = 'admin' if user.email == ENV['admin_role2']
+    user.role = ADMIN_ROLE if user.email == ENV['admin_role1']
+    user.role = ADMIN_ROLE if user.email == ENV['admin_role2']
   end
 
   before_create do
@@ -45,12 +48,12 @@ class User < ApplicationRecord
   end
 
   def isAdmin
-    role == 'admin'
+    role == ADMIN_ROLE
   end
 
   def isSystem
     # system user can not log in  are used as a placeholder for incomming messages with reservations
-    role == 'SYSTEM'
+    role == SYSTEM_ROLE
   end
 
   def fullname

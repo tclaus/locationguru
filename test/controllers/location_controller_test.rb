@@ -10,6 +10,12 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
   #    get '/admin'
   #    assert_response :success
   #  end
+  test 'should redirect locations if not logged in' do
+    get '/locations'
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+  end
 
   test 'should create a location' do
     sign_in users(:host)

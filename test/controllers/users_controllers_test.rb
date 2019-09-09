@@ -7,7 +7,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should show user' do
     sign_in users(:host)
-    get '/users/1'
+    get '/users/2'
     assert_response :success
+  end
+
+  test 'should be admin' do
+    adminUser = users(:admin)
+    assert adminUser.isAdmin
   end
 end
