@@ -1,10 +1,12 @@
 {
   "name": "locationguru",
   "scripts": {
-    "postdeploy": "bundle exec rake db:setup"
   },
   "env": {
     "admin_role1": {
+      "required": true
+    },
+    "DATABASE_URL" :{
       "required": true
     },
     "FACEBOOK_APP_CODE": {
@@ -87,7 +89,6 @@
   },
   "addons": [
     "papertrail",
-    "heroku-postgresql",
     "redistogo"
   ],
   "buildpacks": [
