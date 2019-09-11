@@ -12,7 +12,7 @@ class DeleteNotActivatedAccountsJob < ApplicationJob
     # Are not activated
     # for the last 21 days
     now = Date.today
-    time_ago = (now - 21)
+    time_ago = (now - 3)
 
     invalid_users= User.where('sign_in_count = 0 and created_at < ?', time_ago)
     logger.info("Delete #{invalid_users.count} invalid user accounts")
