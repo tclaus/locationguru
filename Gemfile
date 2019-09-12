@@ -36,7 +36,7 @@ gem 'paperclip', '~> 6.0.0'
 gem 'toastr-rails', '~>1.0'
 
 # Auth Tool
-gem 'devise', '~>4.2'
+gem 'devise', '~>4.7'
 gem 'devise-i18n'
 
 # Send emails
