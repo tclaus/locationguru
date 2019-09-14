@@ -3,6 +3,9 @@ en:
     description:
       description: "Description"
       listing_name: "Name of listing"
+      subtitle: "Subtitle"
+      give_a_subtitle: "What is special on this venue?"
+      short_subtitle_rule: "'A party that can be loud here', 'Nice rooms with heigh ceilings'"
       what_is_your_listing_name: "Short name"
       short_location_name_rule: "Don't write 'best location' or '... in NY'. This is already in the description or address field."
       summary: "Descriptive text"
