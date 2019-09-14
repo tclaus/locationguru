@@ -2,6 +2,9 @@ de:
   locations:
     description:
       description: "Beschreibung"
+      subtitle: "Untertitel"
+      give_a_subtitle: "Was macht diesen Ort aus? Was ist besonders?"
+      short_subtitle_rule: "z.B.: 'Ideal für Geburtstage, an denen es lauter werden kann'"
       listing_name: "Name des Eintrages"
       what_is_your_listing_name: "Kurzer, allgemein bekannter Name der Location"
       short_location_name_rule: "Schreiben Sie nicht etwa 'zu vermieten' oder einen '... in Dresden', da dies aus der Anzeige selber hervorgeht"

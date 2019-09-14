@@ -13,7 +13,8 @@ class Location < ApplicationRecord
 
   validates :kind_type, presence: true
   validates :location_type, presence: true
-  validates :listing_name, length: { maximum: 200 }
+  validates :listing_name, length: { maximum: 80 }
+  validates :subtitle, length: { maximum: 200 }
   validates :max_persons, numericality: { less_than: 100_000 }
   validates :suitableForText, length: { maximum: 50 }
 
