@@ -218,6 +218,7 @@ class LocationsController < ApplicationController
                                      :max_persons,
                                      :price_level,
                                      :listing_name,
+                                     :subtitle,
                                      :summary,
                                      :address,
                                      :phonenumber,
