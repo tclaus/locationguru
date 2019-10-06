@@ -93,4 +93,8 @@ Rails.application.routes.draw do
   %w[404 422 500].each do |code|
     get code, to: 'errors#show', code: code
   end
+
+  # Fast exit hack attempts
+  get 'wp-login.php', to: 'errors#show', code: 404
+  get 'blog/wp-login.php', to: 'errors#show', code: 404
 end
