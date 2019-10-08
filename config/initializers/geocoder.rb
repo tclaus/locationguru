@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Geocoder.configure(
+  lookup: :google,
   units: :km,
   api_key: ENV['maps_key']
 )
