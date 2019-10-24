@@ -9,12 +9,6 @@
     "DATABASE_URL" :{
       "required": true
     },
-    "FACEBOOK_APP_CODE": {
-      "required": true
-    },
-    "FACEBOOK_APP_ID": {
-      "required": true
-    },
     "hostname": {
       "required": true
     },
@@ -61,9 +55,6 @@
       "required": true
     },
     "MAIL_API_KEY": {
-      "required": true
-    },
-    "MAIL_API_BASE_URL": {
       "required": true
     },
     "MAIL_SEND_FROM_DOMAIN": {
