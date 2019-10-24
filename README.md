@@ -30,8 +30,13 @@ $: brew install redis
 Start the service:
 $: brew services start redis
 
+Start the JobQueue:
+$: QUEUE=* rake resque:work
+
 Export the redis local environment:
 $: export REDISTOGO_URL=localhost:6379
+
+All environments may be inserted to the .env file.
 
 For the environment you can create a .env file in the main directory and copy the
 line: 'export REDISTOGO_URL=localhost:6379' into it.

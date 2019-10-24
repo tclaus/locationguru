@@ -60,22 +60,13 @@
     "SECRET_KEY_BASE": {
       "required": true
     },
-    "SMTP_API_KEY": {
+    "MAIL_API_KEY": {
       "required": true
     },
-    "SMTP_PASSWORD": {
+    "MAIL_API_BASE_URL": {
       "required": true
     },
-    "SMTP_SEND_FROM_DOMAIN": {
-      "required": true
-    },
-    "SMTP_SERVER": {
-      "required": true
-    },
-    "SMTP_SERVER_PORT": {
-      "required": true
-    },
-    "SMTP_USERNAME": {
+    "MAIL_SEND_FROM_DOMAIN": {
       "required": true
     }
   },

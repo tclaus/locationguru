@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This provider contains reminders to the submitter to activate their
+# venues
 class SendNotActivatedMailMailer < ApplicationMailer
   default from: 'Thorsten Claus <thorsten.claus@locationguru.net>'
 
