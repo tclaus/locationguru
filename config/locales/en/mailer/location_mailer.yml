@@ -5,8 +5,9 @@ en:
       send_you_a_message_for: "%{sender} sent you a message for location '%{location_name}'"
       your_inbox: "Your inbox:"
       inquery_date: "Inquery Date"
+      send_answer_to: "Send your answer to:"
     location_mail_to_sender:
-      you_send_this_message: "You have send this message:"
+      you_send_this_message: "You have send this message to '%{location_name}':"
       subject: "Your message for '%{location_name}'"
       inquery_date: "Inquery Date"
     location_activated:

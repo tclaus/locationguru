@@ -4,9 +4,10 @@ de:
       subject: "Sie haben eine Nachricht für '%{location_name}'"
       send_you_a_message_for: "%{sender} hat Ihnen für '%{location_name}' eine Nachricht gesendet."
       your_inbox: "Ihr Nachrichteneingang:"
-      inquery_date: "Anfrage Datum"
+      inquery_date: "Anfrage Datum für:"
+      send_answer_to: "Senden Sie Ihre Antwort an:"
     location_mail_to_sender:
-      you_send_this_message: "Sie haben diese Nachricht gesendet:"
+      you_send_this_message: "Sie haben diese Nachricht an '%{location_name}' gesendet:"
       subject: "Ihre Nachricht an '%{location_name}'"
       inquery_date: "Anfrage Datum"
     location_activated:
