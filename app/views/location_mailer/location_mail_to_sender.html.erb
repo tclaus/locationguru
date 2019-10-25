@@ -1,11 +1,11 @@
 
     <h1>Location Guru</h1>
     <p>
-      <%= t('.you_send_this_message_for', location_name: @location.listing_name) %> <br>
+      <%= t('.you_send_this_message', location_name: @location.listing_name) %> <br>
       <%= t('.inquery_date') %>: <%= @message.inquery_date %>
     </p>
     <p>
       <%= html_line_breaks(@message.message) %>
     </p>
     <br>
-    <a href='https://Locationguru.net/'>locationguru.net</a>
+    <a href='https://locationguru.net/'>locationguru.net</a>

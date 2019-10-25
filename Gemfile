@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.5'
+ruby '2.5.7'
 
 # git_source(:github) do |repo_name|
 #  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -40,7 +40,7 @@ gem 'devise', '~>4.7'
 gem 'devise-i18n'
 
 # Send emails
-gem 'mailgun-ruby', git: 'https://github.com/mailgun/mailgun-ruby'
+gem 'mailgun-ruby' #, git: 'https://github.com/mailgun/mailgun-ruby'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

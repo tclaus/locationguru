@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 class LocationMailer < ApplicationMailer
+
+  before_action {  @location = params[:location] }
+
   # Send to location owner
   def location_mail
-    @location = params[:location]
     @message = params[:message]
-
+    @mail_to_owner = true
     email_with_name = "LocationGuru.net <#{@location.user.email}>"
+
+    headers["Venue-Message-Type"] = "inquery"
+    headers["Venue-Message-Id"] = @message.id
+
     I18n.locale = @location.user.language_id
     mail(to: email_with_name,
          from: "#{@message.name} (Location Guru) <no-reply@locationguru.net>",
@@ -14,18 +20,21 @@ class LocationMailer < ApplicationMailer
          subject: t('.subject', location_name: @location.listing_name))
   end
 
-  # reference amil to sender
+  # reference Mail to requester
   def location_mail_to_sender
-    @location = params[:location]
     @message = params[:message]
 
     email_with_name = "#{@message.name} (Location Guru) <#{@message.email}>"
+
+    headers["Venue-Message-Type"] = "inquery-reference"
+    headers["Venue-Message-Id"] = @message.id
+
+    I18n.locale = @location.user.language_id
     mail(to: email_with_name,
          subject: t('.subject', location_name: @location.listing_name))
   end
 
   def location_activated
-    @location = params[:location]
     @edit_url = listing_location_url(@location)
     @show_url = location_url(@location)
     email_with_name = "LocationGuru.net <#{@location.user.email}>"
@@ -35,7 +44,6 @@ class LocationMailer < ApplicationMailer
   end
 
   def location_deactivated
-    @location = params[:location]
     @edit_url = listing_location_url(@location)
     @show_url = location_url(@location)
 
@@ -44,4 +52,5 @@ class LocationMailer < ApplicationMailer
          from: 'Location Guru <no-reply@locationguru.net>',
          subject: t('.subject', location_name: @location.listing_name))
   end
+
 end

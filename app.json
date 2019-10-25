@@ -9,12 +9,6 @@
     "DATABASE_URL" :{
       "required": true
     },
-    "FACEBOOK_APP_CODE": {
-      "required": true
-    },
-    "FACEBOOK_APP_ID": {
-      "required": true
-    },
     "hostname": {
       "required": true
     },
@@ -60,22 +54,10 @@
     "SECRET_KEY_BASE": {
       "required": true
     },
-    "SMTP_API_KEY": {
+    "MAIL_API_KEY": {
       "required": true
     },
-    "SMTP_PASSWORD": {
-      "required": true
-    },
-    "SMTP_SEND_FROM_DOMAIN": {
-      "required": true
-    },
-    "SMTP_SERVER": {
-      "required": true
-    },
-    "SMTP_SERVER_PORT": {
-      "required": true
-    },
-    "SMTP_USERNAME": {
+    "MAIL_SEND_FROM_DOMAIN": {
       "required": true
     }
   },

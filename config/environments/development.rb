@@ -43,14 +43,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    address: ENV['SMTP_SERVER'],
-    port: ENV['SMTP_SERVER_PORT'],
-    domain: ENV['SMTP_SEND_FROM_DOMAIN'],
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
-    api_key: ENV['SMTP_API_KEY'],
-    authentication: 'plain',
-    enable_starttls_auto: true
+    domain: ENV['MAIL_SEND_FROM_DOMAIN'],
+    api_key: ENV['MAIL_API_KEY']
   }
 
   # Print deprecation notices to the Rails logger.
