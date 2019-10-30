@@ -2,7 +2,7 @@ de:
   locations:
     presentation:
       amenity:
-          amenities: "Ausstattung:"
+          amenities: "Ausstattung"
           no_amenities_set: "Keine besondere Ausstattung angegeben"
           has_kitchen: "Küche"
           has_outdoor: "Aussenbereich"

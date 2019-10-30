@@ -1,60 +1,68 @@
 <% meta_tag :page_title, page_title + ' - Neu Anlegen' %>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <%= t('.create_your_location') %> <br>
-    <small><%= t('.base_entry_always_free') %></small>
-  </div>
-  <div class="panel-body">
-    <div class="container">
-      <%= form_for @location do |f| %>
-      <div class="row">
-        <div class="form-group">
-          <%= f.label(:listing_name, t('.listing_name')) %>
-          <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
-          <small><%= t('.short_location_name_rule') %></small>
+
+</div>
+</div>
+<% # remove darker container %>
+<div class="secondary-container">
+  <div class="container">
+<div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.create_your_location') %> <br>
+        <small><%= t('.base_entry_always_free') %></small>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @location do |f| %>
+          <div class="row">
+            <div class="form-group">
+              <%= f.label(:listing_name, t('.listing_name')) %>
+              <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
+              <small><%= t('.short_location_name_rule') %></small>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <%= f.label(:summary, t('.summary')) %>
+              <%= f.text_area :summary, rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
+            </div>
+          </div>
+
+            <div class="row">
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <%= f.label(:location_type, t('.location_type')) %>
+                  <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
+                  <%= f.select(:location_type, options_for_select(locationTypeArray), required: true, prompt: t('.select_location_type')) %>
+                </div>
+              </div>
+
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <%= f.label(:kind_type,t('.location_kind')) %>
+                  <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+                  <%= f.select(:kind_type, options_for_select(kindTypeArray), required: true, prompt: t('.select_location_kind')) %>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <%= f.label(:max_persons, t('.maximum_number_of_persons')) %>
+                  <%= f.text_field :max_persons, value: 0, prompt: "50",class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-8">
+
+              <div class="text-right"> <%= f.submit t('.create'), class:"btn btn-default" %></div>
+              </div>
+            </div>
+
+
+          <% end %>
         </div>
       </div>
-
-      <div class="row">
-        <div class="form-group">
-          <%= f.label(:summary, t('.summary')) %>
-          <%= f.text_area :summary, rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
-        </div>
-      </div>
-
-        <div class="row">
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <%= f.label(:location_type, t('.location_type')) %>
-              <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
-              <%= f.select(:location_type, options_for_select(locationTypeArray), required: true, prompt: t('.select_location_type')) %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <%= f.label(:kind_type,t('.location_kind')) %>
-              <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-              <%= f.select(:kind_type, options_for_select(kindTypeArray), required: true, prompt: t('.select_location_kind')) %>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= f.label(:max_persons, t('.maximum_number_of_persons')) %>
-              <%= f.text_field :max_persons, value: 0, prompt: "50",class: "form-control" %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-md-offset-8">
-
-          <div class="text-right"> <%= f.submit t('.create'), class:"btn btn-default" %></div>
-          </div>
-        </div>
-
-
-      <% end %>
     </div>
-  </div>
 </div>

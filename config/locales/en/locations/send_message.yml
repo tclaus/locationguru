@@ -6,6 +6,7 @@ en:
       your_email: "Your email address"
       name: "Name:"
       date: "Date:"
+      on_which_date_should_the_event_take_place: "On which date should the event take place?"
       your_name: "Your name"
       message: "Message"
       your_message: "Do you have a question? Do you like to rent this location? Give the owner details about your event."

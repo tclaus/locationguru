@@ -1,4 +1,11 @@
 <% meta_tag :page_title,page_title + ' - Admin Userlist' %>
+
+</div>
+</div>
+<% # remove darker container %>
+<div class="secondary-container">
+  <div class="container">
+
 Total Users: <%= t('.total_users') %>
 <%= @users.count %>, <%= link_to 'Export To File', admin_export_users_path %>
 <br>

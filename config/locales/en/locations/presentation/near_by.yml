@@ -3,4 +3,5 @@ en:
     presentation:
       locations_nearby:
         near_by: "Near by"
+        no_locations_nearby: "No venues nearby"
         distance_from: "km distance"

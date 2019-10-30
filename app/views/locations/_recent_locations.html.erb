@@ -8,14 +8,16 @@
         </div>
         <% end %>
         <div class="panel-body">
-          <div class="listing_city"><%= location.city %> </div>
+          <div class="listing-city"><%= location.city %> </div>
           <% if location.listing_name? %>
-            <%= link_to location.listing_name, location, class: "listing_name" %>
+            <%= link_to location.listing_name, location, class: "listing-name" %>
           <% else %>
-            <%= link_to t('.set_a_name'), location, class: "listing_name" %>
+            <%= link_to t('.set_a_name'), location, class: "listing-name" %>
           <% end %>
           <br>
-          <%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %>
+          <div class="listing-properties">
+            <div><%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %></div>
+          </div>
         </div>
       </div>
     </div>

@@ -63,6 +63,14 @@ class Location < ApplicationRecord
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 
+  def short_summary
+    if summary.length > 200
+      summary[0,200] + '...'
+    else
+      summary
+    end
+  end
+
   def is_active?
     active
   end

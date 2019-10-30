@@ -1,7 +1,7 @@
 
 Voraussetzungen:
 Posgres ist installiert
-(ungebunsvariable setzen)
+(Umgebunsvariable setzen)
 
 $: bundle install
 
@@ -9,7 +9,7 @@ Redis-server installieren
 
 Upload to heroku
 1. $: Heroku login
-2. Datenbank initialisisren:
+2. Datenbank initialisieren:
     heroku run rake db:schema:load
     heroku run rake db:seed
 

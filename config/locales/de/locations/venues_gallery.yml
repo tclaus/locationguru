@@ -1,0 +1,6 @@
+de:
+  locations:
+    venues_gallery:
+      set_a_name: "<Kein Name>"
+      no_locations_found: "Legen Sie ihren ersten einen Eintrag an"
+      persons: "Personen"

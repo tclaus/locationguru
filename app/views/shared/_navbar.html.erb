@@ -13,21 +13,13 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
-      <div class="form-group">
-        <%= text_field_tag :search, params[:search], placeholder: t(".search_in"), class:"form-control", id:"auto_address_navbar" %>
-      </div>
-    <% end %>
+    <ul class="nav navbar-nav">
+      <li><%= link_to t('privacy'), '/privacy' %></li>
+      <li><%= link_to t('impressum'), '/impressum' %></li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="show-desktop-only">
-        <button class="btn btn-form btn-small navbar-button show-desktop-only">
           <%= link_to t('.become_a_host'), new_location_path %>
-        </button>
-      </li>
-      <li>
-        <span class="changelog" id='changelog'>
-          <i class="far fa-bell fa-2x"></i>
-        </span>
       </li>
       <% if (!user_signed_in?) %>
         <li><%= link_to t('login'), new_user_session_path %>
@@ -47,26 +39,16 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <%= link_to t('.dashboard'), dashboard_path %>
-            </li>
-            <li>
-              <%= link_to t('.manage'), locations_path %>
-            </li>
-            <li>
-              <%= link_to t('.become_a_host'), new_location_path %>
-            </li>
+            <li><%= link_to t('.dashboard'), dashboard_path %></li>
+            <li><%= link_to t('.manage'), locations_path %></li>
+            <li><%= link_to t('.become_a_host'), new_location_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to t('.profile'), edit_user_registration_path %>
-            </li>
-            <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
-            </li>
-
+            <li><%= link_to t('.profile'), edit_user_registration_path %></li>
+            <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-      </ul>
-    <% end %>
-
+      <% end %>
+    </ul>
   </div>
   <!-- /.navbar-collapse -->
 </div>
@@ -94,6 +76,7 @@
     current_page?(suitables_location_path(id: id)) ||
     current_page?(amenities_location_path(id: id)) ||
     current_page?(description_location_path(id: id)) ||
+    current_page?(listing_location_path(id: id)) ||
     current_page?(photo_upload_location_path(id: id)) ||
     current_page?(location_location_path(id: id)) ||
     current_page?(send_message_location_path(id: id)) ||

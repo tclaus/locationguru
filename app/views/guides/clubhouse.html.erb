@@ -1,0 +1,18 @@
+
+  <div id="left">
+    <div class="row" id="location_listing">
+      <% if !@locations.empty? %>
+        <%= render partial: 'locations/venues_gallery' %>
+      <% else %>
+        <%= render partial: 'pages/no_locations_found' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="right">
+    <!-- google map -->
+    <div id="map" data-mapdata='<%= raw @simple_locations.to_json.gsub("</", "<\\/") %>' class="maps-area-multiple">
+
+      <%= javascript_include_tag('maps_location_list') %>
+    </div>
+  </div>

@@ -13,14 +13,25 @@ class Counter < ApplicationRecord
     if counter.nil?
       Counter.create(count: 1, context: 'mail_send_for_user', context_type: user_id, date_of_count: Date.today)
     else
-      sql = "UPDATE counters SET count = COALESCE(count, 0) + 1 WHERE context = 'mail_send_for_user' AND context_type='#{user_id}' AND date_of_count='#{Date.today}'"
+      sql = "UPDATE counters SET count = COALESCE(count, 0) + 1
+                    WHERE context = 'mail_send_for_user'
+                          AND context_type='#{user_id}'
+                          AND date_of_count='#{Date.today}'"
       connection.select_value(sql).to_i
     end
   end
 
   # increases location visits for location id
-  def self.increase_location(location_id)
-    logger.info "Increment location #{location_id}"
+  def self.increase_location(location_id, client_ip)
+    logger.info "Increment location #{location_id} on #{client_ip}"
+    last_ip = Redis.current.get("IP-#{location_id}")
+    return if last_ip == client_ip
+
+    logger.info " Last known IP: #{last_ip}"
+    Redis.current.set("IP-#{location_id}", client_ip)
+
+    # read last IP - if not existent or different than last, then increases
+    # Dont increasde if same as current Request IP
 
     counter = Counter.where(context: 'location_visits_for_user',
                             context_type: location_id,

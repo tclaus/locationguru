@@ -1,5 +1,5 @@
+<h3>Standort</h3>
 <% if !@location.latitude.blank? && !@location.longitude.blank? %>
-  <div class="row">
     <div id="map" data-lat=<%= @location.latitude %>
         data-lng=<%= @location.longitude %>
         data-name=<%= @location.listing_name %>
@@ -7,5 +7,13 @@
         class="maps-area-single">
     </div>
     <%= javascript_include_tag('maps_single_location') %>
-  </div>
+<% else %>
+  <div class="no-location"> Kein Standort verfügbar</div>
+<% end %>
+
+<h4 class="venue-name"><%= @location.listing_name %></h4>
+<% if !@location.address.blank? %>
+<address>
+  <%= html_line_breaks(@location.address) %>
+</address>
 <% end %>

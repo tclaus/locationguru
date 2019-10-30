@@ -1,6 +1,8 @@
-<div class="row">
-  <div class="col-md-12">
+
+<div class="header">
     <%= image_tag @location.cover_photo(:original), class: "img-header", alt: @location.listing_name %>
     <% meta_tag :image, @location.cover_photo(:thumb) %>
-  </div>
+    <div class="guru-centered guru-location">
+      <%= image_tag 'logo/logo_white.svg' %>
+    </div>
 </div>

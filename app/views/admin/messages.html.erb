@@ -1,3 +1,9 @@
+</div>
+</div>
+<% # remove darker container %>
+<div class="secondary-container">
+  <div class="container">
+
 <% meta_tag :page_title,page_title + ' - Admin Messages' %>
 Total Messages: <%= @messages.count %>,
 <%= link_to 'Export To File', admin_export_messages_path %>
@@ -42,5 +48,4 @@ Total Messages: <%= @messages.count %>,
       </tr>
       <% end %>
     </table>
-
 </div>

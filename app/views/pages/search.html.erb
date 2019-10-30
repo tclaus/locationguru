@@ -1,95 +1,99 @@
-<div id="main">
-  <div id="left">
-    <!-- search Panel -->
-    <div class="row">
-      <div class="col-sm-offset-3 col-sm-6">
-        <div id="filter" class="btn btn-default"
-        data-less-filters="<%= t('.lessFilters') %>"
-        data-more-filters="<%= t('.moreFilters') %>"
-          data-toggle="collapse"
-          data-target="#collapsePanel">
-          <%= t('.moreFilters') %>
-          <i class="fas fa-chevron-down"></i>
+</div>
+</div>
+<div class="secondary-container">
+  <div class="container">
+    <div id="main">
+      <div class="left">
+        <!-- search Panel -->
+        <div class="row">
+          <div class="col-sm-offset-3 col-sm-6">
+            <div id="filter" class="btn btn-default"
+            data-less-filters="<%= t('.lessFilters') %>"
+            data-more-filters="<%= t('.moreFilters') %>"
+              data-toggle="collapse"
+              data-target="#collapsePanel">
+              <%= t('.moreFilters') %>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <%= javascript_include_tag('search_filters') %>
+          </div>
         </div>
-        <%= javascript_include_tag('search_filters') %>
+        <div class="row" id="detailSearch">
+          <br>
+          <div class="collapse" id="collapsePanel">
+            <%= search_form_for @search, url: search_path, remote: true do |f|%>
+            <%= t('.ammenities') %>
+            <div class="row">
+              <div class="col-md-4">
+                <%= check_box_tag "q[isExclusiveAvailable_eq_any[]]", "isExclusiveAvailable" %>
+                <%= t('.isExclusiveAvailable') %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-6 select">
+                <div class="form-group">
+                  <label><%= t('.locationType') %></label>
+                  <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
+                  <%= select("q[location_type]", :location_type, locationTypeArray) %>
+                </div>
+              </div>
+
+              <div class="col-md-6 select">
+                <div class="form-group">
+                  <label><%= t('.kindType') %></label>
+                  <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+                  <%= select("q[kind_type]", :kind_type, kindTypeArray) %>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <%= check_box_tag "q[has_heating_eq]", true %>
+                <%= t('.hasHeating') %>
+              </div>
+              <div class="col-md-4">
+                <%= check_box_tag "q[has_kitchen_eq]", true %>
+                <%= t('.hasKitchen') %>
+              </div>
+              <div class="col-md-4">
+                <%= check_box_tag "q[has_music_equipment_eq]", true %>
+                <%= t('.hasMusicEquipment') %>
+              </div>
+              <div class="col-md-4">
+                <%= check_box_tag "q[has_outdoor_eq]", true %>
+                <%= t('.hasOutdoor') %>
+              </div>
+              <div class="col-md-4">
+                <%= check_box_tag "q[has_parking_space_eq]", true %>
+                <%= t('.hasParkingSpace') %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-offset-4 col-md-4">
+                <%= f.submit t('search'), class: "btn btn-default btn-search" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <br>
+
+        <div class="row" id="location_listing">
+          <% if !@locations.empty? %>
+            <%= render partial: 'locations/search_results' %>
+          <% else %>
+            <%= render partial: 'pages/no_locations_found' %>
+          <% end %>
+        </div>
+      </div>
+      </div>
+      <div class="right">
+        <!-- google map -->
+        <div id="map" data-mapdata='<%= raw @simple_locations.to_json.gsub("</", "<\\/") %>' class="maps-area-multiple">
+
+        <%= javascript_include_tag('maps_location_list') %>
+        </div>
       </div>
     </div>
-    <div class="row" id="detailSearch">
-      <br>
-      <div class="collapse" id="collapsePanel">
-        <%= search_form_for @search, url: search_path, remote: true do |f|%>
-        <%= t('.ammenities') %>
-        <div class="row">
-          <div class="col-md-4">
-            <%= check_box_tag "q[isExclusiveAvailable_eq_any[]]", "isExclusiveAvailable" %>
-            <%= t('.isExclusiveAvailable') %>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-6 select">
-            <div class="form-group">
-              <label><%= t('.locationType') %></label>
-              <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
-              <%= select("q[location_type]", :location_type, locationTypeArray) %>
-            </div>
-          </div>
-
-          <div class="col-md-6 select">
-            <div class="form-group">
-              <label><%= t('.kindType') %></label>
-              <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-              <%= select("q[kind_type]", :kind_type, kindTypeArray) %>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-4">
-            <%= check_box_tag "q[has_heating_eq]", true %>
-            <%= t('.hasHeating') %>
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[has_kitchen_eq]", true %>
-            <%= t('.hasKitchen') %>
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[has_music_equipment_eq]", true %>
-            <%= t('.hasMusicEquipment') %>
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[has_outdoor_eq]", true %>
-            <%= t('.hasOutdoor') %>
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[has_parking_space_eq]", true %>
-            <%= t('.hasParkingSpace') %>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-offset-4 col-md-4">
-            <%= f.submit t('search'), class: "btn btn-default btn-search" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <br>
-
-    <div class="row" id="location_listing">
-      <% if !@locations.empty? %>
-        <%= render partial: 'locations/location_list' %>
-      <% else %>
-        <%= render partial: 'pages/no_locations_found' %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div id="right">
-  <!-- google map -->
-  <div id="map" data-mapdata='<%= raw @simple_locations.to_json.gsub("</", "<\\/") %>' class="maps-area-multiple">
-
-  <%= javascript_include_tag('maps_location_list') %>
-  </div>
-</div>
-</div>

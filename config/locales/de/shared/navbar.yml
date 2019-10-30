@@ -1,7 +1,7 @@
 de:
   shared:
     navbar:
-      become_a_host: "Biete kostenlos deine Location an"
+      become_a_host: "Anbieten"
       dashboard: "Übersicht"
       manage: "Verwalte deine Locations"
       account_settings: "Account Einstellungen"

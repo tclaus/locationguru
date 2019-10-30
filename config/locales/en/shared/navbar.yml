@@ -1,7 +1,7 @@
 en:
   shared:
     navbar:
-      become_a_host: "Submit your Venue"
+      become_a_host: "List your Venue"
       dashboard: "Dashboard"
       manage: "Manage venues"
       account_settings: "Account Settings"

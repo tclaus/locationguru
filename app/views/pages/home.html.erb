@@ -1,64 +1,58 @@
-<div class="row">
-  <div class="col-md-7 banner">
-    <h1><%= t('locationguru_subtitle') %><br>
-    <small> <%= t('site_slogan') %> </small>
-    </h1>
-  </div>
-</div>
-
+<div class="search-bar">
 <%= form_tag search_path, method: :get do %>
   <div class="row">
-    <div class="col-md-6">
-      <%= text_field_tag :search, params[:search], placeholder: t('.where_are_you_looking_for'), class:"form-control", id: "auto_location" %>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <%= text_field_tag :search, params[:search], placeholder: t('.where_are_you_looking_for'), class:"search-control search-textfield", id: "auto_location" %>
     </div>
-    <div class="col-md-3">
-
+    <div class="col-md-4">
       <%  kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-      <%= select_tag( :location_type, options_for_select(kindTypeArray),{:prompt=> t('.select_location_type')}) %>
-
+      <%= select_tag( :location_type, options_for_select(kindTypeArray),{:prompt => t('.select_location_type')}) %>
     </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <%= submit_tag t('search'), class:"btn btn-default btn-search" %>
+    <div class="col-md-2">
+        <%= submit_tag t('search'), class:"btn btn-default btn-search" %>
     </div>
   </div>
 <% end %>
-
-<% # Locations %>
-<div>
-  <h3><%= t('.locations') %></h3>
-</div>
-<br>
-
-<% if !@locations.empty? %>
-  <%= render 'locations/location_list' %>
-  <hr>
-  <div><h3>
-    <%= t('.recent_venues') %>
-  </h3></div>
-  <br>
-  <%= render 'locations/recent_locations' %>
-<% else %>
-  <%= render 'pages/no_locations_found' %>
-<% end %>
-
-<% # Cities %>
-<hr>
-<div><h3>
-  <%= t('.cities') %>
-</h3></div>
-<br>
-<div class="row">
-  <%= render partial: 'cities', locals: {items: @cities}  %>
 </div>
 
-<div>
-  <% # Footer text #%>
-  <hr>
-  <%= t('.home_page_footer') %>
 </div>
+</div>
+<% # close sourrounding containers %>
+
+<div class="orange-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+        <div class="col-md-4 text-center">
+          <%= link_to new_location_path do %>
+            <button class="btn btn-default"><%= t('.add_your_location') %></button>
+          <% end %>
+        </div>
+      <div class="col-md-4"></div>
+      </div>
+  </div>
+</div>
+
+<% # divides the outer container classes %>
+<div class="secondary-container">
+  <div class="container">
+    <p class="teaser-text">
+      <%= t('.home_page_teaser') %>
+    </p>
+
+    <% # Sample Vanues %>
+    <% if !@locations.empty? %>
+      <%= render 'locations/venues_gallery' %>
+    <% else %>
+      <%= render 'pages/no_locations_found' %>
+    <% end %>
+  </div>
+</div>
+<% # Location kinds %>
+<div class="secondary-container">
+<%= render 'kind_cloud/venue_kinds' %>
+<div class="container">
+<% # Start container again #%>
 
 <%= javascript_include_tag( 'home_geocomplete' ) %>

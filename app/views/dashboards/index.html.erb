@@ -1,3 +1,10 @@
+
+</div>
+</div>
+<% # remove darker container %>
+<div class="secondary-container">
+  <div class="container">
+
 <div class="row">
   <div class="col-md-3">
     <div class="panel panel-default">
@@ -6,11 +13,15 @@
       </div>
       <div class="panel-body">
         <ui class="sidebar-list">
-          <% if current_user.confirmation_token %>
+
             <li><%= t('.email_address') %>
               <span class="pull-right icon-babu">
-                <i class="fas fa-check-circle"></i></span></li>
-          <% end %>
+                <i class="fas fa-check-circle"></i>
+              </span>
+            </li>
+          <li>
+            <%= current_user.email %>
+          </li>
 
           <li><%= t('.phone_number')%>
             <span class="pull-right icon-babu">
@@ -85,7 +96,7 @@
       (<%= @locations.length %>)
     </div>
     <div class="panel-body">
-      <%= render partial: "locations/location_list" %>
+      <%= render partial: "locations/venues_gallery" %>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ en:
     presentation:
       suitable_for:
         no_suitables_set: "No special suitable set"
-        suitable_for: "Suitable for this kind:"
+        suitable_for: "Suitable for this kind"
         isForPrivateParties: "For private parties"
         isForClubbing: "Club / Commercial"
         isForWeddings: "Weddings"

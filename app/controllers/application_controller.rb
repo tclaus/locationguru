@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :set_csp
-  before_action :getCitiesLinkCloud
+  before_action :set_cities_link_cloud
+  before_action :set_header_class
 
   protected
 
@@ -24,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Load cities cloud
-  def getCitiesLinkCloud
+  def set_cities_link_cloud
     # Cache these a bit?
     @link_clouds = Location.where(active: true)
                            .select('city')
@@ -58,6 +59,18 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  # Sets a random header slider class
+  def set_header_class
+    slider_classes = %w[header-slider-1
+                        header-slider-2
+                        header-slider-5
+                        header-slider-6
+                        header-slider-8
+                        header-slider-9]
+
+    @background_header_class = slider_classes.sample
+  end
 
   def create_simple_location(location)
     simple_location =  SimpleLocation.new
