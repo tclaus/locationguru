@@ -3,7 +3,7 @@
     <% if current_page?(description_location_path) %>
       <%= link_to t(".description"), description_location_path, class:"sidebar-link active" %>
     <% else %>
-    <%= link_to t(".description"), description_location_path, class:"sidebar-link" %>
+      <%= link_to t(".description"), description_location_path, class:"sidebar-link" %>
     <% end %>
     <% if !@location.listing_name.blank? %>
       <span class="pull-right text-babu">
@@ -19,7 +19,7 @@
     <% if current_page?(listing_location_path) %>
       <%= link_to t(".listing"), listing_location_path, class:"sidebar-link active" %>
     <% else %>
-    <%= link_to t(".listing"), listing_location_path, class:"sidebar-link" %>
+      <%= link_to t(".listing"), listing_location_path, class:"sidebar-link" %>
     <% end %>
     <span class="pull-right text-babu">
       <i class="fas fa-check"></i>

@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   resources :locations, except: [:edit] do
     member do
       get 'listing'
-      get 'pricing'
       get 'description'
       get 'photo_upload'
       get 'suitables'
@@ -73,10 +72,12 @@ Rails.application.routes.draw do
 
   # Guids
   controller :guides do
-    get 'guides/kgv' => :clubhouse
-    get 'guides/clubhouse' => :clubhouse
-    get '/guides/partylocations' => :partyvenues
-    get '/guides/partyvenues' => :partyvenues
+    get 'guides/partyvenues' => :partyvenues
+    get 'guides/multi_purpose_rooms' => :multi_purpose_rooms
+    get 'guides/clubhouses' => :clubhouses
+    get 'guides/pubs' => :pubs
+    get 'guides/restaurants' => :restaurants
+
   end
 
   # Admin

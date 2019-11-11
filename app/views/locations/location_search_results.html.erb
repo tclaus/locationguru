@@ -1,0 +1,19 @@
+<% @locations.each do |location| %>
+<%= link_to location do %>
+  <%= image_tag location.cover_photo(:medium), alt: location.listing_name, class: "preview" %>
+  <div class="pull-right">
+      <div class="listing-city"><%= location.city %> </div>
+      <div class="listing-name"><%= location.listing_name %></div>
+      <div class="listing-properties">
+        <div><%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %></div>
+        <div>max. <%= location.max_persons %> <%= t('.persons') %> </div>
+      </div>
+  </div>
+<% end %>
+<% end %>
+
+<% if @locations.empty? %>
+  <div class="panel-body message-scroller">
+    <%= t('.no_locations_found') %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+de:
+  locations:
+    presentation:
+      contact:
+        available: "Verfügbarkeit"
+        contact: "Kontakt"
+        website: "Web:"
+        phonenumber: "Telefon:"
+        email: "E-Mail:"
+        send_a_message: "Nachricht senden"
+        free_text: "Frei"
+        booked_text: "Belegt"
+        requested_text: "Bereits angefragt aber noch frei"
+        venue_calls_last_week: "Aufrufe diese Woche"
+        no_phone: "Keine Telefonnummer angegeben"
+        no_website: "Keine Webseite angegeben"

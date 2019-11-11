@@ -15,6 +15,8 @@ en:
   update: "Update"
   delete: "Delete"
   login: "Login"
+  privacy: "Privacy"
+  impressum: "Impressum"
   sign_up: "Register"
   search: "Search"
   something_went_wrong_create_location: "To submit your venue all fields must be filled."

@@ -3,7 +3,7 @@ de:
   shared:
     footer:
         back_top: "Nach Oben"
-        become_a_host: "Biete deine Location an"
+        become_a_host: "Anbieten"
         contact: Kontakt
         gtc: "AGB"
         sourcecode: "Quellcode auf Github"

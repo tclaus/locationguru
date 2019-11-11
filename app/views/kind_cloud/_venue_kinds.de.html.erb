@@ -1,12 +1,25 @@
 <% # A link cloud for special pages of a kind type %>
-<hr>
-Sie suchen nach einem bestimmten Typ? <br>
-<div class="link-cloud-block">
-    <div class= "link-cloud">
-      <%=link_to 'Vereinsheime (KGV, Vereine)', '/guides/kgv' %>
+
+<div class="kind-cloud-block">
+  <h2><%= t('.looking_for_a_special_kind') %></h2>
+
+    <div class= "kind-cloud-element">
+      <%=link_to 'Party Räume', '/guides/partyvenues' %>
     </div>
 
-    <div class= "link-cloud">
-      <%=link_to 'Party Räume mieten', '/guides/partylocations' %>
+    <div class= "kind-cloud-element">
+      <%=link_to 'Mehrzweckräume', '/guides/multi_purpose_rooms' %>
+    </div>
+
+    <div class= "kind-cloud-element">
+      <%=link_to 'Vereinshäuser', '/guides/clubhouses' %>
+    </div>
+
+    <div class= "kind-cloud-element">
+      <%=link_to 'Pub / Bar', '/guides/pubs' %>
+    </div>
+
+    <div class= "kind-cloud-element">
+      <%=link_to 'Restaurants', '/guides/restaurants' %>
     </div>
 </div>

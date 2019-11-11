@@ -1,30 +1,36 @@
 <% meta_tag :page_title,page_title + ' - Admin dashboard' %>
-<div class="row">
-  <div class="col-md-9 text-center">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= t('.statistics') %>
-      </div>
-      <div class="panel-body">
-        <table class="statistic-table">
-          <tbody>
-            <tr>
-              <td class="text-left"><%= link_to t('.total_users'), admin_users_path %></td>
-              <td class="statistic-table right"><%= "#{@total_confirmed_users} (#{@total_users})" %> </td>
-            </tr>
-            <tr>
-              <td class="text-left"><%= link_to t('.total_locations'), admin_locations_path %></td>
-              <td class="statistic-table right"><%= "#{@total_active_locations} ( #{@total_locations})" %> </td>
-            </tr>
-            <tr>
-              <td class="text-left"><%= link_to t('.messages'), admin_messages_path %></td>
-              <td class="statistic-table right"><%= @total_messages %></td>
-            </tr>
-          </tbody>
-        </table>
-        <%= link_to 'Start Recalculation of geodata', admin_recalculation_path, method: :post %>
-      </div>
 
-    </div>
-  </div>
 </div>
+</div>
+<div class="secondary-container">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-9 text-center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= t('.statistics') %>
+          </div>
+          <div class="panel-body">
+            <table class="statistic-table">
+              <tbody>
+                <tr>
+                  <td class="text-left"><%= link_to t('.total_users'), admin_users_path %></td>
+                  <td class="statistic-table"><%= "#{@total_confirmed_users} (#{@total_users})" %> </td>
+                </tr>
+                <tr>
+                  <td class="text-left"><%= link_to t('.total_locations'), admin_locations_path %></td>
+                  <td class="statistic-table"><%= "#{@total_active_locations} ( #{@total_locations})" %> </td>
+                </tr>
+                <tr>
+                  <td class="text-left"><%= link_to t('.messages'), admin_messages_path %></td>
+                  <td class="statistic-table"><%= @total_messages %></td>
+                </tr>
+              </tbody>
+            </table>
+            <%= link_to 'Start Recalculation of geodata', admin_recalculation_path, method: :post %>
+          </div>
+
+        </div>
+      </div>
+    </div>

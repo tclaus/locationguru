@@ -2,7 +2,7 @@ en:
   locations:
     presentation:
       amenity:
-          amenities: "Amenities:"
+          amenities: "Amenities"
           no_amenities_set: "No amenities set"
           has_kitchen: "Kitchen"
           has_outdoor: "Outdoor"

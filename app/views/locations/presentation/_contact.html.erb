@@ -1,0 +1,63 @@
+<h3><%= t('.available') %></h3>
+
+    <div class="availability-box">
+        <%= form_for([@location, @location.reservations.new]) do |f| %>
+
+          <div id="datepicker"
+            data-preview_url="<%= preview_location_path(@location) %>"
+            data-preload_url="<%= preload_location_path(@location) %>"
+            data-free_text="<%= t('.free_text')%>"
+            data-booked_text="<%= t('.booked_text')%>"
+            data-requested_text="<%= t('.requested_text')%>">
+          </div>
+
+          <%= f.hidden_field :start_date,readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
+          <div class="available-message" id="message">Verfügbarkeit</div>
+
+          <% if !@location.website.blank? || !@location.phonenumber.blank? %>
+            <% # phone number / website %>
+          <% end %>
+          <%= f.submit t('.send_a_message'), id: "btn_book", class: "btn btn-default btn-block", disabled: true %>
+        <% end %>
+    </div>
+
+    <table class="contact-table">
+      <tbody>
+
+          <tr>
+            <td class="first-cell"><i class="fas fa-globe fa-lg"></i></td>
+            <td>
+              <% if !@location.website.blank? %>
+                <% if @location.website.size > 28 %>
+                  <%= link_to @location.website.slice(0,28) + '...', @location.website %>
+                <% else %>
+                  <%= link_to @location.website, @location.website %>
+                <% end %>
+              <% else %>
+                <%= t('.no_website') %>
+              <% end %>
+          </td>
+          </tr>
+
+          <tr>
+            <td class="first-cell"> <i class="fas fa-phone-alt fa-lg"></i></td>
+            <td>
+              <% if !@location.phonenumber.blank? %>
+                <a href="tel:<%= @location.phonenumber %>">Tel: <%= @location.phonenumber %></a>
+              <% else %>
+              <%= t('.no_phone') %>
+              <% end %>
+            </td>
+          </tr>
+        <tr>
+          <td class="first-cell"><i class="fas fa-eye fa-lg"></i></td>
+          <td>
+            <strong><%= @weekly_calls %></strong> <%= t('.venue_calls_last_week') %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+<%= javascript_include_tag 'datepicker_inquery' %>

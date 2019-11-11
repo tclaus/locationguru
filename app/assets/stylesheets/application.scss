@@ -4,21 +4,38 @@
 @import "toastr";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "color-palette";
 @import "desktop";
 @import "mobile";
 @import "jquery-ui.min";
 @import "jquery-ui.theme.min";
 @import "simple_calendar";
 @import "date-picker";
+@import "image-gallery";
+@import "color-palette";
 @import "dark-mode";
+@import "header";
 @import "print";
 
+@import url('https://fonts.googleapis.com/css?family=Arvo|Poppins&display=swap');
+
+.translation_missing {
+  color: red;
+  font-style: italic;
+}
+
 body {
-  color: $default-textcolor;
-  background-color: $main-background;
-  font-family: "Varela Round", "Helvetica Neue", "Arial", sans-serif;
+  background-color: $primary-background-color;
+  color: $primary-text-color;
+  font-family: 'Poppins', sans-serif;
   font-weight: lighter;
+}
+
+.container {
+  width: 90%;
+}
+
+.min-height {
+  min-height: 60vh;
 }
 
 footer {
@@ -26,41 +43,41 @@ footer {
 }
 
 h1 {
-  color: $brand-textcolor;
+  font: Bold 30pt/34pt Arvo;
+  text-shadow: 0pt 3pt 6pt #000000;
+}
+
+.venue-name {
+  font-family: Poppins !important;
+  text-shadow: none;
+  color: $brand-text-color;;
 }
 
 a {
-  color: $action-button-background;
+  color: $link-color;
   text-decoration: none;
 }
 
 a:hover {
+  color: $link-color;
   text-decoration: none;
 }
 
-.translation_missing {
-  color: red;
-  font-style: italic;
-}
-
-.icon-babu,
-.text-babu {
-  color: $brand-textcolor-active;
-}
-
-.text-brand {
-  color: $brand-textcolor;
-}
 // Navbar
 .navbar-default {
-  background-color: $navbar-background;
+  background-color: $primary-background-color;
   margin-bottom: 0;
+  border-color: #4e5f7c;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $link-color;
 }
 
 .navbar-default .navbar-brand {
-  color: $brand-textcolor;
   font-size: 2em;
   font-weight: 400;
+  color: $brand-text-color;
 }
 
 .navbar-button {
@@ -68,13 +85,49 @@ a:hover {
   margin-left: 15px;
 }
 
-.navbar-button a:hover {
-  color: $color-lighter-2;
+.container {
+  margin-top:0;
+}
+.primary-container {
+  background-color: $primary-background-color;
+  color: $primary-text-color;
+
+  .search-bar {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.secondary-container {
+  background-color: $secondary-background-color;
+  color: $secondary-text-color;
+  a {
+    color: $secondary-text-color;
+  }
+}
+
+.orange-container {
+  height: 80px;
+  background-color: $orange-color;
+  color: $primary-text-color;
+  .btn-default {
+    color: $primary-text-color;
+    background-color: $primary-background-color;
+    border-color: $primary-background-color;;
+  }
+  .container {
+      transform: translate(0px,20px);
+  }
+}
+
+.teaser-text {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 // Buttons
 .btn {
-  //color: $color-lighter-1;
   border-radius: 5px;
   font-weight: bold;
   padding: 9px 27px;
@@ -86,62 +139,14 @@ a:hover {
   width: 100%;
 }
 
-.btn:focus,
-.btn:hover {
-  color: $color-lighter-2;
-}
-
-.btn.btn-default {
-  // width: 100%;
-  border-color: $border-color;
-  color: $brand-textcolor;
-  // border-radius: 2px;
-  // padding: 10px 0;
-  margin-top: 10px;
-}
-
-.btn.btn-search {
-  width: 100%;
-}
-
-.btn-change-avatar {
-  width: 200px !important;
-  margin-top: 10px;
-}
-
-.btn.btn-normal {
-  border: 1px solid $brand-textcolor;
-}
-
-.btn.btn-normal:active {
-  outline: none;
-  border-color: $brand-textcolor-active;
-}
-
-.btn.btn-form {
-  border: 1px solid $info-textcolor;
-  background-color: $info-textcolor;
-}
-
-.btn.btn-form:active {
-  outline: none;
-  border-color: $info-textcolor-active;
-  background-color: $info-textcolor-active;
-}
-
-.btn.location_menu {
-  color: white;
-}
-
 .action-listing {
   padding-top: 5px;
   margin-top: 5px;
 }
 // Panels
 .panel-default .panel-heading {
-  background-color: $panel-heading;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .row-space-1 {
@@ -160,7 +165,6 @@ a:hover {
 }
 
 .description {
-  color: $default-textcolor;
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
@@ -183,47 +187,60 @@ div.or {
   }
 }
 
-.listing_name {
-  font-size: 1.5em;
+
+.listing-city {
+  font: Bold 24px/32px Poppins;
+  color: $alternative-text-color;
+  text-align: center;
+}
+
+.listing-name {
+  font: Regular 28px/32px Poppins;
+  color: $alternative-text-color;
+  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.listing_city {
+.listing-summary {
+  color: $alternative-text-color;
+  text-align: center;
   font-weight: lighter;
 }
 
-// Avatar
-.avatar-small {
-  width: 28px;
-  height: 28px;
-  object-fit: scale-down;
+.listing-properties {
+  color: $alternative-text-color;
+  a {
+    color: $alternative-text-color;
+  }
 }
 
-.avatar-medium {
-  width: 48px;
-  height: 48px;
-  object-fit: scale-down;
-}
-
-.avatar-large {
-  width: 68px;
-  height: 68px;
-  object-fit: scale-down;
-}
-
-.avatar-full {
-  width: 100%;
-}
-
-img.location_thumb {
+img.location-thumb {
   width: 100px;
   height: 100px;
   object-fit: scale-down;
 }
 // forms
+.search-control {
+  color: $searchbox-text-color;
+  padding-left: 45px;
+  font-size: 1.25em;
+  border-radius: 12px;
+  height: 6rem;
+  width: 100%;
+  background: image_url('icons/venue_location.svg') no-repeat scroll 7px 7px;
+  background-size: 2.5em;
+  background-color: white;
+}
+
+.btn-search {
+  height: 6rem;
+  width: 100%;
+  border-radius: 12px;
+}
+
 .form-group {
   margin-bottom: 25px;
 }
@@ -233,13 +250,6 @@ img.location_thumb {
   height: 4rem;
 }
 
-.form-group input {
-  border: 1px solid $info-textcolor;
-}
-
-.form-group textarea {
-  border: 1px solid $info-textcolor;
-}
 // sidebar
 .sidebar-list {
   padding-left: 0;
@@ -249,23 +259,19 @@ img.location_thumb {
 .sidebar-item {
   padding: 0;
   font-size: 16px;
-  color: $sidebar-color;
 }
 
 .sidebar-link {
-  color: $action-button-background;
   font-weight: normal;
   text-decoration: none;
 }
 
 .sidebar-link:focus,
 .sidebar-link:hover {
-  color: $sidebar-color-hover;
   text-decoration: none;
 }
 
 .active.sidebar-link {
-  color: $action-button-background;
   font-weight: bold;
   text-decoration: none;
 }
@@ -278,12 +284,22 @@ li.feature {
   padding-bottom: 10px;
 }
 
-.right {
-  text-align: right;
+// In einem >contaiuner packen?
+.left {
+  width: 60%;
+  float: left;
+  min-height: 100vh;
+  height: 100vh;
+  overflow:scroll;
+  padding-right: 10px;
 }
 
-.left {
-  text-align: left;
+.right {
+  width:40%;
+  min-height: 100vh;
+  height: 100vh;
+  float: right;
+  padding-left: 10px;
 }
 
 // Active / Inactive signs
@@ -311,19 +327,14 @@ li.feature {
   display: block;
 }
 
-.img-avatar {
-  height: 200px;
-  width: 200px;
-  object-fit: scale-down;
-}
 // Header Picture in Listing
 
 .img-header {
   display: block;
   margin: auto;
-  max-width: 100%;
+  width: 100%;
   height: 320px;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 
 .img.avatar.rounded {
@@ -335,10 +346,42 @@ li.feature {
   padding: 0;
 }
 
-.panel-heading.preview img {
+img {
+  border-radius: 3px;
+}
+
+.preview img {
   width: 100%;
-  max-height: 200px;
+  height: 221px;
   object-fit: cover;
+}
+
+.venue-listing {
+  margin-top: 20px;
+
+  img {
+   width: 100%;
+   max-width: 332px;
+   max-height: 200px;
+   object-fit: cover;
+   }
+
+  .listing-city {
+    margin-top: 8px;
+    text-align: left;
+  }
+  .listing-name {
+    margin-top: 8px;
+    text-align: left;
+  }
+  .listing-summary {
+    margin-top: 8px;
+    text-align: left;
+  }
+  .listing-properties {
+    margin-top: 8px;
+    text-align: left;
+  }
 }
 
 .amenities li {
@@ -354,18 +397,23 @@ li.feature {
   display: none;
 }
 
-.statistic-table.right {
+.statistic-table {
   padding-left: 25px;
 }
 
 .contact-table {
   width: 100%;
   border: none;
+  margin-top: 20px;
+
+  .first-cell {
+    width: 20%;
+  }
 }
 
 .contact-table td {
   border: none;
-  border-bottom: 1px solid $light-background;
+  // border-bottom: 1px solid;
   padding: 10px;
 }
 
@@ -375,14 +423,11 @@ li.feature {
 }
 
 .form-control.datepicker {
-  color: $action-button-background;
   background-color: white;
-  border: 1px solid $action-button-background;
   text-align: center;
 }
 
 .message-alert {
-  color: $message-alert;
   font-size: 14px;
   padding-top: 10px;
 }
@@ -392,15 +437,23 @@ li.feature {
   overflow: hidden;
 }
 
-// Maps on right side
+// Venue Maps
 .maps-area-single {
   width: 100%;
-  height: 400px;
+  height: 300px;
+  margin-bottom: 20px;
 }
 // Maps Area multiple resultes
 .maps-area-multiple {
+  // position: fixed !important;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.map-listing-title {
+  color: black;
 }
 
 // Home Page
@@ -415,15 +468,58 @@ li.feature {
   margin-bottom: 50px;
 }
 
-.link-cloud-block {
-  margin-top: 10px;
+
+.kind-cloud-block {
+  padding-top: 20px;
+  background-image: image_url('background_beams.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
 }
 
-.link-cloud {
-  margin-top: 8px;
-  padding: 8px;
-  background-color: beige;
+.kind-cloud-element {
+  background-color: white;
+  font-size: 1.1em;
+  text-align: center;
   display: inline-flex;
+  padding: 25px;
+  margin: 25px;
+  border: 2px solid;
+  border-color: #364A70;
+  border-radius: 5px;
+  a {
+    color: $alternative-text-color;;
+  }
+}
+.cities-container {
+  background: transparent image_url('background_blue.jpg') 0% 0% no-repeat padding-box;
+  padding-top: 1px;
+  padding-bottom: 10px;
+
+  .link-cloud-block {
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+
+  .link-cloud {
+    background-color: #FF8E49;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-flex;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+
+    a {
+      color: $alternative-text-color;;
+    }
+  }
+}
+
+.no-location {
+  width: 150px;
+  max-height: 150px;
+  border: 2px solid;
 }
 
 .top-right {
@@ -437,11 +533,26 @@ li.feature {
   max-height: 300px;
 }
 
-.changelog {
-  margin-left: 20px;
-  margin-right: 20px;
-  top: 20px;
-  position: relative;
+.availability-box {
+  background-color: white;
+  .available-message {
+    color: black;
+    margin-left: 10px;
+  }
+  .ui-widget-content {
+    border: none;
+  }
+
+  .ui-datepicker {
+    font-size: 1.3em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.venue-detail {
+   // detail pane on venues
+   color: $secondary-text-color;
 }
 
 #HW_badge_cont {

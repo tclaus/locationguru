@@ -5,7 +5,7 @@ include CounterHelper
 class LocationsController < ApplicationController
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: %i[preload preview show send_message]
-  before_action :is_authorized, only: %i[listing pricing description
+  before_action :is_authorized, only: %i[listing description
                                          photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
 
@@ -53,7 +53,7 @@ class LocationsController < ApplicationController
         redirect_to root_path
       end
     end
-    Counter.increase_location(@location.id)
+    Counter.increase_location(@location.id, request.remote_ip)
   end
 
   def suitables; end

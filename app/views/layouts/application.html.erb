@@ -5,7 +5,6 @@
 
     <title><%= yield_meta_tag(:page_title, page_title) %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -20,55 +19,58 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
     <meta property="og:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
-    <meta property="og:image" content="<%= yield_meta_tag(:image, 'https://locationguru.net/assets/front_image.jpg') %>">
-    <meta property="fb:app_id" content="2063304280615106">
+    <meta property="og:image" content="<%= yield_meta_tag(:image, image_url('header/header_slider_2.jpg')) %>">
 
     <% # Open Graph twitter %>
-    <meta name="twitter:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
+    <meta name="twitter:title" content="<%= yield_meta_tag(:og_title, page_title) %>">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@vanchesa">
     <meta name="twitter:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
-    <meta name="twitter:image" content="<%= yield_meta_tag(:image, 'https://locationguru.net/assets/front_image.jpg') %>">
+    <meta name="twitter:image" content="<%= yield_meta_tag(:image, image_url('header/header_slider_2.jpg')) %>">
 
     <% # Favicons %>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#d7f4f1">
-    <meta name="theme-color" content="#d7f4f1">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/messages' %>
+    <% if current_page?(root_path) %>
+      <%= render 'shared/header' %>
+    <% end %>
 
+  <div class="primary-container">
     <div class="container">
       <%= yield %>
-      <div class="noprint">
-        <%= render 'link_cloud/show' %>
-        <%= render 'kind_cloud/venue_kinds' %>
-      </div>
     </div>
+  </div>
 
-    <%= render 'shared/footer' %>
+  <div class="noprint">
+    <%= render 'link_cloud/show' %>
+  </div>
+
+  <%= render 'shared/footer' %>
   </body>
-
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
   <% # CookieBanner %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 
   <%= javascript_include_tag('cookie_banner/cookie_banner_de') %>
-  <script>
-  // @see https://docs.headwayapp.co/widget for more configuration options.
-  var HW_config = {
-    selector: "#changelog", // CSS selector where to inject the badge
-    account:  "x8dbVx"
-  }
-</script>
-<script async src="https://cdn.headwayapp.co/widget.js"></script>
 </html>

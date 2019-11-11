@@ -26,7 +26,7 @@
           });
 
           infoWindow = new google.maps.InfoWindow({
-            content: "<div class='map_price'> " + aLocation.listing_name + " </div>"
+            content: "<div class='map-listing-title'> " + aLocation.listing_name + " </div>"
           });
           infoWindow.open(map, marker);
         });
