@@ -61,10 +61,14 @@
     </div>
   </div>
 
-  <div class="noprint">
-    <%= render 'link_cloud/show' %>
-  </div>
-
+  <% if !current_page?(admin_path) &&
+        !current_page?(admin_users_path) &&
+        !current_page?(admin_locations_path) &&
+        !current_page?(admin_messages_path)  %>
+    <div class="noprint">
+      <%= render 'link_cloud/show' %>
+    </div>
+<% end %>
   <%= render 'shared/footer' %>
   </body>
 

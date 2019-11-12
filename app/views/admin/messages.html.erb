@@ -12,8 +12,7 @@ Total Messages: <%= @messages.count %>,
   <table class="table table-striped">
       <tr>
        <th scope="col">ID</th>
-       <th scope="col">User ID</th>
-       <th scope="col">Location ID</th>
+       <th scope="col">Location</th>
        <th scope="col">Email</th>
        <th scope="col">Name</th>
        <th scope="col">Inquery Date</th>
@@ -24,7 +23,6 @@ Total Messages: <%= @messages.count %>,
       <% @messages.each do |message| %>
       <tr>
         <td><%= message.id %></td>
-        <td><%= message.user_id %></td>
         <% if !message.location.nil? %>
           <td>
             <%= link_to listing_location_path(message.location) do %>

@@ -142,6 +142,7 @@ a:hover {
 .action-listing {
   padding-top: 5px;
   margin-top: 5px;
+  width: 100%;
 }
 // Panels
 .panel-default .panel-heading {
@@ -250,10 +251,11 @@ img.location-thumb {
   height: 4rem;
 }
 
-.from-persons {
+.form-persons {
     height: 6rem;
     width: 100%;
     border-radius: 12px;
+    font-size: 1.5rem;
 }
 
 // sidebar
