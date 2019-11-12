@@ -12,7 +12,7 @@
             <%= t('.listing') %>
           </div>
           <div class="panel-body">
-            <div class="container">
+            <div class="container venue-detail">
               <%= form_for @location do |f| %>
                 <div class="row">
                   <div class="col-md-4 select">
@@ -34,7 +34,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <%= label_tag(:max_persons, t('.max_persons')) %>
-                      <%= f.number_field(:max_persons, min: 1, max:85000) %>
+                      <%= f.number_field(:max_persons, min: 1, max:85000, class: "form-control form-persons") %>
                     </div>
                   </div>
 

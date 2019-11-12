@@ -17,7 +17,7 @@
        <th scope="col">Name</th>
        <th scope="col">Calls</th>
        <th scope="col">Edit</th>
-       <th scope="col">Not on Homepage</th>
+       <th scope="col">Restricted</th>
        <th scope="col">Aktive</th>
        <th scope="col">Creator</th>
        <th scope="col">Created At</th>
@@ -59,7 +59,7 @@
           <% end %>
         </td>
         <% if !location.user.blank? %>
-          <td><%= mail_to location.user.email %> / <%= location.user.id %></td>
+          <td><%= mail_to location.user.email %> (<%= location.user.id %>)</td>
         <% else %>
           <td> Invalid User </td>
         <% end %>
