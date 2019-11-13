@@ -18,6 +18,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Arvo|Poppins&display=swap');
 
+
 .translation_missing {
   color: red;
   font-style: italic;
@@ -232,7 +233,13 @@ img.location-thumb {
   height: 6rem;
   width: 100%;
   background: image_url('icons/venue_location.svg') no-repeat scroll 7px 7px;
-  background-size: 2.5em;
+  background-size: 4rem;
+  background-color: white;
+}
+
+.selectric {
+  background: image_url('icons/venue_kind.svg') no-repeat scroll 7px 7px;
+  background-size: 4rem;
   background-color: white;
 }
 
@@ -572,4 +579,11 @@ img {
 // Sinmple calendar
 .calendar-cell {
   word-break: normal;
+}
+
+.myo-design-logo {
+ img {
+   width: 270px;
+   height: auto;
+ }
 }

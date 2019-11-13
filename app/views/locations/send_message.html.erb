@@ -1,47 +1,47 @@
-</div>
-</div>
+
 <% # remove darker container %>
 <div class="secondary-container">
   <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t('.send_a_message') %> <br>
+        <small><%= @location.listing_name %></small>
+      </div>
+      <div class="panel-body">
+        <div class="container venue-detail">
+          <%= form_for @message, url: location_messages_path(@location) do |f| %>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <%= t('.send_a_message') %> <br>
-    <small><%= @location.listing_name %></small>
-  </div>
-  <div class="panel-body">
-    <div class="container venue-detail">
-      <%= form_for @message, url: location_messages_path(@location) do |f| %>
+            <div class="form-group">
+              <%= f.label(:email, t('.email')) %>
+              <%= f.email_field :email, placeholder: t('.your_email'), maxlength: 50, class:"form-control", required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:name, t('.name')) %>
+              <%= f.text_field :name, placeholder: t('.your_name'), maxlength: 50, class:"form-control", required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:inquery_date, t('.date'))%>
+              <small><%= t('.on_which_date_should_the_event_take_place') %></small>
+              <%= f.date_field(:inquery_date, class:"form-control", required: true) %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:message, t('.message')) %>
+              <%= f.text_area :message, placeholder: t('.your_message'), maxlength: 2000, class:"form-control", required: true, size: "30x5" %>
+            </div>
 
-        <div class="form-group">
-          <%= f.label(:email, t('.email')) %>
-          <%= f.email_field :email, placeholder: t('.your_email'), maxlength: 50, class:"form-control", required: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label(:name, t('.name')) %>
-          <%= f.text_field :name, placeholder: t('.your_name'), maxlength: 50, class:"form-control", required: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label(:inquery_date, t('.date'))%>
-          <small><%= t('.on_which_date_should_the_event_take_place') %></small>
-          <%= f.date_field(:inquery_date, class:"form-control", required: true) %>
-        </div>
-        <div class="form-group">
-          <%= f.label(:message, t('.message')) %>
-          <%= f.text_area :message, placeholder: t('.your_message'), maxlength: 2000, class:"form-control", required: true, size: "30x5" %>
-        </div>
+              <%= f.label :accept do %>
 
-          <%= f.label :accept do %>
+                <%= f.check_box :accept, required: true %>
+                <%= t('.accept_data_processing') %>
+              <% end %>
 
-            <%= f.check_box :accept, required: true %>
-            <%= t('.accept_data_processing') %>
+            <div>
+              <%= f.submit t('.create'), class:"btn btn-default" %>
+            </div>
+
           <% end %>
-
-        <div>
-          <%= f.submit t('.create'), class:"btn btn-default" %>
         </div>
-
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

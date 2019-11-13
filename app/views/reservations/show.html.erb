@@ -1,77 +1,77 @@
-</div>
-</div>
+
 <% # remove darker container %>
 <div class="secondary-container">
   <div class="container">
-    
-<div class="row">
-  <div class="col-md-3">
-    <%= render '/location_menu/entries_menu' %>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= t('.your_reservations') %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render '/location_menu/entries_menu' %>
       </div>
-      <div class="panel-body">
-
-      <%= month_calendar(attribute: :start_date, events: @reservations) do |date, meetings| %>
-        <%= date.day %>
-        <% meetings.each do |meeting| %>
-          <div class="calendar-cell">
-            <small>
-              <%= meeting.display_text %>
-          </small>
+      <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= t('.your_reservations') %>
           </div>
-        <% end %>
-      <% end %>
+          <div class="panel-body">
 
-      <% @hasReservations = false %>
-      <div class="row">
-        <div class="col-md-2"><%= t('.received') %></div>
-        <div class="col-md-2"></div>
-        <div class="col-md-5"><%= t('.location') %></div>
-        <div class="col-md-3"><%= t('.status') %></div>
-      </div>
-      <hr>
-      <% @reservations.each do |reservation| %>
-          <% @hasReservations = true %>
+          <%= month_calendar(attribute: :start_date, events: @reservations) do |date, meetings| %>
+            <%= date.day %>
+            <% meetings.each do |meeting| %>
+              <div class="calendar-cell">
+                <small>
+                  <%= meeting.display_text %>
+              </small>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% @hasReservations = false %>
           <div class="row">
-            <div class="col-md-2">
-              <%= l reservation.created_at, format: :short_date %>
-            </div>
-            <div class="col-md-2">
-              <%= link_to location_path(reservation.location) do %>
-                <%= image_tag reservation.location.cover_photo(:thumb) %>
-              <% end %>
-            </div>
-            <div class="col-md-5">
-              <%= link_to reservation.location.listing_name, location_path(reservation.location) %><br/>
-              <span>
-                <%= mail_to reservation.email, reservation.email %>
-                <br>
-                <%= reservation.message %>
-              </span>
-            </div>
-            <div class="col-md-3 text-right">
-              <%= t(reservation.status, scope:'reservations') %>: <%= l reservation.start_date, format: :short_date %>
-              <% if reservation.status == 'inquery' %>
-                <%= link_to t('.accept'), reservations_accept_path(id: reservation.id), method: :patch, class: "btn btn-default btn-sm btn-block" %>
-              <% end %>
-              <% if reservation.status == 'booked' %>
-                <%= link_to t('.reject'), reservations_reject_path(id: reservation.id), method: :patch, class: "btn btn-default btn-sm btn-block" %>
-              <% end %>
-
-              <%= link_to t('.delete'), location_reservation_path(reservation.location,reservation), method: :delete, data:{confirm: 'Delete this entry?'}, class: "btn btn-danger btn-sm btn-block" %>
-
-            </div>
+            <div class="col-md-2"><%= t('.received') %></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5"><%= t('.location') %></div>
+            <div class="col-md-3"><%= t('.status') %></div>
           </div>
-        <hr/>
-      <% end %>
-      <% if !@hasReservations %>
-        <%= t('.you_have_no_reservation_for_any_location') %>
-      <% end %>
-</div>
-</div>
-</div>
+          <hr>
+          <% @reservations.each do |reservation| %>
+              <% @hasReservations = true %>
+              <div class="row">
+                <div class="col-md-2">
+                  <%= l reservation.created_at, format: :short_date %>
+                </div>
+                <div class="col-md-2">
+                  <%= link_to location_path(reservation.location) do %>
+                    <%= image_tag reservation.location.cover_photo(:thumb) %>
+                  <% end %>
+                </div>
+                <div class="col-md-5">
+                  <%= link_to reservation.location.listing_name, location_path(reservation.location) %><br/>
+                  <span>
+                    <%= mail_to reservation.email, reservation.email %>
+                    <br>
+                    <%= reservation.message %>
+                  </span>
+                </div>
+                <div class="col-md-3 text-right">
+                  <%= t(reservation.status, scope:'reservations') %>: <%= l reservation.start_date, format: :short_date %>
+                  <% if reservation.status == 'inquery' %>
+                    <%= link_to t('.accept'), reservations_accept_path(id: reservation.id), method: :patch, class: "btn btn-default btn-sm btn-block" %>
+                  <% end %>
+                  <% if reservation.status == 'booked' %>
+                    <%= link_to t('.reject'), reservations_reject_path(id: reservation.id), method: :patch, class: "btn btn-default btn-sm btn-block" %>
+                  <% end %>
+
+                  <%= link_to t('.delete'), location_reservation_path(reservation.location,reservation), method: :delete, data:{confirm: 'Delete this entry?'}, class: "btn btn-danger btn-sm btn-block" %>
+
+                </div>
+              </div>
+            <hr/>
+          <% end %>
+          <% if !@hasReservations %>
+            <%= t('.you_have_no_reservation_for_any_location') %>
+          <% end %>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
 </div>

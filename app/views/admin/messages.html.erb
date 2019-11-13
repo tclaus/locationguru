@@ -1,49 +1,48 @@
-</div>
-</div>
-<% # remove darker container %>
+
 <div class="secondary-container">
   <div class="container">
-
-<% meta_tag :page_title,page_title + ' - Admin Messages' %>
-Total Messages: <%= @messages.count %>,
-<%= link_to 'Export To File', admin_export_messages_path %>
-<br>
-<div class="table-responsive">
-  <table class="table table-striped">
-      <tr>
-       <th scope="col">ID</th>
-       <th scope="col">Location</th>
-       <th scope="col">Email</th>
-       <th scope="col">Name</th>
-       <th scope="col">Inquery Date</th>
-       <th scope="col">Message</th>
-       <th scope="col">Created at</th>
-       <th scope="col">Is Read</th>
-      </tr>
-      <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.id %></td>
-        <% if !message.location.nil? %>
-          <td>
-            <%= link_to listing_location_path(message.location) do %>
-             <%= message.location.listing_name %></td>
+    <% meta_tag :page_title,page_title + ' - Admin Messages' %>
+    Total Messages: <%= @messages.count %>,
+    <%= link_to 'Export To File', admin_export_messages_path %>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-striped">
+          <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Location</th>
+           <th scope="col">Email</th>
+           <th scope="col">Name</th>
+           <th scope="col">Inquery Date</th>
+           <th scope="col">Message</th>
+           <th scope="col">Created at</th>
+           <th scope="col">Is Read</th>
+          </tr>
+          <% @messages.each do |message| %>
+          <tr>
+            <td><%= message.id %></td>
+            <% if !message.location.nil? %>
+              <td>
+                <%= link_to listing_location_path(message.location) do %>
+                 <%= message.location.listing_name %></td>
+                <% end %>
+            <% else %>
+              <td><%= message.location_id %></td>
             <% end %>
-        <% else %>
-          <td><%= message.location_id %></td>
-        <% end %>
-        <td><%= message.email %></td>
-        <td><%= message.name %></td>
-        <td><%= message.inquery_date %></td>
-        <td><%= message.message %></td>
-        <td><%= message.created_at %></td>
-        <td>
-        <% if message.isRead? %>
-          <i class="fas fa-check"></i>
-        <% else %>
-          <i class="fas fa-minus"></i>
-        <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+            <td><%= message.email %></td>
+            <td><%= message.name %></td>
+            <td><%= message.inquery_date %></td>
+            <td><%= message.message %></td>
+            <td><%= message.created_at %></td>
+            <td>
+            <% if message.isRead? %>
+              <i class="fas fa-check"></i>
+            <% else %>
+              <i class="fas fa-minus"></i>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
 </div>

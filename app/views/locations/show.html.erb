@@ -11,37 +11,36 @@
     <span class="small"><%= t('.inactive_location_description_warning') %></span>
   </div>
 <% end %>
-</div>
-</div>
-<% # Location header image - removing container frames %>
+
 <%= render 'locations/presentation/title_image' %>
-<% # Adding Frames again %>
 
 <div class="secondary-container">
-<div class="container">
-<hr>
-<br>
-<div class="row">
-
-  <!-- left panel -->
-  <div class="col-md-8 left-main-printing">
-    <%= render 'locations/presentation/listing_name' %>
+  <div class="container">
     <hr>
-    <%= render 'locations/presentation/kind' %>
-    <hr>
-    <%= render 'locations/presentation/description' %>
-    <%= render 'locations/presentation/suitable_for' %>
-    <%= render 'locations/presentation/amenity' %>
-    <%= render 'locations/presentation/carussel' %>
+    <br>
+    <div class="row">
 
-    <div class="noprint">
-      <%= render 'locations/presentation/locations_nearby' %>
+      <!-- left panel -->
+      <div class="col-md-8 left-main-printing">
+        <%= render 'locations/presentation/listing_name' %>
+        <hr>
+        <%= render 'locations/presentation/kind' %>
+        <hr>
+        <%= render 'locations/presentation/description' %>
+        <%= render 'locations/presentation/suitable_for' %>
+        <%= render 'locations/presentation/amenity' %>
+        <%= render 'locations/presentation/carussel' %>
+
+        <div class="noprint">
+          <%= render 'locations/presentation/locations_nearby' %>
+        </div>
+      </div>
+
+      <!-- right panel -->
+      <div class="col-md-4 noprint">
+          <%= render 'locations/presentation/google_map' %>
+          <%= render 'locations/presentation/contact', locals: {location: @location.user} %>
+      </div>
     </div>
-  </div>
-
-  <!-- right panel -->
-  <div class="col-md-4 noprint">
-      <%= render 'locations/presentation/google_map' %>
-      <%= render 'locations/presentation/contact', locals: {location: @location.user} %>
   </div>
 </div>

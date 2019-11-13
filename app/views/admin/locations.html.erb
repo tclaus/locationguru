@@ -1,77 +1,76 @@
 <% meta_tag :page_title,page_title + ' - Admin Locations' %>
 
-</div>
-</div>
 <% # remove darker container %>
 <div class="secondary-container">
   <div class="container">
-
-<%= t('.total_locations') %>
-<%= @locations.count %>
-<br>
-<div class="table-responsive">
-  <table class="table table-striped">
-      <tr>
-        <th scope="col"></th>
-       <th scope="col">ID</th>
-       <th scope="col">Name</th>
-       <th scope="col">Calls</th>
-       <th scope="col">Edit</th>
-       <th scope="col">Restricted</th>
-       <th scope="col">Aktive</th>
-       <th scope="col">Creator</th>
-       <th scope="col">Created At</th>
-       <th scope="col">Geocoded</th>
-      </tr>
-      <% @locations.each do |location| %>
-      <tr>
-        <td>  <%= link_to location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')} do %>
-          <i class="far fa-trash"></i>
-        <% end %>
-        </td>
-        <td><%= location.id %></td>
-        <td>
-          <%= link_to location.listing_name, location_path(location) %> <br>
-          <%= location.country %> / <%= location.city %>
-        </td>
-        <td>
-          <%= location.total_count %>
-        </td>
-        <td>
-          <%= link_to listing_location_path(location) do %>
-          <i class="far fa-edit"></i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to restrict_location_path(location), method: :post, remote: true, data:{id: location.id}, class:"toggle_restriced" do %>
-            <% if location.isRestricted? %>
-              <i class="fas fa-check"></i>
-            <% else %>
-              <i class="fas fa-minus"></i>
+    <%= t('.total_locations') %>
+    <%= @locations.count %>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-striped">
+          <tr>
+            <th scope="col"></th>
+           <th scope="col">ID</th>
+           <th scope="col">Name</th>
+           <th scope="col">Calls</th>
+           <th scope="col">Edit</th>
+           <th scope="col">Restricted</th>
+           <th scope="col">Aktive</th>
+           <th scope="col">Creator</th>
+           <th scope="col">Created At</th>
+           <th scope="col">Geocoded</th>
+          </tr>
+          <% @locations.each do |location| %>
+          <tr>
+            <td>  <%= link_to location_path(location), method: :delete, data:{confirm: t('.are_you_sure_delete_location')} do %>
+              <i class="far fa-trash"></i>
             <% end %>
+            </td>
+            <td><%= location.id %></td>
+            <td>
+              <%= link_to location.listing_name, location_path(location) %> <br>
+              <%= location.country %> / <%= location.city %>
+            </td>
+            <td>
+              <%= location.total_count %>
+            </td>
+            <td>
+              <%= link_to listing_location_path(location) do %>
+              <i class="far fa-edit"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to restrict_location_path(location), method: :post, remote: true, data:{id: location.id}, class:"toggle_restriced" do %>
+                <% if location.isRestricted? %>
+                  <i class="fas fa-check"></i>
+                <% else %>
+                  <i class="fas fa-minus"></i>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <% if location.active? %>
+                <i class="fas fa-check"></i>
+              <% else %>
+                <i class="fas fa-minus"></i>
+              <% end %>
+            </td>
+            <% if !location.user.blank? %>
+              <td><%= mail_to location.user.email %> (<%= location.user.id %>)</td>
+            <% else %>
+              <td> Invalid User </td>
+            <% end %>
+            <td><%= location.created_at %></td>
+            <td><% if location.geocoded? %>
+              <i class="fas fa-check"></i>
+              long.: <%= location.longitude %>, lat.: <%= location.latitude %>
+              <% else %>
+              <div class="text-center">Not geocoded.</div>
+            <% end %></td>
+          </tr>
           <% end %>
-        </td>
-        <td>
-          <% if location.active? %>
-            <i class="fas fa-check"></i>
-          <% else %>
-            <i class="fas fa-minus"></i>
-          <% end %>
-        </td>
-        <% if !location.user.blank? %>
-          <td><%= mail_to location.user.email %> (<%= location.user.id %>)</td>
-        <% else %>
-          <td> Invalid User </td>
-        <% end %>
-        <td><%= location.created_at %></td>
-        <td><% if location.geocoded? %>
-          <i class="fas fa-check"></i>
-          long.: <%= location.longitude %>, lat.: <%= location.latitude %>
-          <% else %>
-          <div class="text-center">Not geocoded.</div>
-        <% end %></td>
-      </tr>
-      <% end %>
-    </table>
+        </table>
+    </div>
+    <%= javascript_include_tag 'location_restricted' %>
+  </div>
 </div>
-<%= javascript_include_tag 'location_restricted' %>

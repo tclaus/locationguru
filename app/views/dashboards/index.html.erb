@@ -1,104 +1,103 @@
 
-</div>
-</div>
 <% # remove darker container %>
 <div class="secondary-container">
   <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= current_user.fullname %>
+          </div>
+          <div class="panel-body">
+            <ui class="sidebar-list">
 
-<div class="row">
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= current_user.fullname %>
-      </div>
-      <div class="panel-body">
-        <ui class="sidebar-list">
+                <li><%= t('.email_address') %>
+                  <span class="pull-right icon-babu">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                </li>
+              <li>
+                <%= current_user.email %>
+              </li>
 
-            <li><%= t('.email_address') %>
-              <span class="pull-right icon-babu">
-                <i class="fas fa-check-circle"></i>
-              </span>
-            </li>
-          <li>
-            <%= current_user.email %>
-          </li>
-
-          <li><%= t('.phone_number')%>
-            <span class="pull-right icon-babu">
-              <% if current_user.phone_verified %>
-                <i class="fas fa-check-circle"></i>
-              <% else %>
-                <i class="far fa-circle"></i>
-              <% end %>
-            </span>
-          </li>
-
-        </ui>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-9">
-
-    <!-- Notifications -->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= t('.notifications') %>
-        (<span id="unread_count"><%= @unread_message_count %></span>
-        <%= t('.unread') %>)
-      </div>
-      <div class="panel-body message-scroller">
-
-        <div class="list-group">
-          <% if current_user.hasPremium %>
-            <% @messages_overview.each do |message| %>
-              <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
-
-                <% if message.isRead %>
-                  <i class="far fa-dot-circle invisible" aria-hidden="true"></i>
-                <% else %>
-                  <i class="far fa-dot-circle" aria-hidden="true"></i>
-                <% end %>
-                <%= link_to location_message_path(message.location_id, message.id), method: :delete, remote: true, class: "top-right" do %>
-                <i class="far fa-trash-alt" aria-hidden="true" data-message="<%= message.id%>"></i>
-              <% end %>
-              <div>
-                <span>
-                  <% if !message.location.nil? %>
-                    <strong><%= message.location.listing_name %></strong>
+              <li><%= t('.phone_number')%>
+                <span class="pull-right icon-babu">
+                  <% if current_user.phone_verified %>
+                    <i class="fas fa-check-circle"></i>
                   <% else %>
-                    <strong>-Location wurde entfernt-</strong>
+                    <i class="far fa-circle"></i>
                   <% end %>
                 </span>
-                <span class="top-right"><%= simple_date(message.created_at) %></span>
-              </div>
-              <% if message.inquery_date? %>
-                Für:
-                  <strong><%= message.inquery_date.strftime("%d.%m.%Y") %></strong>
-              <% end %>
-              <div><%= message.name %>:
-                <%= truncate(message.message, length: 60, separator:' ') %></div>
-            </button>
+              </li>
 
+            </ui>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+
+        <!-- Notifications -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= t('.notifications') %>
+            (<span id="unread_count"><%= @unread_message_count %></span>
+            <%= t('.unread') %>)
+          </div>
+          <div class="panel-body message-scroller">
+
+            <div class="list-group">
+              <% if current_user.hasPremium %>
+                <% @messages_overview.each do |message| %>
+                  <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
+
+                    <% if message.isRead %>
+                      <i class="far fa-dot-circle invisible" aria-hidden="true"></i>
+                    <% else %>
+                      <i class="far fa-dot-circle" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to location_message_path(message.location_id, message.id), method: :delete, remote: true, class: "top-right" do %>
+                    <i class="far fa-trash-alt" aria-hidden="true" data-message="<%= message.id%>"></i>
+                  <% end %>
+                  <div>
+                    <span>
+                      <% if !message.location.nil? %>
+                        <strong><%= message.location.listing_name %></strong>
+                      <% else %>
+                        <strong>-Location wurde entfernt-</strong>
+                      <% end %>
+                    </span>
+                    <span class="top-right"><%= simple_date(message.created_at) %></span>
+                  </div>
+                  <% if message.inquery_date? %>
+                    Für:
+                      <strong><%= message.inquery_date.strftime("%d.%m.%Y") %></strong>
+                  <% end %>
+                  <div><%= message.name %>:
+                    <%= truncate(message.message, length: 60, separator:' ') %></div>
+                </button>
+
+                <% end %>
+                <% if @messages_overview.empty? %>
+                  <%= t('.you_will_see_here_incomming_messages') %>
+                <% end %>
+            <% else %>
+              <%= t('.messages_only_for_premium_subscribers') %>
             <% end %>
-            <% if @messages_overview.empty? %>
-              <%= t('.you_will_see_here_incomming_messages') %>
-            <% end %>
-        <% else %>
-          <%= t('.messages_only_for_premium_subscribers') %>
-        <% end %>
+          </div>
+        </div>
+      </div>
+      <!-- Your listings -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= t('.your_listings') %>
+          (<%= @locations.length %>)
+        </div>
+        <div class="panel-body">
+          <%= render partial: "locations/venues_gallery" %>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Your listings -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= t('.your_listings') %>
-      (<%= @locations.length %>)
     </div>
-    <div class="panel-body">
-      <%= render partial: "locations/venues_gallery" %>
-    </div>
+    <%= javascript_include_tag 'select_message' %>
   </div>
 </div>
-</div>
-<%= javascript_include_tag 'select_message' %>

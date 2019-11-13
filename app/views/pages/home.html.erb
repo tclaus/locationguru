@@ -1,26 +1,27 @@
-<div class="search-bar">
-<%= form_tag search_path, method: :get do %>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-4">
-      <%= text_field_tag :search, params[:search],
-          placeholder: t('.where_are_you_looking_for'),
-          class:"search-control search-textfield",
-          id: "auto_location",
-          autofocus: true %>
-    </div>
-    <div class="col-md-4">
-      <%  kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-      <%= select_tag( :location_type, options_for_select(kindTypeArray),{:prompt => t('.select_location_type')}) %>
-    </div>
-    <div class="col-md-2">
-        <%= submit_tag t('search'), class:"btn btn-default btn-search" %>
+<div class="primary-container">
+  <div class="container">
+    <div class="search-bar">
+    <%= form_tag search_path, method: :get do %>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <%= text_field_tag :search, params[:search],
+              placeholder: t('.where_are_you_looking_for'),
+              class:"search-control search-textfield",
+              id: "auto_location",
+              autofocus: true %>
+        </div>
+        <div class="col-md-4">
+          <%  kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
+          <%= select_tag( :location_type, options_for_select(kindTypeArray), {:prompt => t('.select_location_type')}) %>
+        </div>
+        <div class="col-md-2">
+            <%= submit_tag t('search'), class:"btn btn-default btn-search" %>
+        </div>
+      </div>
+    <% end %>
     </div>
   </div>
-<% end %>
-</div>
-
-</div>
 </div>
 <% # close sourrounding containers %>
 
@@ -55,8 +56,9 @@
 </div>
 <% # Location kinds %>
 <div class="secondary-container">
-<%= render 'kind_cloud/venue_kinds' %>
-<div class="container">
+  <%= render 'kind_cloud/venue_kinds' %>
+</div>
+
 <% # Start container again #%>
 
 <%= javascript_include_tag( 'home_geocomplete' ) %>

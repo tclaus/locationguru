@@ -55,11 +55,7 @@
       <%= render 'shared/header' %>
     <% end %>
 
-  <div class="primary-container">
-    <div class="container">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 
   <% if !current_page?(admin_path) &&
         !current_page?(admin_users_path) &&
@@ -68,7 +64,7 @@
     <div class="noprint">
       <%= render 'link_cloud/show' %>
     </div>
-<% end %>
+  <% end %>
   <%= render 'shared/footer' %>
   </body>
 
