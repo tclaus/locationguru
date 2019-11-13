@@ -1,46 +1,45 @@
-</div>
-</div>
 <% # remove darker container %>
 <div class="secondary-container">
   <div class="container">
+    <div class="panel panel-default">
+      <% if !@message.location.nil? %>
+        <% listing_name = @message.location.listing_name %>
+      <% else %>
+        <% listing_name = "Unbekannte oder gelöschte Location" %>
+      <% end %>
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= listing_name %></h3>
+      </div>
+      <div class="panel-body">
 
-<div class="panel panel-default">
-  <% if !@message.location.nil? %>
-    <% listing_name = @message.location.listing_name %>
-  <% else %>
-    <% listing_name = "Unbekannte oder gelöschte Location" %>
-  <% end %>
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= listing_name %></h3>
-  </div>
-  <div class="panel-body">
+        <div>
+          <%= @message.name %> &lt;<%= @message.email %>&gt;
+          , Erhalten: <%= @message.created_at.strftime("%d.%m.%Y") %>
+        </div>
+        <%= link_to t('.answer_message'), "#{}",
+        id:"mail_to_link",
+        data: {
+          mail: @message.email,
+          subject:"#{listing_name} | Locationguru.net",
+          body:"" },
+          class: "btn btn-default btn-small" %>
 
-    <div>
-      <%= @message.name %> &lt;<%= @message.email %>&gt;
-      , Erhalten: <%= @message.created_at.strftime("%d.%m.%Y") %>
+        <div>
+          <br>
+          <strong>
+            <% if @message.inquery_date? %>
+              Für: <%= @message.inquery_date.strftime("%d.%m.%Y") %>
+            <% end %>
+        </strong>
+        </div>
+        <div>
+          <hr>
+          <p>
+          <%= html_line_breaks(@message.message) %>
+        </p>
+        </div>
+      </div>
     </div>
-    <%= link_to t('.answer_message'), "#{}",
-    id:"mail_to_link",
-    data: {
-      mail: @message.email,
-      subject:"#{listing_name} | Locationguru.net",
-      body:"" },
-      class: "btn btn-default btn-small" %>
-
-    <div>
-      <br>
-      <strong>
-        <% if @message.inquery_date? %>
-          Für: <%= @message.inquery_date.strftime("%d.%m.%Y") %>
-        <% end %>
-    </strong>
-    </div>
-    <div>
-      <hr>
-      <p>
-      <%= html_line_breaks(@message.message) %>
-    </p>
-    </div>
+    <%= javascript_include_tag 'send_message_on_button' %>
   </div>
 </div>
-<%= javascript_include_tag 'send_message_on_button' %>

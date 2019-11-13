@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     response.headers['Content-Security-Policy'] =
       "default-src 'none';" \
       "script-src 'self' 'sha256-1fGkNkXvtZDs1faIpI9QamIelCDJqvDPc6k/qVlHNLA=' cdn.headwayapp.co js.stripe.com www.googletagmanager.com google-analytics.com www.google-analytics.com maps.googleapis.com cdnjs.cloudflare.com;" \
-      "img-src 'self' data: www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com platform-lookaside.fbsbx.com s3.eu-central-1.amazonaws.com;" \
+      "img-src 'self' data: www.gravatar.com maps.googleapis.com www.google-analytics.com maps.gstatic.com platform-lookaside.fbsbx.com s3.eu-central-1.amazonaws.com www.myo-design.de;" \
       "style-src 'self' 'unsafe-inline' cdn.headwayapp.co/headway-animate.css *.googleapis.com cdnjs.cloudflare.com;" \
       "font-src  'self' fonts.gstatic.com;"\
       "child-src 'self' js.stripe.com;" \
