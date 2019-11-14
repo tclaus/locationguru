@@ -6,18 +6,23 @@
   }
 
   // Search Page with maps on right side
-  #left {
-    padding: 10px 30% 10px 20px;
-    overflow: scroll;
-    height: 100%;
+  .left {
+    width: 60%;
+    padding-top: 15px;
+    float: left;
+    min-height: 100vh;
+    height: 100vh;
+    overflow:scroll;
+    padding-right: 10px;
   }
 
-  #right {
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    width: 30%;
-    height: 80%;
+  .right {
+    width:40%;
+    min-height: 90vh;
+    padding-top: 15px;
+    height: 90vh;
+    float: right;
+    padding-left: 10px;
   }
 
   .show-mobile-only {
