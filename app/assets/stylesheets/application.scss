@@ -44,7 +44,7 @@ footer {
 }
 
 h1 {
-  font: Bold 30pt/34pt Arvo;
+  font: Bold 2rem/2.7rem Arvo;
   text-shadow: 0pt 3pt 6pt #000000;
 }
 
@@ -299,23 +299,9 @@ li.feature {
   padding-bottom: 10px;
 }
 
-// In einem >contaiuner packen?
-.left {
-  width: 60%;
-  float: left;
-  min-height: 100vh;
-  height: 100vh;
-  overflow:scroll;
-  padding-right: 10px;
-}
+// Right and Left properties are in the desktop and mobile sections
 
-.right {
-  width:40%;
-  min-height: 100vh;
-  height: 100vh;
-  float: right;
-  padding-left: 10px;
-}
+
 
 // Active / Inactive signs
 .location-status {

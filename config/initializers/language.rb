@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-DEFAULT_LANGUAGE = 'en'
+DEFAULT_LANGUAGE = 'de'
