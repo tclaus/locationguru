@@ -1,0 +1,5 @@
+en:
+  locations:
+    presentation:
+      google_map:
+        location: "Location"
