@@ -22,14 +22,10 @@ class PhotosController < ApplicationController
 
     photos = @location.photos
     photos.each do |photo|
-      if photo.id == main_photo_id
-        photo.is_main = true
-      else
-        photo.is_main = false
-      end
+      photo.is_main = photo.id == main_photo_id
       photo.save
     end
-  respond_to :js
+    respond_to :js
     # render status: :OK
   end
 
