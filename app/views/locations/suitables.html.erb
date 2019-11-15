@@ -1,82 +1,84 @@
 <% meta_tag :page_title, page_title + ' - ' + @location.listing_name %>
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'location_menu' %>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= render 'location_small_name' %> <br>
-        <%= t('.suitables') %>
-      </div>
-      <div class="panel-body">
-        <div class="container venue-detail">
-          <%= form_for @location do |f| %>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForPrivateParties, t('.isForPrivateParties') %>
-                  <%= f.check_box :isForPrivateParties %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'location_menu' %>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= render 'location_small_name' %> <br>
+          <%= t('.suitables') %>
+        </div>
+        <div class="panel-body">
+          <div class="container venue-detail">
+            <%= form_for @location do |f| %>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForPrivateParties, t('.isForPrivateParties') %>
+                    <%= f.check_box :isForPrivateParties %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForClubbing, t('.isForClubbing') %>
+                    <%= f.check_box :isForClubbing %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForWeddings, t('.isForWeddings') %>
+                    <%= f.check_box :isForWeddings %>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForClubbing, t('.isForClubbing') %>
-                  <%= f.check_box :isForClubbing %>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForPhotoFilm, t('.isForPhotoFilm') %>
+                    <%= f.check_box :isForPhotoFilm %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForBusiness, t('.isForBusiness'), class: "" %>
+                    <%= f.check_box :isForBusiness, class: "" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForEscapeRoomGames, t('.isForEscapeRoomGames') %>
+                    <%= f.check_box :isForEscapeRoomGames %>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForWeddings, t('.isForWeddings') %>
-                  <%= f.check_box :isForWeddings %>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForConferences, t('.isForConferences') %>
+                    <%= f.check_box :isForConferences %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :isForBachelorParties, t('.isForBachelorParties') %>
+                    <%= f.check_box :isForBachelorParties %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group text-right">
+                    <%= f.label :suitableForText, t('.suitableForText') %><br>
+                    <%= f.text_field :suitableForText, maxlength: 50, size: 20 %>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForPhotoFilm, t('.isForPhotoFilm') %>
-                  <%= f.check_box :isForPhotoFilm %>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForBusiness, t('.isForBusiness'), class: "" %>
-                  <%= f.check_box :isForBusiness, class: "" %>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForEscapeRoomGames, t('.isForEscapeRoomGames') %>
-                  <%= f.check_box :isForEscapeRoomGames %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForConferences, t('.isForConferences') %>
-                  <%= f.check_box :isForConferences %>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :isForBachelorParties, t('.isForBachelorParties') %>
-                  <%= f.check_box :isForBachelorParties %>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group text-right">
-                  <%= f.label :suitableForText, t('.suitableForText') %><br>
-                  <%= f.text_field :suitableForText, maxlength: 50, size: 20 %>
-                </div>
-              </div>
-            </div>
 
-            <div class="text-center">
-              <%= f.submit t('.save') ,class:"btn btn-default" %>
-            </div>
-          <% end %>
+              <div class="text-center">
+                <%= f.submit t('.save') ,class:"btn btn-default" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

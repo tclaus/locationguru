@@ -1,4 +1,4 @@
-<h3>Standort</h3>
+<h3><%= t('.location') %></h3>
 <% if !@location.latitude.blank? && !@location.longitude.blank? %>
     <div id="map" data-lat=<%= @location.latitude %>
         data-lng=<%= @location.longitude %>
