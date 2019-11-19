@@ -13,9 +13,9 @@
     <div class="left">
       <div class="row" id="location_listing">
         <% if !@locations.empty? %>
-          <%= render partial: 'locations/venues_gallery' %>
+          <%= render 'locations/venues_gallery', locations: @locations %>
         <% else %>
-          <%= render partial: 'pages/no_locations_found' %>
+          <%= render 'pages/no_locations_found' %>
         <% end %>
       </div>
     </div>

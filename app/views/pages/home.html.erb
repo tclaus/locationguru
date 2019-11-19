@@ -48,7 +48,7 @@
 
     <% # Sample Vanues %>
     <% if !@locations.empty? %>
-      <%= render 'locations/venues_gallery' %>
+      <%= render 'locations/venues_gallery', locations: @locations %>
     <% else %>
       <%= render 'pages/no_locations_found' %>
     <% end %>

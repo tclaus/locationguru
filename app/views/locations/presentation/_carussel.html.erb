@@ -1,12 +1,38 @@
+
+<h3><%= t('.images') %></h3>
+<div class="venue-gallery">
   <% if @photos.length > 0 %>
+    <% id = 1 %>
+    <div class="row">
+      <% @photos.each do |photo| %>
+          <div class="column">
+            <img class="hover-shadow cursor gallery-thumbnail-image"
+                src="<%= photo.image.url(:medium) %>"
+                alt="<%= @location.listing_name %>"
+                data-slideid=<%= id %> >
+          </div>
+        <% id +=1 %>
+      <% end %>
+    </div>
+
+  <div id="modal-venue-gallery" class="modal">
+  <span id="close-modal" class="close cursor" >&times;</span>
+  <div class="modal-content">
+    <% id = 1 %>
     <% @photos.each do |photo| %>
-        <div class="responsive">
-        <div class="gallery">
-          <a href="<%= photo.image.url() %>" >
-            <%= image_tag photo.image.url(), alt: @location.listing_name, width: "600", height: "400" %>
-          </a>
+        <div class="mySlides">
+          <div class="numbertext"><%= id %> / <%= @photos.count %></div>
+          <img src="<%= photo.image.url() %>">
         </div>
-      </div>
+        <% id+=1 %>
     <% end %>
-    <div class="clearfix"></div>
-  <% end %>
+
+    <!-- Next/previous controls -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+
+  </div>
+</div>
+<% end %>
+</div>
+<%= javascript_include_tag('listing_gallery')  %>
