@@ -53,17 +53,24 @@
   /* The Close Button */
   .close {
     color: white;
+    opacity: 1.0;
     position: absolute;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    padding: 16px;
     top: 10px;
     right: 25px;
     font-size: 35px;
     font-weight: bold;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   .close:hover,
   .close:focus {
     color: white;
     text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
 
