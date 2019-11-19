@@ -1,5 +1,5 @@
 <div class="row">
-  <% @locations.each do |location| %>
+  <% locations.each do |location| %>
     <div class="col-md-4">
       <%= link_to location do %>
       <div class="panel panel-default">
@@ -23,7 +23,7 @@
     </div>
   <% end %>
 
-  <% if @locations.empty? %>
+  <% if locations.empty? %>
     <div class="panel-body message-scroller">
       <%= t('.no_locations_found') %>
     </div>

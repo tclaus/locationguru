@@ -32,7 +32,7 @@
     <br>
     <div class="row">
       <% if !@locations.empty? %>
-        <%= render partial: 'locations/venues_gallery' %>
+        <%= render 'locations/venues_gallery', locations: @locations %>
       <% else %>
         <%= t('.you_dont_have_any_entries') %>
       <% end %>

@@ -8,7 +8,7 @@
         <%= javascript_include_tag('maps_location_list') %>
         </div>
       </div>
-      
+
       <div class="left">
         <!-- search Panel -->
         <div class="row">
@@ -88,9 +88,9 @@
 
         <div class="row" id="location_listing">
           <% if !@locations.empty? %>
-            <%= render partial: 'locations/search_results' %>
+            <%= render 'locations/search_results', locations: @locations %>
           <% else %>
-            <%= render partial: 'pages/no_locations_found' %>
+            <%= render 'pages/no_locations_found' %>
           <% end %>
         </div>
       </div>
