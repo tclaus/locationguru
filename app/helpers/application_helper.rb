@@ -60,4 +60,10 @@ module ApplicationHelper
   def yield_meta_tag(tag, default_text = '')
     content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
   end
+
+  def html_short_link_text(target_link)
+    target_link.remove('http://','https://')
+  end
+
+
 end

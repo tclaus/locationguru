@@ -28,11 +28,11 @@
             <td class="first-cell"><i class="fas fa-globe fa-lg"></i></td>
             <td>
               <% if !@location.website.blank? %>
-                <% if @location.website.size > 28 %>
-                  <%= link_to @location.website.slice(0,28) + '...', @location.website %>
-                <% else %>
-                  <%= link_to @location.website, @location.website %>
+                <% parsed_url = html_short_link_text(@location.website) %>
+                <% if parsed_url.size > 28 %>
+                  <% parsed_url = parsed_url.slice(0,28) +'...'  %>
                 <% end %>
+                  <%= link_to parsed_url, @location.website, target: :_blank %>
               <% else %>
                 <%= t('.no_website') %>
               <% end %>
