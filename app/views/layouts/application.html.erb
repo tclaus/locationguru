@@ -15,15 +15,16 @@
     <meta name='keywords' content="<%= yield_meta_tag(:keywords, t('.meta_keywords')) %>"/>
 
     <% # Open Graph facebook %>
+    <meta property="og:locale" content="<%= I18n.locale %>">
     <meta property="og:url" content="<%= yield_meta_tag(:siteUrl,'https://locationguru.net') %>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<%= yield_meta_tag(:og_title,page_title) %>">
+    <meta property="og:title" content="<%= yield_meta_tag(:og_title, page_title) %>">
     <meta property="og:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
     <meta property="og:image" content="<%= yield_meta_tag(:image, 'lcg_social_pub.jpg') %>">
 
     <% # Open Graph twitter %>
     <meta name="twitter:title" content="<%= yield_meta_tag(:og_title, page_title) %>">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="<%= yield_meta_tag(:description, t('.meta_description')) %>">
     <meta name="twitter:image" content="<%= yield_meta_tag(:image, 'lcg_social_pub.jpg') %>">
 
