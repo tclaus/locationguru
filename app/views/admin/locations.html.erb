@@ -15,10 +15,12 @@
            <th scope="col">Calls</th>
            <th scope="col">Edit</th>
            <th scope="col">Restricted</th>
-           <th scope="col">Aktive</th>
+           <th scope="col">Active</th>
            <th scope="col">Creator</th>
            <th scope="col">Created At</th>
            <th scope="col">Geocoded</th>
+           <th scope="col">Web</th>
+           <th scope="col">Photos</th>
           </tr>
           <% @locations.each do |location| %>
           <tr>
@@ -61,12 +63,24 @@
               <td> Invalid User </td>
             <% end %>
             <td><%= location.created_at %></td>
-            <td><% if location.geocoded? %>
-              <i class="fas fa-check"></i>
-              long.: <%= location.longitude %>, lat.: <%= location.latitude %>
+            <td>
+              <% if location.geocoded? %>
+                <i class="fas fa-check"></i>
               <% else %>
-              <div class="text-center">Not geocoded.</div>
-            <% end %></td>
+                <i class="fas fa-minus"></i>
+              <% end %>
+            </td>
+            <td>
+              <% if !location.website.blank? %>
+                <i class="fas fa-check" title="<%= location.website %>"></i>
+              <% else %>
+                <i class="fas fa-minus"></i>
+              <% end %>
+
+            </td>
+            <td>
+              <%= location.photos.size %>
+            </td>
           </tr>
           <% end %>
         </table>

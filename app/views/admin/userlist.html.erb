@@ -43,7 +43,13 @@
             <% else %>
               <td><%= user.provider %></td>
             <% end %>
-            <td><%= user.isConfirmed? %></td>
+            <td>
+              <% if user.isConfirmed? %>
+                <i class="fas fa-check"></i>
+              <% else %>
+                <i class="fas fa-minus"></i>
+              <% end %>
+            </td>
             <td><%= user.language_id %></td>
           </tr>
           <% end %>

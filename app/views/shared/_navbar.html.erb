@@ -43,6 +43,10 @@
             <li><%= link_to t('.manage'), locations_path %></li>
             <li><%= link_to t('.become_a_host'), new_location_path %></li>
             <li role="separator" class="divider"></li>
+            <% if current_user.isAdmin %>
+              <li><%= link_to t('.administration'), admin_path %></li> 
+              <li role="separator" class="divider"></li>
+            <% end %>
             <li><%= link_to t('.profile'), edit_user_registration_path %></li>
             <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
           </ul>
