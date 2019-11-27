@@ -65,7 +65,7 @@ class Location < ApplicationRecord
 
   def short_summary
     if summary.length > 200
-      summary[0,200] + '...'
+      summary[0, 200] + '...'
     else
       summary
     end
@@ -73,6 +73,11 @@ class Location < ApplicationRecord
 
   def is_active?
     active
+  end
+
+  # Top venues are venues with many messages in a time period
+  def is_top_venue
+    messages.where('created_at >= ?', 30.day.ago).count > 5
   end
 
   private

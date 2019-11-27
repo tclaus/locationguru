@@ -219,6 +219,11 @@ div.or {
   }
 }
 
+.listing-top-tag {
+  width: 5em;
+  content: image_url('logo/location_of_the_month.svg');
+}
+
 img.location-thumb {
   width: 100px;
   height: 100px;
@@ -382,6 +387,12 @@ img {
   .listing-properties {
     margin-top: 8px;
     text-align: left;
+  }
+
+  .listing-top-tag {
+    width: 7em;
+    margin-top: -25px;
+    margin-right: 25px;
   }
 }
 

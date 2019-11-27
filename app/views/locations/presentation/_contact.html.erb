@@ -55,6 +55,12 @@
             <strong><%= @weekly_calls %></strong> <%= t('.venue_calls_last_week') %>
           </td>
         </tr>
+        <% if @location.is_top_venue %>
+        <tr>
+          <td></td>
+          <td><div class="listing-top-tag"></div></td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
 

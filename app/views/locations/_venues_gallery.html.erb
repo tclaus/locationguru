@@ -16,7 +16,13 @@
           <div class="listing-properties">
             <div><%= trLocationType(location.location_type) %> - <%= trKindType(location.kind_type) %></div>
             <div>max. <%= location.max_persons %> <%= t('.persons') %> </div>
+            <% if location.is_top_venue %>
+              <div><%= t('.top_venue') %></div>
+            <% else %>
+            <div>&nbsp;</div>
+            <% end %>
           </div>
+
         </div>
       </div>
       <% end %>
