@@ -21,6 +21,7 @@
            <th scope="col">Geocoded</th>
            <th scope="col">Web</th>
            <th scope="col">Photos</th>
+           <th scope="col">Messages (30D) / total </th>
           </tr>
           <% @locations.each do |location| %>
           <tr>
@@ -80,6 +81,13 @@
             </td>
             <td>
               <%= location.photos.size %>
+            </td>
+            <td>
+              <%= location.messages.where("created_at >= ?", 30.day.ago) .count %> /
+              <%= location.messages.count %>
+              <% if location.is_top_venue %>
+              Top!
+              <% end %>
             </td>
           </tr>
           <% end %>
