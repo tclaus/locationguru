@@ -50,6 +50,8 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.i18n.fallbacks = true
+
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -74,7 +76,7 @@ Rails.application.configure do
     org_path: ':class/:id/:style/:filename',
     path: ':class/:id/:style/:hash.:extension',
     hash_secret: ENV['PAPERCLIP_HASH_SECRET'],
-    s3_headers: {'Cache-Control' => 'max-age=31557600'},
+    s3_headers: { 'Cache-Control' => 'max-age=31557600' },
     s3_host_name: 's3.eu-central-1.amazonaws.com',
     s3_credentials: {
       bucket: ENV['s3_bucket_name'],
