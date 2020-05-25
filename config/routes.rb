@@ -93,7 +93,7 @@ Rails.application.routes.draw do
 
   # Receive webhooks
   namespace :webhooks do
-      post 'mails', to: 'mails'
+    post 'mails', to: 'mails'
   end
 
   %w[404 422 500].each do |code|

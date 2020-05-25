@@ -14,7 +14,7 @@
           <div class="row">
             <div class="form-group">
               <%= f.label(:listing_name, t('.listing_name')) %>
-              <%= f.text_field :listing_name, placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
+              <%= f.text_field :listing_name, value: params[:listing_name], placeholder: t('.what_is_your_listing_name'), class:"form-control", required: true %>
               <small><%= t('.short_location_name_rule') %></small>
             </div>
           </div>
@@ -22,7 +22,7 @@
           <div class="row">
             <div class="form-group">
               <%= f.label(:summary, t('.summary')) %>
-              <%= f.text_area :summary, rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
+              <%= f.text_area :summary, value: params[:summary], rows: 5, placeholder: t('.describe_your_location'), class:"form-control", required: true %>
             </div>
           </div>
 
@@ -46,7 +46,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <%= f.label(:max_persons, t('.maximum_number_of_persons')) %>
-                  <%= f.text_field :max_persons, value: 0, prompt: "50",class: "form-control form-persons" %>
+                  <%= f.text_field :max_persons, value: params[:max_persons], value: 0, prompt: "50",class: "form-control form-persons" %>
                 </div>
               </div>
             </div>

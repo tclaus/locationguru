@@ -33,7 +33,7 @@ class LocationsController < ApplicationController
     else
       logger.warn "Failed creating a location: "+ error_messages_to_s(@location.errors)
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
-      render :new
+      redirect_to new_location_url(location_params)
     end
   end
 
