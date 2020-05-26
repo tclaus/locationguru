@@ -5,3 +5,4 @@ de:
       select_photos: "Fotos auswählen"
       send_photos: "Hochladen"
       headline: "Wählen Sie Fotos für zum Upload und legen Sie das Hauptfoto fest"
+      instructions: "Das Format sollte jpg und nicht kleiner 800x600 pixel sein."
