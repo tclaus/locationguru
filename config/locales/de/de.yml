@@ -1,10 +1,10 @@
 de:
   locationguru_title: "Location Guru"
   locationguru_subtitle: "Finde eine Location, die zu deiner Veranstaltung passt"
-  site_slogan: "Einfach und Kostenlos"
+  site_slogan: "Einfach und kostenlos"
   saved: "Gespeichert"
   something_went_wrong: "Ein Fehler ist aufgetreten..."
-  something_went_wrong_need_location: "Um eine Location anzulegen müsen Sie die Art angeben."
+  something_went_wrong_need_location: "Um eine Location anzulegen musst du die Art angeben."
   updated: "Aktualisiert"
   you_cannot_book_you_own_property: "Du kannst deine eigene Location nicht buchen"
   not_authorized: "Das darfst du nicht"
