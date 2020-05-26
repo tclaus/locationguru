@@ -30,16 +30,14 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <%= f.label(:location_type, t('.location_type')) %>
-                  <% locationTypeArray = LocationType.all.map {|type| [trLocationType(type.id), type.id]} %>
-                  <%= f.select(:location_type, options_for_select(locationTypeArray), required: true, prompt: t('.select_location_type')) %>
+                  <%= f.select(:location_type, options_for_select(location_type_for_select, params[:location_type]), required: true, prompt: t('.select_location_type')) %>
                 </div>
               </div>
 
               <div class="col-md-4 select">
                 <div class="form-group">
                   <%= f.label(:kind_type,t('.location_kind')) %>
-                  <% kindTypeArray = KindType.all.map {|type| [trKindType(type.id), type.id]} %>
-                  <%= f.select(:kind_type, options_for_select(kindTypeArray), required: true, prompt: t('.select_location_kind')) %>
+                  <%= f.select(:kind_type, options_for_select(kind_type_for_select, params[:kind_type]), required: true, prompt: t('.select_location_kind')) %>
                 </div>
               </div>
 

@@ -14,4 +14,13 @@ module LocationsHelper
     text << location.suitableForText unless location.suitableForText.blank?
     text.join(', ')
   end
+
+  def kind_type_for_select
+    KindType.all.map { |kind_type| [trKindType(kind_type.id), kind_type.id] }
+  end
+
+  def location_type_for_select
+    LocationType.all.map { |location_type| [trLocationType(location_type.id), location_type.id] }
+  end
+
 end
