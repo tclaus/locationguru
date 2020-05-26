@@ -5,3 +5,4 @@ en:
       select_photos: "Select photos"
       send_photos: "Upload"
       headline: "Select photos to upload and choose the main photo."
+      instructions: "Image should be in jpeg format and not smaller than 800x600 pixels"
