@@ -44,7 +44,7 @@
             <li><%= link_to t('.become_a_host'), new_location_path %></li>
             <li role="separator" class="divider"></li>
             <% if current_user.isAdmin %>
-              <li><%= link_to t('.administration'), admin_path %></li> 
+              <li><%= link_to t('.administration'), admin_path %></li>
               <li role="separator" class="divider"></li>
             <% end %>
             <li><%= link_to t('.profile'), edit_user_registration_path %></li>
@@ -77,14 +77,16 @@
     current_page?(admin_users_path) ||
     current_page?(admin_locations_path) ||
     current_page?(admin_messages_path) ||
+    current_page?(reservations_show_all_path) ||
+    ( id && (
     current_page?(suitables_location_path(id: id)) ||
     current_page?(amenities_location_path(id: id)) ||
     current_page?(description_location_path(id: id)) ||
     current_page?(listing_location_path(id: id)) ||
     current_page?(photo_upload_location_path(id: id)) ||
     current_page?(location_location_path(id: id)) ||
-    current_page?(send_message_location_path(id: id)) ||
-    current_page?(reservations_show_all_path)
+    current_page?(send_message_location_path(id: id))
+    ))
     ) %>
 
   <nav class="navbar navbar-default">

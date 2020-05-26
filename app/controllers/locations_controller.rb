@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-include CounterHelper
-
 class LocationsController < ApplicationController
+  include CounterHelper
+
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: %i[preload preview show send_message]
   before_action :is_authorized, only: %i[listing description
@@ -31,9 +31,9 @@ class LocationsController < ApplicationController
       logger.debug "Created location with ID #{@location.id}"
       redirect_to listing_location_path(@location), notice: t('saved')
     else
-      logger.warn "Failed creating a location: "+ error_messages_to_s(@location.errors)
+      logger.warn 'Failed creating a location: ' + error_messages_to_s(@location.errors)
       flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
-      render :new
+      redirect_to new_location_url(location_params)
     end
   end
 

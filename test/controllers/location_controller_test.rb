@@ -17,10 +17,22 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should show error on missing kind_type on create a location' do
+    sign_in users(:host)
+
+    post locations_path, params: {
+      location: {
+        listing_name: 'test-name'
+      }
+    }
+
+    assert_redirected_to(new_location_url({listing_name: 'test-name'}))
+    assert_not_nil(flash[:alert])
+
+  end
+
   test 'should create a location' do
     sign_in users(:host)
-    get '/locations/new'
-    assert_response :success
 
     post locations_path, params: {
       location: {
@@ -32,6 +44,7 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :found # 302
+    assert_nil(flash[:alert])
   end
 
   test 'should delete a location' do
