@@ -60,7 +60,7 @@ a {
 }
 
 a:hover {
-  color: $link-color;
+  color: $link-hover-color;
   text-decoration: none;
 }
 
@@ -73,6 +73,10 @@ a:hover {
 
 .navbar-default .navbar-nav > li > a {
   color: $link-color;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: $link-hover-color;
 }
 
 .navbar-default .navbar-brand {
