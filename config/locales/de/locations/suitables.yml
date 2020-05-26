@@ -1,7 +1,7 @@
 de:
   locations:
     suitables:
-      suitables: "Geeignet für diese Art der Verantstaltung"
+      suitables: "Geeignet für diese Art der Veranstaltung"
       isForPrivateParties: "Für private Feiern"
       isForClubbing: "Club / Kommerziell"
       isForWeddings: "Hochzeiten"
@@ -9,7 +9,7 @@ de:
       isForBusiness: "Seminare, Tagungen, Workshops"
       isForEscapeRoomGames: "Escape Room geeignet"
       isForConferences: "Konferenzen, Schulungen"
-      isForBachelorParties: "Abschlussfeieren, JGA"
-      isForChristmasParties: "Weihnachtsfeieren"
+      isForBachelorParties: "Abschlussfeiern, Junggesellenabschiede"
+      isForChristmasParties: "Weihnachtsfeiern"
       suitableForText: "Sonstiges:"
       save: "Speichern"

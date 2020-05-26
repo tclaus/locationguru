@@ -2,6 +2,6 @@ de:
   locations:
     venues_gallery:
       set_a_name: "<Kein Name>"
-      no_locations_found: "Legen Sie ihren ersten einen Eintrag an"
+      no_locations_found: "Lege deine erste Location an"
       persons: "Personen"
       top_venue: "Top Location!"

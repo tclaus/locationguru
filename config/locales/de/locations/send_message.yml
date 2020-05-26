@@ -2,13 +2,13 @@ de:
   locations:
     send_message:
       send_a_message: "Sende eine Nachricht an:"
-      email: "Email:"
-      your_email: "Deine Email-Adresse"
+      email: "E-Mail:"
+      your_email: "Deine E-Mail-Adresse"
       name: "Name:"
       date: "Datum:"
-      on_which_date_should_the_event_take_place: "An welchem Datum soll ihre Veranstaltung stattfinden?"
+      on_which_date_should_the_event_take_place: "An welchem Datum soll deine Veranstaltung stattfinden?"
       your_name: "Dein Name"
       message: "Nachricht"
-      your_message: "Gibt in der Nachricht an, was genau du vor hast, wie viele Leute werden erwartet und eventuell ein Wunschdatum"
-      accept_data_processing: "Ich willige ein, das diese Daten zum Zwecke der Verarbeitung gespeichert werden."
+      your_message: "Gib in der Nachricht an, was genau du vor hast, wie viele Leute erwartet werden und eventuell dein Wunschdatum"
+      accept_data_processing: "Ich willige ein, dass diese Daten zum Zwecke der Verarbeitung gespeichert werden."
       create: "Versenden"

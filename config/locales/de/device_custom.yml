@@ -23,14 +23,14 @@ de:
         yourVerificationPin: "Code"
         save_new_number: "Speichern"
         verify_pin: "OK"
-        yourPhoneNumber: "Ihre Telefonnummer"
+        yourPhoneNumber: "Deine Telefonnummer"
       new:
-        accept_gtc_form: "Ich bestätige das ich die <a href='/gtc'>AGBs</a> und die Datenschutzerklärung gelesen habe"
+        accept_gtc_form: "Ich bestätige, dass ich die <a href='/gtc'>AGB</a> und die Datenschutzerklärung gelesen und akzeptiert habe."
     sessions:
       new:
         forgot_your_password: "Passwort wieder herstellen"
         sign_up: "Registrieren"
         use_alternative_login: ODER
         retired_facebook_login_message: "Der Login durch facebook wurde abgestellt.
-        Um sich erneut anzumelden, wählen sie 'Passwort wieder herstellen' und geben ihre
-        normale Email-Adresse ein. Der Login wird dann auf email/passwort umgestellt."
+        Um dich erneut anzumelden, wähle 'Passwort wieder herstellen' und gib deine
+        normale E-Mail-Adresse ein. Der Login wird dann auf E-Mail/Passwort umgestellt."
