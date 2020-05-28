@@ -9,7 +9,7 @@
     <div class="table-responsive">
       <table class="table table-striped">
           <tr>
-            <th scope="col"></th>
+           <th scope="col"></th>
            <th scope="col">ID</th>
            <th scope="col">Name</th>
            <th scope="col">Calls</th>
@@ -18,7 +18,8 @@
            <th scope="col">Active</th>
            <th scope="col">Creator</th>
            <th scope="col">Created At</th>
-           <th scope="col">Geocoded</th>
+           <th scope="col">Last Modified</th>
+           <th scope="col">Geo</th>
            <th scope="col">Web</th>
            <th scope="col">Photos</th>
            <th scope="col">Messages (30D) / total </th>
@@ -63,7 +64,8 @@
             <% else %>
               <td> Invalid User </td>
             <% end %>
-            <td><%= location.created_at %></td>
+            <td><%= location.created_at.to_date %></td>
+            <td><%= location.updated_at.to_date %></td>
             <td>
               <% if location.geocoded? %>
                 <i class="fas fa-check"></i>
@@ -83,7 +85,7 @@
               <%= location.photos.size %>
             </td>
             <td>
-              <%= location.messages.where("created_at >= ?", 30.day.ago) .count %> /
+              <%= location.messages.where("created_at >= ?", 30.day.ago).count %> /
               <%= location.messages.count %>
               <% if location.is_top_venue %>
               Top!

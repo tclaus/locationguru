@@ -45,15 +45,16 @@ class AdminController < ApplicationController
       logger.debug(' Filter with userid')
       if params[:active] == 'true'
         @locations = Location.where(user_id: params[:userid], active: true)
-        .order(:id)
+        .order(id: :desc)
       else
         @locations = Location.where(['user_id= ? and (active = false or active is NULL)',
           params[:userid]])
-          .order(:id)
+          .order(id: :desc)
       end
     else
       logger.debug(' Load all locations')
-      @locations = Location.all.order(:id)
+      @locations = Location.all
+      .order(id: :desc)
     end
     CounterHelper.load_total_numbers(@locations)
     render 'admin/locations'
@@ -61,7 +62,7 @@ class AdminController < ApplicationController
 
   def messages
     # TODO: Make this in pages! Currently its OK
-    @messages = Message.all.order(:id)
+    @messages = Message.all.order(id: :desc)
     render 'admin/messages'
   end
 

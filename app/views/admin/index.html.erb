@@ -10,23 +10,32 @@
             <%= t('.statistics') %>
           </div>
           <div class="panel-body">
+            <h4>Total Active Venues: <%= @total_active_locations %></h4>
             <table class="statistic-table">
               <tbody>
-                <tr>
-                  <td class="text-left"><%= link_to t('.total_users'), admin_users_path %></td>
-                  <td class="statistic-table"><%= "#{@total_confirmed_users} (#{@total_users})" %> </td>
+                <tr class="statistic-row">
+                  <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
+                  <td class="statistic-cell">
+                    <%= link_to t('.total_users') do %>
+                      <%= "Total: #{@total_users}, Active: #{@total_confirmed_users}" %>
+                    <% end %>
+                  </td>
                 </tr>
-                <tr>
-                  <td class="text-left"><%= link_to t('.total_locations'), admin_locations_path %></td>
-                  <td class="statistic-table"><%= "#{@total_active_locations} ( #{@total_locations})" %> </td>
+                <tr class="statistic-row">
+                  <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
+                  <td class="statistic-cell">
+                    <%= link_to t('.total_locations') do %>
+                      <%= "Total: #{@total_locations}, Active #{@total_active_locations}" %>
+                    <% end %>
+                  </td>
                 </tr>
-                <tr>
-                  <td class="text-left"><%= link_to t('.messages'), admin_messages_path %></td>
-                  <td class="statistic-table"><%= @total_messages %></td>
+                <tr class="statistic-row">
+                  <td class="text-left statistic-cell"><%= link_to t('.messages'), admin_messages_path %></td>
+                  <td class="statistic-cell"><%= @total_messages %></td>
                 </tr>
               </tbody>
             </table>
-            <%= link_to 'Start Recalculation of geodata', admin_recalculation_path, method: :post %>
+            <%= link_to 'Start recalculation of geodata', admin_recalculation_path, method: :post, class: "button" %>
           </div>
 
         </div>
