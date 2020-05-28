@@ -104,7 +104,5 @@ Rails.application.routes.draw do
   get 'wp-login.php', to: 'errors#show', code: 404
   get 'blog/wp-login.php', to: 'errors#show', code: 404
 
-  # Wildcard for unmatched routes
-  get '*unmatched_route', to: 'application#raise_not_found'
 
 end

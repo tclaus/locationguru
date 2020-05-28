@@ -16,9 +16,12 @@
 
 <div class="secondary-container">
   <div class="container">
-    <hr>
     <br>
     <div class="row">
+
+      <% if current_user and current_user.isAdmin %>
+        <%= render 'locations/presentation/meta_data', locals: { location: @location } %>
+      <% end %>
 
       <!-- left panel -->
       <div class="col-md-8 left-main-printing">
