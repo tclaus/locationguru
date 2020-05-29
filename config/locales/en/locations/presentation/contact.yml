@@ -10,7 +10,7 @@ en:
         send_a_message: "Send Message"
         free_text: "Free"
         booked_text: "Booked"
-        requested_text: "Requested but still free"
+        requested_text: "On requested"
         venue_calls_last_week: "Calls this week"
         no_phone: "No phonnumer"
         no_website: "No website"

@@ -1,10 +1,36 @@
 
 // Datepicker for public booked/free status per day
 
-.maybe-blocked {
-  opacity: .65;
-  filter: Alpha(Opacity=65);
-  border: 1px solid #fcefa1;
-  background: #fbf9ee image_url("date-picker/ui-bg_glass_55_fbf9ee_1x400.png") 70% 70% repeat-x;
-  color: #363636;
+td.free, table.ui-datepicker-calendar tbody td.free a {
+  background: #dfffd2 !important;
+  color: #363636 !important;
 }
+
+td.maybe-blocked, table.ui-datepicker-calendar tbody td.maybe-blocked a {
+  background: #fbce8e !important;
+  color: #363636 !important;
+}
+
+// Someone has booked this location
+td.blocked, table.ui-datepicker-calendar tbody td.blocked a {
+  opacity: 1 !important;
+  filter: Alpha(Opacity=100) !important;
+  background: #ff7e7e !important;
+  color: #363636 !important;
+}
+
+// locked by provider ( should not be visible to customer)
+.unavailable {
+  opacity: .65 !important;
+  filter: Alpha(Opacity=65) !important;
+  border: 1px solid #fcefa1 !important;
+  background: #fbf9ee image_url("date-picker/ui-bg_glass_55_fbf9ee_1x400.png") 70% 70% repeat-x !important;
+  color: #363636 !important;
+}
+
+
+// in the past (disabled)
+// free
+// maybe blocked
+// blocked
+// unavailable

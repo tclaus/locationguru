@@ -560,10 +560,13 @@ img {
 
 .availability-box {
   background-color: white;
+
   .available-message {
     color: black;
     margin-left: 10px;
+    font-size: 1.7em;
   }
+
   .ui-widget-content {
     border: none;
   }
