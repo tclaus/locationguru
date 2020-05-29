@@ -7,9 +7,14 @@ $(function() {
   var booked_text = $('#datepicker').data('booked_text');
   var free_text = $('#datepicker').data('free_text');
   var requested_text = $('#datepicker').data('requested_text');
+  var currentDate = new Date();
+  currentDate.setHours(0,0,0);
+
+const BOOKED = 'booked';
+const INQUERY = 'inquery';
 
 /*
-Check selected date with backend and print a message in UI
+  Check selected date with backend and print a message in UI
 */
   function selected(selected) {
     var start_date = $('#datepicker').datepicker('getDate');
@@ -22,14 +27,16 @@ Check selected date with backend and print a message in UI
       data: input,
       success: function(data) {
         // Conflict: Date already reserved
-        if (data.status == 'inquery') {
+        if (data.status === BOOKED) {
+          $('#message').text(booked_text);
+          $('#btn_book').attr('disabled', true);
+
+        } else if (data.status === INQUERY) {
           $('#message').text(requested_text);
           $('#btn_book').attr('disabled', false);
           $('#reservation_start_date').val(start_date);
-        } else if (data.status == 'booked') {
-          $('#message').text(booked_text);
-          $('#btn_book').attr('disabled', true);
-        } else {
+
+        } else { // Free
           $('#message').text(free_text);
           $('#btn_book').attr('disabled', false);
           $('#reservation_start_date').val(start_date);
@@ -40,6 +47,7 @@ Check selected date with backend and print a message in UI
 
   // Set Datepicker properties
   // Regional settings must pe part of options!
+  // Retuns true/false and the css class to style the cell
 var dpOptions = $.extend(
   {},
   $.datepicker.regional[regional],
@@ -57,18 +65,30 @@ var dpOptions = $.extend(
 
   function checkDate(date) {
 
-    // reserved dates are marked. all other dates are free
+    // Reserved dates are marked. All other dates are free
     dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     var found = inArray(dmy, unavailableDates);
     if (found) {
-      // Kommt auf den Status an
-      if (found === 'booked') {
-        return [false];
+      // check status and return a css class
+      if (found === BOOKED) {
+        // Booked, not free
+        return [true, 'blocked'];
+
+      } else if (found === INQUERY) {
+        // A request is outstanding, but not approved
+        return [true, 'maybe-blocked'];
+
       } else {
-        return [true,'maybe-blocked'];
+        // Free ( no further information)
+        return [true,'free'];
       }
     } else {
-      return [true];
+      // Not found => Free
+      if (currentDate > date) {
+        // If in the past, dont add a style
+        return [true];
+      }
+      return [true, 'free'];
     }
   }
 
