@@ -12,7 +12,7 @@
           </div>
 
           <%= f.hidden_field :start_date,readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
-          <div class="available-message" id="message">Verfügbarkeit</div>
+          <div class="available-message" id="message"><%= t(".available")%></div>
 
           <% if !@location.website.blank? || !@location.phonenumber.blank? %>
             <% # phone number / website %>
