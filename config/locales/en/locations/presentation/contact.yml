@@ -2,15 +2,15 @@ en:
   locations:
     presentation:
       contact:
-        contact: "Contact"
         available: "Available"
+        contact: "Contact"
         website: "Web:"
         phonenumber: "Phone:"
-        email: "e-mail:"
+        email: "E-mail:"
         send_a_message: "Send Message"
         free_text: "Free"
         booked_text: "Booked"
-        requested_text: "On requested"
+        requested_text: "On request only"
         venue_calls_last_week: "Calls this week"
-        no_phone: "No phonnumer"
+        no_phone: "No phonenumber"
         no_website: "No website"
