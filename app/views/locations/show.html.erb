@@ -20,7 +20,7 @@
     <div class="row">
 
       <% if current_user and current_user.isAdmin %>
-        <%= render 'locations/presentation/meta_data', locals: { location: @location } %>
+        <%= render partial: 'locations/presentation/meta_data', locals: { location: @location } %>
       <% end %>
 
       <!-- left panel -->
@@ -42,7 +42,7 @@
       <!-- right panel -->
       <div class="col-md-4 noprint">
           <%= render 'locations/presentation/google_map' %>
-          <%= render 'locations/presentation/contact', locals: {location: @location.user} %>
+          <%= render partial: 'locations/presentation/contact', locals: {location: @location.user} %>
       </div>
     </div>
   </div>

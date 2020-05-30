@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-4 text-center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <%= t('.statistics') %>
@@ -17,16 +17,32 @@
                   <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
                   <td class="statistic-cell">
                     <%= link_to t('.total_users') do %>
-                      <%= "Total: #{@total_users}, Active: #{@total_confirmed_users}" %>
+                      <%= @total_users %>
                     <% end %>
+                  </td>
+                </tr>
+                <tr class="statistic-row">
+                  <td class="text-left statistic-cell">
+                    Users (Active)
+                  </td>
+                  <td class="statistic-cell">
+                    <%= @total_confirmed_users %>
                   </td>
                 </tr>
                 <tr class="statistic-row">
                   <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
                   <td class="statistic-cell">
                     <%= link_to t('.total_locations') do %>
-                      <%= "Total: #{@total_locations}, Active #{@total_active_locations}" %>
+                      <%= @total_locations %>
                     <% end %>
+                  </td>
+                </tr>
+                <tr class="statistic-row">
+                  <td class="text-left statistic-cell">
+                    Locations (Active)
+                  </td>
+                  <td class="statistic-cell">
+                    <%= @total_active_locations %>
                   </td>
                 </tr>
                 <tr class="statistic-row">
@@ -37,9 +53,14 @@
             </table>
             <%= link_to 'Start recalculation of geodata', admin_recalculation_path, method: :post, class: "button" %>
           </div>
-
         </div>
-      </div>
+        </div>
+        <div class="col-md-4">
+          <%= render partial: 'latest_venues', locals: {latest_venues: @new_in_30_days} %>
+        </div>
+        <div class="col-md-4">
+          <%= render partial: 'insufficient_photos', locals: {insufficient_photos: @insufficient_photos} %>
+        </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,25 @@
+
+<% if latest_venues.count == 0 %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    No new entries in the last 30 days
+  </div>
+  <div class="panel-body">
+  </div>
+</div>
+<% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      New entries in the last 30 days
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+          <% latest_venues.each do |venue| %>
+          <tr>
+            <td><%= link_to venue.listing_name, location_path(venue) %></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+<% end %>

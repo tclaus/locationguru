@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'tempfile'
 
 ##
@@ -15,6 +16,8 @@ class AdminController < ApplicationController
     @total_locations = Location.count
     @total_active_locations = Location.where(active: true).count
     @total_messages = Message.count
+    @insufficient_photos = venues_with_insufficient_photos()
+    @new_in_30_days = new_in_30_days()
     render 'admin/index'
   end
 
@@ -83,6 +86,31 @@ class AdminController < ApplicationController
   def recalculation
     ReverseGeolocationJob.perform_later
     redirect_back(fallback_location: request.referer)
+  end
+
+  def latest_venues
+    @last_venues = Location.where(active: true)
+                        .order(id: :desc)
+                        .limit(10)
+  end
+
+  def venues_with_insufficient_photos
+    # Get locationIds with kless than X photos
+    loosers = Photo.group(:location_id).having('count(*) < ?', 3).order(count_all: :asc).count
+    # Get locations by its name
+    insufficient_photos = []
+    loosers.each do |venue_id, count_photos|
+        location = Location.find(venue_id)
+        insufficient_photos << [location, count_photos] if location.active
+      rescue ActiveRecord::RecordNotFound
+        # photo without location
+        logger.warn("location with ID: #{venue_id} not found, but photo record still exist")
+    end
+    insufficient_photos
+  end
+
+  def new_in_30_days
+    Location.where('active = ? and created_at > ?',true, (Date.today - 30.days))
   end
 
   private
