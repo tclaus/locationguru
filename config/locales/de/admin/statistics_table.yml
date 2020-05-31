@@ -1,0 +1,9 @@
+de:
+  admin:
+    statistics_table:
+      statistics: "Statistiken"
+      total_users: "Alle Benutzer"
+      total_locations: "Alle Locations"
+      total_active_locations: "Alle aktive Locations"
+      total_messages: "Aktuelle Anzahl Nachrichten"
+      messages: "Nachrichten"

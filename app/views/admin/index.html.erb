@@ -4,42 +4,22 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <%= t('.statistics') %>
-          </div>
-          <div class="panel-body">
-            <h4>Total Active Venues: <%= @total_active_locations %></h4>
-            <table class="statistic-table">
-              <tbody>
-                <tr class="statistic-row">
-                  <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
-                  <td class="statistic-cell">
-                    <%= link_to t('.total_users') do %>
-                      <%= "Total: #{@total_users}, Active: #{@total_confirmed_users}" %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr class="statistic-row">
-                  <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
-                  <td class="statistic-cell">
-                    <%= link_to t('.total_locations') do %>
-                      <%= "Total: #{@total_locations}, Active #{@total_active_locations}" %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr class="statistic-row">
-                  <td class="text-left statistic-cell"><%= link_to t('.messages'), admin_messages_path %></td>
-                  <td class="statistic-cell"><%= @total_messages %></td>
-                </tr>
-              </tbody>
-            </table>
-            <%= link_to 'Start recalculation of geodata', admin_recalculation_path, method: :post, class: "button" %>
-          </div>
-
+      <div class="col-md-4 text-center">
+          <%= render 'statistics_table' %>
         </div>
+        <div class="col-md-4">
+          <%= render partial: 'latest_venues', locals: {locations: @latest_locations} %>
+        </div>
+        <div class="col-md-4">
+          <%= render partial: 'top_requested_locations', locals: {location_messages: @top_requested_locations} %>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <%= render partial: 'insufficient_photos', locals: {location_photos: @insufficient_photos} %>
       </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
     </div>
   </div>
 </div>

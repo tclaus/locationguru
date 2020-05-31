@@ -1,0 +1,25 @@
+
+<% if locations.count == 0 %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    No new venues in the last 30 days
+  </div>
+  <div class="panel-body">
+  </div>
+</div>
+<% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      New Venues in the last 30 days
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+          <% locations.each do |location| %>
+          <tr>
+            <td><%= link_to location.listing_name, location_path(location) %></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+<% end %>

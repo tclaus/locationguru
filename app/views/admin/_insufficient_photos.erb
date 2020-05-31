@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+   <th scope="col">Location with insufficient photos</th>
+   <th scope="col">Photos</th>
+  </tr>
+    <% location_photos.each do |location_photo_pair| %>
+    <tr>
+      <td><%= link_to location_photo_pair[0].listing_name, location_path(location_photo_pair[0]) %></td>
+      <td><%= location_photo_pair[1] %></td>
+    </tr>
+    <% end %>
+</table>

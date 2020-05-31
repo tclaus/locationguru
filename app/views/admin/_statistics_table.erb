@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= t('.statistics') %>
+  </div>
+  <div class="panel-body">
+    <h4>Total Active Venues: <%= @total_active_locations %></h4>
+    <table class="statistic-table">
+      <tbody>
+        <tr class="statistic-row">
+          <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
+          <td class="statistic-cell">
+            <%= link_to t('.total_users') do %>
+              <%= @total_users %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="statistic-row">
+          <td class="text-left statistic-cell">
+            Users (Active)
+          </td>
+          <td class="statistic-cell">
+            <%= @total_confirmed_users %>
+          </td>
+        </tr>
+        <tr class="statistic-row">
+          <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
+          <td class="statistic-cell">
+            <%= link_to t('.total_locations') do %>
+              <%= @total_locations %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="statistic-row">
+          <td class="text-left statistic-cell">
+            Locations (Active)
+          </td>
+          <td class="statistic-cell">
+            <%= @total_active_locations %>
+          </td>
+        </tr>
+        <tr class="statistic-row">
+          <td class="text-left statistic-cell"><%= link_to t('.messages'), admin_messages_path %></td>
+          <td class="statistic-cell"><%= @total_messages %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Start recalculation of geodata', admin_recalculation_path, method: :post, class: "button" %>
+  </div>
+</div>
