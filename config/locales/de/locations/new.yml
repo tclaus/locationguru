@@ -2,12 +2,12 @@ de:
   locations:
     new:
       create_your_location: "Neue Location anlegen"
-      location_type: "Wo gelegen"
-      select_location_type: "Wähle einen Ort"
-      location_kind: "Entspricht... "
+      location_type: "Beschreibe die Lage"
+      select_location_type: "Lage"
+      location_kind: "Beschreibe die Art"
       select_location_kind: "Wähle eine Art"
       maximum_number_of_persons: "Maximale Personen"
-      create: "Anlegen"
+      create: "Weiter..."
       description: "Beschreibung"
       listing_name: "Name der Location"
       what_is_your_listing_name: "Kurzer, allgemein bekannter Name der Location"
@@ -15,3 +15,4 @@ de:
       base_entry_always_free: "Die Basiseintragung ist immer kostenlos!"
       summary: "Beschreibender Text"
       describe_your_location: "Beschreibe hier, was deine Location so besonders und einzigartig macht."
+      create_subtext: "Sie benötigen nur ein Titel, einen beschreibenden Text, den Ort und ein paar Fotos. Fertig in 5 Minuten. "
