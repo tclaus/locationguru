@@ -1,0 +1,9 @@
+de:
+  admin:
+    statistics_table:
+      statistics: "Statistics"
+      total_users: "All Users"
+      total_locations: "All Venues"
+      total_active_locations: "All active venues"
+      total_messages: "Message count"
+      messages: "Messages"

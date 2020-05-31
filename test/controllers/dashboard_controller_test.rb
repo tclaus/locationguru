@@ -5,7 +5,7 @@ require 'test_helper'
 class DashboardControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-  test 'should get dashboard not signed in' do
+  test 'should not get dashboard if not signed in' do
     get '/dashboard'
     assert_response :redirect
   end

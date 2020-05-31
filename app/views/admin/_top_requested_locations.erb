@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+   <th scope="col">Venues with most recently messages</th>
+   <th scope="col">Message count</th>
+  </tr>
+    <% location_messages.each do |location_message_pair| %>
+    <tr>
+      <td><%= link_to location_message_pair[0].listing_name, location_path(location_message_pair[0]) %></td>
+      <td><%= location_message_pair[1] %></td>
+    </tr>
+    <% end %>
+</table>

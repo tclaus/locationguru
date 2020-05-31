@@ -1,8 +1,8 @@
 
-<% if latest_venues.count == 0 %>
+<% if locations.count == 0 %>
 <div class="panel panel-default">
   <div class="panel-heading">
-    No new entries in the last 30 days
+    No new venues in the last 30 days
   </div>
   <div class="panel-body">
   </div>
@@ -10,13 +10,13 @@
 <% else %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      New entries in the last 30 days
+      New Venues in the last 30 days
     </div>
     <div class="panel-body">
       <table class="table table-striped">
-          <% latest_venues.each do |venue| %>
+          <% locations.each do |location| %>
           <tr>
-            <td><%= link_to venue.listing_name, location_path(venue) %></td>
+            <td><%= link_to location.listing_name, location_path(location) %></td>
           </tr>
           <% end %>
       </table>

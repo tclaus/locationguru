@@ -16,8 +16,10 @@ class AdminController < ApplicationController
     @total_locations = Location.count
     @total_active_locations = Location.where(active: true).count
     @total_messages = Message.count
-    @insufficient_photos = venues_with_insufficient_photos()
-    @new_in_30_days = new_in_30_days()
+    @insufficient_photos = venues_with_insufficient_photos
+    @latest_locations = latest_locations(30)
+    @top_requested_locations = top_requested_locations(90)
+
     render 'admin/index'
   end
 
@@ -94,23 +96,44 @@ class AdminController < ApplicationController
                         .limit(10)
   end
 
+  # Locatins with to few photos. Request to improve
   def venues_with_insufficient_photos
-    # Get locationIds with kless than X photos
-    loosers = Photo.group(:location_id).having('count(*) < ?', 3).order(count_all: :asc).count
+    # Get locationIds with less than X photos
+    loosers = Photo.group(:location_id)
+                   .having('count(*) < ?', 3)
+                   .order(count_all: :asc)
+                   .count
     # Get locations by its name
     insufficient_photos = []
-    loosers.each do |venue_id, count_photos|
-        location = Location.find(venue_id)
-        insufficient_photos << [location, count_photos] if location.active
-      rescue ActiveRecord::RecordNotFound
-        # photo without location
-        logger.warn("location with ID: #{venue_id} not found, but photo record still exist")
+    loosers.each do |location_id, count_photos|
+      location = Location.find(location_id)
+      insufficient_photos << [location, count_photos] if location.active
+    rescue ActiveRecord::RecordNotFound
+      # photo without location
+      logger.warn("Location with ID: #{location_id} not found, but photo record still exist")
     end
     insufficient_photos
   end
 
-  def new_in_30_days
-    Location.where('active = ? and created_at > ?',true, (Date.today - 30.days))
+  def latest_locations(days = 30)
+    Location.where('active = ? and created_at > ?', true, (Date.today - days))
+  end
+
+  # Locations with most requests in last 90 days ( most booked events in future)
+  def top_requested_locations(days = 90)
+    top_requested = Message.where('created_at > ?', (Date.today - days))
+                           .group(:location_id)
+                           .order(count_all: :desc)
+                           .count
+    locations = []
+    top_requested.each do |location_id, count_messages|
+      location = Location.find(location_id)
+      locations << [location, count_messages] if location.active
+    rescue ActiveRecord::RecordNotFound
+      # Message without location
+      logger.warn("Location with ID: #{location_id} not found, but message record still exist")
+    end
+    locations
   end
 
   private
