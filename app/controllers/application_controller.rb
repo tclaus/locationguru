@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  before_action :activate_locale
   before_action :set_csp
   before_action :set_cities_link_cloud
   before_action :set_header_class
@@ -81,31 +81,33 @@ class ApplicationController < ActionController::Base
     simple_location
   end
 
-  # sets the localizaton from request Header
-  def set_locale
-    if current_user.blank?
-      I18n.locale = valid_language
-      logger.debug "* Locale set to '#{I18n.locale}'"
-    else
-      I18n.locale = current_user.language_id
-    end
+  # sets the localizaton logged-in user or from user record
+  def activate_locale
+    I18n.locale = valid_language
   end
 
   # Returns a valid language ID. Fall back to a default
   def valid_language
-    locale = extract_locale_from_accept_language_header
-    logger.debug "* Extracted Locale ID: #{locale}"
-    if !locale.blank? &&
-       (locale == 'de' ||
-         locale == 'en')
-      locale
-    else
-      DEFAULT_LANGUAGE
-    end
+    locale = language_from_current_user || custom_language_from_cookie || language_from_header || 'de'
+    logger.debug "* Using locale ID: #{locale}"
+    # Only de or en is a supported language
+    locale = DEFAULT_LANGUAGE if locale != 'de' && locale != 'en'
+    cookies[:custom_language] = locale
+    locale
+  end
+
+  def language_from_current_user
+    current_user.language_id unless current_user.blank?
+  end
+
+  def custom_language_from_cookie
+    cookie_language = cookies[:custom_language]
+    logger.debug "* Language from cookie: #{cookie_language}"
+    cookie_language
   end
 
   # extracts the accept-language header
-  def extract_locale_from_accept_language_header
+  def language_from_header
     accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
     logger.debug "* Accept-Language from header: #{accept_language}"
     return accept_language.scan(/^[a-z]{2}/).first if accept_language

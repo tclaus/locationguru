@@ -11,3 +11,6 @@ en:
       logout: "Logout"
       search_in: "Search in..."
       administration: Administration
+      active-language: "Language: EN"
+      english-language: "English EN"
+      german-language: "Deutsch: DE"
