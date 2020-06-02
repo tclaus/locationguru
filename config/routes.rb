@@ -50,6 +50,10 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show]
 
+  controller :language do
+    get 'language/:language', to: 'language#language', as: 'language'
+  end
+
   controller :reservation do
     get '/reservations/show_all'
     patch '/reservations/accept'
