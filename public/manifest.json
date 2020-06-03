@@ -1,9 +1,10 @@
 {
- "name": "Location Guru",
+ "name": "Location Guru - Find a venue for your party or list your venue free.",
+ "short_name": "Location Guru"
  "display": "minimal-ui",
  "default_locale": "en",
  "homepage_url": "https://locationguru.net",
- "description": "Looking for a venue for your party, wedding or birthday event or you are offering such an venue?",
+ "description": "Looking for a venue for your party, wedding or birthday event or you are offering such an venue? You can easily add your venue here.",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
