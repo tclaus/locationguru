@@ -45,7 +45,8 @@ class ApplicationController < ActionController::Base
       "connect-src 'self' api.stripe.com www.google-analytics.com;"\
       "frame-src 'self' js.stripe.com headway-widget.net;" \
       "form-action 'self';"\
-      "base-uri 'self'"
+      "base-uri 'self';"\
+      "manifest-src 'self'"
   end
 
   def configure_permitted_parameters
