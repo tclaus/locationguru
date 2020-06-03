@@ -1,9 +1,9 @@
 {
  "name": "Location Guru",
  "display": "minimal-ui",
- "default_locale": "de",
+ "default_locale": "en",
  "homepage_url": "https://locationguru.net",
- "description": "Finde eine Location für deine Veranstaltunga aller Art. Egal of Partyzelt, Kleingartenanlage, Saal oder Halle - einfach und kostenlos.",
+ "description": "Looking for a venue for your party, wedding or birthday event or you are offering such an venue?",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
