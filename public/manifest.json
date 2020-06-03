@@ -1,5 +1,9 @@
 {
- "name": "App",
+ "name": "Location Guru",
+ "display": "minimal-ui",
+ "default_locale": "de",
+ "homepage_url": "https://locationguru.net",
+ "description": "Finde eine Location für deine Veranstaltunga aller Art. Egal of Partyzelt, Kleingartenanlage, Saal oder Halle - einfach und kostenlos.",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
