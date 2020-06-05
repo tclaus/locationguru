@@ -1,6 +1,6 @@
 {
  "name": "Location Guru - Find a venue for your party or list your venue free.",
- "short_name": "Location Guru"
+ "short_name": "Location Guru",
  "display": "minimal-ui",
  "default_locale": "en",
  "homepage_url": "https://locationguru.net",

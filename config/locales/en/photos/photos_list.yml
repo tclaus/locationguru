@@ -2,4 +2,5 @@ en:
   photos:
     single_photo:
         main_photo: "Main Photo"
+        img_alttext_location_detail_photo: "Venue photo"
         are_you_sure: "Delete this photo?"
