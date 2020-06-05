@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
     <meta property="language" content="<%= I18n.locale %>">
 
@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= maps_key %>&libraries=places"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name='description' content="<%= yield_meta_tag(:description, t('.meta_description')) %>"/>
     <meta name='keywords' content="<%= yield_meta_tag(:keywords, t('.meta_keywords')) %>"/>

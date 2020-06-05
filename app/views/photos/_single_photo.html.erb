@@ -8,7 +8,7 @@
         <i data-location-id='<%= photo.location_id %>' data-photo-id='<%= photo.id %>' class="far fa-star" aria-hidden="true"></i>
       <% end %>
       <% if photo.image.exists? %>
-        <%= image_tag photo.image.url() %>
+        <%= image_tag photo.image.url(), alt: t('.location_detail_photo') %>
       <% end %>
     </div>
     <div class="panel-body">

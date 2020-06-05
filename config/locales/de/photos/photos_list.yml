@@ -2,4 +2,5 @@ de:
   photos:
     single_photo:
       main_photo: "Hauptfoto"
+      img_alttext_location_detail_photo: "Location Foto"
       are_you_sure: "Dieses Foto löschen?"
