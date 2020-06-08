@@ -155,6 +155,13 @@ a:hover {
   font-weight: bold;
 }
 
+// Filter result listing
+.left {
+   .row#location_listing {
+    margin-left: 0 !important;
+  }
+}
+
 .row-space-1 {
   margin-top: 6px;
   margin-bottom: 6px;
