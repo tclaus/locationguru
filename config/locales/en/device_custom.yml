@@ -26,8 +26,10 @@ en:
         yourPhoneNumber: "Ihre Telefonnummer"
       new:
         accept_gtc_form: "I accept the <a href='/gtc'>GTCs</a>."
+        information_text: "With the registration you can enter your location yourself and for free."
     sessions:
       new:
+        information_text: "To host your own venue you must login via email address. Every listing is free."
         forgot_your_password: "Reset Password"
         sign_up: "Register"
         use_alternative_login: OR
