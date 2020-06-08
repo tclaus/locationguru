@@ -26,11 +26,14 @@ de:
         yourPhoneNumber: "Deine Telefonnummer"
       new:
         accept_gtc_form: "Ich bestätige, dass ich die <a href='/gtc'>AGB</a> und die Datenschutzerklärung gelesen und akzeptiert habe."
+        information_text: "Mit der Registrierung kannst du deine Location selber und kostenlos eintragen."
     sessions:
       new:
+        information_text: "Um eine eigene Location anzulegen musst du dich mit deiner email-Adresse anmelden. Die Anmeldung ist auf jeden Fall kostenlos."
         forgot_your_password: "Passwort wieder herstellen"
         sign_up: "Registrieren"
         use_alternative_login: ODER
         retired_facebook_login_message: "Der Login durch facebook wurde abgestellt.
         Um dich erneut anzumelden, wähle 'Passwort wieder herstellen' und gib deine
         normale E-Mail-Adresse ein. Der Login wird dann auf E-Mail/Passwort umgestellt."
+        register-or: "Oder"
