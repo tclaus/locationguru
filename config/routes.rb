@@ -4,6 +4,7 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   root 'pages#home'
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
   devise_for :users,
              path: '',
