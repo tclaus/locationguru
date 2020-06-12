@@ -7,17 +7,9 @@ class SendActivationReminderMailsJob < ApplicationJob
   def perform(*_args)
     logger.debug 'Start reminder activation job'
 
-    now = Date.today
-    time_ago = (now - 30)
-    perform_query_level3(time_ago)
-
-    now = Date.today
-    time_ago = (now - 7)
-    perform_query_level2(time_ago)
-
-    now = Date.today
-    time_ago = (now - 1)
-    perform_query_level1(time_ago)
+    perform_query_level3(Date.today - 30.days)
+    perform_query_level2(Date.today - 7.days)
+    perform_query_level1(Date.today - 1.days)
   end
 
   private

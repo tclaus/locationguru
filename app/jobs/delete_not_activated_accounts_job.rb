@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+## Remove any fake mails that are not confirmed for a preiod of time
 class DeleteNotActivatedAccountsJob < ApplicationJob
   queue_as :default
 
@@ -7,14 +9,14 @@ class DeleteNotActivatedAccountsJob < ApplicationJob
   end
 
   private
+
   def delete_not_activated_mails
     # Get all user account that
     # Are not activated
-    # for the last 21 days
-    now = Date.today
-    time_ago = (now - 3)
+    # for the last x days
 
-    invalid_users= User.where('sign_in_count = 0 and created_at < ?', time_ago)
+    time_ago = Date.today - 3.days
+    invalid_users = User.where('sign_in_count = 0 and created_at < ?', time_ago)
     logger.info("Delete #{invalid_users.count} invalid user accounts")
     invalid_users.delete_all
   end
