@@ -9,7 +9,7 @@
         <tr class="statistic-row">
           <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
           <td class="statistic-cell">
-            <%= link_to t('.total_users') do %>
+            <%= link_to admin_users_path do %>
               <%= @total_users %>
             <% end %>
           </td>
@@ -20,12 +20,13 @@
           </td>
           <td class="statistic-cell">
             <%= @total_confirmed_users %>
+            <%= sign_for(@total_confirmed_users_diff) %>
           </td>
         </tr>
         <tr class="statistic-row">
           <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
           <td class="statistic-cell">
-            <%= link_to t('.total_locations') do %>
+            <%= link_to admin_locations_path do %>
               <%= @total_locations %>
             <% end %>
           </td>
@@ -36,6 +37,7 @@
           </td>
           <td class="statistic-cell">
             <%= @total_active_locations %>
+            <%= sign_for(@total_active_locations_diff) %>
           </td>
         </tr>
         <tr class="statistic-row">
