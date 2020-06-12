@@ -3,24 +3,78 @@
 require 'tempfile'
 
 ##
-# Controls alla admin related data like userlist, venues list, active / inavtive
-# sate
+# Controls all admin related data like userlist, venues list, active / inavtive
+# state
 class AdminController < ApplicationController
   include CounterHelper
+
   before_action :authenticate_user!
   before_action :admin?
 
   def index
-    @total_confirmed_users = User.where('confirmed_at IS NOT NULL').count
-    @total_users = User.count
-    @total_locations = Location.count
-    @total_active_locations = Location.where(active: true).count
-    @total_messages = Message.count
+
+    aggregate_users
+    aggregate_locations
+    aggregate_messages
+
     @insufficient_photos = venues_with_insufficient_photos
-    @latest_locations = latest_locations(30)
-    @top_requested_locations = top_requested_locations(90)
 
     render 'admin/index'
+  end
+
+  # Aggregate statistics about users
+  def aggregate_users
+    @total_users = User.count
+    @total_confirmed_users = User.where('confirmed_at IS NOT NULL').count
+    @total_confirmed_users_diff = confirmed_user_diff
+  end
+
+  # Aggregate statistics about locations
+  def aggregate_locations
+    @total_locations = Location.count
+    @total_active_locations = Location.where(active: true).count
+    @total_active_locations_diff = active_location_diff
+    @latest_locations = latest_locations(30)
+    @top_requested_locations = top_requested_locations(90)
+  end
+
+  # Returns the active location diff from last week to current week
+  def active_location_diff
+    year = Date.today.year
+    week = Date.today.cweek
+    current_count = Counter.total_active_location_count_in(year, week)
+    if week > 1
+      week -= 1
+    else
+      week = 52
+      year -= 1
+    end
+    last_week_count = Counter.total_active_location_count_in(year, week)
+    current_count - last_week_count
+  end
+
+  # Returns the active location diff from last week to current week
+  def confirmed_user_diff
+    year = Date.today.year
+    week = Date.today.cweek
+    current_count = Counter.total_active_user_count_in(year, week)
+    if week > 1
+      week -= 1
+    else
+      week = 52
+      year -= 1
+    end
+    last_week_count = Counter.total_active_user_count_in(year, week)
+    current_count - last_week_count
+  end
+
+  def aggregate_messages
+    @total_messages = Message.count
+    @total_messages_diff = @total_messages - Message.where('created_at < ?', one_week_ago).count
+  end
+
+  def one_week_ago
+    Date.today - 3.days
   end
 
   def users
@@ -44,6 +98,7 @@ class AdminController < ApplicationController
     send_file file, type: 'text/csv', disposition: 'attachment', filename: 'exported_userlist.csv'
   end
 
+  # Render list of active or inactive locations 
   def locations
     logger.debug("Query with params #{params}")
     if params[:userid]
@@ -54,12 +109,12 @@ class AdminController < ApplicationController
       else
         @locations = Location.where(['user_id= ? and (active = false or active is NULL)',
           params[:userid]])
-          .order(id: :desc)
+                            .order(id: :desc)
       end
     else
       logger.debug(' Load all locations')
       @locations = Location.all
-      .order(id: :desc)
+                           .order(id: :desc)
     end
     CounterHelper.load_total_numbers(@locations)
     render 'admin/locations'

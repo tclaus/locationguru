@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_062223) do
+ActiveRecord::Schema.define(version: 2020_06_11_082928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_062223) do
     t.datetime "updated_at", null: false
     t.string "context_type"
     t.date "date_of_count"
+    t.integer "week"
     t.index ["context"], name: "index_counters_on_context"
     t.index ["context_type"], name: "index_counters_on_context_type"
     t.index ["day"], name: "index_counters_on_day"

@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
   def show
     @photos = @location.photos
     @guest_reviews = @location.guest_reviews
-    @weekly_calls = Counter.load_7days_counts(@location.id)
+    @weekly_calls = Counter.load_7days_location_visits(@location.id)
 
     unless @location.active
       if !current_user.blank?
@@ -53,7 +53,7 @@ class LocationsController < ApplicationController
         redirect_to root_path
       end
     end
-    Counter.increase_location(@location.id, request.remote_ip)
+    Counter.increase_location_visit(@location.id, request.remote_ip)
   end
 
   def suitables; end
