@@ -1,0 +1,5 @@
+en:
+  admin:
+    latest_venues:
+      new_venues: "Latest Venues"
+      no_new_venues: "No Latest Venues"
