@@ -7,7 +7,9 @@
     <table class="statistic-table">
       <tbody>
         <tr class="statistic-row">
-          <td class="text-left statistic-cell"><%= link_to t('.total_users'), admin_users_path %></td>
+          <td class="text-left statistic-cell">
+            <%= link_to t('.total_users'), admin_users_path %>
+          </td>
           <td class="statistic-cell">
             <%= link_to admin_users_path do %>
               <%= @total_users %>
@@ -16,7 +18,7 @@
         </tr>
         <tr class="statistic-row">
           <td class="text-left statistic-cell">
-            Users (Active)
+          <%= link_to t('.total_confirmed_users'), admin_users_path %>
           </td>
           <td class="statistic-cell">
             <%= @total_confirmed_users %>
@@ -24,7 +26,9 @@
           </td>
         </tr>
         <tr class="statistic-row">
-          <td class="text-left statistic-cell"><%= link_to t('.total_locations'), admin_locations_path %></td>
+          <td class="text-left statistic-cell">
+            <%= link_to t('.total_locations'), admin_locations_path %>
+          </td>
           <td class="statistic-cell">
             <%= link_to admin_locations_path do %>
               <%= @total_locations %>
@@ -33,7 +37,7 @@
         </tr>
         <tr class="statistic-row">
           <td class="text-left statistic-cell">
-            Locations (Active)
+            <%= link_to t('.total_active_locations'), admin_active_locations_path %>
           </td>
           <td class="statistic-cell">
             <%= @total_active_locations %>

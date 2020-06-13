@@ -2,7 +2,7 @@
 <% if locations.count == 0 %>
 <div class="panel panel-default">
   <div class="panel-heading">
-    No new venues in the last 30 days
+    <%= t('.no_new_venues') %>
   </div>
   <div class="panel-body">
   </div>
@@ -10,7 +10,7 @@
 <% else %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      New Venues in the last 30 days
+      <%= t('.new_venues') %>
     </div>
     <div class="panel-body">
       <table class="table table-striped">

@@ -2,8 +2,6 @@ de:
   admin:
     index:
       statistics: "Statistiken"
-      total_users: "Alle Benutzer"
-      total_locations: "Alle Locations"
-      total_active_locations: "Alle aktive Locations"
-      total_messages: "Aktuelle Anzahl Nachrichten"
+      total_users: "Benutzer"
+      total_locations: "Locations"
       messages: "Nachrichten"
