@@ -50,7 +50,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'geocoder'
 gem 'ransack'
-gem 'simple_calendar', '~> 2.0'
+gem 'simple_calendar', '~> 2.4'
 gem 'twilio-ruby'
 
 # Use Queue backend
