@@ -37,9 +37,6 @@ class MessagesController < ApplicationController
 
     if @message.save
 
-      # Increate mail send counter
-      Counter.increase_mail(@message.id)
-
       # Send a mail to receiver
       LocationMailer
         .with(message: @message, location: @location)
@@ -48,6 +45,9 @@ class MessagesController < ApplicationController
       LocationMailer
         .with(message: @message, location: @location)
         .location_mail_to_sender.deliver_later
+
+      # Increase mail send counter
+      Counter.increase_mail(@message.id)
 
       flash[:notice] = t('.message_send')
       redirect_to location_path(@location)
