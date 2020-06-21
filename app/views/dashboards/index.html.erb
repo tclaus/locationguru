@@ -10,7 +10,6 @@
           </div>
           <div class="panel-body">
             <ui class="sidebar-list">
-
                 <li><%= t('.email_address') %>
                   <span class="pull-right icon-babu">
                     <i class="fas fa-check-circle"></i>
@@ -85,17 +84,17 @@
             <% end %>
           </div>
         </div>
-      </div>
-      <!-- Your listings -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <%= t('.your_listings') %>
-          (<%= @locations.length %>)
         </div>
-        <div class="panel-body">
-          <%= render 'locations/venues_gallery', locations: @locations  %>
+        <!-- Your listings -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= t('.your_listings') %>
+            (<%= @locations.length %>)
+          </div>
+          <div class="panel-body">
+            <%= render 'locations/venues_gallery', locations: @locations  %>
+          </div>
         </div>
-      </div>
     </div>
     </div>
     <%= javascript_include_tag 'select_message' %>
