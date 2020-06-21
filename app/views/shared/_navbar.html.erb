@@ -85,6 +85,7 @@
 <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(new_location_path) &&
     (current_page?("/locations/") ||
     current_page?(dashboard_path) ||
+    current_page?(edit_user_registration_path) ||
     current_page?(admin_path) ||
     current_page?(admin_users_path) ||
     current_page?(admin_locations_path) ||
@@ -106,6 +107,7 @@
       <ul class="nav navbar-nav">
         <li <% if current_page?(dashboard_path) %> class="active" <% end %>><%= link_to t('dashboard'), dashboard_path %></li>
         <li <% if current_page?(locations_path) || current_page?(reservations_show_all_path) %> class="active" <% end %>><%= link_to t('manage'), locations_path %></li>
+        <li <% if current_page?(edit_user_registration_path)%> class="active" <% end %>><%= link_to t('.profile'), edit_user_registration_path %></li>
         <% if current_user.isAdmin %>
           <li id="admin-link"<% if current_page?(admin_path) %> class="active" <% end %>><%= link_to t('admin_page'), admin_path %></li>
         <% end %>
