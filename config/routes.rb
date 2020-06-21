@@ -71,8 +71,8 @@ Rails.application.routes.draw do
   # DashboardsController
   controller :dashboards do
     get 'dashboard' => :index
-    get 'dashboard/unread_count' => :unreadMessageCount
-    get 'dashboard/unread_count_json' => :unreadMessageCountJSON
+    get 'dashboard/unread_count' => :unread_message_count
+    get 'dashboard/unread_count_json' => :unread_message_count_json
   end
 
   # Guids

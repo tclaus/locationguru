@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'simpleLocation'
+require 'simple_location'
 
 ##
 # Top level class

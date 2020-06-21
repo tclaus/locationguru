@@ -3,4 +3,13 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
+    - 'db/**/*'
   NewCops: enable
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'

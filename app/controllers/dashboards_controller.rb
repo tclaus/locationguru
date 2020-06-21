@@ -12,11 +12,9 @@ class DashboardsController < ApplicationController
     @unread_message_count = unread_message_count
   end
 
-  def unreadMessageCountJSON
+  def unread_message_count_json
     render json: unread_message_count
   end
-
-  private
 
   def unread_message_count
     Message
