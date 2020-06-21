@@ -1,7 +1,6 @@
 namespace :counters do
   desc "Update counter fields (year, month, day) to single date field"
   task set_counter: :environment do
-
     puts "Going to update #{Counter.count} location Counters"
     ActiveRecord::Base.transaction do
       Counter.find_each do |counter|

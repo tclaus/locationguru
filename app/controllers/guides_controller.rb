@@ -3,14 +3,13 @@
 ##
 # Controls the predefined searches
 class GuidesController < ApplicationController
-
   def partyvenues
     # Load locations marked as 'party venues'
     locations = Location.where(active: true, kind_type: 1)
     simple_locations = create_simple_locations(locations)
     headline = '.partyvenues'
     render 'pre-filtered-list',
-    locals: {locations: locations, simple_locations: simple_locations, headline: headline}
+           locals: { locations: locations, simple_locations: simple_locations, headline: headline }
   end
 
   def multi_purpose_rooms
@@ -19,7 +18,7 @@ class GuidesController < ApplicationController
     simple_locations = create_simple_locations(locations)
     headline = '.multi_purpose_rooms'
     render 'pre-filtered-list',
-    locals: {locations: locations, simple_locations: simple_locations, headline: headline}
+           locals: { locations: locations, simple_locations: simple_locations, headline: headline }
   end
 
   def clubhouses
@@ -28,7 +27,7 @@ class GuidesController < ApplicationController
     simple_locations = create_simple_locations(locations)
     headline = '.clubhouses'
     render 'pre-filtered-list',
-    locals: {locations: locations, simple_locations: simple_locations, headline: headline}
+           locals: { locations: locations, simple_locations: simple_locations, headline: headline }
   end
 
   def pubs
@@ -37,7 +36,7 @@ class GuidesController < ApplicationController
     simple_locations = create_simple_locations(locations)
     headline = '.pubs'
     render 'pre-filtered-list',
-    locals: {locations: locations, simple_locations: simple_locations, headline: headline}
+           locals: { locations: locations, simple_locations: simple_locations, headline: headline }
   end
 
   def restaurants
@@ -46,6 +45,6 @@ class GuidesController < ApplicationController
     simple_locations = create_simple_locations(locations)
     headline = '.restaurant'
     render 'pre-filtered-list',
-    locals: {locations: locations, simple_locations: simple_locations, headline: headline}
+           locals: { locations: locations, simple_locations: simple_locations, headline: headline }
   end
 end

@@ -7,7 +7,6 @@ require 'simpleLocation'
 class PagesController < ApplicationController
   # Show only unrestriced locations on main Page
   def home
-
     @locations = random_locations
     @recent_locations = Location.where(active: true, isRestricted: false)
                                 .order(:created_at)
@@ -49,5 +48,4 @@ class PagesController < ApplicationController
     @locations = @search.result
     @simple_locations = create_simple_locations(@locations)
   end
-
 end

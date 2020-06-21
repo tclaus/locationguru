@@ -131,8 +131,8 @@ class LocationsController < ApplicationController
     today = Date.today
     reservations = @location.reservations
                             .where(
-                                   'start_date >= ? ', today
-                                  )
+                              'start_date >= ? ', today
+                            )
                             .select('id, status, start_date')
 
     render json: reservations
@@ -199,7 +199,7 @@ class LocationsController < ApplicationController
 
   def is_authorized
     redirect_to root_path,
-      alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
+                alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
   end
 
   def set_location_active

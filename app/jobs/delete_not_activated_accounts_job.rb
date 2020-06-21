@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ## Remove any fake mails that are not confirmed for a preiod of time
 class DeleteNotActivatedAccountsJob < ApplicationJob
   queue_as :default

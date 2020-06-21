@@ -2,7 +2,6 @@
 
 # Holds statistical data
 class Counter < ApplicationRecord
-
   TOTAL_LOCATIONS = 'total_locations'
   TOTAL_ACTIVE_LOCATIONS = 'total_active_locations'
   TOTAL_ACTIVE_USERS = 'total_active_users'
@@ -86,8 +85,8 @@ class Counter < ApplicationRecord
 
     # Find or create counters
     counter = where(context: 'mail_send_for_user',
-                            context_type: user_id,
-                            date_of_count: Date.today).first
+                    context_type: user_id,
+                    date_of_count: Date.today).first
 
     if counter.nil?
       create(count: 1, context: 'mail_send_for_user', context_type: user_id, date_of_count: Date.today)
@@ -127,8 +126,8 @@ class Counter < ApplicationRecord
   def self.load_7days_location_visits(location_id)
     start_date = (Date.today - 7)
     count_value = where("context = 'location_visits_for_user' AND context_type='?' AND date_of_count >= ?", location_id, start_date)
-                         .group(:context_type)
-                         .sum(:count)
+                  .group(:context_type)
+                  .sum(:count)
 
     logger.info "Count-value= #{count_value}"
     value = count_value.first[1] unless count_value.empty?
