@@ -26,9 +26,8 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_redirected_to(new_location_url({listing_name: 'test-name'}))
+    assert_redirected_to(new_location_url({ listing_name: 'test-name' }))
     assert_not_nil(flash[:alert])
-
   end
 
   test 'should create a location' do

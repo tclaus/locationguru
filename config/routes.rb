@@ -4,7 +4,7 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   root 'pages#home'
-  get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
+  get 'sitemap.xml', to: 'sitemap#index', defaults: { format: 'xml' }
 
   devise_for :users,
              path: '',
@@ -82,7 +82,6 @@ Rails.application.routes.draw do
     get 'guides/clubhouses' => :clubhouses
     get 'guides/pubs' => :pubs
     get 'guides/restaurants' => :restaurants
-
   end
 
   # Admin
@@ -109,6 +108,4 @@ Rails.application.routes.draw do
   # Fast exit hack attempts
   get 'wp-login.php', to: 'errors#show', code: 404
   get 'blog/wp-login.php', to: 'errors#show', code: 404
-
-
 end

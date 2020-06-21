@@ -21,7 +21,6 @@ class User < ApplicationRecord
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-
   has_many :locations
   has_many :messages
   has_many :reservations

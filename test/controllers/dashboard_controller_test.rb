@@ -27,5 +27,4 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     get '/dashboard'
     assert_select 'li#admin-link'
   end
-
 end

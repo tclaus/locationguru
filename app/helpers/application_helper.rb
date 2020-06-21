@@ -62,8 +62,6 @@ module ApplicationHelper
   end
 
   def html_short_link_text(target_link)
-    target_link.remove('http://','https://')
+    target_link.remove('http://', 'https://')
   end
-
-
 end

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class LocationMailer < ApplicationMailer
-
-  before_action {  @location = params[:location] }
+  before_action { @location = params[:location] }
 
   # Send to location owner
   def location_mail
@@ -52,5 +51,4 @@ class LocationMailer < ApplicationMailer
          from: 'Location Guru <no-reply@locationguru.net>',
          subject: t('.subject', location_name: @location.listing_name))
   end
-
 end

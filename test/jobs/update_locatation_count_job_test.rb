@@ -22,9 +22,8 @@ class UpdateLocatationCountJobTest < ActiveJob::TestCase
     year = Date.today.year
     week = Date.today.cweek
     assert(Counter.total_active_user_count_in(year, week - 1).zero?)
-    
+
     total_active_user_count = User.where('confirmed_at IS NOT NULL').count
     assert(Counter.total_active_user_count_in(year, week) == total_active_user_count)
   end
-
 end

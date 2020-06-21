@@ -1,7 +1,5 @@
-
 # Sets custom UI language
 class LanguageController < ApplicationController
-
   # Sets new custom lnguage from paramers[:lnguage], fallbacks to de if not supporte
   def language
     language = params[:language]

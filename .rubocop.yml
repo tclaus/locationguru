@@ -3,17 +3,4 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
-
-Rails:
-  Enabled: true
-
-# Too short methods lead to extraction of single-use methods, which can make
-# the code easier to read (by naming things), but can also clutter the class
-Metrics/MethodLength:
-  Max: 20
-
-Style/Encoding:
-  Enabled: false
-
-Style/StringLiterals:
-  enabled: false
+  NewCops: enable

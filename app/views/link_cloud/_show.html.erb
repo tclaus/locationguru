@@ -7,7 +7,7 @@
       <% if cloud.city %>
       <% # TODO keine Suche starten, sondern ein Link-Path aufrufen %>
       <div class= "link-cloud">
-        <%= link_to cloud.city, '/cities/' + cloud.city %>
+        <%= link_to cloud.city, '/cities/' + CGI.escape(cloud.city) %>
       </div>
       <% end %>
     <% end %>

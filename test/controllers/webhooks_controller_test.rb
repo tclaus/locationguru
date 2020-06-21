@@ -5,5 +5,4 @@ class WebhooksControllerTest < ActionDispatch::IntegrationTest
     post webhooks_mails_url
     assert_response :success
   end
-
 end

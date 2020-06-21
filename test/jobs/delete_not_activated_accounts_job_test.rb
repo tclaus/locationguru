@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class DeleteNotActivatedAccountsJobTest < ActiveJob::TestCase
-
   test 'that old unconfirmed accounts will be deleted' do
-
     # Create unconfirmed mail
     now = Date.today
     time_ago = (now - 100)
@@ -11,6 +9,6 @@ class DeleteNotActivatedAccountsJobTest < ActiveJob::TestCase
     user.created_at = time_ago
     assert user.save!
     DeleteNotActivatedAccountsJob.perform_now
-    assert_no_match User.last.email,'spam@example.com'
- end
+    assert_no_match User.last.email, 'spam@example.com'
+  end
 end

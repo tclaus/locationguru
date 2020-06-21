@@ -2,7 +2,6 @@ require "application_system_test_case"
 
 class PagesControllerTest < ApplicationSystemTestCase
   test 'Get a sitemap' do
-
     location = Location.new
     location.kind_type = 2
     location.listing_name = 'On a sitemap"'
