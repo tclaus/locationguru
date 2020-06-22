@@ -109,7 +109,7 @@ class Counter < ApplicationRecord
     Redis.current.set("IP-#{location_id}", client_ip)
 
     # read last IP - if not existent or different than last, then increases
-    # Dont increasde if same as current Request IP
+    # Dont increase if same as current Request IP
 
     counter = Counter.where(context: 'location_visits_for_user',
                             context_type: location_id,
@@ -124,12 +124,13 @@ class Counter < ApplicationRecord
   end
 
   def self.load_7days_location_visits(location_id)
-    start_date = (Date.today - 7)
+    start_date = (Date.today - 7.days)
     count_value = where("context = 'location_visits_for_user' AND context_type='?' AND date_of_count >= ?", location_id, start_date)
                   .group(:context_type)
                   .sum(:count)
 
     logger.info "Count-value= #{count_value}"
+    value = 0
     value = count_value.first[1] unless count_value.empty?
     logger.debug "Value = #{value}"
     value

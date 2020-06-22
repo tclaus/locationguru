@@ -5,8 +5,8 @@ class PagesControllerTest < ApplicationSystemTestCase
     location = Location.new
     location.kind_type = 2
     location.listing_name = 'On a sitemap"'
-    location.summary = "Content"
-    location.active = :true
+    location.summary = 'Content'
+    location.active = true
     location.user_id = 1
     location.city =  'Dortmund'
     location.save
