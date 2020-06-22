@@ -3,3 +3,4 @@ de:
     show:
       inactive_location_warning: "Diese Location ist nicht aktiv"
       inactive_location_description_warning: "Füge der Location ein Foto, eine Beschreibung und deine Kontaktdaten hinzu um sie veröffentlichen zu können"
+      this_venue_is_not_active: "Diese location ist nicht aktiv"

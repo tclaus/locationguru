@@ -5,8 +5,8 @@ class LocationsController < ApplicationController
 
   before_action :set_location, except: %i[index new create]
   before_action :authenticate_user!, except: %i[preload preview show send_message]
-  before_action :is_authorized, only: %i[listing description
-                                         photo_upload suitables amenities location update destroy]
+  before_action :authorized?, only: %i[listing description
+                                       photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
 
   def index
@@ -38,21 +38,21 @@ class LocationsController < ApplicationController
   end
 
   def show
+    unless @location.active
+      if current_user.blank?
+        logger.warn "Tried to load inactive location without authorization: #{@location.id}"
+        redirect_to(root_path, alert: t('.this_venue_is_not_active')) && return
+      end
+
+      if !owner? && !current_user.isAdmin
+        logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
+        redirect_to(root_path, alert: t('.this_venue_is_not_active')) && return
+      end
+    end
     @photos = @location.photos
     @guest_reviews = @location.guest_reviews
     @weekly_calls = Counter.load_7days_location_visits(@location.id)
 
-    unless @location.active
-      if !current_user.blank?
-        if !owner? && !current_user.isAdmin
-          logger.warn "Tried to load inactive location without owner or admin role: #{@location.id}"
-          redirect_to root_path
-        end
-      else
-        logger.warn "Tried to load inactive location without authorization: #{@location.id}"
-        redirect_to root_path
-      end
-    end
     Counter.increase_location_visit(@location.id, request.remote_ip)
   end
 
@@ -178,9 +178,7 @@ class LocationsController < ApplicationController
   def owner?
     return false if current_user.blank?
 
-    return true if current_user.id == @location.user_id
-
-    false
+    current_user.id == @location.user_id
   end
 
   # Is selected date in conflict with other reservations?
@@ -197,9 +195,11 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
-  def is_authorized
-    redirect_to root_path,
-                alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
+  def authorized?
+    unless (current_user.id == @location.user_id) || current_user.isAdmin
+      redirect_to root_path,
+                  alert: t('not_authorized')
+    end
   end
 
   def set_location_active

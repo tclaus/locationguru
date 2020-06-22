@@ -16,3 +16,4 @@ en:
       distance_from: "km distance"
       inactive_location_warning: "This venue is not aktivated"
       inactive_location_description_warning: "Add a photo, description and contact data to publish it."
+      this_venue_is_not_active: "This venue is not active"
