@@ -8,7 +8,7 @@ class LocationMailerPreview < ActionMailer::Preview
                         message: Message.first).location_mail
   end
 
-  def send_mail_notification
+  def mail_notification
     LocationMailer.with(location: Location.first,
                         message: Message.first).location_mail
   end

@@ -1,0 +1,12 @@
+en:
+  insufficient_photos_mailer:
+    send_mail:
+      subject: "'%{location_name}' should have more photos"
+      body: "Hi,<br>
+            your venue '%{location_name}' is visible to your guests.<br>
+            <br>
+            But it should have more photos.<br>
+            Your guest love to see more pictures to what they get. So consider adding up to 10 photos to your venue. Use the link below.
+            <a href='%{edit_url}'>%{location_name}</a>"
+      footer: "Kindly regards,<br>
+      locationguru.net"

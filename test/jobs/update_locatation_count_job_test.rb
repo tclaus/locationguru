@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UpdateLocatationCountJobTest < ActiveJob::TestCase
-  test "update total locations count" do
+  test 'update total locations count' do
     UpdateLocatationCountJob.perform_now
     year = Date.today.year
     week = Date.today.cweek
@@ -9,7 +11,7 @@ class UpdateLocatationCountJobTest < ActiveJob::TestCase
     assert(Counter.total_location_count_in(year, week).positive?)
   end
 
-  test "update total active locations count" do
+  test 'update total active locations count' do
     UpdateLocatationCountJob.perform_now
     year = Date.today.year
     week = Date.today.cweek
@@ -17,7 +19,7 @@ class UpdateLocatationCountJobTest < ActiveJob::TestCase
     assert(Counter.total_active_location_count_in(year, week).positive?)
   end
 
-  test "update total confirmed users count" do
+  test 'update total confirmed users count' do
     UpdateLocatationCountJob.perform_now
     year = Date.today.year
     week = Date.today.cweek

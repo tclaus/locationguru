@@ -6,8 +6,8 @@ class AdminService
     @logger = logger
   end
 
-  # Get locationIds with less than X photos
-  def venues_with_insufficient_photos(min_photos)
+  # Returns a array with a tupel (location, photocount) 
+  def venues_with_insufficient_photos( min_photos)
     loosers = Photo.group(:location_id)
                    .having('count(*) < ?', min_photos)
                    .order(count_all: :asc)

@@ -2,8 +2,8 @@
 
 # This provider contains reminders to the submitter to activate their
 # venues
-class SendNotActivatedMailMailer < ApplicationMailer
-  default from: 'Thorsten Claus <thorsten.claus@locationguru.net>'
+class NotActivatedMailMailer < ApplicationMailer
+  default from: 'Locationguru.net <support@locationguru.net>'
 
   def first_activation_reminder
     @location = params[:location]

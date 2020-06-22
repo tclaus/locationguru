@@ -1,5 +1,5 @@
 de:
-  send_not_activated_mail_mailer:
+  not_activated_mail_mailer:
     first_activation_reminder:
       subject: "'%{location_name}' wurde noch nicht aktiviert"
       body: "Hallo,<br>
