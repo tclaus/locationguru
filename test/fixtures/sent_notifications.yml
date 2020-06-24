@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  target_user_id: 
+  target_location_id: 
+  reason: MyString
+
+two:
+  target_user_id: 
+  target_location_id: 
+  reason: MyString

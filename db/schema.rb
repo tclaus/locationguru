@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_082928) do
+ActiveRecord::Schema.define(version: 2020_06_22_121836) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -158,6 +159,15 @@ ActiveRecord::Schema.define(version: 2020_06_11_082928) do
     t.index ["host_id"], name: "index_reviews_on_host_id"
     t.index ["location_id"], name: "index_reviews_on_location_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+  end
+
+  create_table "sent_notifications", force: :cascade do |t|
+    t.integer "target_user_id"
+    t.integer "target_location_id"
+    t.string "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reason"], name: "index_sent_notifications_on_reason"
   end
 
   create_table "translations", force: :cascade do |t|

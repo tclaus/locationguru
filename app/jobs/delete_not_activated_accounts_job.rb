@@ -6,12 +6,12 @@ class DeleteNotActivatedAccountsJob < ApplicationJob
 
   def perform(*_args)
     # Do something later
-    delete_not_activated_mails
+    delete_not_activated_accounts
   end
 
   private
 
-  def delete_not_activated_mails
+  def delete_not_activated_accounts
     # Get all user account that
     # Are not activated
     # for the last x days
