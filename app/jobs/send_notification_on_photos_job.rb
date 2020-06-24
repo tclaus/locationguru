@@ -18,10 +18,10 @@ class SendNotificationOnPhotosJob < ApplicationJob
     logger.info("Found #{venue_photo_pairs.count} venues with too less photos. Send a reminder mail to everyone.")
     venue_photo_pairs.each do |venue_photo_pair|
       venue = venue_photo_pair[0]
-      notification = SentNotification.find_by(target_location_id: venue.id, reason: REASON)
-      if notification.blank?
+      notification_sent = SentNotification.sent_notification?(venue.id, REASON)
+      unless notification_sent
         send_mail(venue)
-        SentNotification.create(target_location_id: venue.id, reason: REASON)
+        SentNotification.create_sent_notification(venue.id, REASON)
       end
     end
   end

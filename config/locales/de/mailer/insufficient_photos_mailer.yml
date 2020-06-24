@@ -5,7 +5,7 @@ de:
       body: "Hallo,<br>
             Ihr Eintrag '%{location_name}' ist aktiv und steht Ihren Gästen zur Verfügung.<br>
             <br>
-            Allerdings haben sie nur wemnige Fotos hochgelden.<br>
+            Allerdings haben sie nur wenige Fotos hinzugefügt.<br>
             Ihre Gäste können sich ein besseres Bild von Ihrer location machen, wenn sie mehr Fotos (bis zu 10) Ihrem Raum hinzufügen. <br>
             Sie können den Eintrag unter diesem Link direkt bearbeiten: <br>
             <a href='%{edit_url}'>%{location_name}</a>"

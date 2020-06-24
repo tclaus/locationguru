@@ -101,38 +101,38 @@ class Counter < ApplicationRecord
 
   # increases location visits for location id
   def self.increase_location_visit(location_id, client_ip)
-    logger.info "Increment location #{location_id} on #{client_ip}"
-    last_ip = Redis.current.get("IP-#{location_id}")
-    return if last_ip == client_ip
+    last_ip = Redis.current.get("last requested location by IP: #{location_id}")
+    return if last_ip == client_ip # Return if same request repeats
 
-    logger.info " Last known IP: #{last_ip}"
-    Redis.current.set("IP-#{location_id}", client_ip)
+    Redis.current.set("last requested location by IP: #{location_id}", client_ip)
 
+    logger.debug "Increment location #{location_id} on #{client_ip}"
     # read last IP - if not existent or different than last, then increases
     # Dont increase if same as current Request IP
 
-    counter = Counter.where(context: 'location_visits_for_user',
-                            context_type: location_id,
-                            date_of_count: Date.today).first
+    counter = where(context: 'location_visits_for_user',
+                    context_type: location_id,
+                    date_of_count: Date.today).first
     if counter.nil?
-      Counter.create(count: 1, context: 'location_visits_for_user', context_type: location_id, date_of_count: Date.today)
+      logger.debug 'First visit on location. Creating counter entry'
+      create(count: 1, context: 'location_visits_for_user', context_type: location_id, date_of_count: Date.today)
     else
+      logger.info ' Increment existing counter'
       sql = "UPDATE counters SET count = count + 1 WHERE context = 'location_visits_for_user' and context_type='#{location_id}' and date_of_count='#{Date.today}'"
       connection.select_value(sql).to_i
     end
-    logger.info ' Inrement existing counter'
   end
-
+  
   def self.load_7days_location_visits(location_id)
     start_date = (Date.today - 7.days)
     count_value = where("context = 'location_visits_for_user' AND context_type='?' AND date_of_count >= ?", location_id, start_date)
                   .group(:context_type)
                   .sum(:count)
 
-    logger.info "Count-value= #{count_value}"
+    logger.info "LocationId=>Visits: #{count_value}"
     value = 0
     value = count_value.first[1] unless count_value.empty?
-    logger.debug "Value = #{value}"
+    logger.debug "Visits: #{value}"
     value
   end
 end
