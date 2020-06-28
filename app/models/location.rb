@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
+# Location is an acronym of venue
 class Location < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy
   has_many :reservations, dependent: :destroy
   has_many :guest_reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :notifications,
+           class_name: 'SentNotification',
+           foreign_key: 'target_location_id',
+           dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -40,7 +45,7 @@ class Location < ApplicationRecord
   end
 
   def main_photo
-    if !photos.empty?
+    unless photos.empty?
       photos.each do |photo|
         return photo if photo.is_main
       end

@@ -6,7 +6,8 @@ class AdminService
     @logger = logger
   end
 
-  # Returns a array with a tupel (location, photocount) 
+  # Returns a array with a tupel (location, photocount)
+  # of active venues_with_insufficient_photos
   def venues_with_insufficient_photos( min_photos)
     loosers = Photo.group(:location_id)
                    .having('count(*) < ?', min_photos)

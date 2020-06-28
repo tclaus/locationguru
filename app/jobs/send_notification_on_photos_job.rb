@@ -18,6 +18,8 @@ class SendNotificationOnPhotosJob < ApplicationJob
     logger.info("Found #{venue_photo_pairs.count} venues with too less photos. Send a reminder mail to everyone.")
     venue_photo_pairs.each do |venue_photo_pair|
       venue = venue_photo_pair[0]
+      next if venue.updated_at > (Date.today - 7.days)
+
       notification_sent = SentNotification.sent_notification?(venue.id, REASON)
       unless notification_sent
         send_mail(venue)
