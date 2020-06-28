@@ -7,8 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  ADMIN_ROLE = "ADMIN"
-  SYSTEM_ROLE = "SYSTEM"
+  ADMIN_ROLE = 'ADMIN'
+  SYSTEM_ROLE = 'SYSTEM'
 
   # Avatar
   has_attached_file :avatar,
@@ -19,13 +19,17 @@ class User < ApplicationRecord
                     convert_options: { original: '-strip', medium: '-strip', thumb: '-strip' },
                     default_url: '/assets/empty_avatar.png'
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
 
-  has_many :locations
-  has_many :messages
-  has_many :reservations
+  has_many :locations, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   has_many :guest_reviews, class_name: 'GuestReview', foreign_key: 'guest_id'
   has_many :host_reviews, class_name: 'HostReview', foreign_key: 'host_id'
+  has_many :notifications,
+           class_name: 'SentNotification',
+           foreign_key: 'target_user_id',
+           dependent: :destroy
 
   # force set admin role
   after_find do |user|

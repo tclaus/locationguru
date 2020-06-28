@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_121836) do
+ActiveRecord::Schema.define(version: 2020_06_26_060609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_121836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reason"], name: "index_sent_notifications_on_reason"
+    t.index ["target_location_id"], name: "index_sent_notifications_on_target_location_id"
+    t.index ["target_user_id"], name: "index_sent_notifications_on_target_user_id"
   end
 
   create_table "translations", force: :cascade do |t|
