@@ -43,11 +43,11 @@ class User < ApplicationRecord
   end
 
   def activeLocations
-    locations.where('active = true')
+    locations.activated
   end
 
   def inactiveLocations
-    locations.where('active = false or active is NULL')
+    locations.inactive
   end
 
   def isAdmin

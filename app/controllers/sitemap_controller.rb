@@ -8,8 +8,7 @@ class SitemapController < ApplicationController
     headers['Content-Type'] = 'application/xml'
     respond_to do |format|
       format.xml do
-        @locations = Location.where(active: true)
-                             .order(updated_at: :desc)
+        @locations = Location.activated.order(updated_at: :desc)
       end
     end
   end

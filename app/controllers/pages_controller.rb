@@ -26,14 +26,14 @@ class PagesController < ApplicationController
 
     if session[:loc_search] && session[:loc_search] != ''
       logger.debug " * Location query on geocordinates with #{session[:loc_search]}"
-      locations = Location.where(active: true)
+      locations = Location.activated
                           .near(session[:loc_search], 15, order: 'distance')
       # logger.debug " Found in geocordinates: #{locations.count(:all)}"
     end
 
     if locations.blank?
       logger.debug ' * Location query with like on name'
-      locations = Location.where('active = true and listing_name ilike ?', "%#{session[:loc_search]}%")
+      locations = Location.activated.where('listing_name ilike ?', "%#{session[:loc_search]}%")
       # logger.debug " Found in names: #{locations.count(:all)}"
     end
 
