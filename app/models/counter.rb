@@ -34,7 +34,7 @@ class Counter < ApplicationRecord
   end
 
   def self.update_active_location_count
-    active_location_count = Location.where(active: true).count
+    active_location_count = Location.activated.count
     year = Date.today.year
     week = Date.today.cweek
 
@@ -122,7 +122,7 @@ class Counter < ApplicationRecord
       connection.select_value(sql).to_i
     end
   end
-  
+
   def self.load_7days_location_visits(location_id)
     start_date = (Date.today - 7.days)
     count_value = where("context = 'location_visits_for_user' AND context_type='?' AND date_of_count >= ?", location_id, start_date)

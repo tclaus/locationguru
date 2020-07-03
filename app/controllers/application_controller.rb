@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   # Load cities cloud
   def set_cities_link_cloud
     # Cache these a bit?
-    @link_clouds = Location.where(active: true)
+    @link_clouds = Location.activated
                            .select('city')
                            .group('city')
                            .order('city')

@@ -43,7 +43,7 @@ class AdminController < ApplicationController
 
   # Render list of active venues
   def active_locations
-    @locations = Location.where(active: true).order(id: :desc)
+    @locations = Location.activated.order(id: :desc)
     CounterHelper.load_total_numbers(@locations)
     render 'admin/locations'
   end
@@ -71,7 +71,7 @@ class AdminController < ApplicationController
   # Aggregate statistics about locations
   def aggregate_locations
     @total_locations = Location.count
-    @total_active_locations = Location.where(active: true).count
+    @total_active_locations = Location.activated.count
     @total_active_locations_diff = admin_service.active_location_diff
     @latest_locations = latest_locations(30)
     @top_requested_locations = top_requested_locations(90)

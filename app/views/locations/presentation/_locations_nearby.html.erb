@@ -4,7 +4,7 @@
 <% if !@location.nearbys(25).blank? %>
   <div class="row">
     <% for location in @location.nearbys(25).max(6).shuffle %>
-    <% if location.is_active? %>
+    <% if location.active? %>
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">

@@ -24,6 +24,8 @@ class Location < ApplicationRecord
   validates :suitableForText, length: { maximum: 50 }
 
   before_create :set_inactive
+  scope :activated, -> { where(active: true) }
+  scope :inactive, -> { where('active != true') }
 
   reverse_geocoded_by :latitude, :longitude do |obj, results|
     if (geo = results.first)
@@ -76,7 +78,7 @@ class Location < ApplicationRecord
     end
   end
 
-  def is_active?
+  def active?
     active
   end
 
