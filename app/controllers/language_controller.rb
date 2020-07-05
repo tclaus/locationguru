@@ -3,7 +3,7 @@ class LanguageController < ApplicationController
   # Sets new custom lnguage from paramers[:lnguage], fallbacks to de if not supporte
   def language
     language = params[:language]
-    logger.debug "Custom language request to '#{language}'"
+    logger.info "Custom language request to '#{language}'"
     language = 'de' unless %w[de en].include?(language)
     unless current_user.blank?
       current_user.language_id = language

@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
   # Returns a valid language ID. Fall back to a default
   def valid_language
     locale = language_from_current_user || custom_language_from_cookie || language_from_header || 'de'
-    logger.debug "* Using locale ID: #{locale}"
+    logger.info "* Using locale ID: #{locale}"
     # Only de or en is a supported language
     locale = DEFAULT_LANGUAGE if locale != 'de' && locale != 'en'
     cookies[:custom_language] = locale
@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
   # extracts the accept-language header
   def language_from_header
     accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
-    logger.debug "* Accept-Language from header: #{accept_language}"
+    logger.info "* Accept-Language from header: #{accept_language}"
     return accept_language.scan(/^[a-z]{2}/).first if accept_language
   end
 end
