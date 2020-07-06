@@ -3,9 +3,9 @@
 include ApplicationHelper
 
 class MessagesController < ApplicationController
-  before_action :set_location, except: %i[index new create]
+  before_action :set_location, except: %i[index new create show_message]
   before_action :authenticate_user!, except: [:create]
-  before_action :is_authorized, only: %i[show]
+  before_action :is_authorized, only: %i[show show_message]
 
   def create
     # create a message and if a date was given, create a reservation
@@ -93,6 +93,11 @@ class MessagesController < ApplicationController
     @message
   end
 
+  def show_message
+    @message = Message.find(params[:id])
+    render 'messages/show'
+  end
+
   def destroy
     @message = Message.find(params[:id])
     @message.delete
@@ -106,7 +111,7 @@ class MessagesController < ApplicationController
   end
 
   def is_authorized
-    redirect_to root_path, alert: t('not_authorized') unless (current_user.id == @location.user_id) || current_user.isAdmin
+    redirect_to root_path, alert: t('not_authorized') unless (current_user.isAdmin || current_user.id == @location.user_id)
   end
 
   def permitMessages

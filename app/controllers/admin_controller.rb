@@ -15,6 +15,7 @@ class AdminController < ApplicationController
     aggregate_users
     aggregate_locations
     aggregate_messages
+    recent_messages
     venues_with_insufficient_photos
     render 'admin/index'
   end
@@ -94,6 +95,10 @@ class AdminController < ApplicationController
   def aggregate_messages
     @total_messages = Message.count
     @total_messages_diff = @total_messages - Message.where('created_at < ?', one_week_ago).count
+  end
+
+  def recent_messages
+    @messages = Message.order(id: :desc).limit(10)
   end
 
   def export_service
