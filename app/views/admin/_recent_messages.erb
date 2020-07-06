@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+   <th scope="col">Request Date</th>
+   <th scope="col">Message</th>
+  </tr>
+    <% recent_messages.each do |message| %>
+    <tr>
+      <td><%= link_to message.message.truncate(30), show_message_path(message) %></td>
+      <td><%= link_to message.created_at, show_message_path(message) %></td>
+    </tr>
+    <% end %>
+</table>

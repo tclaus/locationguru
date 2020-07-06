@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     member do
-      post '/verify_phone_number' => 'users#verify_phone_number'
-      patch '/update_phone_number' => 'users#update_phone_number'
+      post '/verify_phone_number', to: 'users#verify_phone_number'
+      patch '/update_phone_number', to: 'users#update_phone_number'
       post 'avatar'
       delete '' => 'users#destroy'
     end
@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     resources :messages, only: %i[show create destroy]
   end
 
+  get 'messages/:id', to: 'messages#show_message', as: 'show_message'
+
   controller :photos do
     post 'photos/main_photo'
   end
@@ -61,12 +63,12 @@ Rails.application.routes.draw do
     patch '/reservations/reject'
   end
 
-  get 'search' => 'pages#search'
+  get 'search', to: 'pages#search'
 
-  get 'impressum' => 'impressum#show'
-  get 'privacy' => 'privacy#show'
-  get 'gtc' => 'gtc#show_gtc'
-  get 'contact' => 'contact#show'
+  get 'impressum', to: 'impressum#show'
+  get 'privacy', to: 'privacy#show'
+  get 'gtc', to: 'gtc#show_gtc'
+  get 'contact', to: 'contact#show'
 
   # DashboardsController
   controller :dashboards do
