@@ -45,6 +45,11 @@ Rails.application.routes.draw do
     resources :messages, only: %i[show create destroy]
   end
 
+  controller :location_reviews do
+    get 'create-reviews/:review_token', to: 'location_reviews#new', as: 'create-review'
+    post 'reviews', to: 'location_reviews#create'
+  end
+
   get 'messages/:id', to: 'messages#show_message', as: 'show_message'
 
   controller :photos do

@@ -24,8 +24,7 @@ class User < ApplicationRecord
   has_many :locations, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :reservations, dependent: :destroy
-  has_many :guest_reviews, class_name: 'GuestReview', foreign_key: 'guest_id'
-  has_many :host_reviews, class_name: 'HostReview', foreign_key: 'host_id'
+
   has_many :notifications,
            class_name: 'SentNotification',
            foreign_key: 'target_user_id',
@@ -42,11 +41,11 @@ class User < ApplicationRecord
     self.language_id = I18n.locale
   end
 
-  def activeLocations
+  def active_locations
     locations.activated
   end
 
-  def inactiveLocations
+  def inactive_locations
     locations.inactive
   end
 

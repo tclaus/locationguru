@@ -1,0 +1,14 @@
+<h1>Rating for <%= @location.listing_name %></h1>
+<p>
+  Hi,<br>
+  you sent a request for <%= link_to @location.listing_name.truncate(20), location_url(@location) %> on <%= l(@reservation.created_at.to_date, format: :short) %> for an event on <%= l(@reservation.start_date.to_date, format: :default) %>.<br>
+  <br>
+   few days after the date of the event you can give a rating for the provider and the room.<br>
+  Open this link to give a short rating:<br><br>
+
+  <%= link_to "Rate '#{@location.listing_name.truncate(20)}' now", create_review_url(@reservation.review_token) %>
+</p>
+<p>
+  Yours sincerely,<br>
+  https://locationguru.net
+</p>

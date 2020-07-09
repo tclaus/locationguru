@@ -1,0 +1,4 @@
+de:
+  request_guest_review_mailer:
+    request_review:
+      subject: "Bewerte deine Erfahrung mit %{location_name}"

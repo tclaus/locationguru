@@ -27,8 +27,7 @@
     <div class="description ">
       <%= @user.description %>
     </div>
-    <h4><%= t('.listings') %>
-      (<%= @locations.length %>)</h4>
+    <h4><%= t('.listings') %> (<%= @locations.length %>)</h4>
     <br>
     <div class="row">
       <% if !@locations.empty? %>
@@ -41,11 +40,10 @@
 </div>
 
 <div class="hidden">
-<h4><%= t('.review_from_guests') %>
-  (<%= @guest_reviews.count %>)</h4>
-<div class="row">
-  <%= render "reviews/guest_list" %>
-</div>
+<h4><%= t('.review_from_guests') %> (<%= @guest_reviews.count %>)</h4>
+  <div class="row">
+    <%= render "reviews/guest_list" %>
+  </div>
 <br>
 
 <h4><%= t('.review_from_hosts') %>

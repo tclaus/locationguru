@@ -1,0 +1,15 @@
+<h1>Bewerte deine Erfahrung mit <%= @location.listing_name %></h1>
+<p>
+  Hallo,<br>
+  Du hast an <%= link_to @location.listing_name.truncate(20), location_url(@location) %> am
+  <%= l(@reservation.created_at.to_date, format: :short) %> eine Anfrage für eine Veranstaltung am <%= l(@reservation.start_date.to_date, format: :full) %> gesendet.<br>
+  <br>
+  Einige Tage nach dem Veranstaltungsdatum kannst du eine Bewertung für den Anbieter und den Raum abgeben. <br>
+  Öffne diesen Link um eine kurze Bewertung abzugeben: <br>
+
+  <%= link_to "Bewertung für '#{@location.listing_name.truncate(20)}' abgeben", create_review_url(@reservation.review_token) %>
+</p>
+<p>
+  Mit freundlichen Grüssen,<br>
+  locationguru.net
+</p>

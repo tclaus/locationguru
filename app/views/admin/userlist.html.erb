@@ -33,8 +33,8 @@
             <td><%= mail_to user.email %></td>
             <td><%= "#{user.first_name} #{user.last_name}" %></td>
             <td>
-              <%= link_to user.activeLocations.count, admin_locations_path(active: :true, userid: user.id) %> /
-              <%= link_to user.inactiveLocations.count, admin_locations_path(active: :false, userid: user.id) %></td>
+              <%= link_to user.active_locations.count, admin_locations_path(active: :true, userid: user.id) %> /
+              <%= link_to user.inactive_locations.count, admin_locations_path(active: :false, userid: user.id) %></td>
             <td><%= user.created_at %></td>
             <td><%= user.last_sign_in_at %></td>
             <td><%= user.sign_in_count %></td>

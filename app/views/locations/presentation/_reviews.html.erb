@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="col-md-12">
-    <h3><%= t('.review',count: @guest_reviews.count) %>
-      <span id="average_rating" data-value= <%= @location.average_rating %>></span>
+
+    <h3><span class="rating-headline"><%= t('.review', count: reviews.count) %></span>
+      <span id="average_rating" data-value= <%= location.average_rating %>></span><br>
+      <small><%= "#{location.average_rating} based on #{location.reviews.count} ratings" %></small>
     </h3>
     <%= javascript_include_tag('average_rating') %>
-    <% if @guest_reviews.count > 0 %>
+    <% if reviews.count > 0 %>
       <div class="container">
         <div>
-          <%= render 'reviews/guest_list' %></div>
+          <%= render 'reviews/review_list' %></div>
       </div>
     <% end %>
-  </div>
-</div>

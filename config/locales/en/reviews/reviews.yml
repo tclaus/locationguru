@@ -1,6 +1,19 @@
 en:
   reviews:
-    guest_list:
-      there_are_no_reviews: "No reviews until now"
-    host_list:
-      there_are_no_reviews: "No reviews until now"
+    review_form:
+      your_review_for: "Review for:"
+      your_inquery_for: "Your visit or inquery on %{date}"
+      how_was_the_communication: "Did you get an answer? How was the communication at all?"
+      how_was_the_organization: "How was the organisation?"
+      did_the_venue_fulfill_your_expectations: "Did your expectations were met?"
+      your_comment: "Rating"
+      optional_your_name: "Optional: Your name"
+      add_review: "Send Review"
+  location_reviews:
+    create:
+      you_already_reviewed_this_reservation: "You already sent a review"
+      not_found_this_reservation: "You can not sent a review for this event."
+      review_created: "Review received"
+    new:
+      invalid_reservation_token: "Request unknown"
+      a_review_already_exists: "A review was already received"

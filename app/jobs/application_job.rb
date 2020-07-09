@@ -6,7 +6,7 @@ class ApplicationJob < ActiveJob::Base
     I18n.locale = if !location.user.blank?
                     location.user.language_id
                   else
-                    'en'
+                    I18n.default_locale
                   end
   end
 end

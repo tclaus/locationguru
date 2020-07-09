@@ -42,7 +42,8 @@
       <!-- right panel -->
       <div class="col-md-4 noprint">
           <%= render 'locations/presentation/google_map' %>
-          <%= render partial: 'locations/presentation/contact', locals: {location: @location.user} %>
+          <%= render partial: 'locations/presentation/contact', locals: { location: @location.user } %>
+          <%= render partial: 'locations/presentation/reviews', locals: { reviews: @reviews, location: @location } %>
       </div>
     </div>
   </div>

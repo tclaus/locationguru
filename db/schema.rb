@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_060609) do
+ActiveRecord::Schema.define(version: 2020_07_08_055735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,7 +141,9 @@ ActiveRecord::Schema.define(version: 2020_06_26_060609) do
     t.string "from_type"
     t.string "status"
     t.text "message"
+    t.string "review_token"
     t.index ["location_id"], name: "index_reservations_on_location_id"
+    t.index ["review_token"], name: "index_reservations_on_review_token"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
@@ -150,13 +152,9 @@ ActiveRecord::Schema.define(version: 2020_06_26_060609) do
     t.integer "star", default: 1
     t.bigint "location_id"
     t.bigint "reservation_id"
-    t.bigint "guest_id"
-    t.bigint "host_id"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_reviews_on_guest_id"
-    t.index ["host_id"], name: "index_reviews_on_host_id"
+    t.string "name"
     t.index ["location_id"], name: "index_reviews_on_location_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
@@ -224,5 +222,4 @@ ActiveRecord::Schema.define(version: 2020_06_26_060609) do
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "locations"
   add_foreign_key "reviews", "reservations"
-  add_foreign_key "reviews", "users", column: "host_id"
 end
