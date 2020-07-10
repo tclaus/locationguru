@@ -84,7 +84,7 @@ class LocationsController < ApplicationController
       @message.name = "#{current_user.first_name} #{current_user.last_name}"
     end
 
-    logger.debug "Send message with params: #{params}"
+    logger.debug "Sent message with params: #{params}"
   end
 
   def update

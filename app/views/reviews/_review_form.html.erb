@@ -15,12 +15,12 @@
             <div id="stars"></div>
             <div class="form-group">
               <%= f.label :comment, t('.your_comment') %>
-              <%= f.text_area :comment, rows: 3, class: "form-control" %>
+              <%= f.text_area :comment, size: "24x3",maxlength: 200, class: "form-control" %>
             </div>
 
             <div class="form-group">
               <%= f.label :name, t('.optional_your_name') %>
-              <%= f.text_field :name, class: "form-control" %>
+              <%= f.text_field :name, maxlength: 50, class: "form-control" %>
             </div>
 
             <%= f.hidden_field :location_id, value: @review.location_id %>

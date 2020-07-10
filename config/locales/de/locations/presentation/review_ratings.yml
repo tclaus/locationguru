@@ -1,0 +1,6 @@
+de:
+  locations:
+    presentation:
+      reviews:
+        ratings_subheadline: "%{average} Sterne von %{total_ratings} Bewertungen"
+        are_you_sure: "Möchtest du diese Bewertung löschen?"

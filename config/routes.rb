@@ -46,8 +46,9 @@ Rails.application.routes.draw do
   end
 
   controller :location_reviews do
-    get 'create-reviews/:review_token', to: 'location_reviews#new', as: 'create-review'
-    post 'reviews', to: 'location_reviews#create'
+    get 'create-reviews/:review_token', to: 'location_reviews#new', as: 'create-reviews'
+    post 'review', to: 'location_reviews#create', as: 'reviews'
+    delete 'review', to: 'location_reviews#delete', as: 'delete-review'
   end
 
   get 'messages/:id', to: 'messages#show_message', as: 'show_message'
