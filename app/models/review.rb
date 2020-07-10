@@ -8,7 +8,7 @@ class Review < ApplicationRecord
   validates :star, numericality: { less_than_or_equal_to: 5, greater_than: 0 }
   validates :comment, length: { maximum: 200 }
 
-  before_create do
-    self.comment = ''
+  after_initialize do
+    self.comment ||= ''
   end
 end

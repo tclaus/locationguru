@@ -5,7 +5,7 @@
   <%= l(@reservation.created_at.to_date, format: :short) %> für eine Veranstaltung am <%= l(@reservation.start_date.to_date, format: :full) %> gesendet.
 
   Einige Tage nach dem Veranstaltungsdatum kannst du eine Bewertung für den Anbieter und den Raum abgeben.
-  Öffne diesen Link um eine kurze Bewertung abzugeben:
+  Öffne diesen Link um diese Location, den Anbieter und die Abwicklung zu bewerten:
 
   <%= "Bewertung für '#{@location.listing_name.truncate(20)}' abgeben: " + new_review_url(@reservation.review_token) %>
 

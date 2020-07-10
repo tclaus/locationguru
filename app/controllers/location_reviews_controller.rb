@@ -30,7 +30,6 @@ class LocationReviewsController < ApplicationController
     # Tokens are generated for each reservation
     @reservation = Reservation.find_by(review_token: review_params[:review_token])
     if !@reservation.nil?
-
       if @reservation.review.nil?
         review = Review.create(
           reservation_id: @reservation.id,
