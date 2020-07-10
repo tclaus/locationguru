@@ -14,6 +14,7 @@ scheduler.cron '5 11 * * *' do
   # Send a reminder on too less fotos every day, five minutes after 11am
   # (see "man 5 crontab" in your terminal)
   SendNotificationOnPhotosJob.perform_now
+  SendReviewReminderJob.perform_now
 end
 
 scheduler.cron '5 0 * * *' do
