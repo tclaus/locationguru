@@ -6,25 +6,27 @@
 <div class="secondary-container">
   <div class="container">
   <% @reviews.order(id: :desc).each do |r| %>
+   <% if !r.comment.blank? %>
     <hr>
     <div class="row">
      <div class="col-md-3 text-center">
        <strong> <%= "Anonym" %> </strong>
      </div>
      <div class="col-md-9">
+
        <div id="star_<%= r.id %>"></div>
-       <% if current_user && current_user == r.location.user %>
-         <span class="pull-right">
-           <%= link_to r, method: :delete, data: {confirm: t('.are_you_sure?')} do %>
-           <i class="far fa-trash"></i>
-           <% end %>
-       </span>
-       <% end %>
-     <div> <%= l(r.created_at.to_date) %></div>
-     <div> <%= r.comment.truncate(50) %> </div>
-    </div>
+         <% if current_user && current_user == r.location.user %>
+           <span class="pull-right">
+             <%= link_to r, method: :delete, data: {confirm: t('.are_you_sure?')} do %>
+             <i class="far fa-trash"></i>
+             <% end %>
+           </span>
+         <% end %>
+         <div> <%= l(r.created_at.to_date) %></div>
+         <div> <%= r.comment.truncate(50) %> </div>
+      </div
     </div>
   <% end %>
-  </div>
+ <% end %>
   </div>
 <% end %>

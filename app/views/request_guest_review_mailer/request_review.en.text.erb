@@ -1,0 +1,12 @@
+  Rating for <%= @location.listing_name %>
+
+  Hi,
+  you sent a request for '<%= @location.listing_name.truncate(20) %>' ( <%= location_url(@location) %> ) on <%= l(@reservation.created_at.to_date, format: :short) %> for an event on <%= l(@reservation.start_date.to_date, format: :default) %>.
+
+  A few days after the date of the event you can give a rating for the provider and the room.
+  Open this link to give a short rating:
+
+  <%= "Rate '#{@location.listing_name.truncate(20)}' on this link: " %> <%= new_review_url(@reservation.review_token) %>
+
+  Yours sincerely,
+  locationguru.net
