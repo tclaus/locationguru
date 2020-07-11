@@ -21,7 +21,9 @@
       <div class="col-md-4">
         <%= render partial: 'recent_messages', locals: {recent_messages: @messages} %>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= render partial: 'reviews', locals: {reviews: @reviews} %>
+      </div>
     </div>
   </div>
 </div>
