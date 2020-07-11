@@ -16,6 +16,7 @@ class AdminController < ApplicationController
     aggregate_locations
     aggregate_messages
     recent_messages
+    latest_reviews
     venues_with_insufficient_photos
     render 'admin/index'
   end
@@ -47,6 +48,10 @@ class AdminController < ApplicationController
     @locations = Location.activated.order(id: :desc)
     CounterHelper.load_total_numbers(@locations)
     render 'admin/locations'
+  end
+
+  def latest_reviews
+    @reviews = Review.all.order(id: :desc).limit(20)
   end
 
   def messages
