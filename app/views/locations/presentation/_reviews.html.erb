@@ -1,7 +1,11 @@
 
     <h3><span class="rating-headline"><%= t('.review', count: reviews.count) %></span>
       <span id="average_rating" data-value= <%= location.average_rating %>></span><br>
-      <small><%= t('.ratings_subheadline',average: location.average_rating, total_ratings: location.reviews.count)  %></small>
+      <% if location.reviews.count == 0 %>
+      <small> <%= t('.no_ratings_so_far') %></small>
+      <% else %>
+        <small><%= t('.ratings_subheadline',average: location.average_rating, total_ratings: location.reviews.count)  %></small>
+      <% end %>
     </h3>
     <%= javascript_include_tag('average_rating') %>
     <% if reviews.count > 0 %>
