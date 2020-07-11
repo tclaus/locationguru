@@ -14,11 +14,12 @@ class SendReviewReminderJob < ApplicationJob
   def send_review_reminder
     # Find reservations without an review
     # And with a start_date which is in the past
+    logger.info 'Start send out review reminder mails'
     reservations_without_review = Reservation.not_invited_for_review
     if reservations_without_review.empty?
       logger.info 'No review invitations to send'
     end
-    
+
     # reject two reviews fpr the same venue on the same day
     already_send = {}
     reservations_without_review.each do |reservation|
