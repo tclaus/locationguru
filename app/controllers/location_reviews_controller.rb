@@ -17,7 +17,7 @@ class LocationReviewsController < ApplicationController
         redirect_to(location_path(@reservation.location)) && return
       end
     else
-      logger.info " Invalid review token #{token}"
+      logger.info " Invalid reservation token #{token}"
       flash[:alert] = t('.invalid_reservation_token')
       redirect_to(root_path) && return
     end

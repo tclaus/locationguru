@@ -18,11 +18,8 @@ class SendReviewReminderJob < ApplicationJob
     if reservations_without_review.empty?
       logger.info 'No review invitations to send'
     end
-    # What if, ssomeone sends masses of requests, just to can sent a review?
-
-    # Last diff(start_date ) > 5 Tage
-    # Last user should have a request review every 5 days
-    # store user + location; last date
+    
+    # reject two reviews fpr the same venue on the same day
     already_send = {}
     reservations_without_review.each do |reservation|
       # dont send multiple mails to same user

@@ -15,5 +15,5 @@ en:
       not_found_this_reservation: "You can not sent a review for this event."
       review_created: "Review received"
     new:
-      invalid_reservation_token: "Request unknown"
+      invalid_reservation_token: "Invalid reservation token"
       a_review_already_exists: "A review was already received"
