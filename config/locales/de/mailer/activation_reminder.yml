@@ -8,7 +8,7 @@ de:
             Allerdings wurde dieser Eintrag bisher noch nicht aktiviert.<br>
             Sie können den Eintrag unter diesem Link direkt bearbeiten: <br>
             <a href='%{edit_url}'>%{location_name}</a>"
-      footer: "Mit freundlichen Grüssen,<br>
+      footer: "Mit freundlichen Grüßen,<br>
       locationguru.net"
     second_activation_reminder:
       subject: "'%{location_name}' wurde seit einer Woche nicht aktiviert"
@@ -20,7 +20,7 @@ de:
             Wenn Sie Fragen haben oder wir Ihnen helfen können, so senden Sie uns einfach eine Nachricht.<br>
             Sie können den Eintrag hier direkt bearbeiten:<br>
             <a href='%{edit_url}'>%{location_name}</a>"
-      footer: "Mit freundlichen Grüssen,<br>
+      footer: "Mit freundlichen Grüßen,<br>
       locationguru.net"
     last_activation_reminder:
       subject: "'%{location_name}' wurde seit einem Monat noch nicht aktiviert"
@@ -30,5 +30,5 @@ de:
             Ist es etwas, das wir noch erledigen müssen? Können wir Ihnen bei etwas bei ihrem Eintrag helfen?<br><br>
             Sie können den Eintrag unter diesem Link direkt bearbeiten:<br>
             <a href='%{edit_url}'>%{location_name}</a>"
-      footer: "Mit freundlichen Grüssen,<br>
+      footer: "Mit freundlichen Grüßen,<br>
       locationguru.net"

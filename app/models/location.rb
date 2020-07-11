@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy
   has_many :reservations, dependent: :destroy
-  has_many :guest_reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :notifications,
            class_name: 'SentNotification',
@@ -67,7 +67,7 @@ class Location < ApplicationRecord
   end
 
   def average_rating
-    guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
+    reviews.count == 0 ? 0 : reviews.average(:star).round(2).to_i
   end
 
   def short_summary

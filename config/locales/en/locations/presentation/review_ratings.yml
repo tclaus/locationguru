@@ -1,0 +1,7 @@
+en:
+  locations:
+    presentation:
+      reviews:
+        ratings_subheadline: "%{average} stars from %{total_ratings} total ratings."
+        are_you_sure: "Are you sure to delete this rating?"
+        no_ratings_so_far: "There are no ratings yet"

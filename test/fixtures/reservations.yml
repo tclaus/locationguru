@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   user: one
   location: one
   start_date: 2017-12-10 09:30:42
   message: "I like to rent"
 
 two:
+  id: 2
   user: two
   location: two
   start_date: 2017-12-10 09:30:42

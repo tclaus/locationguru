@@ -8,7 +8,7 @@
       <%= html_line_breaks(@message.message) %>
     </p>
 
-    <%= t('.send_answer_to') %> <%= @message.name %>, <a href="mailto://<%= @message.email %>"><%= @message.email %></a>
+    <%= t('.send_answer_to') %> <%= @message.name %>, <a href="mailto:<%= @message.email %>"><%= @message.email %></a>
     <br><br>
     <%= t('.your_inbox') %> <br>
     <a href='https://Locationguru.net/dashboard'>Übersicht</a>

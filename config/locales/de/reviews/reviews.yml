@@ -1,7 +1,19 @@
 de:
   reviews:
-    guest_list:
-      there_are_no_reviews: Noch keine Bewertung eingegangen
-
-    host_list:
-      there_are_no_reviews: Noch keine Bewertung eingegangen
+    review_form:
+      your_review_for: "Bewertung für:"
+      your_inquery_for: "Dein Besuch oder Anfrage am %{date}"
+      how_was_the_communication: "Fand ein Kontakt statt? Wie war die Kommunikation allgemein?"
+      how_was_the_organization: "Wie wurde es organisiert?"
+      did_the_venue_fulfill_your_expectations: "Hat die Location Deinen Erwartungen entsprochen?"
+      your_comment: "Bewertung"
+      optional_your_name: "Freiwillig: Dein Name"
+      add_review: "Bewertung abgeben"
+  location_reviews:
+    create:
+      you_already_reviewed_this_reservation: "Du hast eine Bewertung schon abgegeben"
+      not_found_this_reservation: "Diese Bewertung kann nicht abgegeben werden"
+      review_created: "Bewertung abgegeben"
+    new:
+      invalid_reservation_token: "Kennung der Reservierung unbekannt"
+      a_review_already_exists: "Eine Bewertung wurde bereits abgegeben"

@@ -50,8 +50,9 @@ class LocationsController < ApplicationController
       end
     end
     @photos = @location.photos
-    @guest_reviews = @location.guest_reviews
+    @guest_reviews = @location.reviews
     @weekly_calls = Counter.load_7days_location_visits(@location.id)
+    @reviews = @location.reviews
 
     Counter.increase_location_visit(@location.id, request.remote_ip)
   end
@@ -83,7 +84,7 @@ class LocationsController < ApplicationController
       @message.name = "#{current_user.first_name} #{current_user.last_name}"
     end
 
-    logger.debug "Send message with params: #{params}"
+    logger.debug "Sent message with params: #{params}"
   end
 
   def update
@@ -153,7 +154,7 @@ class LocationsController < ApplicationController
     if !location.nil?
       logger.debug "Remove location '#{location.listing_name}'',id: #{location.id}"
       location.photos.destroy_all
-      location.guest_reviews.destroy_all
+      location.reviews.destroy_all
       location.reservations.destroy_all
       logger.debug "Remove location ''#{location.listing_name}'',id: #{location.id}"
       location.delete

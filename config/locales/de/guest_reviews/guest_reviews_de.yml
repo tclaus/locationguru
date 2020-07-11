@@ -1,7 +1,0 @@
-de:
-  guest_reviews:
-    create:
-      you_already_reviewed_this_reservation: "Sie haben bereits eine Bewertung abgegeben"
-      review_created: "Bewertung abgegeben"
-      not_found_this_reservation: "Diese Reservierung konnte nicht gefunden werden"
-      removed_review: "Bewertung gelöscht"
