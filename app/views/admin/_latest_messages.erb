@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= t('.headline') %>
+  </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+         <th scope="col">Message</th>
+         <th scope="col">Request Date</th>
+        </tr>
+          <% recent_messages.each do |message| %>
+          <tr>
+            <td><%= link_to message.message.truncate(30), show_message_path(message) %></td>
+            <td><%= link_to l(message.inquery_date), show_message_path(message) %></td>
+          </tr>
+          <% end %>
+      </table>
+  </div>
+</div>

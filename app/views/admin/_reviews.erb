@@ -1,16 +1,22 @@
-<table class="table table-striped">
-  <tr>
-   <th scope="col">For Location</th>
-   <th scope="col">From</th>
-   <th scope="col">Rating</th>
-   <th scope="col">Comment</th>
-  </tr>
-    <% reviews.each do |review| %>
-    <tr>
-      <td><%= review.location.listing_name.truncate(20) %></td>
-      <td><%= review.reservation.email %></td>
-      <td><%= review.star %></td>
-      <td><%= review.comment.truncate(50) %></td>
-    </tr>
-    <% end %>
-</table>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= t('.headline') %>
+  </div>
+   <div class="panel-body">
+    <table class="table table-striped">
+      <tr>
+       <th scope="col">For Location</th>
+       <th scope="col">Rating</th>
+       <th scope="col">Comment</th>
+      </tr>
+        <% reviews.each do |review| %>
+        <tr>
+          <td><%= review.location.listing_name.truncate(20) %></td>
+          <td><%= review.star %></td>
+          <td><%= review.comment.truncate(50) %></td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
