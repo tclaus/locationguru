@@ -10,6 +10,7 @@ de:
       you_send_this_message: "Sie haben diese Nachricht an '%{location_name}' gesendet:"
       subject: "Ihre Nachricht an '%{location_name}'"
       inquery_date: "Anfrage Datum"
+      review_reminder: "Einige Tage nach dem geplanten Veranstaltungsdatum erhalten Sie eine weitere Email mit der Sie den Vermieter bewerten können."
     location_activated:
       body_html: "Ihre Location '%{location_name}' wurde aktiviert. <br>
 Das heisst, sie ist nun öffentlich auf der Seite auffindbar. <br>

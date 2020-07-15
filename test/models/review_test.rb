@@ -10,11 +10,11 @@ class ReviewTest < ActiveSupport::TestCase
   test 'Review validates' do
     @review.star = 1
     @review.comment = 'this is a cool comment'
-    assert @review.validate!
+    assert @review.validate
   end
 
   test 'Review star <= 5' do
     @review.star = 6
-    assert_not @review.validate!
+    assert_not @review.validate
   end
 end

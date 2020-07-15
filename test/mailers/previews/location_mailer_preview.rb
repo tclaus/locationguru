@@ -3,12 +3,12 @@
 # Preview all emails at http://localhost:3000/rails/mailers/location_mailer
 
 class LocationMailerPreview < ActionMailer::Preview
-  def incomming_mail
+  def location_requester
     LocationMailer.with(location: Location.first,
-                        message: Message.first).location_mail
+                        message: Message.first).location_mail_to_sender
   end
 
-  def mail_notification
+  def location_mail_request
     LocationMailer.with(location: Location.first,
                         message: Message.first).location_mail
   end

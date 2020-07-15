@@ -3,13 +3,15 @@
 one:
   user_id: 1
   location_id: 1
-  email: MyString
-  name: MyString
-  message: MyText
+  email: alice@example.com
+  name: Alice
+  message: Like to make en event at this location
+  inquery_date: 2020-10-10
 
 two:
   user_id: 1
   location_id: 1
-  email: MyString
-  name: MyString
-  message: MyText
+  email: bob@example.com
+  name: Bob
+  message: Can I celebrate my birthday?
+  inquery_date: 2020-10-10

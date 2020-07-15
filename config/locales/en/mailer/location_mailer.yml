@@ -10,6 +10,7 @@ en:
       you_send_this_message: "You have send this message to '%{location_name}':"
       subject: "Your message for '%{location_name}'"
       inquery_date: "Inquery Date"
+      review_reminder: "Some days after the planned event you will receive another email. With this you can rate the host."
     location_activated:
       body_html: "Your venue '%{location_name}' is now public available.<br>
 You need nothing to do than wait for your intersents.<br>
