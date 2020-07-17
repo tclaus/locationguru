@@ -21,12 +21,12 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 
-# Use SCSS for stylesheets
+# Stylesheets and web support
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
 gem 'font-awesome-sass', '~> 5.0'
-gem 'jquery-rails'
-gem 'jquery-ui-rails', '~>6.0'
+gem 'jquery-rails', '~> 4.4'
+gem 'jquery-ui-rails', '~> 6.0'
+gem 'sassc-rails', '>= 2.1.0'
 
 # Photos and avatars
 gem 'aws-sdk-s3'

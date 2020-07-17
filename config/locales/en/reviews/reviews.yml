@@ -9,6 +9,8 @@ en:
       your_comment: "Rating"
       optional_your_name: "Optional: Your name"
       add_review: "Send Review"
+    review_list:
+      are_you_sure: "Remove this rating?"
   location_reviews:
     create:
       you_already_reviewed_this_reservation: "You already sent a review"

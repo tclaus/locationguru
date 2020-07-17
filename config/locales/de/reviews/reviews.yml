@@ -9,6 +9,8 @@ de:
       your_comment: "Bewertung"
       optional_your_name: "Freiwillig: Dein Name"
       add_review: "Bewertung abgeben"
+    review_list:
+      are_you_sure: "Diese Bewertung löschen?"
   location_reviews:
     create:
       you_already_reviewed_this_reservation: "Du hast eine Bewertung schon abgegeben"
