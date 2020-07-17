@@ -13,7 +13,7 @@ class LocationMailer < ApplicationMailer
     headers['Venue-Message-Id'] = @message.id
 
     mail(to: email_with_name,
-         from: "#{@message.name} via Locationguru <#{@message.email}>",
+         from: "'#{@message.name} via Locationguru'<#{@message.email}>",
          reply_to: @message.email,
          subject: t('.subject', location_name: @location.listing_name))
   end

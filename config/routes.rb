@@ -48,7 +48,8 @@ Rails.application.routes.draw do
   controller :location_reviews do
     get 'review/new/:review_token', to: 'location_reviews#new', as: 'new_review'
     post 'review', to: 'location_reviews#create', as: 'reviews'
-    delete 'review/:id', to: 'location_reviews#delete'
+    delete 'reviews/:id', to: 'location_reviews#delete'
+    # See: https://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use
   end
 
   get 'messages/:id', to: 'messages#show_message', as: 'show_message'
