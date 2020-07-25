@@ -6,9 +6,10 @@
   A few days after the date of the event you can give a rating for the provider and the room.<br>
   Open this link to give a short rating:<br><br>
 
-  <%= link_to "Rate '#{@location.listing_name.truncate(20)}' now", new_review_url(@reservation.review_token) %>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Rate '#{@location.listing_name.truncate(20)}' now",
+    link_target: new_review_url(@reservation.review_token)
+  } %>
 </p>
-<p>
-  Yours sincerely,<br>
-  locationguru.net
-</p>
+
+<%= render "html_helpers/mail_footer" %>

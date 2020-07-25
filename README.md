@@ -83,9 +83,9 @@ $: rails --tasks
 ```
 Start the server
 ------------------
-1. start the redis-server
-2. start a batch job queue
-3. start rails server
+1. Start the redis-server
+2. Start a batch job queue
+3. Start rails server
 
 $: redis-server
 $: QUEUE=* rake environment resque:work

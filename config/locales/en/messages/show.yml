@@ -1,7 +1,7 @@
 en:
   messages:
     show:
-      answer_message: "Send Answer"
+      answer_message: "Send answer"
       yesterday: "Yesterday"
     create:
       message_send: "Nachricht gesendet"

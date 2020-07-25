@@ -9,5 +9,4 @@
 
   <%= "Bewertung für '#{@location.listing_name.truncate(20)}' abgeben: " + new_review_url(@reservation.review_token) %>
 
-  Mit freundlichen Grüßen,
-  locationguru.net
+  <%= render "html_helpers/mail_footer" %>

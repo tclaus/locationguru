@@ -1,2 +1,4 @@
+<%= render "html_helpers/mail_header" %>
 <%= strip_tags(t('.body', location_name: @location.listing_name, edit_url: @edit_url)) %>
-<%= strip_tags(t('.footer')) %>
+
+<%= render "html_helpers/mail_footer" %>

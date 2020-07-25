@@ -1,0 +1,13 @@
+
+<%= render "html_helpers/mail_header" %>
+
+Hallo,
+Ihr Eintrag <%= @location.listing_name %> ist aktiv und steht Ihren Gästen zur Verfügung.
+
+Allerdings haben sie bisher nur wenige Fotos hinzugefügt.
+Ihre Gäste können sich ein besseres Bild von Ihrer Location machen, wenn sie mehr Fotos (bis zu 10) Ihrem Raum hinzufügen.
+Sie können den Eintrag unter diesem Link direkt bearbeiten:
+
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

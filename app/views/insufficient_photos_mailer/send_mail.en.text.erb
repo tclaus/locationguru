@@ -1,0 +1,11 @@
+<%= render "html_helpers/mail_header" %>
+
+Hi,
+your venue <%= @location.listing_name %> is visible to your guests.
+
+But it should have more photos.
+Your guests love to see more pictures to what they get. So consider adding up to 10 photos to your venue. Use the link below.
+
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

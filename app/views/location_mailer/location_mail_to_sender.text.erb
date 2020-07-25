@@ -1,6 +1,5 @@
 
-Location Guru
-===============================================
+<%= render "html_helpers/mail_header" %>
 
 <%= t('.you_send_this_message', location_name: @location.listing_name) %>
 <%= t('.inquery_date') %>: <%= @message.inquery_date %>
@@ -10,4 +9,4 @@ Location Guru
 
 <%= t('.review_reminder') %>
 
-https://locationguru.net
+<%= render "html_helpers/mail_footer" %>

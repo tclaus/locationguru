@@ -1,5 +1,6 @@
 
-    <h1>Location Guru</h1>
+    <%= render "html_helpers/mail_header" %>
+
     <p>
       <%= t('.send_you_a_message_for',sender: @message.name , location_name: @location.listing_name) %> <br>
       <%= t('.inquery_date') %>: <%= @message.inquery_date %>
@@ -8,7 +9,8 @@
       <%= html_line_breaks(@message.message) %>
     </p>
 
-    <%= t('.send_answer_to') %> <%= @message.name %>, <a href="mailto:<%= @message.email %>"><%= @message.email %></a>
+    <%= t('.send_answer_to') %> <%= @message.name %>, <a href="mailto:'<%= @message.name %>'<<%= @message.email %>>"><%= @message.email %></a>
     <br><br>
-    <%= t('.your_inbox') %> <br>
-    <a href='https://Locationguru.net/dashboard'>Übersicht</a>
+    <%= t('.your_inbox') %> <%= link_to 'Dashboard', dashboard_url, target: :_blank %>
+
+    <%= render "html_helpers/mail_footer" %>
