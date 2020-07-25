@@ -1,0 +1,15 @@
+<%= render "html_helpers/mail_header" %>
+
+<p>
+  Hi,<br>
+  your venue <%= @location.listing_name %> is visible to your guests.<br>
+  <br>
+  But it should have more photos.<br>
+  Your guests love to see more pictures to what they get. So consider adding up to 10 photos to your venue. Use the link below.
+
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Edit '#{@location.listing_name}'",
+    link_target: listing_location_url(@location)
+  } %>
+</p>
+<%= render "html_helpers/mail_footer" %>
