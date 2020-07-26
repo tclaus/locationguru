@@ -53,9 +53,13 @@ class User < ApplicationRecord
     role == ADMIN_ROLE
   end
 
-  def isSystem
+  def system_user?
     # system user can not log in  are used as a placeholder for incomming messages with reservations
     role == SYSTEM_ROLE
+  end
+
+  def self.system_user
+    @system_user ||= find_system_user
   end
 
   def fullname
@@ -66,7 +70,7 @@ class User < ApplicationRecord
     first_name? || last_name?
   end
 
-  def isConfirmed?
+  def confirmed?
     !confirmed_at.nil?
   end
 
@@ -91,7 +95,7 @@ class User < ApplicationRecord
     end
   end
 
-  def hasPremium
+  def premium?
     true
   end
 
@@ -113,5 +117,18 @@ class User < ApplicationRecord
 
   def verify_pin(entered_pin)
     update(phone_verified: true) if pin == entered_pin
+  end
+
+  def self.find_system_user
+    user = User.find_or_create_by(first_name: 'System',
+                                  last_name: 'User',
+                                  email: 'system@example.com',
+                                  role: SYSTEM_ROLE)
+    if user.confirmed_at.nil?
+      user.password = SecureRandom.hex(16)
+      user.confirmed_at = Date.today
+      user.save
+    end
+    user
   end
 end

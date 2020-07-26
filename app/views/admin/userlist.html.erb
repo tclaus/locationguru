@@ -44,7 +44,7 @@
               <td><%= user.provider %></td>
             <% end %>
             <td>
-              <% if user.isConfirmed? %>
+              <% if user.confirmed? %>
                 <i class="fas fa-check"></i>
               <% else %>
                 <i class="fas fa-minus"></i>
