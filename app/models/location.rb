@@ -23,7 +23,9 @@ class Location < ApplicationRecord
   validates :max_persons, numericality: { less_than: 100_000 }
   validates :suitableForText, length: { maximum: 50 }
 
-  before_create :set_inactive
+  before_create :generate_unique_guid
+  before_create :set_defaults
+
   scope :activated, -> { where(active: true) }
   scope :inactive, -> { where('active != true') }
 
@@ -67,15 +69,11 @@ class Location < ApplicationRecord
   end
 
   def average_rating
-    reviews.count == 0 ? 0 : reviews.average(:star).round(2).to_i
+    reviews.count.zero? ? 0 : reviews.average(:star).round(2).to_i
   end
 
   def short_summary
-    if summary.length > 200
-      summary[0, 200] + '...'
-    else
-      summary
-    end
+    summary.truncate(200)
   end
 
   def active?
@@ -83,13 +81,19 @@ class Location < ApplicationRecord
   end
 
   # Top venues are venues with many messages in a time period
-  def is_top_venue
+  def top_venue?
     messages.where('created_at >= ?', 30.day.ago).count > 5
+  end
+
+  # A guid is not predictable and to be prefered over nummeric IDs
+  def generate_unique_guid
+    self.guid ||= SecureRandom.base58(24)
   end
 
   private
 
-  def set_inactive
+  def set_defaults
     self.active = false
+    self.max_persons = 50
   end
 end

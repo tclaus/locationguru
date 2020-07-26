@@ -45,7 +45,7 @@
           <div class="panel-body message-scroller">
 
             <div class="list-group">
-              <% if current_user.hasPremium %>
+              <% if current_user.premium? %>
                 <% @messages_overview.each do |message| %>
                   <button class="list-group-item" id="<%= message.id %>" data-location="<%= message.location_id %>" data-message="<%= message.id %>">
 

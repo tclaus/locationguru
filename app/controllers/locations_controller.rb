@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   include CounterHelper
 
   before_action :set_location, except: %i[index new create]
-  before_action :authenticate_user!, except: %i[preload preview show send_message]
+  before_action :authenticate_user!, except: %i[new create preload preview show send_message]
   before_action :authorized?, only: %i[listing description
                                        photo_upload suitables amenities location update destroy]
   before_action :location_is_active, only: %i[send_message]
@@ -15,7 +15,12 @@ class LocationsController < ApplicationController
   end
 
   def new
-    @location = current_user.locations.build
+    if user_signed_in?
+      @location = current_user.locations.build
+    else
+      # Attach temporary on system user
+      @location = User.system_user.locations.build
+    end
   end
 
   def restrict
@@ -25,16 +30,24 @@ class LocationsController < ApplicationController
   end
 
   def create
-    logger.debug 'Creating a location'
-    @location = current_user.locations.build(location_params)
-    if @location.save
-      logger.debug "Created location with ID #{@location.id}"
-      redirect_to listing_location_path(@location), notice: t('saved')
+    logger.info 'Creating a new location'
+
+    if user_signed_in?
+      location = current_user.locations.build(location_params)
     else
-      logger.warn 'Failed creating a location: ' + error_messages_to_s(@location.errors)
-      flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
+      location = User.system_user.locations.build(location_params)
+      cookies[:temporary_location_guid] = location.generate_unique_guid
+    end
+
+    if location.save
+      logger.debug "Created venue with ID #{location.id}"
+      redirect_to listing_location_path(location), notice: t('saved')
+    else
+      logger.warn 'Failed creating a venue: ' + location_service.error_messages_to_s(location.errors)
+      flash[:alert] = t('something_went_wrong_create_location') + location_service.error_messages_to_s(location.errors)
       redirect_to new_location_url(location_params)
     end
+
   end
 
   def show
@@ -121,7 +134,8 @@ class LocationsController < ApplicationController
       return
     else
       logger.debug "Failed updating a location. #{@location.errors.messages}"
-      flash[:alert] = t('something_went_wrong_create_location') + error_messages_to_s(@location.errors)
+      flash[:alert] = t('something_went_wrong_create_location') +
+                      location_service.error_messages_to_s(@location.errors)
       redirect_back(fallback_location: request.referer)
     end
   end
@@ -152,11 +166,11 @@ class LocationsController < ApplicationController
     logger.debug "Delete location with id: #{params}"
     location = Location.find params[:id]
     if !location.nil?
-      logger.debug "Remove location '#{location.listing_name}'',id: #{location.id}"
+      logger.debug "Removing location '#{location.listing_name}'',id: #{location.id}"
       location.photos.destroy_all
       location.reviews.destroy_all
       location.reservations.destroy_all
-      logger.debug "Remove location ''#{location.listing_name}'',id: #{location.id}"
+      logger.debug "Removed location ''#{location.listing_name}'',id: #{location.id}"
       location.delete
       flash[:notice] = t('.location_deleted')
     else
@@ -167,13 +181,8 @@ class LocationsController < ApplicationController
 
   private
 
-  # Splits an active record error hash to a single string
-  def error_messages_to_s(errors)
-    text = '<br>'
-    errors.each do |_field, message|
-      text = text + message.to_s + '.<br>'
-    end
-    text
+  def location_service
+    @location_service ||= LocationService.new(logger)
   end
 
   def owner?

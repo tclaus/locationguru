@@ -56,10 +56,29 @@ class ApplicationController < ActionController::Base
 
   # Redirect after login
   def after_sign_in_path_for(_resource_or_scope)
-    dashboard_path
+    location = rescue_temporary_venue
+    dashboard_path unless location.nil?
+
+    listing_location_path(location)
   end
 
   private
+
+  # Any venue that has beenn created before login should be rescured and
+  # assigned to currebnt user
+  def rescue_temporary_venue
+    temp_guid = cookies[:temporary_location_guid]
+    unless temp_guid.empty?
+      cookies[:temporary_location_guid] = nil
+      logger.info('Assign temporary location to newly signed in user')
+      location = Location.find_by(guid: temp_guid)
+      if location.user == User.system_user
+        location.user = current_user
+        location.save
+        location
+      end
+    end
+  end
 
   # Sets a random header slider class
   def set_header_class
