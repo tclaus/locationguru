@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
   # assigned to currebnt user
   def rescue_temporary_venue
     temp_guid = cookies[:temporary_location_guid]
-    unless temp_guid.empty?
+    unless temp_guid.nil?
       cookies[:temporary_location_guid] = nil
       logger.info('Assign temporary location to newly signed in user')
       location = Location.find_by(guid: temp_guid)
