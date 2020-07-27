@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # Needed to easyly access google maps
+  # Creates location array with less fields
   def create_simple_locations(locations)
     simple_locations = []
     unless locations.blank?
@@ -57,20 +57,22 @@ class ApplicationController < ActionController::Base
   # Redirect after login
   def after_sign_in_path_for(_resource_or_scope)
     location = rescue_temporary_venue
-    dashboard_path unless location.nil?
-
-    listing_location_path(location)
+    if !location.nil?
+      listing_location_path(location)
+    else
+      dashboard_path
+    end
   end
 
   private
 
-  # Any venue that has beenn created before login should be rescured and
-  # assigned to currebnt user
+  # Any venue that has been created before login should be rescured and
+  # assigned to singed_in user
   def rescue_temporary_venue
     temp_guid = cookies[:temporary_location_guid]
     unless temp_guid.nil?
       cookies[:temporary_location_guid] = nil
-      logger.info('Assign temporary location to newly signed in user')
+      logger.info(" Assign temporary location with guid #{temp_guid}to newly signed in user")
       location = Location.find_by(guid: temp_guid)
       if location.user == User.system_user
         location.user = current_user
