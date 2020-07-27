@@ -30,10 +30,16 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil(flash[:alert])
   end
 
+  test 'should attach new location to sign in user' do
+    sign_in users(:host)
+    get new_location_url
+    assert_response :success # 302
+  end
+
   test 'should create a location' do
     sign_in users(:host)
 
-    post locations_path, params: {
+    post locations_url, params: {
       location: {
         listing_name: 'test-name',
         kind_type: 1,
@@ -46,12 +52,41 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
     assert_nil(flash[:alert])
   end
 
+  test 'should update a location' do
+    sign_in users(:host)
+    location = locations(:one)
+    location.listing_name = 'Updated by test'
+    put location_url(location), params: {
+      location: {
+          listing_name: 'Updated by test'
+      }
+    }
+    assert_response :redirect
+    location.reload
+    assert_equal location.listing_name, 'Updated by test'
+  end
+
+  test 'should send a mail if activation status changes' do
+    sign_in users(:host)
+    location = locations(:one)
+    put location_url(location), params: {
+      location: {
+          active: false
+      }
+    }
+    # Should send a mail
+  end
+
   test 'should delete a location' do
     sign_in users(:host)
     location = locations(:one)
-    delete '/locations/' + location.id.to_s
-
+    delete location_url(location)
     assert :success
+    assert_not Location.exists?(location.id)
+    assert_not Message.exists?(location_id: location.id)
+    assert_not Review.exists?(location_id: location.id)
+    assert_not Reservation.exists?(location_id: location.id)
+    assert_not Photo.exists?(location_id: location.id)
   end
 
   test 'should get specific location' do

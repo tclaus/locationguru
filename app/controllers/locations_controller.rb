@@ -114,17 +114,15 @@ class LocationsController < ApplicationController
           # Send Your locations is activated mail
           flash[:notice] = t('your_location_is_now_active')
           LocationMailer
-            .with(location: @location,
-                  edit_url: listing_location_url(@location),
-                  show_url: location_url(@location)).location_activated.deliver_later
+            .with(location: @location)
+            .location_activated
+            .deliver_later
         else
-          # Set a flash 'Deaktivated
-          # Send Your locations is deactivated mail
           flash[:notice] = t('your_location_is_now_inactive')
           LocationMailer
-            .with(location: @location,
-                  edit_url: listing_location_url(@location),
-                  show_url: location_url(@location)).location_deactivated.deliver_later
+            .with(location: @location)
+            .location_deactivated
+            .deliver_later
         end
       else
         redirect_to description_location_path(@location), notice: t('updated')
@@ -140,9 +138,8 @@ class LocationsController < ApplicationController
     end
   end
 
+  # load inavaible dates to frontent
   def preload
-    # load inavaible dates to frontent
-    logger.debug 'Preload available dates'
     today = Date.today
     reservations = @location.reservations
                             .where(
@@ -166,12 +163,7 @@ class LocationsController < ApplicationController
     logger.debug "Delete location with id: #{params}"
     location = Location.find params[:id]
     if !location.nil?
-      logger.debug "Removing location '#{location.listing_name}'',id: #{location.id}"
-      location.photos.destroy_all
-      location.reviews.destroy_all
-      location.reservations.destroy_all
-      logger.debug "Removed location ''#{location.listing_name}'',id: #{location.id}"
-      location.delete
+      location_service.destroy(location)
       flash[:notice] = t('.location_deleted')
     else
       flash[:notice] = t('.could_not_delete_this_location')

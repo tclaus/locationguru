@@ -6,6 +6,16 @@ class LocationService
     @logger = logger
   end
 
+  def destroy(location)
+    @logger.debug "Removing location '#{location.listing_name}'',id: #{location.id}"
+    location.photos.destroy_all
+    location.reviews.destroy_all
+    location.reservations.destroy_all
+    location.messages.destroy_all
+    @logger.info "Removed location ''#{location.listing_name}'',id: #{location.id}"
+    location.delete
+  end
+
   # Splits an active record error hash to a single string
   def error_messages_to_s(errors)
     text = '<br>'

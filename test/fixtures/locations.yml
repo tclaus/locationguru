@@ -5,6 +5,7 @@ one:
   kind_type: 1
   location_type: 1
   listing_name: Ultimative party location
+  max_persons: 42
   summary: MyText
   active: true
   user_id: 1
@@ -14,6 +15,7 @@ two:
   kind_type: 1
   location_type: 1
   listing_name: My house
+  max_persons: 60
   summary: MyText
   active: true
   user_id: 1
@@ -24,6 +26,7 @@ three:
   kind_type: 2
   location_type: 2
   listing_name: Tante Amanda
+  max_persons: 150
   summary: Tante Amanda Restaurant
   active: true
   user_id: 1
@@ -33,6 +36,7 @@ withAddress:
   kind_type: 2
   location_type: 2
   listing_name: "Has address, no coordinates, no City"
+  max_persons: 42
   summary: "Has address, no coordinates, no City"
   active: true
   user_id: 1
@@ -43,6 +47,7 @@ withAddressAndCoordinates:
   kind_type: 2
   location_type: 2
   listing_name: "Has coordinates, no City"
+  max_persons: 42
   summary: "Has coordinates, no City"
   active: true
   user_id: 1
@@ -55,6 +60,7 @@ not_activated:
   kind_type: 2
   location_type: 2
   listing_name: "Long not activated"
+  max_persons: 42
   summary: "Has coordinates, no City"
   active: false
   created_at: "01.01.2017"
@@ -66,6 +72,7 @@ inactive:
   kind_type: 2
   location_type: 2
   listing_name: Inavtive Location
+  max_persons: 42
   summary: Dont show to other user
   active: false
   user_id: 2
