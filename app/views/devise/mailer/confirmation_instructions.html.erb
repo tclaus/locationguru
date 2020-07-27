@@ -2,4 +2,10 @@
 <p><%= t('.greeting', recipient: @resource.email) %></p>
 
 <p><%= t('.instruction') %></p>
-<p><%= link_to t('.action'), confirmation_url(@resource, :confirmation_token => @token) %></p>
+
+<p>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: t('.action'),
+    link_target: confirmation_url(@resource, :confirmation_token => @token)
+  } %>
+</p>

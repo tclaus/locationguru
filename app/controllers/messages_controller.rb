@@ -41,6 +41,7 @@ class MessagesController < ApplicationController
       LocationMailer
         .with(message: @message, location: @location)
         .location_mail.deliver_later
+        
       # Send mail for reference to sender
       LocationMailer
         .with(message: @message, location: @location)
