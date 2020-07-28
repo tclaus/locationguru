@@ -1,0 +1,15 @@
+<%= render "html_helpers/mail_header" %>
+
+Ihre Location '<%= @location.listing_name %>' wurde aktiviert.
+Das heisst, sie ist nun öffentlich auf der Seite auffindbar.
+
+Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
+Auf
+<%= location_url(@location) %>
+finden Sie den Eintrag, so wie ihn Interessenten sehen.
+
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier
+<%= listing_location_url(@location) %>
+zu der Bearbeiten Oberfläche.
+
+<%= render "html_helpers/mail_footer" %>

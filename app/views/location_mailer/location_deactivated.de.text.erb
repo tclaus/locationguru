@@ -1,0 +1,10 @@
+<%= render "html_helpers/mail_header" %>
+
+Ihre Location '<%= @location.listing_name %>' ist nicht mehr aktiv.
+Das heisst, sie ist nicht mehr öffentlich auf der Seite zu finden.
+
+Wenn Sie den Eintrag bearbeiten möchten, können Sie hier direkt zur Bearbeitung kommen:
+
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

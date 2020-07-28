@@ -31,16 +31,12 @@ class LocationMailer < ApplicationMailer
   end
 
   def location_activated
-    @edit_url = listing_location_url(@location)
-    @show_url = location_url(@location)
     email_with_name = @location.user.email
     mail(to: email_with_name,
          subject: t('.subject', location_name: @location.listing_name))
   end
 
   def location_deactivated
-    @edit_url = listing_location_url(@location)
-    @show_url = location_url(@location)
     email_with_name = @location.user.email
     mail(to: email_with_name,
          subject: t('.subject', location_name: @location.listing_name))

@@ -1,0 +1,17 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+Ihre Location '<%= @location.listing_name %>' ist nicht mehr aktiv. <br>
+Das heisst, sie ist nicht mehr öffentlich auf der Seite zu finden.<br>
+<br>
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier:<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: "Bearbeiten: '#{@location.listing_name.truncate(20)}'",
+  link_target: listing_location_url(@location)
+} %> <br>
+zu der Bearbeiten-Oberfläche<br>
+</p>
+
+<br>
+<%= render "html_helpers/mail_footer" %>

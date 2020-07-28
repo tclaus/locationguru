@@ -12,35 +12,6 @@ de:
       inquery_date: "Anfrage Datum"
       review_reminder: "Einige Tage nach dem geplanten Veranstaltungsdatum erhalten Sie eine weitere Email mit der Sie den Vermieter bewerten können."
     location_activated:
-      body_html: "Ihre Location '%{location_name}' wurde aktiviert. <br>
-Das heisst, sie ist nun öffentlich auf der Seite auffindbar. <br>
-<br>
-Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
-Auf<br>
-<a href='%{show_url}'>%{location_name}</a><br>
-finden Sie den Eintrag, so wie ihn Interessenten sehen.<br>
-<br>
-Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
-<a href='%{edit_url}'>Bearbeiten</a><br>
-zu der Bearbeiten-Oberfläche.<br>"
-      body_text: "Ihre Location '%{location_name}' wurde aktiviert.
-Das heisst, sie ist nun öffentlich auf der Seite auffindbar.
-
-Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
-Auf
-%{show_url}
-finden Sie den Eintrag, so wie ihn Interessenten sehen.
-
-Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
-%{edit_url}<br>
-zu der Bearbeiten-Oberfläche."
       subject: "Ihre Location wurde aktiviert: '%{location_name}'"
     location_deactivated:
-      body_html: "Ihre Location ‚%{location_name} wurde deaktiviert. <br>
-Das heisst, sie ist nicht mehr öffentlich auf der Seite zu finden.<br>
-<br>
-Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier:<br>
-<a href='%{edit_url}'>Bearbeiten</a><br>
-zu der Bearbeiten-Oberfläche<br>
-"
       subject: "Ihre Location wurde deaktiviert: '%{location_name}'"

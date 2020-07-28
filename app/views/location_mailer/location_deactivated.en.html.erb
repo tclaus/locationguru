@@ -1,0 +1,17 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+Your venue '<%= @location.listing_name %>' is not active.<br>
+That means it is not visible for the public but you can make edits and activate it again.<br>
+<br>
+To edit your venue visit this link:<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: "Edit: '#{@location.listing_name.truncate(20)}'",
+  link_target: listing_location_url(@location)
+} %>
+<br>
+</p>
+
+<br>
+<%= render "html_helpers/mail_footer" %>
