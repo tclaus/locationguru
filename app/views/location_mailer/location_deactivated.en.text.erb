@@ -1,0 +1,9 @@
+<%= render "html_helpers/mail_header" %>
+
+Your venue '<%= @location.listing_name %>' is not active.
+That means it is not visible for the public but you can make edits and activate it again.
+
+To edit your venue visit this link:
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

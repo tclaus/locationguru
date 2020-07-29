@@ -1,8 +1,0 @@
-
-    <%= render "html_helpers/mail_header" %>
-    
-    <p>
-      <%= html_line_breaks(t('.body_html',location_name: @location.listing_name, show_url: @show_url, edit_url: @edit_url)) %>
-    </p>
-    <br>
-    <%= render "html_helpers/mail_footer" %>

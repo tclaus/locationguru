@@ -1,0 +1,20 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+Your venue '<%= @location.listing_name %>' is now public available.<br>
+You need nothing to do than wait for your prospective customers.<br>
+At<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: @location.listing_name.truncate(20),
+  link_target: location_url(@location)
+} %>
+you will find the public entry.<br>
+<br>
+To edit your venue go here:<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: "Edit: '#{@location.listing_name.truncate(20)}'",
+  link_target: listing_location_url(@location)
+} %>
+</p>
+<%= render "html_helpers/mail_footer" %>

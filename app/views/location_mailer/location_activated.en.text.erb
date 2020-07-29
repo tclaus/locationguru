@@ -1,0 +1,12 @@
+<%= render "html_helpers/mail_header" %>
+
+Your venue '<%= @location.listing_name %>' is now public available.
+You need nothing to do than wait for your prospective customers.
+At
+<%= location_url(@location) %>
+you will find the public entry.
+
+To edit your venue go here:
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

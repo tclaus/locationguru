@@ -7,7 +7,7 @@ namespace :locationguru do
     no_guids.each do |location|
       if location.guid.nil?
         location.generate_unique_guid
-        location.save
+        location.save(touch: false)
       end
     end
     puts "Created #{no_guids.count} tokens for locations"

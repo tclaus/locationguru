@@ -1,0 +1,25 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+Ihre Location '<%= @location.listing_name %>' wurde aktiviert. <br>
+Das heisst, sie ist nun öffentlich auf der Seite auffindbar. <br>
+<br>
+Sie brauchen nichts weiter tun, als abwarten, bis sich die Interessenten bei Ihnen melden.
+Hier sehen Sie ihren Eintrag:<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: @location.listing_name.truncate(20),
+  link_target: location_url(@location)
+} %>
+
+finden Sie den Eintrag, so wie ihn Interessenten sehen.<br>
+<br>
+Wenn Sie den Eintrag bearbeiten möchten, kommen sie hier<br>
+<%= render partial: "html_helpers/button", locals: {
+  link_text: "Bearbeite: '#{@location.listing_name.truncate(20)}'",
+  link_target: listing_location_url(@location)
+} %>
+<br>
+zu der Bearbeiten-Oberfläche.
+</p>
+<%= render "html_helpers/mail_footer" %>
