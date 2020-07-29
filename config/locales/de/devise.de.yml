@@ -49,7 +49,7 @@ de:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
         instruction: 'Folge dem untenstehenden Link, um deinen Account zu bestätigen:'
-        subject: "Anleitung zur Bestätigung deines Accounts"
+        subject: "Anleitung zur Bestätigung deines Accounts von Locationguru"
       email_changed:
         greeting:
         message:

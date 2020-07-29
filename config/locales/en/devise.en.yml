@@ -49,7 +49,7 @@ en:
         action: Confirm my account
         greeting: Welcome %{recipient}!
         instruction: 'You can confirm your account email through the link below:'
-        subject: Confirmation instructions
+        subject: Confirmation instructions for Locationguru
       email_changed:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your email is being changed to %{email}.
@@ -91,7 +91,7 @@ en:
     registrations:
       destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
       edit:
-        are_you_sure: "Are you sure? All venues, your mails and your account will be deleted. You can register any time you like" 
+        are_you_sure: "Are you sure? All venues, your mails and your account will be deleted. You can register any time you like"
         cancel_my_account: Cancel my account
         currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
