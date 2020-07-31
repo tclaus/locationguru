@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   ADMIN_ROLE = 'ADMIN'
   SYSTEM_ROLE = 'SYSTEM'
+  USER_ROLE = 'USER'
+
+  scope :user_role, -> { where( role: USER_ROLE ) }
 
   # Avatar
   has_attached_file :avatar,
@@ -37,6 +40,7 @@ class User < ApplicationRecord
   end
 
   before_create do
+    self.role ||= USER_ROLE
     logger.debug "* Set users locale to '#{I18n.locale}'"
     self.language_id = I18n.locale
   end
