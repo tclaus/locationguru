@@ -12,7 +12,7 @@
       </tr>
         <% reviews.each do |review| %>
         <tr>
-          <td><%= review.location.listing_name.truncate(20) %></td>
+          <td><%= link_to review.location.listing_name.truncate(20), location_url(review.location) %></td>
           <td><%= review.star %></td>
           <td><%= review.comment.truncate(50) %></td>
         </tr>

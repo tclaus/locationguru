@@ -1,58 +1,58 @@
 @media (max-width: 1024px) {
 
-  .container {
-    width: 100% !important;
-  }
+    .container {
+      width: 100% !important;
+    }
 
-  .venue-listing {
-    margin-top: 20px;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+    .venue-listing {
+      margin-top: 20px;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
 
-  .venue-listing .listing-top-tag {
-  width: 7em;
-  margin-top: -125px !important;
-  margin-right: 25px !important;
-}
+    .venue-listing .listing-top-tag {
+      width: 7em;
+      margin-top: -125px !important;
+      margin-right: 25px !important;
+    }
 
-  .row#detailSearch {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+    .row#detailSearch {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
 
-  .show-mobile-only {
+    .show-mobile-only {
 
-  }
+    }
 
-  .show-desktop-only {
-    display: none;
-  }
+    .show-desktop-only {
+      display: none;
+    }
 
-.selectric {
-  margin-top: 10px;
-  font-size: 12px !important;
-}
-  .btn  {
-    margin-top: 10px;
-    font-size: 12px !important;
-  }
+    .selectric {
+      margin-top: 10px;
+      font-size: 12px !important;
+    }
 
-  .left { // Search Results
-    width: 100%;
-    float: none;
-    padding-top: 15px;
-    overflow:scroll;
-    padding-right: 0px;
-  }
+    .btn  {
+      margin-top: 10px;
+      // font-size: 12px !important;
+    }
 
-  .right { // maps
-    width: 100%;
-    padding-top: 15px;
-    min-height: 50vh;
-    height: 50vh;
-    float: none;
-    padding-left: 10px;
-  }
+    .left { // Search Results
+      width: 100%;
+      float: none;
+      padding-top: 15px;
+      overflow:scroll;
+      padding-right: 0px;
+    }
 
+    .right { // maps
+      width: 100%;
+      padding-top: 15px;
+      min-height: 50vh;
+      height: 50vh;
+      float: none;
+      padding-left: 10px;
+    }
 }

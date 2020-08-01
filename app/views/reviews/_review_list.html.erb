@@ -3,34 +3,30 @@
     <h4> <%= t('.there_are_no_reviews') %></h4>
   </div>
 <% else %>
-<div class="secondary-container">
-  <div class="container">
   <% @reviews.order(id: :desc).each do |review| %>
    <% if !review.comment.blank? %>
     <hr>
     <div class="row">
-     <div class="col-md-3 text-center">
+     <div class="col-md-3">
        <% if review.name.blank? %>
-         <strong> <%= "Anonym" %> </strong>
+         <strong><%= "Anonym" %></strong>
         <% else %>
-        <strong> <%= review.name %> </strong>
+        <strong><%= review.name %></strong>
         <% end %>
      </div>
      <div class="col-md-9">
-
        <div id="star_<%= review.id %>"></div>
          <% if current_user && current_user == review.location.user %>
            <span class="pull-right">
              <%= link_to reviews_path(review), method: :delete, data: {confirm: t('.are_you_sure?')} do %>
-             <i class="far fa-trash"></i>
+               <i class="far fa-trash"></i>
              <% end %>
            </span>
          <% end %>
-         <div> <%= l(review.created_at.to_date) %></div>
-         <div> <%= review.comment.truncate(50) %> </div>
-      </div
+         <div><%= l(review.created_at.to_date) %></div>
+         <div><%= review.comment.truncate(200) %></div>
+     </div>
     </div>
-  <% end %>
+   <% end %>
  <% end %>
-  </div>
 <% end %>
