@@ -1,0 +1,21 @@
+
+<%= render "html_helpers/mail_header" %>
+
+  Hi,
+  your have an new entry on locationguru.net '<%= @location.listing_name %>' created.
+  Very good.
+
+  But it shows that for nearly a week this entry needs to be activated.
+  You need to activate your enty in order to make it public.
+  Is there something we can do for you? Do we need to do something better?
+
+  If your have any questions, dont hesitate to send us a message.
+  Send a message to: support@locationguru.net
+
+  You can directly edit your entry here:
+
+  Edit: <%= listing_location_url(@location) %>
+
+  You can also delete this entry at any time if you dont want to use it any more.
+
+<%= render "html_helpers/mail_footer" %>

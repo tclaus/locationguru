@@ -1,0 +1,16 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+  Hallo,<br>
+  Sie haben auf locationguru.net den Eintrag '<%= @location.listing_name %>' angelegt.<br>
+  Sehr gut. <br><br>
+  Allerdings wurde dieser Eintrag bisher noch nicht aktiviert.<br>
+  Sie können den Eintrag unter diesem Link direkt bearbeiten: <br>
+  <br>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Bearbeite '#{@location.listing_name.truncate(20)}'",
+    link_target: listing_location_url(@location)
+  } %>
+</p>
+<%= render "html_helpers/mail_footer" %>

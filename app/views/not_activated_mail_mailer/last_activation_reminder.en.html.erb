@@ -1,0 +1,20 @@
+
+<%= render "html_helpers/mail_header" %>
+<p>
+  Hi,<br>
+  your have an new entry on locationguru.net '<%= @location.listing_name %>' created.<br>
+  But this entry is still not activated<br>
+  <br>
+  Is there something we can do for you? Do we need to do something better?<br>
+  <br>
+  Send a message to: <a href="mailto:support@locationguru.net?subject=Need support for '<%= @location.listing_name.truncate(20) %>' on locationguru">support@locationguru.net</a><br>
+  <br>
+  You can directly edit your entry here:<br>
+  <br>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Edit '#{@location.listing_name.truncate(20)}'",
+    link_target: listing_location_url(@location)
+  } %>
+
+</p>
+<%= render "html_helpers/mail_footer" %>

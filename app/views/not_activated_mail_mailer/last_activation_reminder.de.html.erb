@@ -1,0 +1,20 @@
+
+<%= render "html_helpers/mail_header" %>
+<p>
+  Hallo,<br>
+  Sie haben auf locationguru.net den Eintrag '<%= @location.listing_name %>' angelegt.<br>
+  <br>
+  Allerdings wurde dieser Eintrag bisher noch nicht aktiviert.<br>
+  Ist es etwas, das wir noch erledigen müssen? Können wir Ihnen bei etwas bei ihrem Eintrag helfen?<br>
+  <br>
+  Senden Sie dann eine Nachricht an: <a href="mailto:support@locationguru.net?subject=Ich brauche Unterstützung für '<%= @location.listing_name.truncate(20) %>' auf locationguru">support@locationguru.net</a><br>
+  <br>
+  Sie können den Eintrag unter diesem Link direkt bearbeiten:<br>
+  <br>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Bearbeite '#{@location.listing_name.truncate(20)}'",
+    link_target: listing_location_url(@location)
+  } %>
+
+</p>
+<%= render "html_helpers/mail_footer" %>
