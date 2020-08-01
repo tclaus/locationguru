@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base
       cookies[:temporary_location_guid] = nil
       logger.info(" Assign temporary location with guid #{temp_guid}to newly signed in user")
       location = Location.find_by(guid: temp_guid)
-      if location.user == User.system_user
+      if !location.nil? && location.user == User.system_user
         location.user = current_user
         location.save
         location
