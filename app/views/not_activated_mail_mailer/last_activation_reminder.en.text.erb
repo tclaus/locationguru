@@ -1,0 +1,16 @@
+
+<%= render "html_helpers/mail_header" %>
+
+Hi,
+your have an new entry on locationguru.net '<%= @location.listing_name %>' created.
+But this entry is still not activated
+
+Is there something we can do for you? Do we need to do something better?
+
+Send a message to: support@locationguru.net
+
+You can directly edit your entry here:
+
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

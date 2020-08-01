@@ -1,0 +1,17 @@
+
+<%= render "html_helpers/mail_header" %>
+
+<p>
+  Hello,<br>
+  your have an new entry on locationguru.net '<%=@location.listing_name %>' created.<br>
+  Very good. <br>
+  <br>
+  But it shows that it is not activated yet. You need to activate your enty in order to make it public.<br>
+  You can directly edit your entry here:<br>
+  <br>
+  <%= render partial: "html_helpers/button", locals: {
+    link_text: "Edit '#{@location.listing_name.truncate(20)}'",
+    link_target: listing_location_url(@location)
+  } %>
+</p>
+<%= render "html_helpers/mail_footer" %>

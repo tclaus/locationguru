@@ -1,0 +1,13 @@
+
+<%= render "html_helpers/mail_header" %>
+
+  Hello,
+  your have an new entry on locationguru.net '<%= @location.listing_name %>' created.
+  Very good.
+
+  But it shows that it is not activated yet. You need to activate your enty in order to make it public.
+  You can directly edit your entry here:
+
+  <%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>

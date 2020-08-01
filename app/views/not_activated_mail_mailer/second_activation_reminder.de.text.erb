@@ -1,0 +1,16 @@
+<%= render "html_helpers/mail_header" %>
+
+Hallo,
+Sie haben auf locationguru.net den Eintrag '<%= @location.listing_name %>' angelegt.
+Sehr gut.
+
+Allerdings wurde dieser Eintrag bisher noch nicht aktiviert.
+Ist es etwas, das wir noch erledigen müssen? Können wir Ihnen bei etwas bei ihrem Eintrag helfen?
+
+Senden Sie dann eine Nachricht an: support@locationguru.net
+
+Sie können den Eintrag hier direkt bearbeiten:
+
+<%= listing_location_url(@location) %>
+
+<%= render "html_helpers/mail_footer" %>
