@@ -51,7 +51,7 @@ class SendActivationReminderMailsJob < ApplicationJob
   def perform_query_level1(date)
     logger.debug "Start quering locations not activated older than #{date}"
 
-    locations = SentNotificationService.location_not_handled_by(NOT_ACTIVATED_2, false)
+    locations = SentNotificationService.location_not_handled_by(NOT_ACTIVATED_1, false)
     locations.each do |location|
       next if location.user.blank?
       next if location.created_at >= date
