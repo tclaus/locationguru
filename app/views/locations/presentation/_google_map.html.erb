@@ -13,7 +13,11 @@
 
 <h4 class="venue-name"><%= @location.listing_name %></h4>
 <% if !@location.address.blank? %>
-<address>
-  <%= html_line_breaks(@location.address) %>
-</address>
+  <address>
+  <%= link_to @map_link, target: :blank do %>
+    <i class="fas fa-map-marker-alt fa-lg"></i>
+    <%= html_line_breaks(@location.address) %>
+  <% end %>
+
+  </address>
 <% end %>

@@ -64,6 +64,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Detect if we are on a apple device
+  def safari_browser?
+    agent = request.headers['HTTP_USER_AGENT'].downcase
+    agent.match('safari')
+  end
+
   private
 
   # Any venue that has been created before login should be rescured and

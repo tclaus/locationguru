@@ -22,4 +22,5 @@ module LocationsHelper
   def location_type_for_select
     LocationType.all.map { |location_type| [trLocationType(location_type.id), location_type.id] }
   end
+
 end
