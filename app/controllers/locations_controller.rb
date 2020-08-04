@@ -66,7 +66,7 @@ class LocationsController < ApplicationController
     @guest_reviews = @location.reviews
     @weekly_calls = Counter.load_7days_location_visits(@location.id)
     @reviews = @location.reviews
-
+    @map_link = maps_direction_link(@location)
     Counter.increase_location_visit(@location.id, request.remote_ip)
   end
 
@@ -169,6 +169,19 @@ class LocationsController < ApplicationController
       flash[:notice] = t('.could_not_delete_this_location')
     end
     redirect_back(fallback_location: request.referer) if request.referer
+  end
+
+  def maps_direction_link(location)
+    query_address = linebreaks_to_urlparam(location.address)
+    if safari_browser?
+      "http://maps.apple.com/?daddr=#{query_address}"
+    else
+      "https://www.google.com/maps/search/?api=1&query=#{query_address}"
+    end
+  end
+
+  def linebreaks_to_urlparam(text)
+    text.gsub(/(?:\n\r?|\r\n?)/, ',').html_safe
   end
 
   private
