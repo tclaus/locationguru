@@ -181,7 +181,11 @@ class LocationsController < ApplicationController
   end
 
   def linebreaks_to_urlparam(text)
-    text.gsub(/(?:\n\r?|\r\n?)/, ',').html_safe
+    if !text.nil?
+      text.gsub(/(?:\n\r?|\r\n?)/, ',').html_safe 
+    else
+      ""
+    end
   end
 
   private

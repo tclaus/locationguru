@@ -66,6 +66,7 @@ class ApplicationController < ActionController::Base
 
   # Detect if we are on a apple device
   def safari_browser?
+    return false if request.headers['HTTP_USER_AGENT'].nil?
     agent = request.headers['HTTP_USER_AGENT'].downcase
     agent.match('safari')
   end

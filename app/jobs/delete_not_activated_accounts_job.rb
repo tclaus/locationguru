@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-## Remove any fake mails that are not confirmed for a preiod of time
+## Remove any fake accounts that are not confirmed for a period of time
 class DeleteNotActivatedAccountsJob < ApplicationJob
   queue_as :default
 
   def perform(*_args)
-    # Do something later
     delete_not_activated_accounts
   end
 
