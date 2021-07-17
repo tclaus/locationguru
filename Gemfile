@@ -22,7 +22,7 @@ gem 'pg'
 gem 'puma', '~> 4.3'
 
 # Stylesheets and web support
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap-sass', '~> 3.4'
 gem 'font-awesome-sass', '~> 5.0'
 gem 'jquery-rails', '~> 4.4'
 gem 'jquery-ui-rails', '~> 6.0'

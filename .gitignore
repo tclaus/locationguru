@@ -22,3 +22,9 @@
 
 .byebug_history
 .env
+/.idea/.gitignore
+/.idea/locationguru.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
